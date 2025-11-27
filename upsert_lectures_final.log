@@ -1,0 +1,10 @@
+================================================================================
+UPSERTING LECTURES WITH CORRECT METADATA
+================================================================================
+Note: UPSERT will replace any existing vectors with the same IDs
+
+Loading lecture data from lectures_export.json...
+Traceback (most recent call last):
+  File "/Users/jaganat/.emacs.d/git_projects/questions_answers/upsert_lectures.py", line 30, in <module>
+    chunk['book_code'] = book_id_to_code.get(chunk['book_id'], 'OTHER')
+KeyError: 'book_id'

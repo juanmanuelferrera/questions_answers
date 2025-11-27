@@ -1,0 +1,21 @@
+================================================================================
+UPSERTING LECTURES WITH CORRECT METADATA
+================================================================================
+Note: UPSERT will replace any existing vectors with the same IDs
+
+Loading lecture data from lectures_parsed.json...
+Found 0 lecture chunks total
+
+
+================================================================================
+COMPLETE!
+================================================================================
+Upserted: 0 lecture vectors
+
+Lecture embeddings now have CORRECT metadata:
+  - source: 'vedabase' (searchable with vedabase filter!)
+  - book_code: LEC1A, LEC1B, LEC2A, LEC2B, LEC2C, OTHER
+
+Vectorize will index these within 5-30 minutes.
+The monitor script will detect when they're ready.
+================================================================================

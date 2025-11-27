@@ -1,0 +1,161 @@
+/Users/jaganat/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+================================================================================
+LECTURE INDEXING MONITOR
+================================================================================
+Started: 2025-11-26 01:14:51
+Checking every 5 minutes for lecture content in search results...
+Press Ctrl+C to stop monitoring
+
+[01:14:51] Check #1 (elapsed: 0m 0s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+
+  Note: Vectorize indexing typically takes 5-30 minutes
+        This is normal for Cloudflare's distributed system
+
+  Next check in 5 minutes...
+
+[01:19:54] Check #2 (elapsed: 5m 2s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[01:24:57] Check #3 (elapsed: 10m 5s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[01:29:59] Check #4 (elapsed: 15m 8s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[01:35:02] Check #5 (elapsed: 20m 11s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[01:40:05] Check #6 (elapsed: 25m 14s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[01:45:08] Check #7 (elapsed: 30m 16s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[01:50:10] Check #8 (elapsed: 35m 19s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[03:16:35] Check #9 (elapsed: 121m 44s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[05:18:17] Check #10 (elapsed: 243m 25s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[05:23:22] Check #11 (elapsed: 248m 31s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[05:28:25] Check #12 (elapsed: 253m 34s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[05:33:28] Check #13 (elapsed: 258m 37s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[05:38:31] Check #14 (elapsed: 263m 40s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[05:43:34] Check #15 (elapsed: 268m 43s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[05:48:36] Check #16 (elapsed: 273m 45s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[05:53:38] Check #17 (elapsed: 278m 47s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[05:58:41] Check #18 (elapsed: 283m 50s)
+  Test 1 (lecture query): 0/1 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✗ lectures in top 20 results
+  ⏳ Lectures not yet indexed, waiting...
+  Next check in 5 minutes...
+
+[06:03:43] Check #19 (elapsed: 288m 52s)
+  Test 1 (lecture query): 2/3 lecture results
+  Test 2 (book filter):   0 results with LEC1A filter
+  Test 3 (general):       ✓ lectures in top 20 results
+
+================================================================================
+✅ LECTURES ARE NOW INDEXED AND SEARCHABLE!
+================================================================================
+Total time waited: 288 minutes 52 seconds
+
+Test Details:
+{
+  "test1_lecture_results": 2,
+  "test2_filtered_count": 0,
+  "test3_any_lectures": true,
+  "test1_total": 3,
+  "test2_total": 0,
+  "test3_total": 20
+}
+
+🎉 The Vedabase RAG system is now complete with lectures!
+================================================================================

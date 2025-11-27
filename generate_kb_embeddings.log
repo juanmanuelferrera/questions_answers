@@ -1,0 +1,47 @@
+/Users/jaganat/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+================================================================================
+GENERATING KB BOOK EMBEDDINGS
+================================================================================
+
+Found KB book IDs: [5]
+
+Fetching KB chunks from database...
+  Found 1860 KB chunks
+
+Generating embeddings using OpenAI (text-embedding-3-small)...
+  Generated embeddings for batch 1/19
+  Generated embeddings for batch 2/19
+  Generated embeddings for batch 3/19
+  Generated embeddings for batch 4/19
+  Generated embeddings for batch 5/19
+  Generated embeddings for batch 6/19
+  Generated embeddings for batch 7/19
+  Generated embeddings for batch 8/19
+  Generated embeddings for batch 9/19
+  Generated embeddings for batch 10/19
+  Generated embeddings for batch 11/19
+  Generated embeddings for batch 12/19
+  Generated embeddings for batch 13/19
+  Generated embeddings for batch 14/19
+  Generated embeddings for batch 15/19
+  Generated embeddings for batch 16/19
+  Generated embeddings for batch 17/19
+  Generated embeddings for batch 18/19
+  Generated embeddings for batch 19/19
+  ✓ Generated 1860 embeddings
+
+Preparing data for Vectorize upload...
+
+Saving to kb_embeddings_export.json...
+  ✓ Saved 58.88 MB
+
+================================================================================
+EMBEDDING GENERATION COMPLETE
+================================================================================
+  Total chunks: 1860
+  Total embeddings: 1860
+  Estimated tokens: 372,000
+  Estimated cost: $0.0074
+  Output file: kb_embeddings_export.json
+================================================================================

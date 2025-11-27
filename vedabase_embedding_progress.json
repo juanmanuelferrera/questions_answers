@@ -1,0 +1,1402 @@
+{
+  "last_chunk_id": 19823,
+  "total_processed": 19823,
+  "total_uploaded": 0,
+  "started_at": "2025-11-25T19:37:10.251357",
+  "last_updated": "2025-11-25T19:45:20.034383",
+  "batches_completed": [
+    {
+      "batch_num": 1,
+      "chunk_ids": "1-100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:12.009017"
+    },
+    {
+      "batch_num": 2,
+      "chunk_ids": "101-200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:14.095699"
+    },
+    {
+      "batch_num": 3,
+      "chunk_ids": "201-300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:16.579250"
+    },
+    {
+      "batch_num": 4,
+      "chunk_ids": "301-400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:18.951754"
+    },
+    {
+      "batch_num": 5,
+      "chunk_ids": "401-500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:22.135958"
+    },
+    {
+      "batch_num": 6,
+      "chunk_ids": "501-600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:24.267480"
+    },
+    {
+      "batch_num": 7,
+      "chunk_ids": "601-700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:26.308380"
+    },
+    {
+      "batch_num": 8,
+      "chunk_ids": "701-800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:28.211424"
+    },
+    {
+      "batch_num": 9,
+      "chunk_ids": "801-900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:30.149123"
+    },
+    {
+      "batch_num": 10,
+      "chunk_ids": "901-1000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:31.871785"
+    },
+    {
+      "batch_num": 11,
+      "chunk_ids": "1001-1100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:33.694456"
+    },
+    {
+      "batch_num": 12,
+      "chunk_ids": "1101-1200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:35.749447"
+    },
+    {
+      "batch_num": 13,
+      "chunk_ids": "1201-1300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:37.381710"
+    },
+    {
+      "batch_num": 14,
+      "chunk_ids": "1301-1400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:39.661105"
+    },
+    {
+      "batch_num": 15,
+      "chunk_ids": "1401-1500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:41.713727"
+    },
+    {
+      "batch_num": 16,
+      "chunk_ids": "1501-1600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:43.888380"
+    },
+    {
+      "batch_num": 17,
+      "chunk_ids": "1601-1700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:46.081542"
+    },
+    {
+      "batch_num": 18,
+      "chunk_ids": "1701-1800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:47.970295"
+    },
+    {
+      "batch_num": 19,
+      "chunk_ids": "1801-1900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:50.071480"
+    },
+    {
+      "batch_num": 20,
+      "chunk_ids": "1901-2000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:51.983369"
+    },
+    {
+      "batch_num": 21,
+      "chunk_ids": "2001-2100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:54.161085"
+    },
+    {
+      "batch_num": 22,
+      "chunk_ids": "2101-2200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:56.106739"
+    },
+    {
+      "batch_num": 23,
+      "chunk_ids": "2201-2300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:37:58.893403"
+    },
+    {
+      "batch_num": 24,
+      "chunk_ids": "2301-2400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:00.619625"
+    },
+    {
+      "batch_num": 25,
+      "chunk_ids": "2401-2500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:02.423045"
+    },
+    {
+      "batch_num": 26,
+      "chunk_ids": "2501-2600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:04.875680"
+    },
+    {
+      "batch_num": 27,
+      "chunk_ids": "2601-2700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:07.169725"
+    },
+    {
+      "batch_num": 28,
+      "chunk_ids": "2701-2800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:09.246519"
+    },
+    {
+      "batch_num": 29,
+      "chunk_ids": "2801-2900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:10.955899"
+    },
+    {
+      "batch_num": 30,
+      "chunk_ids": "2901-3000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:12.929090"
+    },
+    {
+      "batch_num": 31,
+      "chunk_ids": "3001-3100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:14.812961"
+    },
+    {
+      "batch_num": 32,
+      "chunk_ids": "3101-3200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:16.793938"
+    },
+    {
+      "batch_num": 33,
+      "chunk_ids": "3201-3300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:18.910778"
+    },
+    {
+      "batch_num": 34,
+      "chunk_ids": "3301-3400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:21.066481"
+    },
+    {
+      "batch_num": 35,
+      "chunk_ids": "3401-3500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:23.289080"
+    },
+    {
+      "batch_num": 36,
+      "chunk_ids": "3501-3600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:25.047864"
+    },
+    {
+      "batch_num": 37,
+      "chunk_ids": "3601-3700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:26.766960"
+    },
+    {
+      "batch_num": 38,
+      "chunk_ids": "3701-3800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:29.067784"
+    },
+    {
+      "batch_num": 39,
+      "chunk_ids": "3801-3900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:31.380035"
+    },
+    {
+      "batch_num": 40,
+      "chunk_ids": "3901-4000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:34.206634"
+    },
+    {
+      "batch_num": 41,
+      "chunk_ids": "4001-4100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:36.084116"
+    },
+    {
+      "batch_num": 42,
+      "chunk_ids": "4101-4200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:38.098731"
+    },
+    {
+      "batch_num": 43,
+      "chunk_ids": "4201-4300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:39.826738"
+    },
+    {
+      "batch_num": 44,
+      "chunk_ids": "4301-4400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:41.905645"
+    },
+    {
+      "batch_num": 45,
+      "chunk_ids": "4401-4500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:44.093557"
+    },
+    {
+      "batch_num": 46,
+      "chunk_ids": "4501-4600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:46.115202"
+    },
+    {
+      "batch_num": 47,
+      "chunk_ids": "4601-4700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:48.050177"
+    },
+    {
+      "batch_num": 48,
+      "chunk_ids": "4701-4800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:49.790389"
+    },
+    {
+      "batch_num": 49,
+      "chunk_ids": "4801-4900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:51.720152"
+    },
+    {
+      "batch_num": 50,
+      "chunk_ids": "4901-5000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:53.952840"
+    },
+    {
+      "batch_num": 51,
+      "chunk_ids": "5001-5100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:55.688452"
+    },
+    {
+      "batch_num": 52,
+      "chunk_ids": "5101-5200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:38:57.708305"
+    },
+    {
+      "batch_num": 53,
+      "chunk_ids": "5201-5300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:39:00.165031"
+    },
+    {
+      "batch_num": 54,
+      "chunk_ids": "5301-5400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:39:02.414883"
+    },
+    {
+      "batch_num": 55,
+      "chunk_ids": "5401-5500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:39:04.401669"
+    },
+    {
+      "batch_num": 56,
+      "chunk_ids": "5501-5600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:39:06.371700"
+    },
+    {
+      "batch_num": 57,
+      "chunk_ids": "5601-5700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:39:20.971060"
+    },
+    {
+      "batch_num": 58,
+      "chunk_ids": "5701-5800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:39:23.569815"
+    },
+    {
+      "batch_num": 59,
+      "chunk_ids": "5801-5900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:28.541540"
+    },
+    {
+      "batch_num": 60,
+      "chunk_ids": "5901-6000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:30.497215"
+    },
+    {
+      "batch_num": 61,
+      "chunk_ids": "6001-6100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:32.467844"
+    },
+    {
+      "batch_num": 62,
+      "chunk_ids": "6101-6200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:34.146488"
+    },
+    {
+      "batch_num": 63,
+      "chunk_ids": "6201-6300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:36.166796"
+    },
+    {
+      "batch_num": 64,
+      "chunk_ids": "6301-6400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:37.806350"
+    },
+    {
+      "batch_num": 65,
+      "chunk_ids": "6401-6500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:39.993172"
+    },
+    {
+      "batch_num": 66,
+      "chunk_ids": "6501-6600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:41.712146"
+    },
+    {
+      "batch_num": 67,
+      "chunk_ids": "6601-6700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:43.544712"
+    },
+    {
+      "batch_num": 68,
+      "chunk_ids": "6701-6800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:45.526681"
+    },
+    {
+      "batch_num": 69,
+      "chunk_ids": "6801-6900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:47.252477"
+    },
+    {
+      "batch_num": 70,
+      "chunk_ids": "6901-7000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:49.055819"
+    },
+    {
+      "batch_num": 71,
+      "chunk_ids": "7001-7100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:50.941425"
+    },
+    {
+      "batch_num": 72,
+      "chunk_ids": "7101-7200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:52.598607"
+    },
+    {
+      "batch_num": 73,
+      "chunk_ids": "7201-7300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:54.592082"
+    },
+    {
+      "batch_num": 74,
+      "chunk_ids": "7301-7400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:56.595204"
+    },
+    {
+      "batch_num": 75,
+      "chunk_ids": "7401-7500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:40:58.471733"
+    },
+    {
+      "batch_num": 76,
+      "chunk_ids": "7501-7600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:01.287794"
+    },
+    {
+      "batch_num": 77,
+      "chunk_ids": "7601-7700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:03.903159"
+    },
+    {
+      "batch_num": 78,
+      "chunk_ids": "7701-7800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:06.018388"
+    },
+    {
+      "batch_num": 79,
+      "chunk_ids": "7801-7900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:08.020980"
+    },
+    {
+      "batch_num": 80,
+      "chunk_ids": "7901-8000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:10.183735"
+    },
+    {
+      "batch_num": 81,
+      "chunk_ids": "8001-8100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:12.198343"
+    },
+    {
+      "batch_num": 82,
+      "chunk_ids": "8101-8200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:14.156332"
+    },
+    {
+      "batch_num": 83,
+      "chunk_ids": "8201-8300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:15.942459"
+    },
+    {
+      "batch_num": 84,
+      "chunk_ids": "8301-8400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:17.748017"
+    },
+    {
+      "batch_num": 85,
+      "chunk_ids": "8401-8500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:19.536961"
+    },
+    {
+      "batch_num": 86,
+      "chunk_ids": "8501-8600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:21.415642"
+    },
+    {
+      "batch_num": 87,
+      "chunk_ids": "8601-8700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:23.966088"
+    },
+    {
+      "batch_num": 88,
+      "chunk_ids": "8701-8800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:26.247151"
+    },
+    {
+      "batch_num": 89,
+      "chunk_ids": "8801-8900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:28.426642"
+    },
+    {
+      "batch_num": 90,
+      "chunk_ids": "8901-9000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:30.421933"
+    },
+    {
+      "batch_num": 91,
+      "chunk_ids": "9001-9100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:32.364032"
+    },
+    {
+      "batch_num": 92,
+      "chunk_ids": "9101-9200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:34.194355"
+    },
+    {
+      "batch_num": 93,
+      "chunk_ids": "9201-9300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:36.251135"
+    },
+    {
+      "batch_num": 94,
+      "chunk_ids": "9301-9400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:38.111657"
+    },
+    {
+      "batch_num": 95,
+      "chunk_ids": "9401-9500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:40.244278"
+    },
+    {
+      "batch_num": 96,
+      "chunk_ids": "9501-9600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:42.049876"
+    },
+    {
+      "batch_num": 97,
+      "chunk_ids": "9601-9700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:44.425695"
+    },
+    {
+      "batch_num": 98,
+      "chunk_ids": "9701-9800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:46.471197"
+    },
+    {
+      "batch_num": 99,
+      "chunk_ids": "9801-9900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:48.530538"
+    },
+    {
+      "batch_num": 100,
+      "chunk_ids": "9901-10000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:50.671898"
+    },
+    {
+      "batch_num": 101,
+      "chunk_ids": "10001-10100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:52.421135"
+    },
+    {
+      "batch_num": 102,
+      "chunk_ids": "10101-10200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:54.688972"
+    },
+    {
+      "batch_num": 103,
+      "chunk_ids": "10201-10300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:57.256868"
+    },
+    {
+      "batch_num": 104,
+      "chunk_ids": "10301-10400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:41:59.456803"
+    },
+    {
+      "batch_num": 105,
+      "chunk_ids": "10401-10500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:01.387818"
+    },
+    {
+      "batch_num": 106,
+      "chunk_ids": "10501-10600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:03.338285"
+    },
+    {
+      "batch_num": 107,
+      "chunk_ids": "10601-10700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:05.323708"
+    },
+    {
+      "batch_num": 108,
+      "chunk_ids": "10701-10800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:09.500236"
+    },
+    {
+      "batch_num": 109,
+      "chunk_ids": "10801-10900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:11.735371"
+    },
+    {
+      "batch_num": 110,
+      "chunk_ids": "10901-11000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:14.231836"
+    },
+    {
+      "batch_num": 111,
+      "chunk_ids": "11001-11100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:16.809651"
+    },
+    {
+      "batch_num": 112,
+      "chunk_ids": "11101-11200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:18.711569"
+    },
+    {
+      "batch_num": 113,
+      "chunk_ids": "11201-11300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:20.436914"
+    },
+    {
+      "batch_num": 114,
+      "chunk_ids": "11301-11400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:22.409988"
+    },
+    {
+      "batch_num": 115,
+      "chunk_ids": "11401-11500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:24.504982"
+    },
+    {
+      "batch_num": 116,
+      "chunk_ids": "11501-11600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:26.334917"
+    },
+    {
+      "batch_num": 117,
+      "chunk_ids": "11601-11700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:28.350687"
+    },
+    {
+      "batch_num": 118,
+      "chunk_ids": "11701-11800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:30.211424"
+    },
+    {
+      "batch_num": 119,
+      "chunk_ids": "11801-11900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:32.356790"
+    },
+    {
+      "batch_num": 120,
+      "chunk_ids": "11901-12000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:34.211114"
+    },
+    {
+      "batch_num": 121,
+      "chunk_ids": "12001-12100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:36.049758"
+    },
+    {
+      "batch_num": 122,
+      "chunk_ids": "12101-12200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:38.136810"
+    },
+    {
+      "batch_num": 123,
+      "chunk_ids": "12201-12300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:40.468534"
+    },
+    {
+      "batch_num": 124,
+      "chunk_ids": "12301-12400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:42.745454"
+    },
+    {
+      "batch_num": 125,
+      "chunk_ids": "12401-12500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:45.012677"
+    },
+    {
+      "batch_num": 126,
+      "chunk_ids": "12501-12600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:46.883036"
+    },
+    {
+      "batch_num": 127,
+      "chunk_ids": "12601-12700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:48.676637"
+    },
+    {
+      "batch_num": 128,
+      "chunk_ids": "12701-12800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:51.046925"
+    },
+    {
+      "batch_num": 129,
+      "chunk_ids": "12801-12900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:52.986499"
+    },
+    {
+      "batch_num": 130,
+      "chunk_ids": "12901-13000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:54.890438"
+    },
+    {
+      "batch_num": 131,
+      "chunk_ids": "13001-13100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:56.571480"
+    },
+    {
+      "batch_num": 132,
+      "chunk_ids": "13101-13200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:42:58.606902"
+    },
+    {
+      "batch_num": 133,
+      "chunk_ids": "13201-13300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:00.913303"
+    },
+    {
+      "batch_num": 134,
+      "chunk_ids": "13301-13400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:02.952023"
+    },
+    {
+      "batch_num": 135,
+      "chunk_ids": "13401-13500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:04.821802"
+    },
+    {
+      "batch_num": 136,
+      "chunk_ids": "13501-13600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:06.715944"
+    },
+    {
+      "batch_num": 137,
+      "chunk_ids": "13601-13700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:09.225678"
+    },
+    {
+      "batch_num": 138,
+      "chunk_ids": "13701-13800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:11.752623"
+    },
+    {
+      "batch_num": 139,
+      "chunk_ids": "13801-13900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:14.136499"
+    },
+    {
+      "batch_num": 140,
+      "chunk_ids": "13901-14000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:16.495460"
+    },
+    {
+      "batch_num": 141,
+      "chunk_ids": "14001-14100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:20.021140"
+    },
+    {
+      "batch_num": 142,
+      "chunk_ids": "14101-14200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:22.447238"
+    },
+    {
+      "batch_num": 143,
+      "chunk_ids": "14201-14300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:24.022619"
+    },
+    {
+      "batch_num": 144,
+      "chunk_ids": "14301-14400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:25.950701"
+    },
+    {
+      "batch_num": 145,
+      "chunk_ids": "14401-14500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:27.938487"
+    },
+    {
+      "batch_num": 146,
+      "chunk_ids": "14501-14600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:30.097776"
+    },
+    {
+      "batch_num": 147,
+      "chunk_ids": "14601-14700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:32.418556"
+    },
+    {
+      "batch_num": 148,
+      "chunk_ids": "14701-14800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:34.707060"
+    },
+    {
+      "batch_num": 149,
+      "chunk_ids": "14801-14900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:36.407972"
+    },
+    {
+      "batch_num": 150,
+      "chunk_ids": "14901-15000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:38.076695"
+    },
+    {
+      "batch_num": 151,
+      "chunk_ids": "15001-15100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:40.073576"
+    },
+    {
+      "batch_num": 152,
+      "chunk_ids": "15101-15200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:42.153587"
+    },
+    {
+      "batch_num": 153,
+      "chunk_ids": "15201-15300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:44.359091"
+    },
+    {
+      "batch_num": 154,
+      "chunk_ids": "15301-15400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:46.354232"
+    },
+    {
+      "batch_num": 155,
+      "chunk_ids": "15401-15500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:48.498735"
+    },
+    {
+      "batch_num": 156,
+      "chunk_ids": "15501-15600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:50.670565"
+    },
+    {
+      "batch_num": 157,
+      "chunk_ids": "15601-15700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:53.209255"
+    },
+    {
+      "batch_num": 158,
+      "chunk_ids": "15701-15800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:55.130269"
+    },
+    {
+      "batch_num": 159,
+      "chunk_ids": "15801-15900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:57.072735"
+    },
+    {
+      "batch_num": 160,
+      "chunk_ids": "15901-16000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:43:58.840383"
+    },
+    {
+      "batch_num": 161,
+      "chunk_ids": "16001-16100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:00.689502"
+    },
+    {
+      "batch_num": 162,
+      "chunk_ids": "16101-16200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:02.690663"
+    },
+    {
+      "batch_num": 163,
+      "chunk_ids": "16201-16300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:05.064450"
+    },
+    {
+      "batch_num": 164,
+      "chunk_ids": "16301-16400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:07.306348"
+    },
+    {
+      "batch_num": 165,
+      "chunk_ids": "16401-16500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:09.084342"
+    },
+    {
+      "batch_num": 166,
+      "chunk_ids": "16501-16600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:10.945483"
+    },
+    {
+      "batch_num": 167,
+      "chunk_ids": "16601-16700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:12.729434"
+    },
+    {
+      "batch_num": 168,
+      "chunk_ids": "16701-16800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:14.519053"
+    },
+    {
+      "batch_num": 169,
+      "chunk_ids": "16801-16900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:16.155854"
+    },
+    {
+      "batch_num": 170,
+      "chunk_ids": "16901-17000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:19.027275"
+    },
+    {
+      "batch_num": 171,
+      "chunk_ids": "17001-17100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:21.030585"
+    },
+    {
+      "batch_num": 172,
+      "chunk_ids": "17101-17200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:22.911190"
+    },
+    {
+      "batch_num": 173,
+      "chunk_ids": "17201-17300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:24.698012"
+    },
+    {
+      "batch_num": 174,
+      "chunk_ids": "17301-17400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:26.621890"
+    },
+    {
+      "batch_num": 175,
+      "chunk_ids": "17401-17500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:28.753735"
+    },
+    {
+      "batch_num": 176,
+      "chunk_ids": "17501-17600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:31.175650"
+    },
+    {
+      "batch_num": 177,
+      "chunk_ids": "17601-17700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:33.264970"
+    },
+    {
+      "batch_num": 178,
+      "chunk_ids": "17701-17800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:35.462338"
+    },
+    {
+      "batch_num": 179,
+      "chunk_ids": "17801-17900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:37.516170"
+    },
+    {
+      "batch_num": 180,
+      "chunk_ids": "17901-18000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:39.753926"
+    },
+    {
+      "batch_num": 181,
+      "chunk_ids": "18001-18100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:42.158328"
+    },
+    {
+      "batch_num": 182,
+      "chunk_ids": "18101-18200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:44.207250"
+    },
+    {
+      "batch_num": 183,
+      "chunk_ids": "18201-18300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:46.232620"
+    },
+    {
+      "batch_num": 184,
+      "chunk_ids": "18301-18400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:48.244880"
+    },
+    {
+      "batch_num": 185,
+      "chunk_ids": "18401-18500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:50.171097"
+    },
+    {
+      "batch_num": 186,
+      "chunk_ids": "18501-18600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:51.943305"
+    },
+    {
+      "batch_num": 187,
+      "chunk_ids": "18601-18700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:54.037204"
+    },
+    {
+      "batch_num": 188,
+      "chunk_ids": "18701-18800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:56.483425"
+    },
+    {
+      "batch_num": 189,
+      "chunk_ids": "18801-18900",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:44:58.736448"
+    },
+    {
+      "batch_num": 190,
+      "chunk_ids": "18901-19000",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:00.906166"
+    },
+    {
+      "batch_num": 191,
+      "chunk_ids": "19001-19100",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:02.788203"
+    },
+    {
+      "batch_num": 192,
+      "chunk_ids": "19101-19200",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:04.881137"
+    },
+    {
+      "batch_num": 193,
+      "chunk_ids": "19201-19300",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:09.192092"
+    },
+    {
+      "batch_num": 194,
+      "chunk_ids": "19301-19400",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:11.042562"
+    },
+    {
+      "batch_num": 195,
+      "chunk_ids": "19401-19500",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:12.835292"
+    },
+    {
+      "batch_num": 196,
+      "chunk_ids": "19501-19600",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:14.425934"
+    },
+    {
+      "batch_num": 197,
+      "chunk_ids": "19601-19700",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:16.462593"
+    },
+    {
+      "batch_num": 198,
+      "chunk_ids": "19701-19800",
+      "count": 100,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:18.513646"
+    },
+    {
+      "batch_num": 199,
+      "chunk_ids": "19801-19823",
+      "count": 23,
+      "uploaded": false,
+      "timestamp": "2025-11-25T19:45:20.034295"
+    }
+  ]
+}

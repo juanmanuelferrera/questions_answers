@@ -1,0 +1,61 @@
+================================================================================
+UPLOADING INDIVIDUAL OTHER BOOKS TO REMOTE D1
+================================================================================
+
+Loaded export:
+  Books: 21
+  Verses: 313
+  Chunks: 2242
+
+1. Uploading book entries...
+   ✓ Uploaded 21 book entries
+
+2. Uploading verses...
+   Batch 1/7: ✓ Uploaded 50 verses (50/313 total)
+   Batch 2/7: ✓ Uploaded 50 verses (100/313 total)
+   Batch 3/7: ✓ Uploaded 50 verses (150/313 total)
+   Batch 4/7: ✓ Uploaded 50 verses (200/313 total)
+   Batch 5/7: ✓ Uploaded 50 verses (250/313 total)
+   Batch 6/7: ✓ Uploaded 50 verses (300/313 total)
+   Batch 7/7: ✓ Uploaded 13 verses (313/313 total)
+
+3. Uploading chunks...
+   Batch 1/45: ✓ Uploaded 50 chunks (50/2242 total)
+   Batch 2/45: ✓ Uploaded 50 chunks (100/2242 total)
+   Batch 3/45: ✓ Uploaded 50 chunks (150/2242 total)
+   Batch 4/45: ✓ Uploaded 50 chunks (200/2242 total)
+   Batch 5/45: ✓ Uploaded 50 chunks (250/2242 total)
+   Batch 6/45: ✓ Uploaded 50 chunks (300/2242 total)
+   Batch 7/45: ✓ Uploaded 50 chunks (350/2242 total)
+   Batch 8/45: ✓ Uploaded 50 chunks (400/2242 total)
+   Batch 9/45: ✓ Uploaded 50 chunks (450/2242 total)
+   Batch 10/45: ✓ Uploaded 50 chunks (500/2242 total)
+   Batch 11/45: ✓ Uploaded 50 chunks (550/2242 total)
+   Batch 12/45: ✓ Uploaded 50 chunks (600/2242 total)
+   Batch 13/45: ✓ Uploaded 50 chunks (650/2242 total)
+   Batch 14/45: ✓ Uploaded 50 chunks (700/2242 total)
+   Batch 15/45: ✓ Uploaded 50 chunks (750/2242 total)
+   Batch 16/45: ✓ Uploaded 50 chunks (800/2242 total)
+   Batch 17/45: ✓ Uploaded 50 chunks (850/2242 total)
+   Batch 18/45: ✓ Uploaded 50 chunks (900/2242 total)
+   Batch 19/45: ✓ Uploaded 50 chunks (950/2242 total)
+   Batch 20/45: ✓ Uploaded 50 chunks (1000/2242 total)
+   Batch 21/45: ✓ Uploaded 50 chunks (1050/2242 total)
+   Batch 22/45: ✓ Uploaded 50 chunks (1100/2242 total)
+   Batch 23/45: ✓ Uploaded 50 chunks (1150/2242 total)
+   Batch 24/45: ✓ Uploaded 50 chunks (1200/2242 total)
+   Batch 25/45: ✓ Uploaded 50 chunks (1250/2242 total)
+   Batch 26/45: ✓ Uploaded 50 chunks (1300/2242 total)
+   Batch 27/45: ✓ Uploaded 50 chunks (1350/2242 total)
+   Batch 28/45: ✓ Uploaded 50 chunks (1400/2242 total)
+   Batch 29/45: ✓ Uploaded 50 chunks (1450/2242 total)
+   Batch 30/45: ✓ Uploaded 50 chunks (1500/2242 total)
+   Batch 31/45: ✓ Uploaded 50 chunks (1550/2242 total)
+   Batch 32/45: ✓ Uploaded 50 chunks (1600/2242 total)
+   Batch 33/45: ✓ Uploaded 50 chunks (1650/2242 total)
+   Batch 34/45: ✓ Uploaded 50 chunks (1700/2242 total)
+   Batch 35/45: ✓ Uploaded 50 chunks (1750/2242 total)
+   Batch 36: ✗ Failed - [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mThe version of Wrangler you are using is now out-of-date.[0m
+
+  Please update to the latest version to prevent critical errors.
+  Run `npm install --s

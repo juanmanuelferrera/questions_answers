@@ -1,0 +1,16 @@
+================================================================================
+EXPORTING KB BOOKS FOR UPLOAD
+================================================================================
+Found KB book IDs: {}
+
+Exporting KB verses...
+
+  Total KB verses: 0
+
+Exporting KB chunks...
+Traceback (most recent call last):
+  File "/Users/jaganat/.emacs.d/git_projects/questions_answers/export_kb_book_for_upload.py", line 97, in <module>
+    data = export_kb_to_json()
+  File "/Users/jaganat/.emacs.d/git_projects/questions_answers/export_kb_book_for_upload.py", line 59, in export_kb_to_json
+    cursor.execute("""
+sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 3, and there are 0 supplied.

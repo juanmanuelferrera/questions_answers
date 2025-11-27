@@ -1,0 +1,128 @@
+Starting import after verse ID 26794, chunk ID 32591, book ID 15
+Book 'Lectures Part 1A' already exists with ID 9
+Book 'Lectures Part 1B' already exists with ID 10
+Book 'Lectures Part 1C' already exists with ID 11
+Book 'Lectures Part 2A' already exists with ID 12
+Book 'Lectures Part 2B' already exists with ID 13
+Book 'Lectures Part 2C' already exists with ID 14
+Book 'Other Vedic Texts' already exists with ID 15
+
+Importing lec1a: 2263 chunks
+  Progress: 100 sections, 100 chunks
+  Progress: 200 sections, 200 chunks
+  Progress: 300 sections, 300 chunks
+  Progress: 400 sections, 400 chunks
+  Progress: 500 sections, 500 chunks
+  Progress: 600 sections, 600 chunks
+  Progress: 700 sections, 700 chunks
+  Progress: 800 sections, 800 chunks
+  Progress: 900 sections, 900 chunks
+  Progress: 1000 sections, 1000 chunks
+  Progress: 1100 sections, 1100 chunks
+  Progress: 1200 sections, 1200 chunks
+  Progress: 1300 sections, 1300 chunks
+  Progress: 1400 sections, 1400 chunks
+  Progress: 1500 sections, 1500 chunks
+  Progress: 1600 sections, 1600 chunks
+  Progress: 1700 sections, 1700 chunks
+  Progress: 1800 sections, 1800 chunks
+  Progress: 1900 sections, 1900 chunks
+  Progress: 2000 sections, 2000 chunks
+  Progress: 2100 sections, 2100 chunks
+  Progress: 2200 sections, 2200 chunks
+
+Importing lec1b: 547 chunks
+  Progress: 2300 sections, 2300 chunks
+  Progress: 2400 sections, 2400 chunks
+  Progress: 2500 sections, 2500 chunks
+  Progress: 2600 sections, 2600 chunks
+  Progress: 2700 sections, 2700 chunks
+  Progress: 2800 sections, 2800 chunks
+
+Importing lec1c: 2984 chunks
+  Progress: 2900 sections, 2900 chunks
+  Progress: 3000 sections, 3000 chunks
+  Progress: 3100 sections, 3100 chunks
+  Progress: 3200 sections, 3200 chunks
+  Progress: 3300 sections, 3300 chunks
+  Progress: 3400 sections, 3400 chunks
+  Progress: 3500 sections, 3500 chunks
+  Progress: 3600 sections, 3600 chunks
+  Progress: 3700 sections, 3700 chunks
+  Progress: 3800 sections, 3800 chunks
+  Progress: 3900 sections, 3900 chunks
+  Progress: 4000 sections, 4000 chunks
+  Progress: 4100 sections, 4100 chunks
+  Progress: 4200 sections, 4200 chunks
+  Progress: 4300 sections, 4300 chunks
+  Progress: 4400 sections, 4400 chunks
+  Progress: 4500 sections, 4500 chunks
+  Progress: 4600 sections, 4600 chunks
+  Progress: 4700 sections, 4700 chunks
+  Progress: 4800 sections, 4800 chunks
+  Progress: 4900 sections, 4900 chunks
+  Progress: 5000 sections, 5000 chunks
+  Progress: 5100 sections, 5100 chunks
+  Progress: 5200 sections, 5200 chunks
+  Progress: 5300 sections, 5300 chunks
+  Progress: 5400 sections, 5400 chunks
+  Progress: 5500 sections, 5500 chunks
+  Progress: 5600 sections, 5600 chunks
+  Progress: 5700 sections, 5700 chunks
+
+Importing lec2a: 136 chunks
+  Progress: 5800 sections, 5800 chunks
+  Progress: 5900 sections, 5900 chunks
+
+Importing lec2b: 876 chunks
+  Progress: 6000 sections, 6000 chunks
+  Progress: 6100 sections, 6100 chunks
+  Progress: 6200 sections, 6200 chunks
+  Progress: 6300 sections, 6300 chunks
+  Progress: 6400 sections, 6400 chunks
+  Progress: 6500 sections, 6500 chunks
+  Progress: 6600 sections, 6600 chunks
+  Progress: 6700 sections, 6700 chunks
+  Progress: 6800 sections, 6800 chunks
+
+Importing lec2c: 1796 chunks
+  Progress: 6900 sections, 6900 chunks
+  Progress: 7000 sections, 7000 chunks
+  Progress: 7100 sections, 7100 chunks
+  Progress: 7200 sections, 7200 chunks
+  Progress: 7300 sections, 7300 chunks
+  Progress: 7400 sections, 7400 chunks
+  Progress: 7500 sections, 7500 chunks
+  Progress: 7600 sections, 7600 chunks
+  Progress: 7700 sections, 7700 chunks
+  Progress: 7800 sections, 7800 chunks
+  Progress: 7900 sections, 7900 chunks
+  Progress: 8000 sections, 8000 chunks
+  Progress: 8100 sections, 8100 chunks
+  Progress: 8200 sections, 8200 chunks
+  Progress: 8300 sections, 8300 chunks
+  Progress: 8400 sections, 8400 chunks
+  Progress: 8500 sections, 8500 chunks
+  Progress: 8600 sections, 8600 chunks
+
+Importing other: 1422 chunks
+  Progress: 8700 sections, 8700 chunks
+  Progress: 8800 sections, 8800 chunks
+  Progress: 8900 sections, 8900 chunks
+  Progress: 9000 sections, 9000 chunks
+  Progress: 9100 sections, 9100 chunks
+  Progress: 9200 sections, 9200 chunks
+  Progress: 9300 sections, 9300 chunks
+  Progress: 9400 sections, 9400 chunks
+  Progress: 9500 sections, 9500 chunks
+  Progress: 9600 sections, 9600 chunks
+  Progress: 9700 sections, 9700 chunks
+  Progress: 9800 sections, 9800 chunks
+  Progress: 9900 sections, 9900 chunks
+  Progress: 10000 sections, 10000 chunks
+
+✅ Import complete!
+   Total lecture sections imported: 10024
+   Total chunks created: 10024
+   New verse ID range: 26795 to 36818
+   New chunk ID range: 32592 to 42615

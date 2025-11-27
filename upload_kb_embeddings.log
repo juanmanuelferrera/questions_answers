@@ -1,0 +1,35 @@
+================================================================================
+UPLOADING KB EMBEDDINGS TO VECTORIZE
+================================================================================
+
+Loaded 1860 KB embeddings
+
+Uploading to Vectorize in batches of 100...
+Total batches: 19
+
+  Batch 1/19: ✓ Uploaded 100 vectors (100/1860 total)
+  Batch 2/19: ✓ Uploaded 100 vectors (200/1860 total)
+  Batch 3/19: ✓ Uploaded 100 vectors (300/1860 total)
+  Batch 4/19: ✓ Uploaded 100 vectors (400/1860 total)
+  Batch 5/19: ✓ Uploaded 100 vectors (500/1860 total)
+  Batch 6/19: ✓ Uploaded 100 vectors (600/1860 total)
+  Batch 7/19: ✓ Uploaded 100 vectors (700/1860 total)
+  Batch 8/19: ✓ Uploaded 100 vectors (800/1860 total)
+  Batch 9/19: ✓ Uploaded 100 vectors (900/1860 total)
+  Batch 10/19: ✓ Uploaded 100 vectors (1000/1860 total)
+  Batch 11/19: ✓ Uploaded 100 vectors (1100/1860 total)
+  Batch 12/19: ✓ Uploaded 100 vectors (1200/1860 total)
+  Batch 13/19: ✓ Uploaded 100 vectors (1300/1860 total)
+  Batch 14/19: ✓ Uploaded 100 vectors (1400/1860 total)
+  Batch 15/19: ✓ Uploaded 100 vectors (1500/1860 total)
+  Batch 16/19: ✓ Uploaded 100 vectors (1600/1860 total)
+  Batch 17/19: ✓ Uploaded 100 vectors (1700/1860 total)
+  Batch 18/19: ✓ Uploaded 100 vectors (1800/1860 total)
+  Batch 19/19: ✓ Uploaded 60 vectors (1860/1860 total)
+
+================================================================================
+UPLOAD COMPLETE
+================================================================================
+  Total embeddings uploaded: 1860
+  Vectorize will index these within 5-30 minutes
+================================================================================

@@ -1,0 +1,20 @@
+================================================================================
+UPLOADING CC BOOKS TO REMOTE D1
+================================================================================
+
+Loaded export:
+  CC Verses: 11185
+  CC Chunks: 3868
+
+1. Uploading CC verses...
+   Batch 1/448: ✓ Uploaded 25 verses (25/11185 total)
+   Batch 2/448: ✓ Uploaded 25 verses (50/11185 total)
+   Batch 3/448: ✓ Uploaded 25 verses (75/11185 total)
+   Batch 4/448: ✓ Uploaded 25 verses (100/11185 total)
+   Batch 5/448: ✓ Uploaded 25 verses (125/11185 total)
+   Batch 6/448: ✓ Uploaded 25 verses (150/11185 total)
+   Batch 7/448: ✓ Uploaded 25 verses (175/11185 total)
+   Batch 8: ✗ Failed - [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mThe version of Wrangler you are using is now out-of-date.[0m
+
+  Please update to the latest version to prevent critical errors.
+  Run `npm install --s

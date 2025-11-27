@@ -1,0 +1,39 @@
+================================================================================
+PARSING OTHER.HTML - SPLITTING INTO INDIVIDUAL BOOKS
+================================================================================
+
+Parsing /Users/jaganat/.emacs.d/git_projects/questions_answers/vedabase-source/other.html...
+
+Found 21 individual books
+  SC: A Second Chance: The Story of a Near - Death Experience - 127 chunks
+  BBD: Beyond Birth and Death - 35 chunks
+  EJOP: Easy Journey to Other Planets - 1972 Edition - 45 chunks
+  EKC: Elevation to Krsna Consciousness - 56 chunks
+  KCTYS: Krsna Consciousness The Topmost Yoga System - 64 chunks
+  KRP: Krsna, the Reservoir of Pleasure - 10 chunks
+  LCFL: Life Comes from Life - 73 chunks
+  LOB: Light of the Bhagavata - 47 chunks
+  OWK: On the Way to Krsna - 46 chunks
+  PQPA: Perfect Questions, Perfect Answers - 61 chunks
+  RV: Raja - Vidya: The King of Knowledge - 68 chunks
+  ISO: Sri Isopanisad - 1974 Edition - 79 chunks
+  TLC: Teachings of Lord Caitanya - 1968 Edition - 285 chunks
+  TLKD: Teachings of Lord Kapila, the Son of Devahuti - 223 chunks
+  TQK: Teachings of Queen Kunti - 177 chunks
+  NOD: The Nectar of Devotion - 1970 Edition - 338 chunks
+  NOI: The Nectar of Instruction - 57 chunks
+  POP: The Path of Perfection - 121 chunks
+  POY: The Perfection of Yoga - 35 chunks
+  SSR: The Science of Self Realization - 271 chunks
+  TTPM: Transcendental Teachings of Prahlada Maharaja - 24 chunks
+
+Saving to other_individual_parsed.json...
+  ✓ Saved 5.68 MB
+
+================================================================================
+PARSING COMPLETE
+================================================================================
+  Individual books: 21
+  Total chunks: 2242
+  Output file: other_individual_parsed.json
+================================================================================

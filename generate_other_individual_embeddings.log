@@ -1,0 +1,49 @@
+/Users/jaganat/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+================================================================================
+GENERATING EMBEDDINGS FOR INDIVIDUAL OTHER BOOKS
+================================================================================
+
+Fetching chunks from database...
+  Found 2242 chunks from 21 individual books
+
+Generating embeddings using OpenAI (text-embedding-3-small)...
+  Generated embeddings for batch 1/23
+  Generated embeddings for batch 2/23
+  Generated embeddings for batch 3/23
+  Generated embeddings for batch 4/23
+  Generated embeddings for batch 5/23
+  Generated embeddings for batch 6/23
+  Generated embeddings for batch 7/23
+  Generated embeddings for batch 8/23
+  Generated embeddings for batch 9/23
+  Generated embeddings for batch 10/23
+  Generated embeddings for batch 11/23
+  Generated embeddings for batch 12/23
+  Generated embeddings for batch 13/23
+  Generated embeddings for batch 14/23
+  Generated embeddings for batch 15/23
+  Generated embeddings for batch 16/23
+  Generated embeddings for batch 17/23
+  Generated embeddings for batch 18/23
+  Generated embeddings for batch 19/23
+  Generated embeddings for batch 20/23
+  Generated embeddings for batch 21/23
+  Generated embeddings for batch 22/23
+  Generated embeddings for batch 23/23
+  ✓ Generated 2242 embeddings
+
+Preparing data for Vectorize upload...
+
+Saving to other_individual_embeddings_export.json...
+  ✓ Saved 70.98 MB
+
+================================================================================
+EMBEDDING GENERATION COMPLETE
+================================================================================
+  Total chunks: 2242
+  Total embeddings: 2242
+  Estimated tokens: 448,400
+  Estimated cost: $0.0090
+  Output file: other_individual_embeddings_export.json
+================================================================================

@@ -1,0 +1,23 @@
+================================================================================
+IMPORTING CC BOOKS TO D1
+================================================================================
+
+Found 15 existing books in database
+Starting verse ID: 15522
+Starting chunk ID: 26864
+
+CC1: Processing 2199 verses...
+  ✓ Inserted 2199 verses, 1575 chunks
+
+CC2: Processing 5856 verses...
+  ✓ Inserted 5856 verses, 1878 chunks
+
+CC3: Processing 3130 verses...
+  ✓ Inserted 3130 verses, 415 chunks
+
+================================================================================
+IMPORT COMPLETE
+================================================================================
+Total verses imported: 11185
+Total chunks created: 3868
+================================================================================

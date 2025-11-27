@@ -1,0 +1,33 @@
+================================================================================
+PARSING MISSING VEDABASE BOOKS
+================================================================================
+
+1. Parsing Caitanya Caritamrita volumes...
+
+  Parsing cc1.html...
+  ✓ Found 2199 verses in CC1
+
+  Parsing cc2.html...
+  ✓ Found 5856 verses in CC2
+
+  Parsing cc3.html...
+  ✓ Found 3130 verses in CC3
+
+2. Parsing Lectures Part 1C...
+
+  Parsing lec1c.html...
+  ✓ Found 0 lecture sections in LEC1C
+
+3. Saving parsed data to missing_books_parsed.json...
+
+================================================================================
+PARSING COMPLETE
+================================================================================
+  CC1: 2199 sections
+  CC2: 5856 sections
+  CC3: 3130 sections
+  LEC1C: 0 sections
+
+Total sections parsed: 11185
+Saved to: missing_books_parsed.json
+================================================================================

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy RAG Query</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #queryInput {
+            flex: 1;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        #queryInput:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .results {
+            display: grid;
+            gap: 20px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .result-title {
+            flex: 1;
+        }
+
+        .result-title h3 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .result-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .score-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .section {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: #764ba2;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-content {
+            color: #333;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 6px 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+            opacity: 0;
+        }
+
+        .section:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .copy-btn:hover {
+            background: #5568d3;
+            transform: scale(1.05);
+        }
+
+        .copy-btn.copied {
+            background: #10b981;
+        }
+
+        .copy-all-btn {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .filter-input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .stats {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .error {
+            background: #fee;
+            color: #c00;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .empty-state h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .search-box {
+                flex-direction: column;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .result-header {
+                flex-direction: column;
+            }
+
+            .score-badge {
+                align-self: flex-start;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Philosophy RAG Query</h1>
+            <p style="color: #666; margin-bottom: 20px;">Query 16 complete questions across 185 philosophical traditions</p>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="queryInput"
+                    placeholder="e.g., How do Buddhist traditions view abstract objects?"
+                    value="How do different traditions view abstract objects?"
+                >
+                <button class="btn btn-primary" onclick="search()">Search</button>
+            </div>
+
+            <div class="filters">
+                <input
+                    type="text"
+                    class="filter-input"
+                    id="questionFilter"
+                    placeholder="Filter by question (e.g., 1.24)"
+                >
+                <input
+                    type="number"
+                    class="filter-input"
+                    id="topKInput"
+                    placeholder="Results (default: 20)"
+                    value="20"
+                    min="1"
+                    max="100"
+                >
+            </div>
+
+            <div class="stats" id="stats"></div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            ⏳ Searching across philosophical traditions...
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="results" class="results"></div>
+
+        <div id="emptyState" class="empty-state">
+            <h2>Ready to explore philosophical wisdom</h2>
+            <p>Enter a question above to search across 16 questions and 185 traditions</p>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - UPDATE THIS with your Worker URL
+        const WORKER_URL = 'https://philosophy-rag.joanmanelferrera-400.workers.dev';
+
+        async function search() {
+            const query = document.getElementById('queryInput').value.trim();
+            const questionFilter = document.getElementById('questionFilter').value.trim();
+            const topK = parseInt(document.getElementById('topKInput').value) || 20;
+
+            if (!query) {
+                alert('Please enter a query');
+                return;
+            }
+
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('emptyState').style.display = 'none';
+
+            try {
+                const response = await fetch(WORKER_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        query,
+                        topK,
+                        questionFilter: questionFilter || undefined
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                displayResults(data);
+
+            } catch (error) {
+                document.getElementById('error').textContent = `Error: ${error.message}`;
+                document.getElementById('error').style.display = 'block';
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
+        function displayResults(data) {
+            const resultsDiv = document.getElementById('results');
+            const statsDiv = document.getElementById('stats');
+
+            if (!data.results || data.results.length === 0) {
+                resultsDiv.innerHTML = '<div class="empty-state"><h2>No results found</h2><p>Try a different query</p></div>';
+                return;
+            }
+
+            // Display stats
+            statsDiv.innerHTML = `
+                Found <strong>${data.count}</strong> results for: "<strong>${data.query}</strong>"
+            `;
+
+            // Display each result
+            resultsDiv.innerHTML = data.results.map((result, index) => {
+                const response = result.response;
+                if (!response) return '';
+
+                return `
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="result-title">
+                                <h3>${response.tradition_name}</h3>
+                                <div class="result-meta">Question ${response.question_number}: ${response.question_title || 'Unknown'}</div>
+                                <div class="result-meta">Response ID: ${response.id} • Section: ${result.sectionType}</div>
+                            </div>
+                            <div class="score-badge">
+                                ${(result.score * 100).toFixed(1)}% match
+                            </div>
+                        </div>
+
+                        ${createSection('Opening', response.opening, response.id, 'opening')}
+                        ${createSection('Historical Development', response.historical_development, response.id, 'historical')}
+                        ${createSection('Key Concepts', response.key_concepts, response.id, 'concepts')}
+                        ${createSection('Core Arguments', response.core_arguments, response.id, 'arguments')}
+                        ${createSection('Counter-Arguments', response.counter_arguments, response.id, 'counter')}
+                        ${createSection('Textual Foundation', response.textual_foundation, response.id, 'textual')}
+                        ${createSection('Internal Variations', response.internal_variations, response.id, 'variations')}
+                        ${createSection('Contemporary Applications', response.contemporary_applications, response.id, 'contemporary')}
+
+                        <button class="btn btn-secondary copy-all-btn" onclick="copyFullResponse('${response.id}', ${index})">
+                            📋 Copy Full Response
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function createSection(title, content, responseId, sectionId) {
+            if (!content) return '';
+
+            const uniqueId = `${responseId}-${sectionId}`;
+            return `
+                <div class="section">
+                    <div class="section-title">${title}</div>
+                    <div class="section-content" id="content-${uniqueId}">${escapeHtml(content)}</div>
+                    <button class="copy-btn" onclick="copySection('${uniqueId}')">Copy</button>
+                </div>
+            `;
+        }
+
+        async function copySection(uniqueId) {
+            const content = document.getElementById(`content-${uniqueId}`).textContent;
+            await copyToClipboard(content, event.target);
+        }
+
+        async function copyFullResponse(responseId, index) {
+            const resultsData = window.lastResults;
+            if (!resultsData) return;
+
+            const result = resultsData.results[index];
+            const response = result.response;
+
+            const fullText = `
+${response.tradition_name}
+Question ${response.question_number}: ${response.question_title}
+Response ID: ${response.id}
+
+OPENING:
+${response.opening}
+
+HISTORICAL DEVELOPMENT:
+${response.historical_development || 'N/A'}
+
+KEY CONCEPTS:
+${response.key_concepts || 'N/A'}
+
+CORE ARGUMENTS:
+${response.core_arguments || 'N/A'}
+
+COUNTER-ARGUMENTS:
+${response.counter_arguments || 'N/A'}
+
+TEXTUAL FOUNDATION:
+${response.textual_foundation || 'N/A'}
+
+INTERNAL VARIATIONS:
+${response.internal_variations || 'N/A'}
+
+CONTEMPORARY APPLICATIONS:
+${response.contemporary_applications || 'N/A'}
+            `.trim();
+
+            await copyToClipboard(fullText, event.target);
+        }
+
+        async function copyToClipboard(text, button) {
+            try {
+                await navigator.clipboard.writeText(text);
+
+                // Visual feedback
+                const originalText = button.textContent;
+                button.textContent = '✓ Copied!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+
+            } catch (err) {
+                alert('Failed to copy: ' + err.message);
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Store last results for copy functionality
+        window.lastResults = null;
+
+        // Override displayResults to store data
+        const originalDisplayResults = displayResults;
+        displayResults = function(data) {
+            window.lastResults = data;
+            originalDisplayResults(data);
+        };
+
+        // Allow Enter key to search
+        document.getElementById('queryInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                search();
+            }
+        });
+
+        // Auto-focus on query input
+        document.getElementById('queryInput').focus();
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# RAG System Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+anthropic>=0.40.0
+openai>=1.54.0
+python-dotenv>=1.0.0
+
+# Database and embeddings
+sqlite3  # Built-in with Python
+numpy>=1.24.0
+
+# Optional: for data processing
+pathlib  # Built-in with Python

@@ -1,0 +1,24 @@
+================================================================================
+EXPORTING CC BOOKS FOR UPLOAD
+================================================================================
+Found CC book IDs: {'cc1': 6, 'cc2': 7, 'cc3': 8}
+
+Exporting CC verses...
+  CC1: 2199 verses
+  CC2: 5856 verses
+  CC3: 3130 verses
+
+  Total CC verses: 11185
+
+Exporting CC chunks...
+  Total CC chunks: 3868
+
+Saving to cc_books_export_for_upload.json...
+✓ Export complete: 11.00 MB
+
+================================================================================
+Export Summary:
+  CC Verses: 11185
+  CC Chunks: 3868
+  Ready for upload to remote D1
+================================================================================

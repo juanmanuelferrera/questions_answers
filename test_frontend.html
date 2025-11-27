@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Vedabase RAG</title>
+</head>
+<body>
+    <h1>Test Vedabase RAG</h1>
+    <button onclick="testSearch()">Test Search</button>
+    <pre id="output"></pre>
+
+    <script>
+        const QUERY_WORKER = 'https://vedabase-rag.joanmanelferrera-400.workers.dev';
+        const SYNTHESIS_WORKER = 'https://philosophy-rag-synthesis.joanmanelferrera-400.workers.dev';
+
+        async function testSearch() {
+            const output = document.getElementById('output');
+            output.textContent = 'Testing...\n';
+
+            try {
+                // 1. Search
+                output.textContent += '1. Searching...\n';
+                const searchResponse = await fetch(QUERY_WORKER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: "What is the soul?", topK: 3 })
+                });
+
+                output.textContent += `Search status: ${searchResponse.status}\n`;
+
+                if (!searchResponse.ok) {
+                    const errorText = await searchResponse.text();
+                    output.textContent += `Search error: ${errorText}\n`;
+                    return;
+                }
+
+                const searchData = await searchResponse.json();
+                output.textContent += `Found ${searchData.results.length} results\n\n`;
+
+                // 2. Synthesize
+                output.textContent += '2. Synthesizing...\n';
+                const sources = searchData.results.map(r => ({
+                    verse: r.verse,
+                    chunkType: r.chunkType,
+                    chunkText: r.chunkText,
+                    score: r.score
+                }));
+
+                const synthesisResponse = await fetch(SYNTHESIS_WORKER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: "What is the soul?", sources, wordLimit: 100 })
+                });
+
+                output.textContent += `Synthesis status: ${synthesisResponse.status}\n`;
+
+                if (!synthesisResponse.ok) {
+                    const errorText = await synthesisResponse.text();
+                    output.textContent += `Synthesis error: ${errorText}\n`;
+                    return;
+                }
+
+                const synthesisData = await synthesisResponse.json();
+                output.textContent += `\nSynthesis:\n${synthesisData.synthesis}\n`;
+
+            } catch (error) {
+                output.textContent += `\nException: ${error}\n`;
+            }
+        }
+    </script>
+</body>
+</html>

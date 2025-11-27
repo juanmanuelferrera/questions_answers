@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy & Vedabase RAG Search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            color: #667eea;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #queryInput {
+            flex: 1;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        #queryInput:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .filter-group label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            background: white;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .results {
+            display: grid;
+            gap: 20px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .result-title h3 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .result-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .source-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .source-philosophy {
+            background: #e0e7ff;
+            color: #667eea;
+        }
+
+        .source-vedabase {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .score-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .section {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: #764ba2;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-content {
+            color: #333;
+            line-height: 1.6;
+            font-size: 15px;
+            white-space: pre-wrap;
+        }
+
+        .verse-sanskrit {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-size: 18px;
+            color: #7c3aed;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f5f3ff;
+            border-left: 4px solid #7c3aed;
+            border-radius: 4px;
+        }
+
+        .verse-translation {
+            font-style: italic;
+            color: #059669;
+            margin: 10px 0;
+            padding: 10px;
+            background: #ecfdf5;
+            border-left: 4px solid #059669;
+            border-radius: 4px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .no-results h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Philosophy & Vedabase RAG Search</h1>
+            <p class="subtitle">Semantic search across 185 philosophical traditions and Vedic texts</p>
+
+            <div class="tabs">
+                <button class="tab active" data-tab="all">All Sources</button>
+                <button class="tab" data-tab="philosophy">Philosophy Traditions</button>
+                <button class="tab" data-tab="vedabase">Vedabase Texts</button>
+            </div>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="queryInput"
+                    placeholder="Ask a philosophical question or search for a concept..."
+                    value="What is karma?"
+                >
+                <button class="btn btn-primary" id="searchBtn">Search</button>
+            </div>
+
+            <div class="filters" id="filters">
+                <!-- Filters will be dynamically populated based on active tab -->
+            </div>
+        </div>
+
+        <div id="statsContainer"></div>
+        <div id="loadingContainer"></div>
+        <div id="resultsContainer"></div>
+    </div>
+
+    <script>
+        const API_URL = 'https://philosophy-rag.joanmanelferrera-400.workers.dev';
+        let currentTab = 'all';
+        let traditions = [];
+        let questions = [];
+        let vedabaseBooks = [];
+
+        // Initialize
+        async function init() {
+            setupEventListeners();
+            await loadMetadata();
+            updateFilters();
+        }
+
+        // Load metadata (traditions, questions, books)
+        async function loadMetadata() {
+            try {
+                const [traditionsRes, questionsRes, booksRes] = await Promise.all([
+                    fetch(`${API_URL}/traditions`),
+                    fetch(`${API_URL}/questions`),
+                    fetch(`${API_URL}/vedabase-books`)
+                ]);
+
+                traditions = (await traditionsRes.json()).traditions;
+                questions = (await questionsRes.json()).questions;
+                vedabaseBooks = (await booksRes.json()).books;
+            } catch (error) {
+                console.error('Error loading metadata:', error);
+            }
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Tab switching
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentTab = tab.dataset.tab;
+                    updateFilters();
+                });
+            });
+
+            // Search
+            document.getElementById('searchBtn').addEventListener('click', performSearch);
+            document.getElementById('queryInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') performSearch();
+            });
+        }
+
+        // Update filters based on current tab
+        function updateFilters() {
+            const filtersContainer = document.getElementById('filters');
+            filtersContainer.innerHTML = '';
+
+            if (currentTab === 'philosophy' || currentTab === 'all') {
+                filtersContainer.innerHTML += `
+                    <div class="filter-group">
+                        <label>Question</label>
+                        <select id="questionFilter">
+                            <option value="">All Questions</option>
+                            ${questions.map(q => `<option value="${q.number}">${q.number} - ${q.title}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Tradition</label>
+                        <input type="text" id="traditionFilter" placeholder="Filter by tradition...">
+                    </div>
+                `;
+            }
+
+            if (currentTab === 'vedabase' || currentTab === 'all') {
+                filtersContainer.innerHTML += `
+                    <div class="filter-group">
+                        <label>Book</label>
+                        <select id="bookFilter">
+                            <option value="">All Books</option>
+                            ${vedabaseBooks.map(b => `<option value="${b.code}">${b.name}</option>`).join('')}
+                        </select>
+                    </div>
+                `;
+            }
+
+            filtersContainer.innerHTML += `
+                <div class="filter-group">
+                    <label>Results</label>
+                    <select id="topKFilter">
+                        <option value="10">Top 10</option>
+                        <option value="20" selected>Top 20</option>
+                        <option value="30">Top 30</option>
+                        <option value="50">Top 50</option>
+                    </select>
+                </div>
+            `;
+        }
+
+        // Perform search
+        async function performSearch() {
+            const query = document.getElementById('queryInput').value.trim();
+            if (!query) return;
+
+            const searchBtn = document.getElementById('searchBtn');
+            searchBtn.disabled = true;
+            searchBtn.textContent = 'Searching...';
+
+            document.getElementById('loadingContainer').innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Searching across the corpus...</p>
+                </div>
+            `;
+            document.getElementById('resultsContainer').innerHTML = '';
+            document.getElementById('statsContainer').innerHTML = '';
+
+            try {
+                const requestBody = {
+                    query,
+                    source: currentTab,
+                    topK: parseInt(document.getElementById('topKFilter')?.value || 20)
+                };
+
+                // Add filters based on current tab
+                const questionFilter = document.getElementById('questionFilter');
+                if (questionFilter && questionFilter.value) {
+                    requestBody.questionFilter = questionFilter.value;
+                }
+
+                const traditionFilter = document.getElementById('traditionFilter');
+                if (traditionFilter && traditionFilter.value) {
+                    requestBody.traditionFilter = traditionFilter.value;
+                }
+
+                const bookFilter = document.getElementById('bookFilter');
+                if (bookFilter && bookFilter.value) {
+                    requestBody.bookFilter = bookFilter.value;
+                }
+
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(requestBody)
+                });
+
+                const data = await response.json();
+                displayResults(data);
+            } catch (error) {
+                document.getElementById('loadingContainer').innerHTML = '';
+                document.getElementById('resultsContainer').innerHTML = `
+                    <div class="no-results">
+                        <h3>Error</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            } finally {
+                searchBtn.disabled = false;
+                searchBtn.textContent = 'Search';
+            }
+        }
+
+        // Display results
+        function displayResults(data) {
+            document.getElementById('loadingContainer').innerHTML = '';
+
+            // Display stats
+            const philosophyCount = data.results.filter(r => r.source === 'philosophy').length;
+            const vedabaseCount = data.results.filter(r => r.source === 'vedabase').length;
+
+            document.getElementById('statsContainer').innerHTML = `
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">${data.count}</div>
+                        <div class="stat-label">Total Results</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">${philosophyCount}</div>
+                        <div class="stat-label">Philosophy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">${vedabaseCount}</div>
+                        <div class="stat-label">Vedabase</div>
+                    </div>
+                </div>
+            `;
+
+            if (data.count === 0) {
+                document.getElementById('resultsContainer').innerHTML = `
+                    <div class="no-results">
+                        <h3>No results found</h3>
+                        <p>Try adjusting your search query or filters</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const resultsHTML = data.results.map(result => {
+                if (result.source === 'philosophy') {
+                    return renderPhilosophyResult(result);
+                } else {
+                    return renderVedabaseResult(result);
+                }
+            }).join('');
+
+            document.getElementById('resultsContainer').innerHTML = `
+                <div class="results">${resultsHTML}</div>
+            `;
+        }
+
+        // Render philosophy result
+        function renderPhilosophyResult(result) {
+            return `
+                <div class="result-card">
+                    <div class="result-header">
+                        <div class="result-title">
+                            <h3>${result.response.tradition_name}</h3>
+                            <div class="result-meta">
+                                <span class="source-badge source-philosophy">Philosophy</span>
+                                Question ${result.response.question_number}: ${result.response.question_title}
+                            </div>
+                            <div class="result-meta">Section: ${result.sectionType.replace(/_/g, ' ')}</div>
+                        </div>
+                        <div class="score-badge">
+                            ${(result.score * 100).toFixed(1)}%
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Matched Content</div>
+                        <div class="section-content">${result.chunkText}</div>
+                    </div>
+
+                    ${result.response.opening ? `
+                        <div class="section">
+                            <div class="section-title">Opening</div>
+                            <div class="section-content">${result.response.opening}</div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // Render Vedabase result
+        function renderVedabaseResult(result) {
+            const verse = result.vedabaseVerse;
+            return `
+                <div class="result-card">
+                    <div class="result-header">
+                        <div class="result-title">
+                            <h3>${verse.book_name}</h3>
+                            <div class="result-meta">
+                                <span class="source-badge source-vedabase">Vedabase</span>
+                                ${verse.chapter} - Verse ${verse.verse_number}
+                            </div>
+                            <div class="result-meta">Section: ${result.sectionType.replace(/_/g, ' ')}</div>
+                        </div>
+                        <div class="score-badge">
+                            ${(result.score * 100).toFixed(1)}%
+                        </div>
+                    </div>
+
+                    ${verse.sanskrit ? `
+                        <div class="verse-sanskrit">${verse.sanskrit}</div>
+                    ` : ''}
+
+                    ${verse.translation ? `
+                        <div class="verse-translation">${verse.translation}</div>
+                    ` : ''}
+
+                    ${verse.synonyms ? `
+                        <div class="section">
+                            <div class="section-title">Word-for-Word</div>
+                            <div class="section-content">${verse.synonyms}</div>
+                        </div>
+                    ` : ''}
+
+                    <div class="section">
+                        <div class="section-title">Matched Content</div>
+                        <div class="section-content">${result.chunkText}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

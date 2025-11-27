@@ -1,0 +1,16 @@
+{
+  "query": "What is the soul?",
+  "wordLimit": 100,
+  "sources": [
+    {
+      "verse": {
+        "book": "Bhagavad Gita",
+        "chapter": "Chapter 2",
+        "verse_number": "2.17"
+      },
+      "chunkType": "purport_paragraph",
+      "chunkText": "The soul is atomic in size and indestructible.",
+      "score": 0.95
+    }
+  ]
+}

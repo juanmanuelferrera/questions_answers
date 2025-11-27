@@ -1,4 +1,23 @@
+# Node modules and dependencies
+node_modules/
+.wrangler/
+dist/
 
-# Ignore .env file
+# Environment files with API keys
 .env
+.dev.vars
+
+# Cloudflare configuration (contains API keys - DO NOT COMMIT)
+wrangler.toml
+
+# macOS files
 .DS_Store
+
+# Backup files
+*.bak
+wrangler.toml.bak
+
+# WARNING: public/index.html contains embedded API key
+# This is not ideal for security but needed for client-side synthesis
+# TODO: Move OpenAI calls to a Worker for better security
+cc_embeddings_export.json

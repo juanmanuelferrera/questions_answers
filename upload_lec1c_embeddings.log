@@ -1,0 +1,46 @@
+================================================================================
+UPLOADING LEC1C EMBEDDINGS TO VECTORIZE
+================================================================================
+
+Loaded 2984 LEC1C embeddings
+
+Uploading to Vectorize in batches of 100...
+Total batches: 30
+
+  Batch 1/30: ✓ Uploaded 100 vectors (100/2984 total)
+  Batch 2/30: ✓ Uploaded 100 vectors (200/2984 total)
+  Batch 3/30: ✓ Uploaded 100 vectors (300/2984 total)
+  Batch 4/30: ✓ Uploaded 100 vectors (400/2984 total)
+  Batch 5/30: ✓ Uploaded 100 vectors (500/2984 total)
+  Batch 6/30: ✓ Uploaded 100 vectors (600/2984 total)
+  Batch 7/30: ✓ Uploaded 100 vectors (700/2984 total)
+  Batch 8/30: ✓ Uploaded 100 vectors (800/2984 total)
+  Batch 9/30: ✓ Uploaded 100 vectors (900/2984 total)
+  Batch 10/30: ✓ Uploaded 100 vectors (1000/2984 total)
+  Batch 11/30: ✓ Uploaded 100 vectors (1100/2984 total)
+  Batch 12/30: ✓ Uploaded 100 vectors (1200/2984 total)
+  Batch 13/30: ✓ Uploaded 100 vectors (1300/2984 total)
+  Batch 14/30: ✓ Uploaded 100 vectors (1400/2984 total)
+  Batch 15/30: ✓ Uploaded 100 vectors (1500/2984 total)
+  Batch 16/30: ✓ Uploaded 100 vectors (1600/2984 total)
+  Batch 17/30: ✓ Uploaded 100 vectors (1700/2984 total)
+  Batch 18/30: ✓ Uploaded 100 vectors (1800/2984 total)
+  Batch 19/30: ✓ Uploaded 100 vectors (1900/2984 total)
+  Batch 20/30: ✓ Uploaded 100 vectors (2000/2984 total)
+  Batch 21/30: ✓ Uploaded 100 vectors (2100/2984 total)
+  Batch 22/30: ✓ Uploaded 100 vectors (2200/2984 total)
+  Batch 23/30: ✓ Uploaded 100 vectors (2300/2984 total)
+  Batch 24/30: ✓ Uploaded 100 vectors (2400/2984 total)
+  Batch 25/30: ✓ Uploaded 100 vectors (2500/2984 total)
+  Batch 26/30: ✓ Uploaded 100 vectors (2600/2984 total)
+  Batch 27/30: ✓ Uploaded 100 vectors (2700/2984 total)
+  Batch 28/30: ✓ Uploaded 100 vectors (2800/2984 total)
+  Batch 29/30: ✓ Uploaded 100 vectors (2900/2984 total)
+  Batch 30/30: ✓ Uploaded 84 vectors (2984/2984 total)
+
+================================================================================
+UPLOAD COMPLETE
+================================================================================
+  Total embeddings uploaded: 2984
+  Vectorize will index these within 5-30 minutes
+================================================================================

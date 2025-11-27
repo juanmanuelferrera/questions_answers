@@ -1,0 +1,39 @@
+================================================================================
+UPLOADING INDIVIDUAL OTHER BOOKS EMBEDDINGS TO VECTORIZE
+================================================================================
+
+Loaded 2242 embeddings
+
+Uploading to Vectorize in batches of 100...
+Total batches: 23
+
+  Batch 1/23: ✓ Uploaded 100 vectors (100/2242 total)
+  Batch 2/23: ✓ Uploaded 100 vectors (200/2242 total)
+  Batch 3/23: ✓ Uploaded 100 vectors (300/2242 total)
+  Batch 4/23: ✓ Uploaded 100 vectors (400/2242 total)
+  Batch 5/23: ✓ Uploaded 100 vectors (500/2242 total)
+  Batch 6/23: ✓ Uploaded 100 vectors (600/2242 total)
+  Batch 7/23: ✓ Uploaded 100 vectors (700/2242 total)
+  Batch 8/23: ✓ Uploaded 100 vectors (800/2242 total)
+  Batch 9/23: ✓ Uploaded 100 vectors (900/2242 total)
+  Batch 10/23: ✓ Uploaded 100 vectors (1000/2242 total)
+  Batch 11/23: ✓ Uploaded 100 vectors (1100/2242 total)
+  Batch 12/23: ✓ Uploaded 100 vectors (1200/2242 total)
+  Batch 13/23: ✓ Uploaded 100 vectors (1300/2242 total)
+  Batch 14/23: ✓ Uploaded 100 vectors (1400/2242 total)
+  Batch 15/23: ✓ Uploaded 100 vectors (1500/2242 total)
+  Batch 16/23: ✓ Uploaded 100 vectors (1600/2242 total)
+  Batch 17/23: ✓ Uploaded 100 vectors (1700/2242 total)
+  Batch 18/23: ✓ Uploaded 100 vectors (1800/2242 total)
+  Batch 19/23: ✓ Uploaded 100 vectors (1900/2242 total)
+  Batch 20/23: ✓ Uploaded 100 vectors (2000/2242 total)
+  Batch 21/23: ✓ Uploaded 100 vectors (2100/2242 total)
+  Batch 22/23: ✓ Uploaded 100 vectors (2200/2242 total)
+  Batch 23/23: ✓ Uploaded 42 vectors (2242/2242 total)
+
+================================================================================
+UPLOAD COMPLETE
+================================================================================
+  Total embeddings uploaded: 2242
+  Vectorize will index these within 5-30 minutes
+================================================================================

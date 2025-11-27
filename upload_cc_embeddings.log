@@ -1,0 +1,55 @@
+================================================================================
+UPLOADING CC EMBEDDINGS TO VECTORIZE
+================================================================================
+
+Loaded 3868 CC embeddings
+
+Uploading to Vectorize in batches of 100...
+Total batches: 39
+
+  Batch 1/39: ✓ Uploaded 100 vectors (100/3868 total)
+  Batch 2/39: ✓ Uploaded 100 vectors (200/3868 total)
+  Batch 3/39: ✓ Uploaded 100 vectors (300/3868 total)
+  Batch 4/39: ✓ Uploaded 100 vectors (400/3868 total)
+  Batch 5/39: ✓ Uploaded 100 vectors (500/3868 total)
+  Batch 6/39: ✓ Uploaded 100 vectors (600/3868 total)
+  Batch 7/39: ✓ Uploaded 100 vectors (700/3868 total)
+  Batch 8/39: ✓ Uploaded 100 vectors (800/3868 total)
+  Batch 9/39: ✓ Uploaded 100 vectors (900/3868 total)
+  Batch 10/39: ✓ Uploaded 100 vectors (1000/3868 total)
+  Batch 11/39: ✓ Uploaded 100 vectors (1100/3868 total)
+  Batch 12/39: ✓ Uploaded 100 vectors (1200/3868 total)
+  Batch 13/39: ✓ Uploaded 100 vectors (1300/3868 total)
+  Batch 14/39: ✓ Uploaded 100 vectors (1400/3868 total)
+  Batch 15/39: ✓ Uploaded 100 vectors (1500/3868 total)
+  Batch 16/39: ✓ Uploaded 100 vectors (1600/3868 total)
+  Batch 17/39: ✓ Uploaded 100 vectors (1700/3868 total)
+  Batch 18/39: ✓ Uploaded 100 vectors (1800/3868 total)
+  Batch 19/39: ✓ Uploaded 100 vectors (1900/3868 total)
+  Batch 20/39: ✓ Uploaded 100 vectors (2000/3868 total)
+  Batch 21/39: ✓ Uploaded 100 vectors (2100/3868 total)
+  Batch 22/39: ✓ Uploaded 100 vectors (2200/3868 total)
+  Batch 23/39: ✓ Uploaded 100 vectors (2300/3868 total)
+  Batch 24/39: ✓ Uploaded 100 vectors (2400/3868 total)
+  Batch 25/39: ✓ Uploaded 100 vectors (2500/3868 total)
+  Batch 26/39: ✓ Uploaded 100 vectors (2600/3868 total)
+  Batch 27/39: ✓ Uploaded 100 vectors (2700/3868 total)
+  Batch 28/39: ✓ Uploaded 100 vectors (2800/3868 total)
+  Batch 29/39: ✓ Uploaded 100 vectors (2900/3868 total)
+  Batch 30/39: ✓ Uploaded 100 vectors (3000/3868 total)
+  Batch 31/39: ✓ Uploaded 100 vectors (3100/3868 total)
+  Batch 32/39: ✓ Uploaded 100 vectors (3200/3868 total)
+  Batch 33/39: ✓ Uploaded 100 vectors (3300/3868 total)
+  Batch 34/39: ✓ Uploaded 100 vectors (3400/3868 total)
+  Batch 35/39: ✓ Uploaded 100 vectors (3500/3868 total)
+  Batch 36/39: ✓ Uploaded 100 vectors (3600/3868 total)
+  Batch 37/39: ✓ Uploaded 100 vectors (3700/3868 total)
+  Batch 38/39: ✓ Uploaded 100 vectors (3800/3868 total)
+  Batch 39/39: ✓ Uploaded 68 vectors (3868/3868 total)
+
+================================================================================
+UPLOAD COMPLETE
+================================================================================
+  Total embeddings uploaded: 3868
+  Vectorize will index these within 5-30 minutes
+================================================================================

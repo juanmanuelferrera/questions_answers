@@ -1,0 +1,69 @@
+* Karma: Philosophical Concept Across Traditions
+
+** 30 Words
+Karma is the universal causal law determining future existence through moral actions. Originating in Indian philosophy, it operates through intention-based causation across Hinduism, Buddhism, and Jainism with tradition-specific variations.
+
+** 50 Words
+Karma (Sanskrit: action/deed) represents the moral causation principle whereby intentional actions determine future conditions across lifetimes. While shared across Hinduism, Buddhism, and Jainism, traditions differ significantly: Hinduism emphasizes divine administration, Buddhism stresses intentionality over determinism, and Jainism views karma as physical substance affecting the soul.
+
+** 100 Words
+Karma constitutes a foundational concept in Indian philosophy, defining the universal causal law whereby good or bad actions determine future modes of existence. The term derives from Sanskrit meaning "action" or "deed," with effects extending across multiple lifetimes through rebirth (samsara). Hindu traditions integrate karma with dharma (duty) and divine oversight, viewing it as administered by God. Buddhist philosophy emphasizes intentional action (cetanā) over strict determinism, incorporating circumstantial factors. Jainism uniquely conceptualizes karma as fine particulate matter adhering to souls. All traditions employ karma to explain suffering's origins, motivate ethical conduct, and provide frameworks for spiritual liberation (moksha/nirvana).
+
+** 200 Words
+Karma represents the central ethical-metaphysical principle in Indian religious philosophy, defining a universal causal law whereby intentional actions produce corresponding consequences across lifetimes. The Sanskrit term literally means "action," "work," or "deed," encompassing physical, verbal, and mental acts. This doctrine functions as the ethical dimension of rebirth (samsara), explaining how current life circumstances result from past actions while shaping future existences.
+
+Comparative analysis reveals significant inter-traditional variations. Hindu philosophy generally positions God as karma's administrator, integrating the doctrine with dharma (cosmic duty) and viewing righteous action as generating positive karma leading toward moksha (liberation). The Bhagavad Gita emphasizes selfless action (karma yoga) as spiritual practice. Buddhist traditions stress intentionality (cetanā) as karma's essence, rejecting strict determinism while maintaining that deliberately chosen actions create future consequences. The Buddha taught that karma operates through natural causation rather than divine intervention, incorporating circumstantial and conditional factors. Jainism presents the most materialistic karma theory, conceptualizing it as subtle physical particles (pudgala) that adhere to souls (jiva) based on passionate actions, requiring rigorous asceticism for karmic dissolution.
+
+Philosophically, karma addresses theodicy (explaining suffering), provides moral motivation, and establishes mechanisms for spiritual progress. Academic debates examine causation models, the relationship between intention and consequence, karma transfer possibilities, and liberation methodologies across traditions.
+
+** 400 Words
+
+Karma constitutes Indian philosophy's foundational ethical-metaphysical principle, establishing a universal causal law whereby intentional actions determine future modes of existence across successive lifetimes within the rebirth cycle (samsara). The doctrine addresses fundamental philosophical questions about moral causation, suffering's origins, cosmic justice, and liberation pathways, serving as "a fundamental premise of the great majority of India's religious and philosophical traditions" according to the Routledge Encyclopedia of Philosophy.
+
+*** Historical Development
+
+The karma concept emerged in Vedic literature (c. 1500-500 BCE), initially referring to ritual action's efficacy before developing moral-metaphysical dimensions in the Upanishads (c. 800-400 BCE). The Brihadaranyaka Upanishad (c. 700 BCE) first articulated the doctrine systematically, stating "according as one acts, so does one become." Buddhism (6th century BCE) reformulated karma through intentionality (cetanā) rather than ritual performance. Jainism (6th century BCE) developed materialistic karma theory viewing it as physical substance. Classical Hindu schools (Nyaya, Vaisheshika, Samkhya, Yoga, Mimamsa, Vedanta) systematized diverse karma interpretations (200 BCE-800 CE). Medieval developments include Ramanuja's qualified non-dualism (11th century) and Madhva's dualism (13th century) integrating karma with theistic devotion. Contemporary scholarship examines karma through comparative philosophy, ethics, and causation studies.
+
+*** Key Concepts
+
+*Karma* (action/deed), *samsara* (rebirth cycle), *dharma* (cosmic duty/righteousness), *moksha/nirvana* (liberation), *cetanā* (intention in Buddhism), *apurva* (unseen karmic potency in Mimamsa), *pudgala* (karmic matter in Jainism), *jiva* (soul), *phala* (fruit/consequence), *kriyamana karma* (present actions), *prarabdha karma* (manifest karma), *sanchita karma* (accumulated karma), *vasana* (karmic impressions), *skandhas* (Buddhist aggregates affected by karma), *karmaphala* (karmic results).
+
+*** Core Arguments
+
+1) **Moral Causation**: Karma establishes natural moral law whereby ethically significant actions produce corresponding future consequences without requiring divine intervention, functioning through intrinsic causal efficacy rather than external judgment.
+
+2) **Theodicy Solution**: The doctrine explains suffering and inequality as results of past actions across lifetimes, providing cosmic justice framework addressing why bad things happen to seemingly good people.
+
+3) **Intentionality Principle**: Buddhist philosophy emphasizes that karma operates through mental intention (cetanā) rather than mechanical action—a deed done deliberately through body, speech, or mind generates karmic consequences proportional to intentional force.
+
+4) **Liberation Mechanism**: Karma provides both bondage explanation and liberation pathway—understanding karmic causation enables strategic action modification, while ultimately transcending karma-generating attachment achieves moksha/nirvana.
+
+*** Counter-Arguments
+
+Against materialistic karma (Jain view): Buddhist and Hindu critics argue that karma operates through mental/moral causation rather than physical substance, as consciousness rather than matter bears karmic impressions. Against determinism: Buddhist traditions maintain karma incorporates circumstantial factors and present choices, rejecting fatalism while preserving moral causation. Against individual karma: Some Mahayana traditions permit merit transfer and bodhisattva intervention, challenging strict individual karmic responsibility. Against rebirth requirement: Contemporary philosophers question whether karma requires literal reincarnation or functions through social/psychological inheritance patterns.
+
+*** Textual Foundation
+
+Brihadaranyaka Upanishad 4.4.5-6 (earliest systematic exposition), Chandogya Upanishad 5.10.7 (karma and rebirth linkage), Bhagavad Gita 2.47-48 (karma yoga teaching), Buddha's Cetanāhaṃ Sutta (Anguttara Nikaya 6.63) on intention, Milindapañha (Questions of King Milinda, 2nd century BCE) analyzing karmic transfer, Tattvartha Sutra (Jain text, c. 2nd century CE) systematizing karma as matter, Yoga Sutras 2.12-14 (karmic deposits/kleshas), Brahma Sutras 3.2.38-41 (karma and divine grace), Journal of Indian Philosophy (2024) examining ethical causality mechanisms.
+
+*** Internal Variations
+
+**Hindu Schools**: Mimamsa emphasizes *apurva* (unseen potency bridging act and consequence) operating independently of God. Nyaya-Vaisheshika views karma as *adrishta* (unseen merit/demerit) requiring divine administration. Samkhya treats karma naturalistically within prakrti's causation. Vedanta schools vary—Advaita (Shankara) subordinates karma to knowledge, Vishishtadvaita (Ramanuja) integrates karma with divine grace, Dvaita (Madhva) positions God as karma's ultimate dispenser.
+
+**Buddhist Traditions**: Theravada emphasizes individual karmic responsibility and precise causation laws. Mahayana introduces bodhisattva merit transfer and compassionate intervention. Yogacara analyzes karma through consciousness-only framework (vijñapti-mātra). Madhyamaka deconstructs karma's ultimate reality while maintaining conventional efficacy.
+
+**Jain Philosophy**: Karma exists as eight material types (knowledge-obscuring, perception-obscuring, deluding, obstructive, feeling-producing, body-determining, status-determining, age-determining) requiring progressive elimination through ascetic practice. Liberation (kevala) occurs when all karmic matter completely separates from soul.
+
+*** Contemporary Applications
+
+Contemporary philosophers examine karma through causation theories, addressing agent causation versus event causation debates. Comparative ethicists analyze karma alongside Western moral frameworks, exploring parallels with virtue ethics and consequentialism while noting distinctive features. Buddhist modernists reinterpret karma psychologically, emphasizing habitual conditioning and character development over metaphysical rebirth. Academic research (Journal of Indian Philosophy, 2024) investigates "ethical causality and rebirth" comparing Yoga and Abhidharma mechanisms. Cross-cultural studies examine karma's Western reception, often distorted toward simplistic "cosmic justice" rather than complex causation system. Bioethics discussions address karmic implications for medical intervention, suffering alleviation, and end-of-life decisions. Environmental philosophy applies karma to ecological responsibility, viewing environmental degradation as collective karmic consequence requiring remedial action.
+
+---
+
+**Sources Consulted:**
+- Stanford Encyclopedia of Philosophy: Buddha, Vasubandhu, Abhidharma, Ethics in Indian Buddhism, Naturalism in Classical Indian Philosophy
+- Routledge Encyclopedia of Philosophy: "Karma and rebirth, Indian conceptions of"
+- Britannica: "Karma | Indian Philosophy & Its Impact on Life"
+- Journal of Indian Philosophy (2024): "Ethical Causality and Rebirth in the Pātañjalayogaśāstra and Abhidharmakośabhāṣya"
+- Academic papers on karma theory across Hindu philosophical schools
+- Comparative studies on karma in Buddhism, Hinduism, and Jainism
