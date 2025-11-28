@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Vedabase RAG - Semantic Search Across Bhagavad Gita & Srimad Bhagavatam</title>
     <style>
         * {
@@ -360,7 +363,7 @@
         <div class="header">
             <h1>🕉️ Vedabase RAG</h1>
             <div class="subtitle">Semantic Search Across Vedic Literature with AI Synthesis</div>
-            <div class="stats">8,481 verses • Bhagavad Gita & Srimad Bhagavatam (Cantos 1-3)</div>
+            <div class="stats">37 Books • ~57,306 Searchable Chunks • Bhagavad Gita, Srimad Bhagavatam, Srila Prabhupada's Letters & More</div>
         </div>
 
         <div class="search-box">
@@ -416,8 +419,8 @@
     </div>
 
     <script>
-        const QUERY_WORKER = 'https://vedabase-rag.joanmanelferrera-400.workers.dev';
-        const SYNTHESIS_WORKER = 'https://philosophy-rag-synthesis.joanmanelferrera-400.workers.dev';
+        const QUERY_WORKER = 'https://philosophy-rag.joanmanelferrera-400.workers.dev';
+        const SYNTHESIS_WORKER = 'https://vedabase-synthesis.joanmanelferrera-400.workers.dev';
 
         let currentResults = null;
         let sourcesExpanded = false;
@@ -429,7 +432,7 @@
 
         async function loadBooks() {
             try {
-                const response = await fetch(`${QUERY_WORKER}/books`);
+                const response = await fetch(`${QUERY_WORKER}/vedabase-books`);
                 const data = await response.json();
 
                 const select = document.getElementById('bookSelect');
@@ -462,10 +465,14 @@
 
             try {
                 // 1. Search for relevant verses
-                const searchBody = { query, topK };
+                // When filtering by book, request more results to increase chances of matches
+                const searchTopK = bookFilter ? Math.min(topK * 3, 50) : topK;
+                const searchBody = { query, topK: searchTopK, source: 'vedabase' };
                 if (bookFilter) {
                     searchBody.bookFilter = bookFilter;
                 }
+
+                console.log('Search params:', { query, topK, searchTopK, bookFilter, searchBody });
 
                 const searchResponse = await fetch(QUERY_WORKER, {
                     method: 'POST',
@@ -480,12 +487,27 @@
                 }
 
                 const searchData = await searchResponse.json();
+
+                // If we requested more results for filtering, trim to original topK
+                if (searchData.results.length > topK) {
+                    searchData.results = searchData.results.slice(0, topK);
+                    searchData.count = searchData.results.length;
+                }
+
                 currentResults = searchData;
 
                 if (searchData.results.length === 0) {
+                    const bookFilterActive = document.getElementById('bookSelect').value;
+                    const message = bookFilterActive
+                        ? `No results found in the selected book. Try:<br>
+                           • Using more specific terms related to that book's content<br>
+                           • Searching "All Books" to see if results exist elsewhere<br>
+                           • Using different keywords`
+                        : `No results found. Try a different search term.`;
+
                     document.getElementById('synthesis').innerHTML = `
                         <div class="synthesis-container">
-                            <p>No results found. Try a different search term.</p>
+                            <p>${message}</p>
                         </div>
                     `;
                     document.getElementById('synthesis').style.display = 'block';
@@ -494,8 +516,8 @@
 
                 // 2. Automatically generate synthesis
                 const sources = searchData.results.map(r => ({
-                    verse: r.verse,
-                    chunkType: r.chunkType,
+                    verse: r.vedabaseVerse || r.verse,
+                    chunkType: r.sectionType || r.chunkType,
                     chunkText: r.chunkText,
                     score: r.score
                 }));
@@ -535,7 +557,10 @@
                 .join('');
 
             const sourcesHtml = sources.map((result, index) => {
-                const { verse, chunkText, chunkType, score } = result;
+                const verse = result.vedabaseVerse || result.verse || {};
+                const chunkText = result.chunkText;
+                const chunkType = result.sectionType || result.chunkType || 'text';
+                const score = result.score;
 
                 let verseHtml = '';
                 if (verse.sanskrit || verse.translation) {
@@ -547,18 +572,21 @@
                     `;
                 }
 
+                const bookName = verse.book_name || verse.book || 'Unknown Book';
+                const verseRef = verse.chapter ? `${escapeHtml(verse.chapter)} - Verse ${escapeHtml(verse.verse_number)}` : `Verse ${escapeHtml(verse.verse_number || '')}`;
+
                 return `
                     <div class="source-card">
                         <div class="source-header">
                             <div class="source-title">
-                                <h4>${escapeHtml(verse.book)}</h4>
-                                <div class="verse-ref">${verse.chapter ? escapeHtml(verse.chapter) + ' - ' : ''}Verse ${escapeHtml(verse.verse_number)}</div>
+                                <h4>${escapeHtml(bookName)}</h4>
+                                <div class="verse-ref">${verseRef}</div>
                             </div>
                             <div class="similarity-score">${(score * 100).toFixed(1)}%</div>
                         </div>
                         ${verseHtml}
                         ${chunkType === 'purport_paragraph' ? `<div class="purport-text">${escapeHtml(chunkText)}</div>` : ''}
-                        <span class="chunk-type">${chunkType.replace('_', ' ')}</span>
+                        <span class="chunk-type">${chunkType.replace(/_/g, ' ')}</span>
                     </div>
                 `;
             }).join('');
@@ -599,9 +627,11 @@
         }
 
         function copySynthesis() {
+            const question = document.querySelector('.question-text').innerText;
             const synthesis = document.querySelector('.synthesis-box').innerText;
-            navigator.clipboard.writeText(synthesis);
-            alert('Answer copied to clipboard!');
+            const textToCopy = `Question: ${question}\n\n${synthesis}`;
+            navigator.clipboard.writeText(textToCopy);
+            alert('Question and answer copied to clipboard!');
         }
 
         function resetFilters() {
