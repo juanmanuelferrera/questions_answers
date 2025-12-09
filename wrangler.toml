@@ -1,0 +1,26 @@
+name = "philosophy-rag"
+main = "src/query-worker.ts"
+compatibility_date = "2024-01-01"
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "philosophy-db"
+database_id = "3e3b090d-245a-42b9-a77b-cef0fca9db31"
+
+# Vectorize Index
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "philosophy-vectors"
+
+# KV Namespace for embedding cache
+[[kv_namespaces]]
+binding = "EMBEDDING_CACHE"
+id = "a7dc97f5f0a04fc1a29597b971c80192"
+
+# Environment variables
+[vars]
+OPENAI_API_KEY = "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"
+
+# Import worker (separate deployment)
+# To deploy: wrangler deploy --name philosophy-rag-import src/import-worker.ts

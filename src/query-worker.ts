@@ -9,6 +9,7 @@ interface Env {
   DB: D1Database;
   VECTORIZE: VectorizeIndex;
   OPENAI_API_KEY: string;
+  EMBEDDING_CACHE: KVNamespace;
 }
 
 interface QueryRequest {
@@ -177,23 +178,56 @@ export default {
         return new Response('Query required', { status: 400 });
       }
 
-      // 1. Generate query embedding
-      const queryEmbedding = await generateQueryEmbedding(query, env.OPENAI_API_KEY);
+      // 1. Generate query embedding (with caching)
+      const queryEmbedding = await generateQueryEmbedding(query, env.OPENAI_API_KEY, env.EMBEDDING_CACHE);
 
       // 2. Search Vectorize for similar vectors
       // Cloudflare Vectorize limit: max 50 results with returnMetadata: true
+      // When book filter is specified, use Vectorize metadata filtering for better performance
       const vectorK = Math.min(topK * 2, 50);
-      const vectorResults = await env.VECTORIZE.query(queryEmbedding, {
+
+      const queryOptions: any = {
         topK: vectorK,
         returnMetadata: true
+      };
+
+      // Apply metadata filter at Vectorize level if book filter specified
+      if (bookFilter) {
+        queryOptions.filter = { book_code: bookFilter };
+      }
+
+      const vectorResults = await env.VECTORIZE.query(queryEmbedding, queryOptions);
+
+      // DEBUG: Log Vectorize results
+      console.log(`Vectorize returned ${vectorResults.matches.length} matches for query: "${query}"`);
+      console.log(`Book filter: ${bookFilter || 'none'}, Source: ${source}`);
+
+      // Log first 5 matches with metadata
+      vectorResults.matches.slice(0, 5).forEach((match, i) => {
+        const meta = match.metadata as any;
+        console.log(`  Match ${i+1}: score=${match.score.toFixed(4)}, source=${meta.source}, book_code=${meta.book_code}, id=${match.id}`);
       });
 
       // 3. Get full data from D1 based on source
       const results: SearchResult[] = [];
+      const SCORE_THRESHOLD = 0.3; // Minimum similarity score
 
       for (const match of vectorResults.matches) {
+        // Skip low-quality matches
+        if (match.score < SCORE_THRESHOLD) {
+          console.log(`Skipping low-score match: ${match.score.toFixed(4)} < ${SCORE_THRESHOLD}`);
+          continue;
+        }
+
         const metadata = match.metadata as any;
-        const chunkSource = metadata.source || 'philosophy'; // Default to philosophy for backwards compatibility
+
+        // Determine source from metadata
+        // NOTE: Vectorize sometimes doesn't return 'source' field, so we infer from book_code
+        let chunkSource = metadata.source;
+        if (!chunkSource) {
+          // If book_code exists, it's vedabase; otherwise philosophy
+          chunkSource = metadata.book_code ? 'vedabase' : 'philosophy';
+        }
 
         // Filter by source
         if (source !== 'all' && chunkSource !== source) {
@@ -204,8 +238,8 @@ export default {
           // Handle Vedabase results
           const chunkId = metadata.chunk_id;
 
-          // Apply book filter (handle undefined book_code for old embeddings)
-          if (bookFilter && metadata.book_code && metadata.book_code !== bookFilter) {
+          if (!chunkId) {
+            console.error(`Missing chunk_id in metadata for match ${match.id}`);
             continue;
           }
 
@@ -228,27 +262,37 @@ export default {
             WHERE c.id = ?
           `).bind(chunkId).first();
 
-          if (chunkData) {
-            results.push({
-              score: match.score,
-              source: 'vedabase',
-              sectionType: chunkData.chunk_type as string,
-              chunkText: chunkData.chunk_text as string,
-              vedabaseVerse: {
-                id: String(chunkData.verse_id),
-                book_code: chunkData.book_code as string,
-                book_name: chunkData.book_name as string,
-                chapter: chunkData.chapter as string,
-                verse_number: chunkData.verse_number as string,
-                sanskrit: chunkData.sanskrit as string | undefined,
-                synonyms: chunkData.synonyms as string | undefined,
-                translation: chunkData.translation as string | undefined
-              }
-            });
+          if (!chunkData) {
+            continue;
           }
+
+          // Book filter is already applied at Vectorize level (lines 194-196)
+          // No need for additional filtering here
+
+          results.push({
+            score: match.score,
+            source: 'vedabase',
+            sectionType: chunkData.chunk_type as string,
+            chunkText: chunkData.chunk_text as string,
+            vedabaseVerse: {
+              id: String(chunkData.verse_id),
+              book_code: chunkData.book_code as string,
+              book_name: chunkData.book_name as string,
+              chapter: chunkData.chapter as string,
+              verse_number: chunkData.verse_number as string,
+              sanskrit: chunkData.sanskrit as string | undefined,
+              synonyms: chunkData.synonyms as string | undefined,
+              translation: chunkData.translation as string | undefined
+            }
+          });
         } else {
           // Handle Philosophy results (existing logic)
           const responseId = metadata.responseId;
+
+          if (!responseId) {
+            console.error(`Missing responseId in metadata for match ${match.id}`);
+            continue;
+          }
 
           // Apply filters
           if (questionFilter && !metadata.questionNumber.includes(questionFilter)) {
@@ -258,12 +302,18 @@ export default {
             continue;
           }
 
-          // Get embedding metadata
+          // Get chunk text via embeddings -> chunks join
           const embeddingData = await env.DB.prepare(`
-            SELECT chunk_text
-            FROM embeddings
-            WHERE id = ?
+            SELECT c.content as chunk_text
+            FROM embeddings e
+            JOIN chunks c ON e.chunk_id = c.id
+            WHERE e.id = ?
           `).bind(match.id).first();
+
+          if (!embeddingData) {
+            console.error(`No embedding data found for match.id: ${match.id}`);
+            continue;
+          }
 
           // Get full response
           const responseData = await env.DB.prepare(`
@@ -339,9 +389,94 @@ export default {
 };
 
 /**
- * Generate query embedding using OpenAI
+ * Normalize Sanskrit/IAST text for consistent matching
+ * Converts various forms of diacritics to standard forms
  */
-async function generateQueryEmbedding(query: string, apiKey: string): Promise<number[]> {
+function normalizeSanskrit(text: string): string {
+  // Common Sanskrit name variations
+  const replacements: Record<string, string> = {
+    // Krishna variations
+    'kṛṣṇa': 'krishna',
+    'krsna': 'krishna',
+    'कृष्ण': 'krishna',
+
+    // Arjuna variations
+    'arjuna': 'arjuna',
+    'अर्जुन': 'arjuna',
+
+    // Bhagavad Gita variations
+    'bhagavad gītā': 'bhagavad gita',
+    'bhagavad geeta': 'bhagavad gita',
+    'भगवद्गीता': 'bhagavad gita',
+
+    // Yoga variations
+    'yoga': 'yoga',
+    'योग': 'yoga',
+
+    // Dharma variations
+    'dharma': 'dharma',
+    'धर्म': 'dharma',
+
+    // Karma variations
+    'karma': 'karma',
+    'कर्म': 'karma',
+
+    // Atma/Soul variations
+    'ātmā': 'atma',
+    'atman': 'atma',
+    'आत्मा': 'atma',
+
+    // Brahman variations
+    'brahman': 'brahman',
+    'ब्रह्मन्': 'brahman',
+
+    // Bhakti variations
+    'bhakti': 'bhakti',
+    'भक्ति': 'bhakti',
+
+    // Remove common diacritics
+    'ā': 'a', 'ī': 'i', 'ū': 'u',
+    'ṛ': 'r', 'ṝ': 'r',
+    'ḷ': 'l', 'ḹ': 'l',
+    'ṃ': 'm', 'ṁ': 'm', 'ḥ': 'h',
+    'ś': 's', 'ṣ': 's',
+    'ṭ': 't', 'ḍ': 'd',
+    'ṇ': 'n', 'ñ': 'n'
+  };
+
+  let normalized = text.toLowerCase();
+
+  // Apply replacements
+  for (const [pattern, replacement] of Object.entries(replacements)) {
+    normalized = normalized.replace(new RegExp(pattern, 'g'), replacement);
+  }
+
+  return normalized;
+}
+
+/**
+ * Generate query embedding using OpenAI with caching and Sanskrit normalization
+ */
+async function generateQueryEmbedding(query: string, apiKey: string, cache?: KVNamespace): Promise<number[]> {
+  // Normalize Sanskrit in query for better matching
+  const normalizedQuery = normalizeSanskrit(query.trim());
+  const cacheKey = `embedding:${normalizedQuery}`;
+
+  // Try to get from cache first
+  if (cache) {
+    try {
+      const cached = await cache.get(cacheKey, 'json');
+      if (cached && Array.isArray(cached)) {
+        console.log('Cache HIT for query:', query);
+        return cached as number[];
+      }
+    } catch (error) {
+      console.warn('Cache read error:', error);
+    }
+  }
+
+  // Cache miss - generate embedding
+  console.log('Cache MISS for query:', query, '-> normalized:', normalizedQuery);
   const response = await fetch('https://api.openai.com/v1/embeddings', {
     method: 'POST',
     headers: {
@@ -350,7 +485,7 @@ async function generateQueryEmbedding(query: string, apiKey: string): Promise<nu
     },
     body: JSON.stringify({
       model: 'text-embedding-3-small',
-      input: query
+      input: normalizedQuery // Use normalized query
     })
   });
 
@@ -359,5 +494,18 @@ async function generateQueryEmbedding(query: string, apiKey: string): Promise<nu
   }
 
   const data = await response.json() as any;
-  return data.data[0].embedding;
+  const embedding = data.data[0].embedding;
+
+  // Store in cache (TTL: 7 days)
+  if (cache) {
+    try {
+      await cache.put(cacheKey, JSON.stringify(embedding), {
+        expirationTtl: 60 * 60 * 24 * 7 // 7 days
+      });
+    } catch (error) {
+      console.warn('Cache write error:', error);
+    }
+  }
+
+  return embedding;
 }
