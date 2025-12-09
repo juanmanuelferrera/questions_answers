@@ -1,93 +1,74 @@
 #!/usr/bin/env python3
 """
-Upload KB book embeddings to Cloudflare Vectorize
-Uses UPSERT to replace/add embeddings for KB chunks
+Upload Krishna Book embeddings to Vectorize
 """
 
 import json
 import subprocess
-import sys
+import time
 from pathlib import Path
 
-def upload_kb_embeddings():
-    """Upload KB embeddings to Vectorize in batches"""
+def upload_embeddings():
+    """Upload Krishna Book embeddings to Vectorize"""
+
+    print("=" * 80)
+    print("UPLOADING KRISHNA BOOK EMBEDDINGS TO VECTORIZE")
+    print("=" * 80)
 
     # Load embeddings
-    embeddings_file = 'kb_embeddings_export.json'
-    if not Path(embeddings_file).exists():
-        print(f"Error: {embeddings_file} not found")
-        print("Run generate_kb_embeddings.py first")
-        return
-
-    print("=" * 80)
-    print("UPLOADING KB EMBEDDINGS TO VECTORIZE")
-    print("=" * 80)
+    embeddings_file = 'kb_embeddings_for_upload.json'
+    print(f"\nLoading embeddings from {embeddings_file}...")
 
     with open(embeddings_file, 'r') as f:
-        data = json.load(f)
+        embeddings = json.load(f)
 
-    chunks = data['chunks']
-    print(f"\nLoaded {len(chunks)} KB embeddings")
+    total_embeddings = len(embeddings)
+    print(f"Loaded {total_embeddings} embeddings")
 
-    # Upload in batches of 100
-    batch_size = 100
-    total_batches = (len(chunks) + batch_size - 1) // batch_size
+    # Upload in batches
+    batch_size = 1000
+    total_batches = (total_embeddings + batch_size - 1) // batch_size
 
-    print(f"\nUploading to Vectorize in batches of {batch_size}...")
-    print(f"Total batches: {total_batches}\n")
+    print(f"\nUploading in {total_batches} batches of {batch_size}...")
 
-    uploaded_count = 0
-
-    for i in range(0, len(chunks), batch_size):
-        batch = chunks[i:i+batch_size]
+    for i in range(0, total_embeddings, batch_size):
+        batch = embeddings[i:i+batch_size]
         batch_num = (i // batch_size) + 1
 
-        # Prepare NDJSON format for Vectorize
-        vectors_data = []
-        for chunk in batch:
-            vectors_data.append({
-                'id': str(chunk['id']),
-                'values': chunk['embedding'],
-                'metadata': {
-                    'chunk_id': chunk['id'],
-                    'verse_id': chunk['verse_id'],
-                    'chunk_type': chunk['chunk_type'],
-                    'source': 'vedabase',
-                    'book_code': chunk['book_code']
-                }
-            })
+        # Create temporary batch file
+        batch_file = f'temp_batch_{batch_num}.ndjson'
+        with open(batch_file, 'w') as f:
+            for embedding in batch:
+                f.write(json.dumps(embedding) + '\n')
 
-        # Write to NDJSON file
-        ndjson_file = 'temp_vectors.ndjson'
-        with open(ndjson_file, 'w') as f:
-            for vec in vectors_data:
-                f.write(json.dumps(vec) + '\n')
-
-        # Upload using wrangler vectorize upsert
-        result = subprocess.run(
-            ['npx', 'wrangler', 'vectorize', 'upsert', 'philosophy-vectors',
-             f'--file={ndjson_file}'],
-            capture_output=True,
-            text=True
-        )
+        # Upload batch using wrangler
+        result = subprocess.run([
+            'npx', 'wrangler', 'vectorize', 'insert', 'philosophy-vectors',
+            '--file', batch_file
+        ], capture_output=True, text=True)
 
         # Clean up temp file
-        Path(ndjson_file).unlink()
+        Path(batch_file).unlink()
 
-        if result.returncode == 0:
-            uploaded_count += len(batch)
-            print(f"  Batch {batch_num}/{total_batches}: ✓ Uploaded {len(batch)} vectors ({uploaded_count}/{len(chunks)} total)")
-        else:
-            print(f"  Batch {batch_num}/{total_batches}: ✗ Failed")
-            print(f"  Error: {result.stderr[:200]}")
-            return
+        if result.returncode != 0:
+            print(f"  ✗ Batch {batch_num}/{total_batches} failed: {result.stderr}")
+            return False
+
+        uploaded = min(i + batch_size, total_embeddings)
+        print(f"  ✓ Batch {batch_num}/{total_batches}: {uploaded}/{total_embeddings} embeddings")
+
+        # Rate limiting
+        time.sleep(0.5)
 
     print("\n" + "=" * 80)
     print("UPLOAD COMPLETE")
     print("=" * 80)
-    print(f"  Total embeddings uploaded: {uploaded_count}")
-    print(f"  Vectorize will index these within 5-30 minutes")
+    print(f"  ✓ {total_embeddings} embeddings uploaded to Vectorize")
     print("=" * 80)
 
+    return True
+
 if __name__ == '__main__':
-    upload_kb_embeddings()
+    success = upload_embeddings()
+    if not success:
+        exit(1)

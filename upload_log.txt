@@ -1,0 +1,36 @@
+================================================================================
+UPLOADING LETTER EMBEDDINGS TO VECTORIZE
+================================================================================
+
+Loading embeddings from letter_embeddings_for_upload.json...
+Loaded 21495 embeddings
+
+Uploading in 22 batches of 1000...
+  ✓ Batch 1/22: 1000/21495 embeddings
+  ✓ Batch 2/22: 2000/21495 embeddings
+  ✓ Batch 3/22: 3000/21495 embeddings
+  ✓ Batch 4/22: 4000/21495 embeddings
+  ✓ Batch 5/22: 5000/21495 embeddings
+  ✓ Batch 6/22: 6000/21495 embeddings
+  ✓ Batch 7/22: 7000/21495 embeddings
+  ✓ Batch 8/22: 8000/21495 embeddings
+  ✓ Batch 9/22: 9000/21495 embeddings
+  ✓ Batch 10/22: 10000/21495 embeddings
+  ✓ Batch 11/22: 11000/21495 embeddings
+  ✓ Batch 12/22: 12000/21495 embeddings
+  ✓ Batch 13/22: 13000/21495 embeddings
+  ✓ Batch 14/22: 14000/21495 embeddings
+  ✓ Batch 15/22: 15000/21495 embeddings
+  ✓ Batch 16/22: 16000/21495 embeddings
+  ✓ Batch 17/22: 17000/21495 embeddings
+  ✓ Batch 18/22: 18000/21495 embeddings
+  ✓ Batch 19/22: 19000/21495 embeddings
+  ✓ Batch 20/22: 20000/21495 embeddings
+  ✓ Batch 21/22: 21000/21495 embeddings
+  ✓ Batch 22/22: 21495/21495 embeddings
+
+================================================================================
+UPLOAD COMPLETE
+================================================================================
+  ✓ 21495 embeddings uploaded to Vectorize
+================================================================================

@@ -1,33 +1,215 @@
-Found 8481 verses in local DB
-Checking remote database for existing verses...
-Found existing verses up to ID 851
-Will start uploading from verse ID 852
+================================================================================
+UPLOADING WITH ULTRA-SAFE SETTINGS
+Starting from embedding 14600
+Batch size: 100 | Timeout: 300s | Pause: 10s
+================================================================================
 
-Will upload 7630 verses in 153 batches of 50 each
+Loaded 19731 embeddings to upload
+Uploading in 198 batches of 100...
+Estimated time: 49.5 minutes
 
-Processing batch 1/153 (verses 852-901)...
-  Uploading batch 1 (172 statements)...
-  ✗ Batch 1 failed:
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mThe version of Wrangler you are using is now out-of-date.[0m
+[1/198] Uploading embeddings 14600-14700... ✓ Success
+[2/198] Uploading embeddings 14700-14800... ✓ Success
+[3/198] Uploading embeddings 14800-14900... ✓ Success
+[4/198] Uploading embeddings 14900-15000... ✓ Success
+[5/198] Uploading embeddings 15000-15100... ✓ Success
+[6/198] Uploading embeddings 15100-15200... ✓ Success
+[7/198] Uploading embeddings 15200-15300... ✓ Success
+[8/198] Uploading embeddings 15300-15400... ✓ Success
+[9/198] Uploading embeddings 15400-15500... ✓ Success
+[10/198] Uploading embeddings 15500-15600... ✓ Success
+[11/198] Uploading embeddings 15600-15700... ✓ Success
+[12/198] Uploading embeddings 15700-15800... ✓ Success
+[13/198] Uploading embeddings 15800-15900... ✓ Success
+[14/198] Uploading embeddings 15900-16000... ✓ Success
+[15/198] Uploading embeddings 16000-16100... ✓ Success
+[16/198] Uploading embeddings 16100-16200... ✓ Success
+[17/198] Uploading embeddings 16200-16300... ✓ Success
+[18/198] Uploading embeddings 16300-16400... ✓ Success
+[19/198] Uploading embeddings 16400-16500... ✓ Success
+[20/198] Uploading embeddings 16500-16600... ✓ Success
+[21/198] Uploading embeddings 16600-16700... ✓ Success
+[22/198] Uploading embeddings 16700-16800... ✓ Success
+[23/198] Uploading embeddings 16800-16900... ✓ Success
+[24/198] Uploading embeddings 16900-17000... ✓ Success
+[25/198] Uploading embeddings 17000-17100... ✓ Success
+[26/198] Uploading embeddings 17100-17200... ✓ Success
+[27/198] Uploading embeddings 17200-17300... ✓ Success
+[28/198] Uploading embeddings 17300-17400... ✓ Success
+[29/198] Uploading embeddings 17400-17500... ✓ Success
+[30/198] Uploading embeddings 17500-17600... ✓ Success
+[31/198] Uploading embeddings 17600-17700... ✓ Success
+[32/198] Uploading embeddings 17700-17800... ✓ Success
+[33/198] Uploading embeddings 17800-17900... ✓ Success
+[34/198] Uploading embeddings 17900-18000... ✓ Success
+[35/198] Uploading embeddings 18000-18100... ✓ Success
+[36/198] Uploading embeddings 18100-18200... ✓ Success
+[37/198] Uploading embeddings 18200-18300... ✓ Success
+[38/198] Uploading embeddings 18300-18400... ✓ Success
+[39/198] Uploading embeddings 18400-18500... ✓ Success
+[40/198] Uploading embeddings 18500-18600... ✓ Success
+[41/198] Uploading embeddings 18600-18700... ✓ Success
+[42/198] Uploading embeddings 18700-18800... ✓ Success
+[43/198] Uploading embeddings 18800-18900... ✓ Success
+[44/198] Uploading embeddings 18900-19000... ✓ Success
+[45/198] Uploading embeddings 19000-19100... ✓ Success
+[46/198] Uploading embeddings 19100-19200... ✓ Success
+[47/198] Uploading embeddings 19200-19300... ✓ Success
+[48/198] Uploading embeddings 19300-19400... ✓ Success
+[49/198] Uploading embeddings 19400-19500... ✓ Success
+[50/198] Uploading embeddings 19500-19600... ✓ Success
+[51/198] Uploading embeddings 19600-19700... ✓ Success
+[52/198] Uploading embeddings 19700-19800... ✓ Success
+[53/198] Uploading embeddings 19800-19900... ✓ Success
+[54/198] Uploading embeddings 19900-20000... ✓ Success
+[55/198] Uploading embeddings 20000-20100... ✓ Success
+[56/198] Uploading embeddings 20100-20200... ✓ Success
+[57/198] Uploading embeddings 20200-20300... ✓ Success
+[58/198] Uploading embeddings 20300-20400... ✓ Success
+[59/198] Uploading embeddings 20400-20500... ✓ Success
+[60/198] Uploading embeddings 20500-20600... ✓ Success
+[61/198] Uploading embeddings 20600-20700... ✓ Success
+[62/198] Uploading embeddings 20700-20800... ✓ Success
+[63/198] Uploading embeddings 20800-20900... ✓ Success
+[64/198] Uploading embeddings 20900-21000... ✓ Success
+[65/198] Uploading embeddings 21000-21100... ✓ Success
+[66/198] Uploading embeddings 21100-21200... ✓ Success
+[67/198] Uploading embeddings 21200-21300... ✓ Success
+[68/198] Uploading embeddings 21300-21400... ✓ Success
+[69/198] Uploading embeddings 21400-21500... ✓ Success
+[70/198] Uploading embeddings 21500-21600... ✓ Success
+[71/198] Uploading embeddings 21600-21700... ✓ Success
+[72/198] Uploading embeddings 21700-21800... ✓ Success
+[73/198] Uploading embeddings 21800-21900... ✓ Success
+[74/198] Uploading embeddings 21900-22000... ✓ Success
+[75/198] Uploading embeddings 22000-22100... ✓ Success
+[76/198] Uploading embeddings 22100-22200... ✓ Success
+[77/198] Uploading embeddings 22200-22300... ✓ Success
+[78/198] Uploading embeddings 22300-22400... ✓ Success
+[79/198] Uploading embeddings 22400-22500... ✓ Success
+[80/198] Uploading embeddings 22500-22600... ✓ Success
+[81/198] Uploading embeddings 22600-22700... ✓ Success
+[82/198] Uploading embeddings 22700-22800... ✓ Success
+[83/198] Uploading embeddings 22800-22900... ✓ Success
+[84/198] Uploading embeddings 22900-23000... ✓ Success
+[85/198] Uploading embeddings 23000-23100... ✓ Success
+[86/198] Uploading embeddings 23100-23200... ✓ Success
+[87/198] Uploading embeddings 23200-23300... ✓ Success
+[88/198] Uploading embeddings 23300-23400... ✓ Success
+[89/198] Uploading embeddings 23400-23500... ✓ Success
+[90/198] Uploading embeddings 23500-23600... ✓ Success
+[91/198] Uploading embeddings 23600-23700... ✓ Success
+[92/198] Uploading embeddings 23700-23800... ✓ Success
+[93/198] Uploading embeddings 23800-23900... ✓ Success
+[94/198] Uploading embeddings 23900-24000... ✓ Success
+[95/198] Uploading embeddings 24000-24100... ✓ Success
+[96/198] Uploading embeddings 24100-24200... ✓ Success
+[97/198] Uploading embeddings 24200-24300... ✓ Success
+[98/198] Uploading embeddings 24300-24400... ✓ Success
+[99/198] Uploading embeddings 24400-24500... ✓ Success
+[100/198] Uploading embeddings 24500-24600... ✓ Success
+[101/198] Uploading embeddings 24600-24700... ✓ Success
+[102/198] Uploading embeddings 24700-24800... ✓ Success
+[103/198] Uploading embeddings 24800-24900... ✓ Success
+[104/198] Uploading embeddings 24900-25000... ✓ Success
+[105/198] Uploading embeddings 25000-25100... ✓ Success
+[106/198] Uploading embeddings 25100-25200... ✓ Success
+[107/198] Uploading embeddings 25200-25300... ✓ Success
+[108/198] Uploading embeddings 25300-25400... ✓ Success
+[109/198] Uploading embeddings 25400-25500... ✓ Success
+[110/198] Uploading embeddings 25500-25600... ✓ Success
+[111/198] Uploading embeddings 25600-25700... ✓ Success
+[112/198] Uploading embeddings 25700-25800... ✓ Success
+[113/198] Uploading embeddings 25800-25900... ✓ Success
+[114/198] Uploading embeddings 25900-26000... ✓ Success
+[115/198] Uploading embeddings 26000-26100... ✓ Success
+[116/198] Uploading embeddings 26100-26200... ✓ Success
+[117/198] Uploading embeddings 26200-26300... ✓ Success
+[118/198] Uploading embeddings 26300-26400... ✓ Success
+[119/198] Uploading embeddings 26400-26500... ✓ Success
+[120/198] Uploading embeddings 26500-26600... ✓ Success
+[121/198] Uploading embeddings 26600-26700... ✓ Success
+[122/198] Uploading embeddings 26700-26800... ✓ Success
+[123/198] Uploading embeddings 26800-26900... ✓ Success
+[124/198] Uploading embeddings 26900-27000... ✓ Success
+[125/198] Uploading embeddings 27000-27100... ✓ Success
+[126/198] Uploading embeddings 27100-27200... ✓ Success
+[127/198] Uploading embeddings 27200-27300... ✓ Success
+[128/198] Uploading embeddings 27300-27400... ✓ Success
+[129/198] Uploading embeddings 27400-27500... ✓ Success
+[130/198] Uploading embeddings 27500-27600... ✓ Success
+[131/198] Uploading embeddings 27600-27700... ✓ Success
+[132/198] Uploading embeddings 27700-27800... ✓ Success
+[133/198] Uploading embeddings 27800-27900... ✓ Success
+[134/198] Uploading embeddings 27900-28000... ✓ Success
+[135/198] Uploading embeddings 28000-28100... ✓ Success
+[136/198] Uploading embeddings 28100-28200... ✓ Success
+[137/198] Uploading embeddings 28200-28300... ✓ Success
+[138/198] Uploading embeddings 28300-28400... ✓ Success
+[139/198] Uploading embeddings 28400-28500... ✓ Success
+[140/198] Uploading embeddings 28500-28600... ✓ Success
+[141/198] Uploading embeddings 28600-28700... ✓ Success
+[142/198] Uploading embeddings 28700-28800... ✓ Success
+[143/198] Uploading embeddings 28800-28900... ✓ Success
+[144/198] Uploading embeddings 28900-29000... ✓ Success
+[145/198] Uploading embeddings 29000-29100... ✓ Success
+[146/198] Uploading embeddings 29100-29200... ✓ Success
+[147/198] Uploading embeddings 29200-29300... ✓ Success
+[148/198] Uploading embeddings 29300-29400... ✓ Success
+[149/198] Uploading embeddings 29400-29500... ✓ Success
+[150/198] Uploading embeddings 29500-29600... ✓ Success
+[151/198] Uploading embeddings 29600-29700... ✓ Success
+[152/198] Uploading embeddings 29700-29800... ✓ Success
+[153/198] Uploading embeddings 29800-29900... ✓ Success
+[154/198] Uploading embeddings 29900-30000... ✓ Success
+[155/198] Uploading embeddings 30000-30100... ✓ Success
+[156/198] Uploading embeddings 30100-30200... ✓ Success
+[157/198] Uploading embeddings 30200-30300... ✓ Success
+[158/198] Uploading embeddings 30300-30400... ✓ Success
+[159/198] Uploading embeddings 30400-30500... ✓ Success
+[160/198] Uploading embeddings 30500-30600... ✓ Success
+[161/198] Uploading embeddings 30600-30700... ✓ Success
+[162/198] Uploading embeddings 30700-30800... ✓ Success
+[163/198] Uploading embeddings 30800-30900... ✓ Success
+[164/198] Uploading embeddings 30900-31000... ✓ Success
+[165/198] Uploading embeddings 31000-31100... ✓ Success
+[166/198] Uploading embeddings 31100-31200... ✓ Success
+[167/198] Uploading embeddings 31200-31300... ✓ Success
+[168/198] Uploading embeddings 31300-31400... ✓ Success
+[169/198] Uploading embeddings 31400-31500... ✓ Success
+[170/198] Uploading embeddings 31500-31600... ✓ Success
+[171/198] Uploading embeddings 31600-31700... ✓ Success
+[172/198] Uploading embeddings 31700-31800... ✓ Success
+[173/198] Uploading embeddings 31800-31900... ✓ Success
+[174/198] Uploading embeddings 31900-32000... ✓ Success
+[175/198] Uploading embeddings 32000-32100... ✓ Success
+[176/198] Uploading embeddings 32100-32200... ✓ Success
+[177/198] Uploading embeddings 32200-32300... ✓ Success
+[178/198] Uploading embeddings 32300-32400... ✓ Success
+[179/198] Uploading embeddings 32400-32500... ✓ Success
+[180/198] Uploading embeddings 32500-32600... ✓ Success
+[181/198] Uploading embeddings 32600-32700... ✓ Success
+[182/198] Uploading embeddings 32700-32800... ✓ Success
+[183/198] Uploading embeddings 32800-32900... ✓ Success
+[184/198] Uploading embeddings 32900-33000... ✓ Success
+[185/198] Uploading embeddings 33000-33100... ✓ Success
+[186/198] Uploading embeddings 33100-33200... ✓ Success
+[187/198] Uploading embeddings 33200-33300... ✓ Success
+[188/198] Uploading embeddings 33300-33400... ✓ Success
+[189/198] Uploading embeddings 33400-33500... ✓ Success
+[190/198] Uploading embeddings 33500-33600... ✓ Success
+[191/198] Uploading embeddings 33600-33700... ✓ Success
+[192/198] Uploading embeddings 33700-33800... ✓ Success
+[193/198] Uploading embeddings 33800-33900... ✓ Success
+[194/198] Uploading embeddings 33900-34000... ✓ Success
+[195/198] Uploading embeddings 34000-34100... ✓ Success
+[196/198] Uploading embeddings 34100-34200... ✓ Success
+[197/198] Uploading embeddings 34200-34300... ✓ Success
+[198/198] Uploading embeddings 34300-34331... ✓ Success
 
-  Please update to the latest version to prevent critical errors.
-  Run `npm install --save-dev wrangler@4` to update to the latest version.
-  After installation, run Wrangler with `npx wrangler`.
-
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1m⚠️ This process may take some time, during which your D1 database will be unavailable to serve queries.[0m
-
-
-[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mUNIQUE constraint failed: vedabase_verses.id: SQLITE_CONSTRAINT[0m
-
-
-🪵  Logs were written to "/Users/jaganat/Library/Preferences/.wrangler/logs/wrangler-2025-11-25_18-21-56_343.log"
-
-  Stopping due to error. You can retry from batch 1
-
-============================================================
-Upload Summary:
-  Successful batches: 0/153
-  Failed batches: 1
-  Total verses uploaded: ~0
-============================================================
+================================================================================
+UPLOAD COMPLETE!
+================================================================================
+✓ 198 batches uploaded
+✓ Embeddings 14600-34331 in Vectorize
+================================================================================

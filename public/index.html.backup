@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" type="image/png" href="/prabhupada.png">
+    <title>Vedabase RAG - Semantic Search Across Bhagavad Gita & Srimad Bhagavatam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .header .stats {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-top: 15px;
+        }
+
+        .search-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 16px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .search-input::placeholder {
+            color: #94a3b8;
+        }
+
+        #recentSearches option {
+            background: rgba(0, 0, 0, 0.9);
+            color: #FFD700;
+            padding: 8px;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .control-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-group select:hover {
+            border-color: #FFD700;
+        }
+
+        .control-group select option {
+            background: #1a0a2e;
+            color: #fff;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a0a2e;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(46, 125, 50, 0.95);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #94a3b8;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 215, 0, 0.1);
+            border-top: 3px solid #FFD700;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .synthesis-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .question-header {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .question-label {
+            color: #FFA500;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            color: #FFD700;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .synthesis-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            line-height: 1.8;
+            color: #e8e8e8;
+            margin-bottom: 20px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .synthesis-box p {
+            margin-bottom: 1em;
+        }
+
+        .synthesis-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .word-count {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .sources-section {
+            margin-top: 30px;
+        }
+
+        .sources-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .sources-header h3 {
+            color: #FFA500;
+            font-size: 1.1rem;
+        }
+
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .sources-list {
+            display: block;
+            margin-top: 15px;
+        }
+
+        .source-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 3px solid #FFD700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .source-card:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .source-card .source-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .source-card:not(.expanded) .source-content {
+            max-height: 80px;
+            position: relative;
+        }
+
+        .source-card:not(.expanded) .source-content::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+            pointer-events: none;
+        }
+
+        .source-card:not(.expanded) .verse-text,
+        .source-card:not(.expanded) .purport-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .source-card.expanded .source-content {
+            max-height: none;
+        }
+
+        .source-toggle-icon {
+            display: inline-block;
+            margin-left: 8px;
+            font-size: 0.8rem;
+            color: #FFA500;
+            transition: transform 0.3s ease;
+        }
+
+        .source-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .source-title {
+            flex: 1;
+        }
+
+        .source-title h4 {
+            color: #FFD700;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .source-title .verse-ref {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .source-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-copy {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #FFD700;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .btn-copy:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: #FFD700;
+            transform: translateY(-1px);
+        }
+
+        .btn-copy:active {
+            transform: translateY(0);
+        }
+
+        .similarity-score {
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .verse-text {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #cbd5e1;
+            border-left: 2px solid #FFA500;
+        }
+
+        .sanskrit {
+            font-family: 'Noto Sans Devanagari', serif;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .translation {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .purport-text {
+            line-height: 1.7;
+            color: #e8e8e8;
+        }
+
+        .chunk-type {
+            display: inline-block;
+            background: rgba(255, 165, 0, 0.2);
+            color: #FFA500;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            .synthesis-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🕉️ Vedabase RAG</h1>
+            <div class="subtitle">Semantic Search Across Srila Prabhupada's legacy with AI Synthesis</div>
+            <div class="stats">Bhagavad Gita, Srimad Bhagavatam, Srila Prabhupada's Letters & More</div>
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="queryInput"
+                class="search-input"
+                placeholder="Ask a question... (recent searches will appear as you type)"
+                onkeypress="if(event.key==='Enter') search()"
+            >
+
+            <div class="controls">
+                <div class="control-group">
+                    <select id="bookSelect" onchange="handleFilterChange()">
+                        <option value="">All Books</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <select id="topKInput" onchange="handleFilterChange()">
+                        <option value="5">5 sources</option>
+                        <option value="10">10 sources</option>
+                        <option value="15">15 sources</option>
+                        <option value="20" selected>20 sources (max)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <select id="wordLimitSelect" onchange="handleFilterChange()">
+                        <option value="30">30 words</option>
+                        <option value="50">50 words</option>
+                        <option value="100">100 words</option>
+                        <option value="200" selected>200 words</option>
+                        <option value="400">400 words</option>
+                        <option value="600">600 words</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <button class="btn btn-secondary" onclick="resetFilters()">🔄 Reset</button>
+                </div>
+
+                <div class="control-group">
+                    <button class="btn btn-secondary" onclick="clearSearchHistory()" title="Clear search history">🗑️ Clear History</button>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="search()" id="searchBtn">Search & Synthesize</button>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <div>Searching Vedic texts and generating synthesis...</div>
+        </div>
+
+        <div id="synthesis" style="display: none;"></div>
+    </div>
+
+    <script>
+        const QUERY_WORKER = 'https://philosophy-rag.joanmanelferrera-400.workers.dev';
+        const SYNTHESIS_WORKER = 'https://vedabase-synthesis.joanmanelferrera-400.workers.dev';
+        const MAX_RECENT_SEARCHES = 10;
+
+        let currentResults = null;
+        let sourcesExpanded = false;
+        let recentSearches = [];
+
+        // Load books and recent searches on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBooks();
+            loadRecentSearches();
+        });
+
+        async function loadBooks() {
+            try {
+                const response = await fetch(`${QUERY_WORKER}/vedabase-books`);
+                const data = await response.json();
+
+                // Sort alphabetically, except SB Cantos which sort numerically
+                const sortBooks = (books) => {
+                    return books.sort((a, b) => {
+                        // Extract SB canto numbers if present
+                        const aMatch = a.code.match(/^sb(\d+)$/);
+                        const bMatch = b.code.match(/^sb(\d+)$/);
+
+                        // If both are SB cantos, sort numerically
+                        if (aMatch && bMatch) {
+                            return parseInt(aMatch[1]) - parseInt(bMatch[1]);
+                        }
+
+                        // Otherwise sort alphabetically by name
+                        return a.name.localeCompare(b.name);
+                    });
+                };
+
+                const select = document.getElementById('bookSelect');
+                sortBooks(data.books).forEach(book => {
+                    const option = document.createElement('option');
+                    option.value = book.code;
+                    option.textContent = book.name;
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Failed to load books:', error);
+            }
+        }
+
+        function loadRecentSearches() {
+            try {
+                const stored = localStorage.getItem('vedabaseRecentSearches');
+                recentSearches = stored ? JSON.parse(stored) : [];
+                updateSearchInput();
+            } catch (error) {
+                console.error('Failed to load recent searches:', error);
+                recentSearches = [];
+            }
+        }
+
+        function saveRecentSearch(query) {
+            // Remove if already exists
+            recentSearches = recentSearches.filter(q => q !== query);
+            // Add to beginning
+            recentSearches.unshift(query);
+            // Keep only MAX_RECENT_SEARCHES
+            recentSearches = recentSearches.slice(0, MAX_RECENT_SEARCHES);
+            // Save to localStorage
+            try {
+                localStorage.setItem('vedabaseRecentSearches', JSON.stringify(recentSearches));
+            } catch (error) {
+                console.error('Failed to save recent searches:', error);
+            }
+        }
+
+        function updateSearchInput() {
+            const input = document.getElementById('queryInput');
+            if (recentSearches.length > 0) {
+                input.setAttribute('list', 'recentSearches');
+                let datalist = document.getElementById('recentSearches');
+                if (!datalist) {
+                    datalist = document.createElement('datalist');
+                    datalist.id = 'recentSearches';
+                    input.parentNode.insertBefore(datalist, input.nextSibling);
+                }
+                datalist.innerHTML = recentSearches
+                    .map(q => `<option value="${escapeHtml(q)}">`)
+                    .join('');
+            }
+        }
+
+        async function search() {
+            const query = document.getElementById('queryInput').value.trim();
+            if (!query) {
+                alert('Please enter a question');
+                return;
+            }
+
+            // Save to recent searches
+            saveRecentSearch(query);
+            updateSearchInput();
+
+            const topK = parseInt(document.getElementById('topKInput').value);
+            const wordLimit = parseInt(document.getElementById('wordLimitSelect').value);
+            const bookFilter = document.getElementById('bookSelect').value;
+
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('synthesis').style.display = 'none';
+            document.getElementById('searchBtn').disabled = true;
+
+            try {
+                // 1. Search for relevant verses
+                // When filtering by book, request more results to increase chances of matches
+                // Increased multiplier to help find buried information in long chunks
+                const searchTopK = bookFilter ? Math.min(topK * 5, 100) : Math.min(topK * 2, 50);
+                const searchBody = { query, topK: searchTopK, source: 'vedabase' };
+                if (bookFilter) {
+                    searchBody.bookFilter = bookFilter;
+                }
+
+                console.log('Search params:', { query, topK, searchTopK, bookFilter, searchBody });
+
+                const searchResponse = await fetch(QUERY_WORKER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(searchBody)
+                });
+
+                if (!searchResponse.ok) {
+                    const errorText = await searchResponse.text();
+                    console.error('Search error:', errorText);
+                    throw new Error(`Search failed: ${searchResponse.status} - ${errorText}`);
+                }
+
+                const searchData = await searchResponse.json();
+
+                // If we requested more results for filtering, trim to original topK
+                if (searchData.results.length > topK) {
+                    searchData.results = searchData.results.slice(0, topK);
+                    searchData.count = searchData.results.length;
+                }
+
+                currentResults = searchData;
+
+                if (searchData.results.length === 0) {
+                    const bookFilterActive = document.getElementById('bookSelect').value;
+                    const message = bookFilterActive
+                        ? `No results found in the selected book. Try:<br>
+                           • Using more specific terms related to that book's content<br>
+                           • Searching "All Books" to see if results exist elsewhere<br>
+                           • Using different keywords`
+                        : `No results found. Try a different search term.`;
+
+                    document.getElementById('synthesis').innerHTML = `
+                        <div class="synthesis-container">
+                            <p>${message}</p>
+                        </div>
+                    `;
+                    document.getElementById('synthesis').style.display = 'block';
+                    return;
+                }
+
+                // 2. Automatically generate synthesis
+                const sources = searchData.results.map(r => ({
+                    verse: r.vedabaseVerse || r.verse,
+                    chunkType: r.sectionType || r.chunkType,
+                    chunkText: r.chunkText,
+                    score: r.score
+                }));
+
+                // Determine book context for synthesis
+                let bookContext = null;
+                if (bookFilter) {
+                    const bookName = sources[0]?.verse?.book_name;
+                    if (bookName) {
+                        bookContext = bookName;
+                    }
+                }
+
+                console.log('Sending to synthesis:', { query, sources, wordLimit, bookContext });
+
+                // Show results immediately with streaming placeholder
+                displayResultsStreaming(query, searchData.results, wordLimit);
+
+                // Start streaming synthesis
+                const synthesisResponse = await fetch(SYNTHESIS_WORKER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query, sources, wordLimit, bookContext })
+                });
+
+                if (!synthesisResponse.ok) {
+                    const errorText = await synthesisResponse.text();
+                    console.error('Synthesis error:', errorText);
+                    throw new Error(`Synthesis failed: ${synthesisResponse.status} - ${errorText}`);
+                }
+
+                // Read streaming response
+                const reader = synthesisResponse.body.getReader();
+                const decoder = new TextDecoder();
+                let synthesis = '';
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    const chunk = decoder.decode(value, { stream: true });
+                    const lines = chunk.split('\n');
+
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = line.slice(6);
+                            if (data === '[DONE]') continue;
+
+                            try {
+                                const parsed = JSON.parse(data);
+                                const content = parsed.choices?.[0]?.delta?.content;
+                                if (content) {
+                                    synthesis += content;
+                                    updateStreamingSynthesis(synthesis);
+                                }
+                            } catch (e) {
+                                // Skip invalid JSON
+                            }
+                        }
+                    }
+                }
+
+                // Final update with complete synthesis
+                finalizeStreamingSynthesis(synthesis, wordLimit);
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Search failed: ' + error.message);
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('searchBtn').disabled = false;
+            }
+        }
+
+        function displayResults(query, synthesis, targetWords, sources) {
+            const wordCount = synthesis.split(/\s+/).length;
+            const formattedSynthesis = synthesis
+                .split(/\n\n+/)
+                .filter(para => para.trim())
+                .map(para => `<p>${para.trim()}</p>`)
+                .join('');
+
+            const sourcesHtml = sources.map((result, index) => {
+                const verse = result.vedabaseVerse || result.verse || {};
+                const chunkText = result.chunkText;
+                const chunkType = result.sectionType || result.chunkType || 'text';
+                const score = result.score;
+
+                let verseHtml = '';
+                if (verse.sanskrit || verse.translation) {
+                    verseHtml = `
+                        <div class="verse-text">
+                            ${verse.sanskrit ? `<div class="sanskrit">${escapeHtml(verse.sanskrit)}</div>` : ''}
+                            ${verse.translation ? `<div class="translation">${escapeHtml(verse.translation)}</div>` : ''}
+                        </div>
+                    `;
+                }
+
+                const bookName = verse.book_name || verse.book || 'Unknown Book';
+                const verseRef = verse.chapter ? `${escapeHtml(verse.chapter)} - Verse ${escapeHtml(verse.verse_number)}` : `Verse ${escapeHtml(verse.verse_number || '')}`;
+
+                const sourceText = `${bookName}\n${verseRef}\n\n${verse.sanskrit ? verse.sanskrit + '\n\n' : ''}${verse.translation ? verse.translation + '\n\n' : ''}${chunkText}`;
+
+                return `
+                    <div class="source-card" onclick="toggleSource(this)">
+                        <div class="source-header">
+                            <div class="source-title">
+                                <h4>${escapeHtml(bookName)} <span class="source-toggle-icon">▶</span></h4>
+                                <div class="verse-ref">${verseRef}</div>
+                            </div>
+                            <div class="source-header-actions">
+                                <button class="btn-copy" onclick="copySource(event, \`${sourceText.replace(/`/g, '\\`').replace(/\$/g, '\\$')}\`)" title="Copy this source">
+                                    📋 Copy
+                                </button>
+                                <div class="similarity-score">${(score * 100).toFixed(1)}%</div>
+                            </div>
+                        </div>
+                        <div class="source-content">
+                            ${verseHtml}
+                            <div class="purport-text">${chunkText}</div>
+                            <span class="chunk-type">${chunkType.replace(/_/g, ' ')}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('synthesis').innerHTML = `
+                <div class="synthesis-container">
+                    <div class="question-header">
+                        <div class="question-label">QUESTION</div>
+                        <div class="question-text">${escapeHtml(query)}</div>
+                    </div>
+
+                    <div class="synthesis-box">${formattedSynthesis}</div>
+
+                    <div class="synthesis-actions">
+                        <button class="btn btn-secondary" onclick="copySynthesis()">📋 Copy Answer</button>
+                        <button class="btn btn-secondary" onclick="copySynthesisSpanish(event)">🇪🇸 Copy Answer</button>
+                        <span class="word-count">Words: ${wordCount} / ${targetWords}</span>
+                    </div>
+
+                    <div class="sources-section">
+                        <div class="sources-header" onclick="toggleSources()">
+                            <h3>📚 Sources (${sources.length})</h3>
+                            <span class="toggle-icon" id="toggleIcon">▶</span>
+                        </div>
+                        <div class="sources-list" id="sourcesList">
+                            ${sourcesHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('synthesis').style.display = 'block';
+        }
+
+        function displayResultsStreaming(query, sources, targetWords) {
+            // Display sources immediately with streaming placeholder for synthesis
+            const sourcesHtml = sources.map((result, index) => {
+                const verse = result.vedabaseVerse || result.verse || {};
+                const chunkText = result.chunkText;
+                const chunkType = result.sectionType || result.chunkType || 'text';
+                const score = result.score;
+
+                let verseHtml = '';
+                if (verse.sanskrit || verse.translation) {
+                    verseHtml = `
+                        <div class="verse-text">
+                            ${verse.sanskrit ? `<div class="sanskrit">${escapeHtml(verse.sanskrit)}</div>` : ''}
+                            ${verse.translation ? `<div class="translation">${escapeHtml(verse.translation)}</div>` : ''}
+                        </div>
+                    `;
+                }
+
+                const bookName = verse.book_name || verse.book || 'Unknown Book';
+                const verseRef = verse.chapter ? `${escapeHtml(verse.chapter)} - Verse ${escapeHtml(verse.verse_number)}` : `Verse ${escapeHtml(verse.verse_number || '')}`;
+
+                const sourceText = `${bookName}\n${verseRef}\n\n${verse.sanskrit ? verse.sanskrit + '\n\n' : ''}${verse.translation ? verse.translation + '\n\n' : ''}${chunkText}`;
+
+                return `
+                    <div class="source-card" onclick="toggleSource(this)">
+                        <div class="source-header">
+                            <div class="source-title">
+                                <h4>${escapeHtml(bookName)} <span class="source-toggle-icon">▶</span></h4>
+                                <div class="verse-ref">${verseRef}</div>
+                            </div>
+                            <div class="source-header-actions">
+                                <button class="btn-copy" onclick="copySource(event, \`${sourceText.replace(/`/g, '\\`').replace(/\$/g, '\\$')}\`)" title="Copy this source">
+                                    📋 Copy
+                                </button>
+                                <div class="similarity-score">${(score * 100).toFixed(1)}%</div>
+                            </div>
+                        </div>
+                        <div class="source-content">
+                            ${verseHtml}
+                            <div class="purport-text">${chunkText}</div>
+                            <span class="chunk-type">${chunkType.replace(/_/g, ' ')}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('synthesis').innerHTML = `
+                <div class="synthesis-container">
+                    <div class="question-header">
+                        <div class="question-label">QUESTION</div>
+                        <div class="question-text">${escapeHtml(query)}</div>
+                    </div>
+
+                    <div class="synthesis-box" id="streamingSynthesis">
+                        <p style="color: #888;">Generating answer...</p>
+                    </div>
+
+                    <div class="synthesis-actions">
+                        <button class="btn btn-secondary" onclick="copySynthesis()">📋 Copy Answer</button>
+                        <button class="btn btn-secondary" onclick="copySynthesisSpanish(event)">🇪🇸 Copy Answer</button>
+                        <span class="word-count" id="streamingWordCount">Words: 0 / ${targetWords}</span>
+                    </div>
+
+                    <div class="sources-section">
+                        <div class="sources-header" onclick="toggleSources()">
+                            <h3>📚 Sources (${sources.length})</h3>
+                            <span class="toggle-icon" id="toggleIcon">▶</span>
+                        </div>
+                        <div class="sources-list" id="sourcesList">
+                            ${sourcesHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('synthesis').style.display = 'block';
+        }
+
+        function updateStreamingSynthesis(synthesis) {
+            // Update synthesis text in real-time
+            const formattedSynthesis = synthesis
+                .split(/\n\n+/)
+                .filter(para => para.trim())
+                .map(para => `<p>${escapeHtml(para.trim())}</p>`)
+                .join('');
+
+            document.getElementById('streamingSynthesis').innerHTML = formattedSynthesis || '<p style="color: #888;">Generating answer...</p>';
+
+            // Update word count
+            const wordCount = synthesis.split(/\s+/).filter(w => w.length > 0).length;
+            const targetWords = document.getElementById('streamingWordCount').textContent.match(/\/ (\d+)/)?.[1] || '0';
+            document.getElementById('streamingWordCount').textContent = `Words: ${wordCount} / ${targetWords}`;
+        }
+
+        function finalizeStreamingSynthesis(synthesis, targetWords) {
+            // Final formatting when streaming completes
+            const formattedSynthesis = synthesis
+                .split(/\n\n+/)
+                .filter(para => para.trim())
+                .map(para => `<p>${escapeHtml(para.trim())}</p>`)
+                .join('');
+
+            document.getElementById('streamingSynthesis').innerHTML = formattedSynthesis;
+
+            const wordCount = synthesis.split(/\s+/).filter(w => w.length > 0).length;
+            document.getElementById('streamingWordCount').textContent = `Words: ${wordCount} / ${targetWords}`;
+        }
+
+        function toggleSource(card) {
+            event.stopPropagation();
+            card.classList.toggle('expanded');
+
+            // Update toggle icon
+            const icon = card.querySelector('.source-toggle-icon');
+            if (card.classList.contains('expanded')) {
+                icon.textContent = '▼';
+            } else {
+                icon.textContent = '▶';
+            }
+        }
+
+        function toggleSources() {
+            sourcesExpanded = !sourcesExpanded;
+            const sourcesList = document.getElementById('sourcesList');
+            const toggleIcon = document.getElementById('toggleIcon');
+
+            sourcesList.classList.toggle('visible');
+
+            // Change icon between ▶ (collapsed) and ▼ (expanded)
+            if (sourcesList.classList.contains('visible')) {
+                toggleIcon.textContent = '▼';
+            } else {
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+
+        function copySynthesis() {
+            const question = document.querySelector('.question-text').innerText;
+            const synthesis = document.querySelector('.synthesis-box').innerText;
+            const textToCopy = `${question}\n\n${synthesis}`;
+            navigator.clipboard.writeText(textToCopy);
+            showToast('Copied');
+        }
+
+        function copySource(event, sourceText) {
+            event.stopPropagation(); // Prevent card from toggling
+            navigator.clipboard.writeText(sourceText);
+
+            // Visual feedback
+            const button = event.target.closest('.btn-copy');
+            const originalText = button.innerHTML;
+            button.innerHTML = '✅ Copied!';
+            button.style.background = 'rgba(76, 175, 80, 0.3)';
+
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = '';
+            }, 2000);
+        }
+
+        async function copySynthesisSpanish(event) {
+            const question = document.querySelector('.question-text').innerText;
+            const synthesis = document.querySelector('.synthesis-box').innerText;
+
+            // Show loading state
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = '⏳ Traduciendo...';
+            button.disabled = true;
+
+            try {
+                // Call translation worker
+                const response = await fetch('https://vedabase-translate.joanmanelferrera-400.workers.dev/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        question: question,
+                        answer: synthesis
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    console.error('Translation error:', errorData);
+                    throw new Error(errorData.message || 'Translation service error');
+                }
+
+                const data = await response.json();
+                const spanishText = data.translation;
+
+                await navigator.clipboard.writeText(spanishText);
+                showToast('✅ Copied to clipboard!');
+            } catch (error) {
+                console.error('Translation error:', error);
+                showToast('❌ Translation failed - Check console for details');
+            } finally {
+                button.textContent = originalText;
+                button.disabled = false;
+            }
+        }
+
+        function resetFilters() {
+            document.getElementById('queryInput').value = '';
+            document.getElementById('bookSelect').value = '';
+            document.getElementById('topKInput').value = '20';
+            document.getElementById('wordLimitSelect').value = '200';
+            document.getElementById('synthesis').style.display = 'none';
+            currentResults = null;
+        }
+
+        function clearSearchHistory() {
+            if (confirm('Clear all search history?')) {
+                recentSearches = [];
+                localStorage.removeItem('vedabaseRecentSearches');
+                updateSearchInput();
+                showToast('Search history cleared');
+            }
+        }
+
+        function handleFilterChange() {
+            // Only trigger automatic search if there's already a query
+            const query = document.getElementById('queryInput').value.trim();
+            if (query && currentResults) {
+                search();
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

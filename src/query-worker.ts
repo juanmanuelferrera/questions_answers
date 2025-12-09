@@ -269,8 +269,12 @@ export default {
           // Book filter is already applied at Vectorize level (lines 194-196)
           // No need for additional filtering here
 
+          // Calculate hybrid score (vector 70% + keyword 30%)
+          const keywordScore = calculateKeywordScore(query, chunkData.chunk_text as string);
+          const finalScore = hybridScore(match.score, keywordScore);
+
           results.push({
-            score: match.score,
+            score: finalScore,
             source: 'vedabase',
             sectionType: chunkData.chunk_type as string,
             chunkText: chunkData.chunk_text as string,
@@ -337,8 +341,12 @@ export default {
           `).bind(responseId).first();
 
           if (responseData && embeddingData) {
+            // Calculate hybrid score (vector 70% + keyword 30%)
+            const keywordScore = calculateKeywordScore(query, embeddingData.chunk_text as string);
+            const finalScore = hybridScore(match.score, keywordScore);
+
             results.push({
-              score: match.score,
+              score: finalScore,
               source: 'philosophy',
               sectionType: metadata.sectionType,
               chunkText: embeddingData.chunk_text as string,
@@ -365,10 +373,14 @@ export default {
         }
       }
 
+      // Sort results by hybrid score (descending) and limit to topK
+      results.sort((a, b) => b.score - a.score);
+      const finalResults = results.slice(0, topK);
+
       return new Response(JSON.stringify({
         query,
-        count: results.length,
-        results
+        count: finalResults.length,
+        results: finalResults
       }), {
         headers: {
           'Content-Type': 'application/json',
@@ -455,11 +467,153 @@ function normalizeSanskrit(text: string): string {
 }
 
 /**
- * Generate query embedding using OpenAI with caching and Sanskrit normalization
+ * Expand query with relevant Vedic terminology synonyms and related concepts
+ * Improves recall by adding contextually relevant terms
+ */
+function expandQuery(query: string): string {
+  const lowerQuery = query.toLowerCase();
+  const expansions: string[] = [query]; // Start with original query
+
+  // Vedic concept synonyms and related terms
+  const synonymDictionary: Record<string, string[]> = {
+    // Core deities
+    'krishna': ['supreme personality of godhead', 'bhagavan', 'govinda', 'vasudeva'],
+    'god': ['supreme', 'absolute truth', 'bhagavan', 'paramatma', 'supersoul'],
+    'lord': ['supreme lord', 'krishna', 'vishnu', 'narayana'],
+
+    // Spiritual practices
+    'chanting': ['kirtan', 'japa', 'holy name', 'hare krishna mantra', 'maha mantra'],
+    'meditation': ['dhyana', 'contemplation', 'concentration'],
+    'prayer': ['supplication', 'devotional service', 'bhajan'],
+    'worship': ['puja', 'arcana', 'deity worship', 'devotional service'],
+
+    // Philosophical concepts
+    'soul': ['atma', 'self', 'spirit soul', 'jivatma', 'living entity'],
+    'supersoul': ['paramatma', 'antaryami', 'inner witness'],
+    'liberation': ['moksha', 'mukti', 'freedom', 'self-realization'],
+    'consciousness': ['awareness', 'knowledge', 'jnana', 'realization'],
+
+    // Types of yoga
+    'bhakti': ['devotion', 'devotional service', 'love of god', 'pure devotion'],
+    'yoga': ['union', 'connection', 'spiritual practice'],
+    'karma yoga': ['action in devotion', 'work in krishna consciousness'],
+    'jnana': ['knowledge', 'wisdom', 'understanding'],
+
+    // Spiritual principles
+    'dharma': ['duty', 'righteousness', 'religion', 'eternal occupation'],
+    'karma': ['action', 'work', 'fruitive activities', 'reaction'],
+    'maya': ['illusion', 'material energy', 'external energy'],
+    'reincarnation': ['transmigration', 'rebirth', 'samsara', 'cycle of birth and death'],
+
+    // Spiritual relationships
+    'guru': ['spiritual master', 'teacher', 'acharya', 'preceptor'],
+    'disciple': ['student', 'devotee', 'follower', 'initiate'],
+    'association': ['satsanga', 'company', 'sangha', 'fellowship'],
+
+    // Spiritual qualities
+    'renunciation': ['detachment', 'vairagya', 'sannyasa'],
+    'surrender': ['sharanagati', 'submission', 'giving up'],
+    'humility': ['meekness', 'modesty', 'absence of pride'],
+    'tolerance': ['forbearance', 'patience', 'titiksha'],
+
+    // Material vs spiritual
+    'material': ['temporary', 'mundane', 'worldly', 'maya'],
+    'spiritual': ['transcendental', 'eternal', 'absolute', 'divine'],
+    'illusion': ['maya', 'false ego', 'ahamkara', 'misidentification'],
+
+    // Devotional concepts
+    'service': ['seva', 'devotional service', 'bhakti', 'surrender'],
+    'love': ['prema', 'pure love', 'devotion', 'affection for krishna'],
+    'grace': ['mercy', 'kripa', 'blessing', 'causeless mercy'],
+
+    // Mind and senses
+    'mind': ['manas', 'mental', 'thoughts', 'consciousness'],
+    'senses': ['indriyas', 'sense organs', 'sense gratification'],
+    'desire': ['kama', 'lust', 'craving', 'material desire'],
+
+    // Life and death
+    'life': ['existence', 'living', 'embodiment'],
+    'death': ['passing', 'leaving body', 'transmigration'],
+    'body': ['material body', 'form', 'physical vessel'],
+
+    // Sacred texts
+    'bhagavad gita': ['gita', 'song of god', 'krishnas teaching'],
+    'srimad bhagavatam': ['bhagavatam', 'bhagavata purana'],
+    'vedas': ['vedic literature', 'shruti', 'revealed scriptures'],
+
+    // Time and creation
+    'creation': ['manifestation', 'cosmic creation', 'material world'],
+    'time': ['kala', 'eternal time', 'factor of time'],
+    'universe': ['material world', 'cosmic manifestation', 'brahmanda']
+  };
+
+  // Find matching concepts and add synonyms
+  for (const [concept, synonyms] of Object.entries(synonymDictionary)) {
+    // Check if the concept appears in the query
+    const conceptRegex = new RegExp(`\\b${concept}\\b`, 'i');
+    if (conceptRegex.test(lowerQuery)) {
+      // Add up to 2 most relevant synonyms
+      expansions.push(...synonyms.slice(0, 2));
+    }
+  }
+
+  // Combine original query with expansions (weighted toward original)
+  if (expansions.length > 1) {
+    // Original query appears 3x for higher weight
+    const weightedQuery = `${query} ${query} ${query} ${expansions.slice(1).join(' ')}`;
+    console.log(`Query expanded: "${query}" -> added ${expansions.length - 1} related terms`);
+    return weightedQuery;
+  }
+
+  return query;
+}
+
+/**
+ * Calculate BM25-style keyword relevance score
+ * Simplified implementation for worker environment
+ */
+function calculateKeywordScore(query: string, text: string): number {
+  const queryTerms = query.toLowerCase()
+    .split(/\s+/)
+    .filter(term => term.length > 2); // Ignore very short words
+
+  if (queryTerms.length === 0) return 0;
+
+  const textLower = text.toLowerCase();
+  let matchCount = 0;
+  let totalTerms = queryTerms.length;
+
+  // Count how many query terms appear in text
+  for (const term of queryTerms) {
+    if (textLower.includes(term)) {
+      matchCount++;
+    }
+  }
+
+  // Simple term frequency score (0-1)
+  return matchCount / totalTerms;
+}
+
+/**
+ * Combine vector similarity and keyword matching scores
+ * @param vectorScore - Cosine similarity from vector search (0-1)
+ * @param keywordScore - Keyword match score (0-1)
+ * @param vectorWeight - Weight for vector score (default 0.7 = 70%)
+ */
+function hybridScore(vectorScore: number, keywordScore: number, vectorWeight: number = 0.7): number {
+  const keywordWeight = 1 - vectorWeight;
+  return (vectorScore * vectorWeight) + (keywordScore * keywordWeight);
+}
+
+/**
+ * Generate query embedding using OpenAI with caching, normalization, and expansion
  */
 async function generateQueryEmbedding(query: string, apiKey: string, cache?: KVNamespace): Promise<number[]> {
-  // Normalize Sanskrit in query for better matching
-  const normalizedQuery = normalizeSanskrit(query.trim());
+  // 1. Expand query with related Vedic terms
+  const expandedQuery = expandQuery(query);
+
+  // 2. Normalize Sanskrit in query for better matching
+  const normalizedQuery = normalizeSanskrit(expandedQuery.trim());
   const cacheKey = `embedding:${normalizedQuery}`;
 
   // Try to get from cache first

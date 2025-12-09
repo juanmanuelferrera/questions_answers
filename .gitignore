@@ -1,23 +1,28 @@
-# Node modules and dependencies
-node_modules/
-.wrangler/
-dist/
 
-# Environment files with API keys
+# Ignore .env file
 .env
-.dev.vars
-
-# Cloudflare configuration (contains API keys - DO NOT COMMIT)
-wrangler.toml
-
-# macOS files
 .DS_Store
 
-# Backup files
-*.bak
-wrangler.toml.bak
+# Large embedding and data files
+*.json
+*.ndjson
+*.sql
+*.db
+*.log
 
-# WARNING: public/index.html contains embedded API key
-# This is not ideal for security but needed for client-side synthesis
-# TODO: Move OpenAI calls to a Worker for better security
-cc_embeddings_export.json
+# Wrangler state
+.wrangler/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Exceptions - keep configuration files
+!package.json
+!package-lock.json
+!tsconfig.json
+!wrangler.toml
+!wrangler.translate.toml
+!test_query.json
+!test_query_expansion.json
+!test_hybrid_search.json
