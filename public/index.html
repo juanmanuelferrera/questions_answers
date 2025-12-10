@@ -819,42 +819,223 @@
             font-weight: 500;
         }
 
-        /* Follow-up Questions */
-        .follow-up-section {
-            margin-top: 25px;
-            padding-top: 20px;
+        /* Conversation Thread */
+        .conversation-thread {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .conversation-item {
+            opacity: 0;
+            animation: fadeSlideIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .conversation-item.user-question {
+            align-self: flex-end;
+            max-width: 85%;
+        }
+
+        .conversation-item.ai-answer {
+            align-self: flex-start;
+            width: 100%;
+        }
+
+        .question-bubble {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 18px 18px 4px 18px;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .answer-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .answer-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .ai-avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .answer-label {
+            color: #4f46e5;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .answer-text {
+            color: #334155;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .answer-text.streaming {
+            position: relative;
+        }
+
+        .answer-text.streaming::after {
+            content: '▊';
+            animation: blink 1s infinite;
+            color: #4f46e5;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .answer-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            padding-top: 12px;
             border-top: 1px solid rgba(99, 102, 241, 0.1);
         }
 
-        .follow-up-label {
-            color: #64748b;
+        .action-chip {
+            padding: 6px 14px;
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            border-radius: 20px;
             font-size: 13px;
+            color: #4f46e5;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .action-chip:hover {
+            background: rgba(79, 70, 229, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* Follow-up Input Section */
+        .follow-up-section {
+            margin-top: 30px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 2px solid rgba(99, 102, 241, 0.15);
+            position: sticky;
+            bottom: 20px;
+            z-index: 100;
+        }
+
+        .follow-up-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .follow-up-label {
+            color: #4f46e5;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .conversation-count {
+            background: rgba(79, 70, 229, 0.1);
+            color: #4f46e5;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 10px;
-            display: block;
+        }
+
+        .suggested-questions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .suggested-chip {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #4f46e5;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .suggested-chip:hover {
+            background: rgba(79, 70, 229, 0.1);
+            border-color: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(79, 70, 229, 0.15);
         }
 
         .follow-up-input-group {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             align-items: center;
         }
 
         .follow-up-input {
             flex: 1;
-            padding: 12px 16px;
-            border-radius: 10px;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            background: rgba(255, 255, 255, 0.9);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            background: white;
             color: #1a1a1a;
-            font-size: 14px;
+            font-size: 15px;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .follow-up-input:focus {
             outline: none;
             border-color: #4f46e5;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 0 4px 12px rgba(79, 70, 229, 0.15);
         }
 
         .follow-up-input::placeholder {
@@ -862,25 +1043,54 @@
         }
 
         .btn-follow-up {
-            padding: 12px 24px;
+            padding: 14px 28px;
             background: linear-gradient(135deg, #4f46e5, #7c3aed);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            font-size: 15px;
         }
 
         .btn-follow-up:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-follow-up:active:not(:disabled) {
+            transform: translateY(0);
         }
 
         .btn-follow-up:disabled {
-            opacity: 0.5;
+            opacity: 0.6;
             cursor: not-allowed;
+            transform: none;
+        }
+
+        .export-conversation {
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .export-btn {
+            background: transparent;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #4f46e5;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .export-btn:hover {
+            background: rgba(79, 70, 229, 0.05);
+            border-color: #4f46e5;
         }
 
         /* Mobile Responsive */
@@ -1190,6 +1400,20 @@
             currentResults = null;
             currentSources = null;
             conversationHistory = [];
+            conversationThreadId = 0;
+
+            // Clear conversation thread if it exists
+            const thread = document.getElementById('conversationThread');
+            if (thread) {
+                thread.remove();
+            }
+
+            // Clear suggested questions
+            const suggestedQuestions = document.getElementById('suggestedQuestions');
+            if (suggestedQuestions) {
+                suggestedQuestions.innerHTML = '';
+            }
+
             document.getElementById('queryInput').focus();
         }
 
@@ -1341,6 +1565,9 @@
                     bookContext: currentBookContext
                 });
 
+                // Generate initial suggested questions
+                generateSuggestedQuestions(synthesis);
+
             } catch (error) {
                 console.error('Error:', error);
                 alert('Search failed: ' + error.message);
@@ -1413,17 +1640,31 @@
                         <span class="word-count" id="streamingWordCount">Words: 0 / ${targetWords}</span>
                     </div>
 
-                    <div class="follow-up-section">
-                        <label class="follow-up-label">💬 Ask a follow-up question</label>
+                    <div class="follow-up-section" id="followUpSection">
+                        <div class="follow-up-header">
+                            <div class="follow-up-label">
+                                💬 Continue Conversation
+                            </div>
+                            <span class="conversation-count" id="conversationCount">1 message</span>
+                        </div>
+
+                        <div class="suggested-questions" id="suggestedQuestions"></div>
+
                         <div class="follow-up-input-group">
                             <input
                                 type="text"
                                 id="followUpInput"
                                 class="follow-up-input"
-                                placeholder="Ask another question based on these sources..."
+                                placeholder="Ask a follow-up question..."
                                 onkeypress="if(event.key==='Enter') askFollowUp()"
                             >
-                            <button class="btn-follow-up" onclick="askFollowUp()" id="followUpBtn">Ask</button>
+                            <button class="btn-follow-up" onclick="askFollowUp()" id="followUpBtn">
+                                <span id="followUpBtnText">Ask</span>
+                            </button>
+                        </div>
+
+                        <div class="export-conversation">
+                            <button class="export-btn" onclick="exportConversation()">📥 Export Conversation</button>
                         </div>
                     </div>
 
@@ -1596,44 +1837,53 @@
             }
         }
 
-        async function askFollowUp() {
-            const followUpQuery = document.getElementById('followUpInput').value.trim();
+        async function askFollowUp(suggestedQuestion = null) {
+            console.log('askFollowUp called with:', suggestedQuestion);
+
+            const input = document.getElementById('followUpInput');
+            const followUpQuery = suggestedQuestion || input.value.trim();
+
+            console.log('Final query:', followUpQuery);
 
             if (!followUpQuery) {
-                alert('Please enter a follow-up question');
+                showToast('Please enter a question');
                 return;
             }
 
             if (!currentSources || currentSources.length === 0) {
-                alert('No sources available. Please perform a search first.');
+                showToast('No sources available. Please search first.');
                 return;
             }
+
+            // Clear input and show loading
+            input.value = '';
+            const btn = document.getElementById('followUpBtn');
+            const btnText = document.getElementById('followUpBtnText');
+            btn.disabled = true;
+            btnText.textContent = 'Thinking...';
 
             // Get current settings
             const wordLimit = parseInt(document.getElementById('wordLimitSelect').value);
             const bookFilter = document.getElementById('bookSelect').value;
 
-            // Determine book context
             let bookContext = null;
             if (bookFilter) {
                 const bookName = currentSources[0]?.verse?.book_name;
-                if (bookName) {
-                    bookContext = bookName;
-                }
+                if (bookName) bookContext = bookName;
             }
 
-            // Show loading state
-            document.getElementById('followUpBtn').disabled = true;
-            const loadingDiv = document.createElement('div');
-            loadingDiv.innerHTML = '<div class="loading"><div class="spinner"></div><div>Generating answer...</div></div>';
-            loadingDiv.id = 'followUpLoading';
-            document.querySelector('.follow-up-section').appendChild(loadingDiv);
-
+            let answerCardId = null;
             try {
-                // Re-use the same sources with the new question
-                console.log('Follow-up question:', followUpQuery);
-                console.log('Re-using', currentSources.length, 'cached sources');
+                console.log('Adding question to thread...');
+                // Add user question to conversation thread
+                addQuestionToThread(followUpQuery);
 
+                console.log('Creating answer card...');
+                // Create answer card with streaming placeholder
+                answerCardId = addAnswerCardToThread();
+                console.log('Answer card ID:', answerCardId);
+
+                console.log('Calling synthesis worker...');
                 // Call synthesis worker
                 const synthesisResponse = await fetch(SYNTHESIS_WORKER, {
                     method: 'POST',
@@ -1646,16 +1896,25 @@
                     })
                 });
 
+                console.log('Synthesis response status:', synthesisResponse.status);
+
                 if (!synthesisResponse.ok) {
                     const errorText = await synthesisResponse.text();
-                    console.error('Synthesis error:', errorText);
-                    throw new Error(`Synthesis failed: ${synthesisResponse.status}`);
+                    console.error('Synthesis error response:', errorText);
+                    throw new Error(`Synthesis failed: ${synthesisResponse.status} - ${errorText}`);
                 }
 
-                // Read streaming response
+                // Stream the response
                 const reader = synthesisResponse.body.getReader();
                 const decoder = new TextDecoder();
                 let synthesis = '';
+                const answerText = document.getElementById(`answer-text-${answerCardId}`);
+
+                if (!answerText) {
+                    throw new Error('Answer text element not found!');
+                }
+
+                console.log('Starting to stream response...');
 
                 while (true) {
                     const { done, value } = await reader.read();
@@ -1674,6 +1933,8 @@
                                 const content = parsed.choices?.[0]?.delta?.content;
                                 if (content) {
                                     synthesis += content;
+                                    // Update in real-time
+                                    answerText.innerHTML = formatAnswer(synthesis);
                                 }
                             } catch (e) {
                                 // Skip invalid JSON
@@ -1682,7 +1943,17 @@
                     }
                 }
 
-                // Add follow-up Q&A to conversation history
+                // Remove streaming indicator
+                answerText.classList.remove('streaming');
+
+                // Show answer actions and word count
+                const actions = document.getElementById(`answer-actions-${answerCardId}`);
+                const wordCount = synthesis.split(/\s+/).filter(w => w.length > 0).length;
+                const wordCountElem = document.getElementById(`word-count-${answerCardId}`);
+                wordCountElem.textContent = `${wordCount} words`;
+                actions.style.display = 'flex';
+
+                // Add to conversation history
                 conversationHistory.push({
                     question: followUpQuery,
                     answer: synthesis,
@@ -1690,61 +1961,179 @@
                     bookContext: bookContext
                 });
 
-                // Display the follow-up answer by prepending it
-                prependFollowUpAnswer(followUpQuery, synthesis, wordLimit);
+                // Update conversation count
+                updateConversationCount();
 
-                // Clear the input
-                document.getElementById('followUpInput').value = '';
-                showToast('Follow-up answered!');
+                // Generate new suggested questions
+                generateSuggestedQuestions(synthesis);
 
             } catch (error) {
                 console.error('Follow-up error:', error);
-                alert('Failed to generate follow-up answer: ' + error.message);
+                console.error('Error stack:', error.stack);
+                console.error('Error message:', error.message);
+                showToast('Failed to generate answer: ' + error.message);
+
+                // Remove the failed answer card
+                const failedCard = document.querySelector(`#answer-text-${answerCardId}`);
+                if (failedCard) {
+                    failedCard.closest('.conversation-item').remove();
+                }
             } finally {
-                document.getElementById('followUpBtn').disabled = false;
-                const loading = document.getElementById('followUpLoading');
-                if (loading) loading.remove();
+                btn.disabled = false;
+                btnText.textContent = 'Ask';
             }
         }
 
-        function prependFollowUpAnswer(question, answer, wordLimit) {
-            const wordCount = answer.split(/\s+/).filter(w => w.length > 0).length;
-            const formattedAnswer = answer
+        let conversationThreadId = 0;
+
+        function addQuestionToThread(question) {
+            const thread = getOrCreateThread();
+            const questionHtml = `
+                <div class="conversation-item user-question">
+                    <div class="question-bubble">${escapeHtml(question)}</div>
+                </div>
+            `;
+            thread.insertAdjacentHTML('beforeend', questionHtml);
+            // Scroll to the last element child (not text node)
+            const lastItem = thread.lastElementChild;
+            if (lastItem && lastItem.scrollIntoView) {
+                lastItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function addAnswerCardToThread() {
+            const thread = getOrCreateThread();
+            const cardId = ++conversationThreadId;
+            const answerHtml = `
+                <div class="conversation-item ai-answer">
+                    <div class="answer-card">
+                        <div class="answer-header">
+                            <div class="ai-avatar">✨</div>
+                            <div class="answer-label">AI Answer</div>
+                        </div>
+                        <div class="answer-text streaming" id="answer-text-${cardId}">
+                            Thinking...
+                        </div>
+                        <div class="answer-actions" id="answer-actions-${cardId}" style="display:none;">
+                            <span class="action-chip" onclick="copyAnswerText(${cardId})">📋 Copy</span>
+                            <span class="action-chip" id="word-count-${cardId}"></span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            thread.insertAdjacentHTML('beforeend', answerHtml);
+            // Scroll to the last element child (not text node)
+            const lastItem = thread.lastElementChild;
+            if (lastItem && lastItem.scrollIntoView) {
+                lastItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            return cardId;
+        }
+
+        function getOrCreateThread() {
+            let thread = document.getElementById('conversationThread');
+            if (!thread) {
+                const followUpSection = document.getElementById('followUpSection');
+                thread = document.createElement('div');
+                thread.id = 'conversationThread';
+                thread.className = 'conversation-thread';
+                followUpSection.parentNode.insertBefore(thread, followUpSection);
+            }
+            return thread;
+        }
+
+        function formatAnswer(text) {
+            return text
                 .split(/\n\n+/)
                 .filter(para => para.trim())
                 .map(para => `<p>${escapeHtml(para.trim())}</p>`)
                 .join('');
-
-            const followUpHtml = `
-                <div class="synthesis-container" style="margin-bottom: 20px; animation: slideUp 0.5s ease-out;">
-                    <div class="question-header">
-                        <div class="question-label">FOLLOW-UP QUESTION</div>
-                        <div class="question-text">${escapeHtml(question)}</div>
-                    </div>
-
-                    <div class="synthesis-box">${formattedAnswer}</div>
-
-                    <div class="synthesis-actions">
-                        <button class="btn btn-secondary" onclick="copyFollowUpAnswer(this)">📋 Copy Answer</button>
-                        <span class="word-count">Words: ${wordCount} / ${wordLimit}</span>
-                    </div>
-                </div>
-            `;
-
-            // Insert before the main synthesis container
-            const mainContainer = document.querySelector('.synthesis-container');
-            if (mainContainer) {
-                mainContainer.insertAdjacentHTML('beforebegin', followUpHtml);
-            }
         }
 
-        function copyFollowUpAnswer(button) {
-            const container = button.closest('.synthesis-container');
-            const question = container.querySelector('.question-text').innerText;
-            const answer = container.querySelector('.synthesis-box').innerText;
-            const textToCopy = `${question}\n\n${answer}`;
-            navigator.clipboard.writeText(textToCopy);
-            showToast('Copied!');
+        function copyAnswerText(cardId) {
+            const answerText = document.getElementById(`answer-text-${cardId}`);
+            const text = answerText.innerText;
+            navigator.clipboard.writeText(text);
+            showToast('Answer copied!');
+        }
+
+        function updateConversationCount() {
+            const count = conversationHistory.length;
+            const countElem = document.getElementById('conversationCount');
+            countElem.textContent = `${count} message${count === 1 ? '' : 's'}`;
+        }
+
+        function generateSuggestedQuestions(lastAnswer) {
+            const container = document.getElementById('suggestedQuestions');
+
+            // Simple heuristic-based suggestions
+            const suggestions = [];
+
+            if (lastAnswer.toLowerCase().includes('because') || lastAnswer.toLowerCase().includes('reason')) {
+                suggestions.push('Can you elaborate on this?');
+            }
+            if (lastAnswer.toLowerCase().includes('prabhupāda') || lastAnswer.toLowerCase().includes('prabhupada')) {
+                suggestions.push('What else did Prabhupāda say?');
+            }
+            if (lastAnswer.match(/\d{4}/)) { // Contains a year
+                suggestions.push('What was the historical context?');
+            }
+
+            // Generic suggestions
+            suggestions.push('Give me a specific example');
+            suggestions.push('What is the significance of this?');
+
+            // Take first 3 unique suggestions
+            const uniqueSuggestions = [...new Set(suggestions)].slice(0, 3);
+
+            // Clear container
+            container.innerHTML = '';
+
+            // Create chips with proper event handlers
+            uniqueSuggestions.forEach(question => {
+                const chip = document.createElement('span');
+                chip.className = 'suggested-chip';
+                chip.textContent = question;
+                chip.addEventListener('click', () => {
+                    console.log('Suggested question clicked:', question);
+                    askFollowUp(question);
+                });
+                container.appendChild(chip);
+            });
+        }
+
+        function exportConversation() {
+            if (conversationHistory.length === 0) {
+                showToast('No conversation to export');
+                return;
+            }
+
+            let markdown = '# Conversation with Universal Philosophy AI\n\n';
+            markdown += `**Date**: ${new Date().toLocaleDateString()}\n\n`;
+            markdown += '---\n\n';
+
+            conversationHistory.forEach((item, index) => {
+                markdown += `## Question ${index + 1}\n\n`;
+                markdown += `${item.question}\n\n`;
+                markdown += `### Answer\n\n`;
+                markdown += `${item.answer}\n\n`;
+                if (item.bookContext) {
+                    markdown += `*Source: ${item.bookContext}*\n\n`;
+                }
+                markdown += '---\n\n';
+            });
+
+            const blob = new Blob([markdown], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `conversation-${new Date().getTime()}.md`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast('Conversation exported!');
         }
 
         function escapeHtml(text) {
