@@ -108,9 +108,10 @@ Based on the sources above, provide a ${wordLimit}-word answer using ONLY the in
       let modelUsed = '';
       let provider = '';
 
-      // Using Gemini 2.5 Flash via OpenRouter
-      // 1M token context, excellent quality, best price-performance
-      // Most popular model on OpenRouter (11.1% usage)
+      // Using Gemini 3 Pro Preview via OpenRouter
+      // Google's flagship frontier model for high-precision multimodal reasoning
+      // 1M token context, state-of-the-art benchmark results
+      // Excels at: research synthesis, complex reasoning, factual QA
 
       const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
@@ -121,7 +122,7 @@ Based on the sources above, provide a ${wordLimit}-word answer using ONLY the in
           'X-Title': 'Vedabase RAG'
         },
         body: JSON.stringify({
-          model: 'google/gemini-2.5-flash',
+          model: 'google/gemini-3-pro-preview',
           messages: [
             {
               role: 'user',
@@ -136,10 +137,10 @@ Based on the sources above, provide a ${wordLimit}-word answer using ONLY the in
 
       if (!response.ok) {
         const error = await response.text();
-        throw new Error(`Gemini 2.5 Flash error: ${error}`);
+        throw new Error(`Gemini 3 Pro error: ${error}`);
       }
 
-      console.log('Using Gemini 2.5 Flash via OpenRouter - 1M token context, ALL sources included');
+      console.log('Using Gemini 3 Pro Preview via OpenRouter - flagship model with 1M token context');
 
       // Return streaming response
       return new Response(response.body, {
