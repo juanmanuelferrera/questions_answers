@@ -1,0 +1,255 @@
+@namespace h "http://www.w3.org/1999/xhtml";
+.After-Verse {
+    display: block;
+    font-size: 1.14286em;
+    line-height: 1.2;
+    margin-bottom: 0.0618056in;
+    margin-top: 0.0618056in;
+    text-align: justify
+    }
+.Bold {
+    font-weight: bold;
+    line-height: 1.2
+    }
+.Bold1 {
+    font-weight: bold
+    }
+.Book-Title {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 128, 128);
+    display: block;
+    font-size: 1.71429em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-left: 1in;
+    margin-right: 1in;
+    margin-top: 0.375in;
+    text-align: center
+    }
+.Center {
+    display: block;
+    font-size: 1.14286em;
+    line-height: 1.2;
+    margin-bottom: 0.125in;
+    margin-top: 0.125in;
+    text-align: center
+    }
+.Centered-Verse-in-purp {
+    display: block;
+    font-size: 1.14286em;
+    font-style: italic;
+    line-height: 1.2;
+    margin-top: 0.125in;
+    text-align: center
+    }
+.Collection {
+    background-color: rgb(192, 192, 192);
+    display: block;
+    font-size: 1.57143em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.25in;
+    margin-top: 0.25in;
+    text-align: center
+    }
+.Conv-code {
+    display: block;
+    font-size: 0.85714em;
+    margin-bottom: 0.25in;
+    margin-top: 0.125in;
+    text-align: right
+    }
+.Conversation {
+    display: block;
+    font-size: 1.14286em;
+    line-height: 1.2;
+    margin-bottom: 0.0597222in
+    }
+.Header {
+    display: block;
+    font-size: 1.14286em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.25in;
+    margin-top: 0.125in
+    }
+.Heading {
+    background-color: rgb(0, 128, 0);
+    color: rgb(0, 255, 255);
+    display: block;
+    font-size: 1.28571em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.25in;
+    margin-top: 0.125in;
+    text-align: center
+    }
+.Italic {
+    font-size: 1em;
+    font-style: italic;
+    line-height: 1.2;
+    text-align: justify;
+    text-indent: 0.25in
+    }
+.Italic1 {
+    font-size: 1.33333em;
+    font-style: italic;
+    line-height: 1.2;
+    text-align: justify;
+    text-indent: 0.25in
+    }
+.Italic2 {
+    font-size: 0.88889em;
+    font-style: italic;
+    line-height: 1.2;
+    text-align: justify;
+    text-indent: 0.25in
+    }
+.Lecture {
+    display: block;
+    font-size: 1.14286em;
+    line-height: 1.2;
+    text-indent: 0.25in
+    }
+.Lecture-code {
+    display: block;
+    font-size: 0.85714em;
+    font-weight: bold;
+    text-align: right
+    }
+.Normal-Level {
+    display: block;
+    font-size: 1.14286em;
+    line-height: 1.2;
+    margin-bottom: 0.0597222in;
+    text-align: justify;
+    text-indent: 0.25in
+    }
+.Normal-Level1 {
+    display: block;
+    font-size: 1em;
+    line-height: 1.2;
+    margin-bottom: 0.0597222in;
+    text-align: justify;
+    text-indent: 0.25in
+    }
+.Purp-para {
+    display: block;
+    font-size: 1.14286em;
+    line-height: 1.2;
+    margin-bottom: 0.0597222in;
+    text-align: justify
+    }
+.Purp-para1 {
+    display: block;
+    font-size: 1em;
+    line-height: 1.2;
+    margin-bottom: 0.0597222in;
+    text-align: justify
+    }
+.Translation {
+    color: rgb(128, 0, 0);
+    display: block;
+    font-size: 1.14286em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.025in;
+    margin-top: 0.025in;
+    text-indent: 0.25in
+    }
+.Verse {
+    display: block;
+    font-size: 1.14286em;
+    font-style: italic;
+    line-height: 1.2;
+    margin-bottom: 0.125in;
+    margin-top: 0.125in;
+    text-align: center
+    }
+.Verse-Number {
+    color: rgb(0, 128, 0);
+    display: block;
+    font-size: 0.85714em;
+    text-align: right;
+    visibility: hidden
+    }
+.Verse-Section {
+    display: block;
+    font-size: 1.14286em;
+    line-height: 1.2;
+    margin-bottom: 0.125in;
+    margin-top: 0.125in;
+    text-align: center;
+    visibility: hidden
+    }
+.Verse-Text {
+    color: rgb(0, 0, 0);
+    display: block;
+    font-size: 1.14286em;
+    font-style: italic;
+    line-height: 1.2;
+    text-align: center
+    }
+.calibre {
+    display: block;
+    font-size: 0.875em;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-left: 5pt;
+    margin-right: 5pt;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0
+    }
+.calibre1 {
+    display: block
+    }
+.calibre2 {
+    display: block;
+    line-height: 1.2
+    }
+.calibre3 {
+    font-style: italic;
+    line-height: 1.2
+    }
+.calibre4 {
+    font-weight: bolder;
+    line-height: 1.2
+    }
+.calibre5 {
+    font-style: italic
+    }
+.calibre6 {
+    display: block;
+    text-align: right
+    }
+.calibre7 {
+    display: block;
+    text-align: left
+    }
+.calibre8 {
+    display: block;
+    margin-top: 0
+    }
+.calibre9 {
+    display: block;
+    text-align: center
+    }
+.chapnum {
+    background-color: rgb(192, 192, 192);
+    display: block;
+    font-size: 1.42857em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.125in;
+    margin-top: 0.125in;
+    text-align: center
+    }
+.code {
+    font-size: 1em;
+    font-weight: bold
+    }
+.code1 {
+    font-size: 0.75em;
+    font-weight: bold
+    }

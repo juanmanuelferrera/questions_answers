@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Janice Johnson Search</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <style>
+        body { font-family: Arial; padding: 40px; max-width: 800px; margin: 0 auto; }
+        .result { background: #f0f0f0; padding: 20px; margin: 10px 0; border-radius: 8px; }
+        .loading { color: #666; }
+        .error { color: red; }
+        .success { color: green; }
+        pre { background: #e0e0e0; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Janice Johnson Search Test</h1>
+    <p>This page tests the search for "Janice Johnson" with Conversations filter.</p>
+    
+    <div id="status" class="loading">Testing...</div>
+    <div id="results"></div>
+
+    <script>
+        const QUERY_WORKER = 'https://philosophy-rag.joanmanelferrera-400.workers.dev';
+        const SYNTHESIS_WORKER = 'https://vedabase-synthesis.joanmanelferrera-400.workers.dev';
+
+        async function test() {
+            const statusEl = document.getElementById('status');
+            const resultsEl = document.getElementById('results');
+            
+            try {
+                // Step 1: Search
+                statusEl.innerHTML = '<div class="loading">Step 1: Searching for "Janice Johnson" in Conversations...</div>';
+                
+                const searchResponse = await fetch(QUERY_WORKER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query: "Janice Johnson",
+                        topK: 20,
+                        source: "vedabase",
+                        bookFilter: "conversations"
+                    })
+                });
+                
+                const searchData = await searchResponse.json();
+                
+                resultsEl.innerHTML += `<div class="result">
+                    <h3>Search Results</h3>
+                    <p>Found ${searchData.count} results</p>
+                    <pre>${JSON.stringify(searchData.results[0], null, 2)}</pre>
+                </div>`;
+                
+                if (searchData.count === 0) {
+                    statusEl.innerHTML = '<div class="error">❌ No results found!</div>';
+                    return;
+                }
+                
+                // Step 2: Synthesis
+                statusEl.innerHTML = '<div class="loading">Step 2: Generating synthesis...</div>';
+                
+                const sources = searchData.results.slice(0, 5).map(r => ({
+                    verse: r.vedabaseVerse,
+                    chunkType: r.sectionType,
+                    chunkText: r.chunkText,
+                    score: r.score
+                }));
+                
+                const synthesisResponse = await fetch(SYNTHESIS_WORKER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query: "Who is Janice Johnson?",
+                        sources: sources,
+                        wordLimit: 200,
+                        bookContext: "Conversations"
+                    })
+                });
+                
+                const reader = synthesisResponse.body.getReader();
+                const decoder = new TextDecoder();
+                let synthesis = '';
+                
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    const chunk = decoder.decode(value);
+                    const lines = chunk.split('\n');
+                    
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = line.slice(6);
+                            if (data === '[DONE]') continue;
+                            try {
+                                const parsed = JSON.parse(data);
+                                const content = parsed.choices?.[0]?.delta?.content;
+                                if (content) synthesis += content;
+                            } catch (e) {}
+                        }
+                    }
+                }
+                
+                resultsEl.innerHTML += `<div class="result">
+                    <h3>Synthesis</h3>
+                    <p>${synthesis}</p>
+                </div>`;
+                
+                statusEl.innerHTML = '<div class="success">✅ Test completed successfully!</div>';
+                
+            } catch (error) {
+                statusEl.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                resultsEl.innerHTML += `<div class="result"><pre>${error.stack}</pre></div>`;
+            }
+        }
+        
+        test();
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>artistName</key>
+	<string>A.C. Bhaktivedanta Swami Prabhupada</string>
+	<key>book-info</key>
+	<dict>
+		<key>cover-image-hash</key>
+		<string>5180B718E41E51620DC3B6E3716C0853</string>
+		<key>cover-image-path</key>
+		<string>cover1.jpeg</string>
+		<key>mime-type</key>
+		<string>application/epub+zip</string>
+		<key>package-file-hash</key>
+		<string>EB7DC8A1CC7A25E6C2AECC19FCFD1CF2</string>
+		<key>publisher-unique-id</key>
+		<string>3cf140c5-3386-4c36-b796-71461e02e54a</string>
+		<key>unique-id</key>
+		<integer>-6934108978645028361</integer>
+		<key>update-level</key>
+		<integer>2</integer>
+	</dict>
+	<key>genre</key>
+	<string>Philosophy</string>
+	<key>itemName</key>
+	<string>Conversations -- Prabhupada Conversations</string>
+	<key>playlistName</key>
+	<string>Conversations -- Prabhupada Conversations</string>
+	<key>releaseDate</key>
+	<string>2010-12-08T13:30:00+00:00</string>
+	<key>sort-artist</key>
+	<string>Prabhupada, A.C. Bhaktivedanta Swami</string>
+	<key>sort-artist-status</key>
+	<integer>3</integer>
+</dict>
+</plist>

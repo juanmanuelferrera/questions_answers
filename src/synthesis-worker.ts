@@ -58,31 +58,51 @@ export default {
       }
 
       // Build context from ALL sources - Gemini 2.5 Flash can handle 1M tokens
-      // No source numbers - just the text
-      const context = sources.map((src) => {
-        return src.chunkText;
+      // Include metadata so the LLM knows the source of each chunk
+      const context = sources.map((src, index) => {
+        let header = '';
+
+        // Build source header with metadata
+        if (src.verse?.book_name) {
+          header = `[Source: ${src.verse.book_name}`;
+          if (src.verse.chapter) {
+            header += ` - ${src.verse.chapter}`;
+          }
+          if (src.verse.verse_number) {
+            header += ` (${src.verse.verse_number})`;
+          }
+          header += ']\n';
+        }
+
+        // DEBUG: Log first source to see structure
+        if (index === 0) {
+          console.log('First source structure:', JSON.stringify(src, null, 2));
+          console.log('chunkText length:', src.chunkText?.length || 'UNDEFINED');
+        }
+
+        return header + (src.chunkText || '');
       }).join('\n\n' + '='.repeat(80) + '\n\n');
 
       const bookContextNote = bookContext
         ? `\n\nIMPORTANT: The user specifically filtered to search only in "${bookContext}". Your answer should ONLY reference information from this book. If you mention anything, clearly state it comes from ${bookContext}.`
         : '';
 
-      const prompt = `You are a Vedic scripture reference system. Your ONLY job is to synthesize the provided sources.
-
-CRITICAL RULES:
-1. Use ONLY information from the sources below - NO external knowledge
-2. If the sources don't answer the question, say "The provided sources do not contain information about this topic"
-3. NEVER make up, infer, or add information not explicitly in the sources
-4. NEVER combine information about different people/topics (e.g., don't mix facts about different munis)
-5. Copy Sanskrit/IAST characters EXACTLY as they appear
-6. When referencing scriptures, only cite what's explicitly stated in the sources${bookContextNote}
+      const prompt = `You are a Vedic scripture reference system. Synthesize information from the provided sources to answer the question.
 
 Question: ${query}
+
+CRITICAL INSTRUCTIONS:
+- The sources below may include conversations, interviews, letters, or scripture commentaries
+- If someone's NAME appears in the sources (asking questions, being mentioned, etc.), that IS information about them
+- Extract what they said, what they asked, or what was said about them
+- Synthesize this into a coherent answer
+- Use ONLY information explicitly present in the sources
+- If the sources truly contain NO relevant information, say so${bookContextNote}
 
 Sources from authentic Vedabase texts:
 ${context}
 
-Synthesize an answer in ${wordLimit} words using ONLY the information above. If the sources are insufficient, state that clearly.`;
+Based on the sources above, provide a ${wordLimit}-word answer using ONLY the information present in the text.`;
 
       let synthesis = '';
       let modelUsed = '';

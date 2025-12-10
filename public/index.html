@@ -819,6 +819,70 @@
             font-weight: 500;
         }
 
+        /* Follow-up Questions */
+        .follow-up-section {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .follow-up-label {
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .follow-up-input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .follow-up-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            background: rgba(255, 255, 255, 0.9);
+            color: #1a1a1a;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .follow-up-input:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .follow-up-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .btn-follow-up {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-follow-up:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-follow-up:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .sidebar {
@@ -1016,6 +1080,8 @@
         let currentResults = null;
         let sourcesExpanded = false;
         let recentSearches = [];
+        let currentSources = null; // Store sources for follow-up questions
+        let conversationHistory = []; // Track Q&A pairs
 
         // Load books, recent searches, and daily wisdom on page load
         document.addEventListener('DOMContentLoaded', () => {
@@ -1122,6 +1188,8 @@
             document.getElementById('queryInput').value = '';
             document.getElementById('synthesis').style.display = 'none';
             currentResults = null;
+            currentSources = null;
+            conversationHistory = [];
             document.getElementById('queryInput').focus();
         }
 
@@ -1263,6 +1331,16 @@
                 // Final update with complete synthesis
                 finalizeStreamingSynthesis(synthesis, wordLimit);
 
+                // Store sources and context for follow-up questions
+                currentSources = sources;
+                const currentBookContext = bookContext;
+                conversationHistory.push({
+                    question: query,
+                    answer: synthesis,
+                    sources: sources,
+                    bookContext: currentBookContext
+                });
+
             } catch (error) {
                 console.error('Error:', error);
                 alert('Search failed: ' + error.message);
@@ -1333,6 +1411,20 @@
                         <button class="btn btn-secondary" onclick="copySynthesis()">📋 Copy Answer</button>
                         <button class="btn btn-secondary" onclick="copySynthesisSpanish(event)">🇪🇸 Copy Answer</button>
                         <span class="word-count" id="streamingWordCount">Words: 0 / ${targetWords}</span>
+                    </div>
+
+                    <div class="follow-up-section">
+                        <label class="follow-up-label">💬 Ask a follow-up question</label>
+                        <div class="follow-up-input-group">
+                            <input
+                                type="text"
+                                id="followUpInput"
+                                class="follow-up-input"
+                                placeholder="Ask another question based on these sources..."
+                                onkeypress="if(event.key==='Enter') askFollowUp()"
+                            >
+                            <button class="btn-follow-up" onclick="askFollowUp()" id="followUpBtn">Ask</button>
+                        </div>
                     </div>
 
                     <div class="sources-section">
@@ -1502,6 +1594,157 @@
             if (query && currentResults) {
                 search();
             }
+        }
+
+        async function askFollowUp() {
+            const followUpQuery = document.getElementById('followUpInput').value.trim();
+
+            if (!followUpQuery) {
+                alert('Please enter a follow-up question');
+                return;
+            }
+
+            if (!currentSources || currentSources.length === 0) {
+                alert('No sources available. Please perform a search first.');
+                return;
+            }
+
+            // Get current settings
+            const wordLimit = parseInt(document.getElementById('wordLimitSelect').value);
+            const bookFilter = document.getElementById('bookSelect').value;
+
+            // Determine book context
+            let bookContext = null;
+            if (bookFilter) {
+                const bookName = currentSources[0]?.verse?.book_name;
+                if (bookName) {
+                    bookContext = bookName;
+                }
+            }
+
+            // Show loading state
+            document.getElementById('followUpBtn').disabled = true;
+            const loadingDiv = document.createElement('div');
+            loadingDiv.innerHTML = '<div class="loading"><div class="spinner"></div><div>Generating answer...</div></div>';
+            loadingDiv.id = 'followUpLoading';
+            document.querySelector('.follow-up-section').appendChild(loadingDiv);
+
+            try {
+                // Re-use the same sources with the new question
+                console.log('Follow-up question:', followUpQuery);
+                console.log('Re-using', currentSources.length, 'cached sources');
+
+                // Call synthesis worker
+                const synthesisResponse = await fetch(SYNTHESIS_WORKER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query: followUpQuery,
+                        sources: currentSources,
+                        wordLimit,
+                        bookContext
+                    })
+                });
+
+                if (!synthesisResponse.ok) {
+                    const errorText = await synthesisResponse.text();
+                    console.error('Synthesis error:', errorText);
+                    throw new Error(`Synthesis failed: ${synthesisResponse.status}`);
+                }
+
+                // Read streaming response
+                const reader = synthesisResponse.body.getReader();
+                const decoder = new TextDecoder();
+                let synthesis = '';
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    const chunk = decoder.decode(value, { stream: true });
+                    const lines = chunk.split('\n');
+
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = line.slice(6);
+                            if (data === '[DONE]') continue;
+
+                            try {
+                                const parsed = JSON.parse(data);
+                                const content = parsed.choices?.[0]?.delta?.content;
+                                if (content) {
+                                    synthesis += content;
+                                }
+                            } catch (e) {
+                                // Skip invalid JSON
+                            }
+                        }
+                    }
+                }
+
+                // Add follow-up Q&A to conversation history
+                conversationHistory.push({
+                    question: followUpQuery,
+                    answer: synthesis,
+                    sources: currentSources,
+                    bookContext: bookContext
+                });
+
+                // Display the follow-up answer by prepending it
+                prependFollowUpAnswer(followUpQuery, synthesis, wordLimit);
+
+                // Clear the input
+                document.getElementById('followUpInput').value = '';
+                showToast('Follow-up answered!');
+
+            } catch (error) {
+                console.error('Follow-up error:', error);
+                alert('Failed to generate follow-up answer: ' + error.message);
+            } finally {
+                document.getElementById('followUpBtn').disabled = false;
+                const loading = document.getElementById('followUpLoading');
+                if (loading) loading.remove();
+            }
+        }
+
+        function prependFollowUpAnswer(question, answer, wordLimit) {
+            const wordCount = answer.split(/\s+/).filter(w => w.length > 0).length;
+            const formattedAnswer = answer
+                .split(/\n\n+/)
+                .filter(para => para.trim())
+                .map(para => `<p>${escapeHtml(para.trim())}</p>`)
+                .join('');
+
+            const followUpHtml = `
+                <div class="synthesis-container" style="margin-bottom: 20px; animation: slideUp 0.5s ease-out;">
+                    <div class="question-header">
+                        <div class="question-label">FOLLOW-UP QUESTION</div>
+                        <div class="question-text">${escapeHtml(question)}</div>
+                    </div>
+
+                    <div class="synthesis-box">${formattedAnswer}</div>
+
+                    <div class="synthesis-actions">
+                        <button class="btn btn-secondary" onclick="copyFollowUpAnswer(this)">📋 Copy Answer</button>
+                        <span class="word-count">Words: ${wordCount} / ${wordLimit}</span>
+                    </div>
+                </div>
+            `;
+
+            // Insert before the main synthesis container
+            const mainContainer = document.querySelector('.synthesis-container');
+            if (mainContainer) {
+                mainContainer.insertAdjacentHTML('beforebegin', followUpHtml);
+            }
+        }
+
+        function copyFollowUpAnswer(button) {
+            const container = button.closest('.synthesis-container');
+            const question = container.querySelector('.question-text').innerText;
+            const answer = container.querySelector('.synthesis-box').innerText;
+            const textToCopy = `${question}\n\n${answer}`;
+            navigator.clipboard.writeText(textToCopy);
+            showToast('Copied!');
         }
 
         function escapeHtml(text) {

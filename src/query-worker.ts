@@ -191,10 +191,11 @@ export default {
         returnMetadata: true
       };
 
-      // Apply metadata filter at Vectorize level if book filter specified
-      if (bookFilter) {
-        queryOptions.filter = { book_code: bookFilter };
-      }
+      // NOTE: Vectorize metadata filtering may not work reliably
+      // We'll filter in-memory after retrieving results
+      // if (bookFilter) {
+      //   queryOptions.filter = { book_code: bookFilter };
+      // }
 
       const vectorResults = await env.VECTORIZE.query(queryEmbedding, queryOptions);
 
@@ -266,8 +267,11 @@ export default {
             continue;
           }
 
-          // Book filter is already applied at Vectorize level (lines 194-196)
-          // No need for additional filtering here
+          // Apply book filter if specified (in-memory filtering since Vectorize filter may not work)
+          if (bookFilter && chunkData.book_code !== bookFilter) {
+            console.log(`Filtering out result: book_code=${chunkData.book_code}, wanted=${bookFilter}`);
+            continue;
+          }
 
           // Calculate hybrid score (vector 70% + keyword 30%)
           const keywordScore = calculateKeywordScore(query, chunkData.chunk_text as string);
@@ -370,6 +374,70 @@ export default {
 
         if (results.length >= topK) {
           break;
+        }
+      }
+
+      // D1 FALLBACK: If Vectorize returned no results and we're filtering by book, try D1 keyword search
+      // This handles cases where embeddings haven't been uploaded to Vectorize yet (e.g., new books like Conversations)
+      if (results.length === 0 && bookFilter && source !== 'philosophy') {
+        console.log(`Vectorize returned 0 results for book=${bookFilter}. Falling back to D1 keyword search.`);
+
+        // Perform keyword-based search directly in D1
+        const queryTerms = query.toLowerCase().split(/\s+/).filter(t => t.length > 2);
+
+        if (queryTerms.length > 0) {
+          // Build SQL LIKE conditions for each term
+          const likeConditions = queryTerms.map(() => 'LOWER(c.content) LIKE ?').join(' OR ');
+          const likeParams = queryTerms.map(term => `%${term}%`);
+
+          const d1Results = await env.DB.prepare(`
+            SELECT
+              c.id,
+              c.content as chunk_text,
+              c.chunk_type,
+              v.id as verse_id,
+              v.chapter,
+              v.verse_number,
+              v.sanskrit,
+              v.synonyms,
+              v.translation,
+              b.code as book_code,
+              b.name as book_name
+            FROM vedabase_chunks c
+            JOIN vedabase_verses v ON c.verse_id = v.id
+            JOIN vedabase_books b ON v.book_id = b.id
+            WHERE b.code = ? AND (${likeConditions})
+            LIMIT ?
+          `).bind(bookFilter, ...likeParams, topK * 2).all();
+
+          console.log(`D1 fallback found ${d1Results.results?.length || 0} matches`);
+
+          // Score results based on keyword matching
+          for (const row of (d1Results.results || [])) {
+            const keywordScore = calculateKeywordScore(query, row.chunk_text as string);
+
+            // Only include results with decent keyword matches
+            if (keywordScore > 0.2) {
+              results.push({
+                score: keywordScore, // Pure keyword-based score
+                source: 'vedabase',
+                sectionType: row.chunk_type as string,
+                chunkText: row.chunk_text as string,
+                vedabaseVerse: {
+                  id: String(row.verse_id),
+                  book_code: row.book_code as string,
+                  book_name: row.book_name as string,
+                  chapter: row.chapter as string,
+                  verse_number: row.verse_number as string,
+                  sanskrit: row.sanskrit as string | undefined,
+                  synonyms: row.synonyms as string | undefined,
+                  translation: row.translation as string | undefined
+                }
+              });
+            }
+          }
+
+          console.log(`D1 fallback added ${results.length} results after keyword filtering`);
         }
       }
 
