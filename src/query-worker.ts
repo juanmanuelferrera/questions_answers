@@ -191,11 +191,11 @@ export default {
         returnMetadata: true
       };
 
-      // NOTE: Vectorize metadata filtering may not work reliably
-      // We'll filter in-memory after retrieving results
-      // if (bookFilter) {
-      //   queryOptions.filter = { book_code: bookFilter };
-      // }
+      // Enable Vectorize metadata filtering for book_code
+      // Now that metadata index is created, this should work reliably
+      if (bookFilter) {
+        queryOptions.filter = { book_code: bookFilter };
+      }
 
       const vectorResults = await env.VECTORIZE.query(queryEmbedding, queryOptions);
 

@@ -490,8 +490,8 @@
 
                 // 2. Automatically generate synthesis
                 const sources = searchData.results.map(r => ({
-                    verse: r.verse,
-                    chunkType: r.chunkType,
+                    verse: r.vedabaseVerse,
+                    chunkType: r.sectionType,
                     chunkText: r.chunkText,
                     score: r.score
                 }));
@@ -527,14 +527,14 @@
                 .join('');
 
             const sourcesHtml = sources.map((result, index) => {
-                const { verse, chunkText, chunkType, score } = result;
+                const { vedabaseVerse, chunkText, sectionType, score } = result;
 
                 let verseHtml = '';
-                if (verse.sanskrit || verse.translation) {
+                if (vedabaseVerse && (vedabaseVerse.sanskrit || vedabaseVerse.translation)) {
                     verseHtml = `
                         <div class="verse-text">
-                            ${verse.sanskrit ? `<div class="sanskrit">${escapeHtml(verse.sanskrit)}</div>` : ''}
-                            ${verse.translation ? `<div class="translation">${escapeHtml(verse.translation)}</div>` : ''}
+                            ${vedabaseVerse.sanskrit ? `<div class="sanskrit">${escapeHtml(vedabaseVerse.sanskrit)}</div>` : ''}
+                            ${vedabaseVerse.translation ? `<div class="translation">${escapeHtml(vedabaseVerse.translation)}</div>` : ''}
                         </div>
                     `;
                 }
@@ -543,14 +543,14 @@
                     <div class="source-card">
                         <div class="source-header">
                             <div class="source-title">
-                                <h4>${escapeHtml(verse.book)}</h4>
-                                <div class="verse-ref">${verse.chapter ? escapeHtml(verse.chapter) + ' - ' : ''}Verse ${escapeHtml(verse.verse_number)}</div>
+                                <h4>${vedabaseVerse ? escapeHtml(vedabaseVerse.book_name) : 'Unknown'}</h4>
+                                <div class="verse-ref">${vedabaseVerse && vedabaseVerse.chapter ? escapeHtml(vedabaseVerse.chapter) + ' - ' : ''}${vedabaseVerse ? 'Verse ' + escapeHtml(vedabaseVerse.verse_number) : ''}</div>
                             </div>
                             <div class="similarity-score">${(score * 100).toFixed(1)}%</div>
                         </div>
                         ${verseHtml}
-                        ${chunkType === 'purport_paragraph' ? `<div class="purport-text">${escapeHtml(chunkText)}</div>` : ''}
-                        <span class="chunk-type">${chunkType.replace('_', ' ')}</span>
+                        ${sectionType === 'purport_paragraph' ? `<div class="purport-text">${escapeHtml(chunkText)}</div>` : ''}
+                        <span class="chunk-type">${sectionType ? sectionType.replace('_', ' ') : 'content'}</span>
                     </div>
                 `;
             }).join('');

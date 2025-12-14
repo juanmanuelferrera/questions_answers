@@ -6,126 +6,518 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <link rel="icon" type="image/png" href="/prabhupada.png">
+
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/png" href="/apple-touch-icon.png">
+
+    <!-- iOS Safari PWA support - multiple sizes -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Vedabase RAG">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFD700">
+
     <title>Vedabase RAG - Semantic Search Across Bhagavad Gita & Srimad Bhagavatam</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        * {
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAFA;
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #e8e8e8;
-            min-height: 100vh;
-            padding: 20px;
+        .font-serif {
+            font-family: 'Playfair Display', serif;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Layout */
+        .app-layout {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Sidebar Styles */
+        .sidebar {
+            width: 320px;
+            height: 100vh;
+            background: #FFFFFF;
+            border-right: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 50;
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            font-weight: 700;
+        .sidebar-brand {
+            padding: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        .header .subtitle {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        .header .stats {
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-top: 15px;
-        }
-
-        .search-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 16px 20px;
-            font-size: 16px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 12px;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            margin-bottom: 15px;
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .search-input:focus {
-            outline: none;
-            border-color: #FFD700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        .brand-logo:hover {
+            transform: translateY(-2px);
         }
 
-        .search-input::placeholder {
-            color: #94a3b8;
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background: #0f172a;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 20px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
         }
 
-        #recentSearches option {
-            background: rgba(0, 0, 0, 0.9);
-            color: #FFD700;
-            padding: 8px;
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.02em;
         }
 
-        .controls {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-            margin-bottom: 15px;
+        .brand-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: #4f46e5;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-left: 4px;
         }
 
-        .control-group select {
+        .new-search-btn {
             width: 100%;
-            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .new-search-btn:hover {
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+            border-color: #c7d2fe;
+            transform: translateY(-1px);
+        }
+
+        .new-search-btn:active {
+            transform: scale(0.98);
+        }
+
+        .new-search-icon {
+            padding: 6px;
             border-radius: 8px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
+            background: #f8fafc;
+            color: #64748b;
+            transition: all 0.3s ease;
+        }
+
+        .new-search-btn:hover .new-search-icon {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 32px;
+        }
+
+        .section-header {
+            font-size: 11px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0 12px;
+            margin-bottom: 12px;
+        }
+
+        .filter-group {
+            margin-bottom: 16px;
+        }
+
+        .filter-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            color: #0f172a;
             font-size: 14px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .control-group select:hover {
-            border-color: #FFD700;
+        .filter-select:hover {
+            border-color: #4f46e5;
         }
 
-        .control-group select option {
-            background: #1a0a2e;
-            color: #fff;
+        .filter-select:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
         }
 
-        .btn {
+        .recent-item {
+            width: 100%;
+            text-align: left;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: transparent;
+            border: none;
+            color: #475569;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            overflow: hidden;
+        }
+
+        .recent-item:hover {
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        .recent-item-text {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .recent-item-remove {
+            opacity: 0;
+            color: #94a3b8;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            padding: 0 4px;
+        }
+
+        .recent-item:hover .recent-item-remove {
+            opacity: 1;
+        }
+
+        .recent-item-remove:hover {
+            color: #ef4444;
+        }
+
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            color: #64748b;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+        }
+
+        .action-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            color: #475569;
+        }
+
+        .version-info {
+            text-align: center;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 12px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            height: 100vh;
+            overflow-y: auto;
+            background: #FAFAFA;
+            position: relative;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Animated Background Blobs */
+        .blob-container {
+            position: fixed;
+            top: 0;
+            left: 320px;
+            right: 0;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            mix-blend-mode: multiply;
+        }
+
+        .blob-1 {
+            top: 20%;
+            left: 20%;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            animation: blob 10s infinite;
+        }
+
+        .blob-2 {
+            top: 20%;
+            right: 20%;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            animation: blob 10s infinite;
+            animation-delay: 2s;
+        }
+
+        /* Daily Wisdom */
+        .daily-wisdom {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 32px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .daily-wisdom::before {
+            content: '"';
+            position: absolute;
+            top: 16px;
+            left: 24px;
+            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            color: rgba(79, 70, 229, 0.15);
+        }
+
+        .wisdom-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #334155;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .wisdom-source {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(79, 70, 229, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .wisdom-source::before,
+        .wisdom-source::after {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: rgba(79, 70, 229, 0.3);
+        }
+
+        /* Simple Search Input in Main Content */
+        .search-compact {
+            max-width: 800px;
+            margin: 0 auto 32px;
+            position: relative;
+        }
+
+        .search-input-main {
+            width: 100%;
+            padding: 16px 60px 16px 52px;
+            font-size: 18px;
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.05);
+        }
+
+        .search-input-main:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .search-input-main::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            pointer-events: none;
+        }
+
+        /* Voice search button */
+        .voice-search-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            min-width: 44px;
+            min-height: 44px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .voice-search-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .voice-search-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .voice-search-btn.listening {
+            color: #ef4444;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .search-btn-main {
+            width: 100%;
             padding: 14px 28px;
             border: none;
             border-radius: 10px;
@@ -133,43 +525,542 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+            margin-top: 12px;
+            min-height: 48px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #1a0a2e;
-            width: 100%;
-        }
-
-        .btn-primary:hover {
+        .search-btn-main:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
         }
 
-        .btn-primary:disabled {
+        .search-btn-main:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Quick Topic Chips */
+        .quick-topics {
+            margin: 20px auto 32px;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .quick-topics h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .topic-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .topic-chip {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #1a0a2e;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+        }
+
+        .topic-chip:active {
+            transform: scale(0.95);
+        }
+
+        .topic-chip:hover {
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Reading Mode */
+        .reading-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            z-index: 100;
+        }
+
+        .reading-mode-toggle:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #4f46e5;
+        }
+
+        body.reading-mode {
+            background: #f5f1e8;
+        }
+
+        body.reading-mode .sidebar {
+            display: none;
+        }
+
+        body.reading-mode .main-content {
+            margin-left: 0;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        body.reading-mode .search-compact,
+        body.reading-mode .quick-topics,
+        body.reading-mode .sources-section {
+            display: none;
+        }
+
+        body.reading-mode .synthesis-container {
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        /* Dark Mode */
+        body.dark-theme {
+            background: #0a0a0a;
+            color: #e8e8e8;
+        }
+
+        body.dark-theme .sidebar {
+            background: #1a1a1a;
+            border-right-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .search-input-main {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #e8e8e8;
+        }
+
+        body.dark-theme .search-btn-main {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        body.dark-theme .synthesis-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .source-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .source-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .daily-wisdom {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .filter-select {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e8e8e8;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-theme .reading-mode-toggle,
+        body.dark-theme .theme-toggle,
+        body.dark-theme .font-controls button {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e8e8e8;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Respect system dark mode preference */
+        @media (prefers-color-scheme: dark) {
+            body:not(.light-theme) {
+                background: #0a0a0a;
+                color: #e8e8e8;
+            }
+
+            body:not(.light-theme) .sidebar {
+                background: #1a1a1a;
+                border-right-color: rgba(255, 255, 255, 0.1);
+            }
+
+            body:not(.light-theme) .search-input-main {
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba(255, 255, 255, 0.2);
+                color: #e8e8e8;
+            }
+
+            body:not(.light-theme) .synthesis-container {
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+
+            body:not(.light-theme) .source-card {
+                background: rgba(255, 255, 255, 0.03);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            z-index: 100;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #4f46e5;
+        }
+
+        /* Font Controls */
+        .font-controls {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            gap: 4px;
+            z-index: 100;
+        }
+
+        .font-controls button {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .font-controls button:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #4f46e5;
+        }
+
+        .font-controls button:active {
+            transform: scale(0.95);
+        }
+
+        /* Mobile Hamburger Menu - Hidden by default on desktop */
+        @media (min-width: 769px) {
+            .mobile-menu-btn {
+                display: none !important;
+            }
+        }
+
+        .mobile-menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            border: 2px solid #ffffff;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 28px;
+            color: #ffffff;
+            cursor: pointer;
+            z-index: 10001;
+            min-width: 52px;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(79, 70, 229, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+        }
+
+        .mobile-menu-btn:active {
+            transform: scale(0.95);
+        }
+
+        .sidebar.mobile-open {
+            transform: translateX(0);
+            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Overlay when mobile menu is open */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+
+        .mobile-overlay.show {
+            display: block;
+        }
+
+        /* Pull to Refresh */
+        .pull-to-refresh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .pull-to-refresh.pulling {
+            transform: translateY(0);
+        }
+
+        /* PWA Install Banner */
+        .install-prompt {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 16px 20px;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .install-prompt.show {
+            display: flex;
+        }
+
+        .install-prompt-content {
+            flex: 1;
+        }
+
+        .install-prompt h3 {
+            margin: 0 0 4px 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .install-prompt p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .install-prompt-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .install-prompt button {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .install-btn {
+            background: white;
+            color: #4f46e5;
+        }
+
+        .dismiss-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        /* Swipe indicator */
+        .swipe-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .swipe-indicator.left {
+            left: 20px;
+        }
+
+        .swipe-indicator.right {
+            right: 20px;
+        }
+
+        .swipe-indicator.show {
+            opacity: 0.6;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        }
+
+        .spinner {
+            border: 3px solid rgba(99, 102, 241, 0.1);
+            border-top: 3px solid #4f46e5;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .synthesis-container {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(79, 70, 229, 0.08);
+        }
+
+        .question-header {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .question-label {
+            color: #f59e0b;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 600;
+            line-height: 1.4;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .synthesis-box {
+            background: rgba(248, 250, 252, 0.8);
+            border-radius: 12px;
+            padding: 25px;
+            line-height: 1.8;
+            color: #334155;
+            margin-bottom: 20px;
+            border-left: 4px solid #4f46e5;
+        }
+
+        .synthesis-box p {
+            margin-bottom: 1em;
+        }
+
+        .synthesis-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .word-count {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.9);
+            color: #4f46e5;
+            border: 1px solid rgba(99, 102, 241, 0.3);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 1);
+            border-color: #4f46e5;
         }
 
         .toast {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: rgba(46, 125, 50, 0.95);
+            background: rgba(34, 197, 94, 0.95);
             color: white;
             padding: 15px 25px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             font-size: 14px;
             font-weight: 500;
             z-index: 10000;
@@ -187,82 +1078,6 @@
             }
         }
 
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #94a3b8;
-        }
-
-        .spinner {
-            border: 3px solid rgba(255, 215, 0, 0.1);
-            border-top: 3px solid #FFD700;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .synthesis-container {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .question-header {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .question-label {
-            color: #FFA500;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .question-text {
-            font-size: 1.5rem;
-            color: #FFD700;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        .synthesis-box {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            padding: 25px;
-            line-height: 1.8;
-            color: #e8e8e8;
-            margin-bottom: 20px;
-            border-left: 4px solid #FFD700;
-        }
-
-        .synthesis-box p {
-            margin-bottom: 1em;
-        }
-
-        .synthesis-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .word-count {
-            color: #64748b;
-            font-size: 14px;
-        }
-
         .sources-section {
             margin-top: 30px;
         }
@@ -277,13 +1092,15 @@
         }
 
         .sources-header h3 {
-            color: #FFA500;
+            color: #f59e0b;
             font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .toggle-icon {
             font-size: 1.2rem;
             transition: all 0.3s ease;
+            color: #64748b;
         }
 
         .sources-list {
@@ -292,17 +1109,20 @@
         }
 
         .source-card {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(248, 250, 252, 0.8);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 15px;
-            border-left: 3px solid #FFD700;
+            border-left: 3px solid #4f46e5;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
 
         .source-card:hover {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+            transform: translateX(4px);
         }
 
         .source-card .source-content {
@@ -322,7 +1142,7 @@
             left: 0;
             right: 0;
             height: 40px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+            background: linear-gradient(transparent, rgba(248, 250, 252, 0.8));
             pointer-events: none;
         }
 
@@ -343,7 +1163,7 @@
             display: inline-block;
             margin-left: 8px;
             font-size: 0.8rem;
-            color: #FFA500;
+            color: #f59e0b;
             transition: transform 0.3s ease;
         }
 
@@ -359,13 +1179,14 @@
         }
 
         .source-title h4 {
-            color: #FFD700;
+            color: #4f46e5;
             font-size: 1rem;
             margin-bottom: 5px;
+            font-weight: 600;
         }
 
         .source-title .verse-ref {
-            color: #94a3b8;
+            color: #64748b;
             font-size: 0.9rem;
         }
 
@@ -376,9 +1197,9 @@
         }
 
         .btn-copy {
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            color: #FFD700;
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.3);
+            color: #4f46e5;
             padding: 6px 12px;
             border-radius: 8px;
             font-size: 0.85rem;
@@ -388,8 +1209,8 @@
         }
 
         .btn-copy:hover {
-            background: rgba(255, 215, 0, 0.2);
-            border-color: #FFD700;
+            background: rgba(79, 70, 229, 0.2);
+            border-color: #4f46e5;
             transform: translateY(-1px);
         }
 
@@ -398,8 +1219,8 @@
         }
 
         .similarity-score {
-            background: rgba(255, 215, 0, 0.15);
-            color: #FFD700;
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -407,120 +1228,657 @@
         }
 
         .verse-text {
-            background: rgba(255, 215, 0, 0.05);
+            background: rgba(224, 231, 255, 0.3);
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 15px;
             font-style: italic;
-            color: #cbd5e1;
-            border-left: 2px solid #FFA500;
+            color: #475569;
+            border-left: 2px solid #4f46e5;
         }
 
         .sanskrit {
             font-family: 'Noto Sans Devanagari', serif;
             font-size: 1.1rem;
             margin-bottom: 10px;
-            color: #FFD700;
+            color: #4f46e5;
+            font-weight: 500;
         }
 
         .translation {
-            color: #94a3b8;
+            color: #64748b;
             font-size: 0.95rem;
         }
 
         .purport-text {
             line-height: 1.7;
-            color: #e8e8e8;
+            color: #334155;
         }
 
         .chunk-type {
             display: inline-block;
-            background: rgba(255, 165, 0, 0.2);
-            color: #FFA500;
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
             padding: 3px 10px;
             border-radius: 12px;
             font-size: 0.8rem;
             margin-top: 10px;
+            font-weight: 500;
         }
 
+        /* Conversation Thread */
+        .conversation-thread {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .conversation-item {
+            opacity: 0;
+            animation: fadeSlideIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .conversation-item.user-question {
+            align-self: flex-end;
+            max-width: 85%;
+        }
+
+        .conversation-item.ai-answer {
+            align-self: flex-start;
+            width: 100%;
+        }
+
+        .question-bubble {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 18px 18px 4px 18px;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .answer-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .answer-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .ai-avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .answer-label {
+            color: #4f46e5;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .answer-text {
+            color: #334155;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .answer-text.streaming {
+            position: relative;
+        }
+
+        .answer-text.streaming::after {
+            content: '▊';
+            animation: blink 1s infinite;
+            color: #4f46e5;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .answer-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .action-chip {
+            padding: 6px 14px;
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #4f46e5;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .action-chip:hover {
+            background: rgba(79, 70, 229, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* Follow-up Input Section */
+        .follow-up-section {
+            margin-top: 30px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 2px solid rgba(99, 102, 241, 0.15);
+            position: sticky;
+            bottom: 20px;
+            z-index: 100;
+        }
+
+        .follow-up-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .follow-up-label {
+            color: #4f46e5;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .conversation-count {
+            background: rgba(79, 70, 229, 0.1);
+            color: #4f46e5;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .suggested-questions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .suggested-chip {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #4f46e5;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .suggested-chip:hover {
+            background: rgba(79, 70, 229, 0.1);
+            border-color: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(79, 70, 229, 0.15);
+        }
+
+        .follow-up-input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .follow-up-input {
+            flex: 1;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            background: white;
+            color: #1a1a1a;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .follow-up-input:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 0 4px 12px rgba(79, 70, 229, 0.15);
+        }
+
+        .follow-up-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .btn-follow-up {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            font-size: 15px;
+        }
+
+        .btn-follow-up:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-follow-up:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .btn-follow-up:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .export-conversation {
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .export-btn {
+            background: transparent;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #4f46e5;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .export-btn:hover {
+            background: rgba(79, 70, 229, 0.05);
+            border-color: #4f46e5;
+        }
+
+        /* Mobile Responsive */
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8rem;
+            /* Base mobile typography - NEVER below 16px to prevent iOS zoom */
+            body {
+                font-size: 16px;
+                line-height: 1.6;
             }
 
-            .controls {
-                grid-template-columns: 1fr;
+            /* Mobile sidebar - slide in from left */
+            .sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Adjust control positions on mobile */
+            .reading-mode-toggle {
+                top: 80px;
+                right: 12px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .theme-toggle {
+                top: 130px;
+                right: 12px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .font-controls {
+                top: 180px;
+                right: 12px;
+            }
+
+            .blob-container {
+                left: 0;
+            }
+
+            .content-wrapper {
+                padding: 24px 16px;
+            }
+
+            .daily-wisdom {
+                padding: 24px;
+            }
+
+            .wisdom-text {
+                font-size: 1.1rem;
+            }
+
+            /* Input fields - prevent iOS auto-zoom */
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+
+            .search-input-main {
+                font-size: 16px;
+                padding: 14px 60px 14px 48px;
+            }
+
+            /* Search button optimized for mobile */
+            .search-btn-main {
+                font-size: 17px;
+                min-height: 48px;
+                padding: 16px 28px;
+            }
+
+            /* Headings */
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            h3 { font-size: 20px; }
+            h4 { font-size: 18px; }
+
+            /* Synthesis content - optimized for reading */
+            .synthesis-container {
+                font-size: 17px;
+                line-height: 1.7;
+                padding: 24px;
+                max-width: 100%;
+            }
+
+            .synthesis-text {
+                font-size: 17px;
+                line-height: 1.7;
+            }
+
+            /* Source cards on mobile */
+            .source-card {
+                padding: 16px;
+                font-size: 16px;
+            }
+
+            .source-card .purport-text {
+                font-size: 16px;
+                line-height: 1.65;
+            }
+
+            /* Touch targets - minimum 44x44px */
+            button, a, .btn-secondary {
+                min-width: 44px;
+                min-height: 44px;
+                padding: 12px 24px;
+                margin: 4px;
             }
 
             .synthesis-actions {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
             }
+
+            .btn-secondary {
+                width: 100%;
+            }
+
+            /* Quick topics mobile */
+            .quick-topics {
+                padding: 0 16px;
+            }
+
+            .topic-chip {
+                font-size: 14px;
+                padding: 12px 18px;
+            }
+
+            /* Reading mode toggle mobile */
+            .reading-mode-toggle {
+                top: 12px;
+                right: 12px;
+                font-size: 13px;
+                padding: 8px 14px;
+            }
+
+            /* Verse references */
+            .verse-ref {
+                font-size: 14px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        .sidebar-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar-content::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .sidebar-content::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🕉️ Vedabase RAG</h1>
-            <div class="subtitle">Semantic Search Across Srila Prabhupada's legacy with AI Synthesis</div>
-            <div class="stats">Bhagavad Gita, Srimad Bhagavatam, Srila Prabhupada's Letters & More</div>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Mobile Hamburger Menu -->
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" id="mobileMenuBtn">
+        ☰
+    </button>
+
+    <!-- Pull to Refresh Indicator -->
+    <div class="pull-to-refresh" id="pullToRefresh">
+        <span>↓ Pull to refresh</span>
+    </div>
+
+    <!-- PWA Install Prompt -->
+    <div class="install-prompt" id="installPrompt">
+        <div class="install-prompt-content">
+            <h3>Install Vedabase</h3>
+            <p>Get faster access and offline reading</p>
         </div>
+        <div class="install-prompt-actions">
+            <button class="install-btn" onclick="installPWA()">Install</button>
+            <button class="dismiss-btn" onclick="dismissInstallPrompt()">Not now</button>
+        </div>
+    </div>
 
-        <div class="search-box">
-            <input
-                type="text"
-                id="queryInput"
-                class="search-input"
-                placeholder="Ask a question... (recent searches will appear as you type)"
-                onkeypress="if(event.key==='Enter') search()"
-            >
-
-            <div class="controls">
-                <div class="control-group">
-                    <select id="bookSelect" onchange="handleFilterChange()">
-                        <option value="">All Books</option>
-                    </select>
+    <div class="app-layout">
+        <!-- Left Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Branding -->
+            <div class="sidebar-brand">
+                <div class="brand-logo" onclick="newSearch()">
+                    <div class="brand-icon">V</div>
+                    <div>
+                        <span class="brand-text">Vedabase</span>
+                        <span class="brand-tag">RAG</span>
+                    </div>
                 </div>
 
-                <div class="control-group">
-                    <select id="topKInput" onchange="handleFilterChange()">
-                        <option value="5">5 sources</option>
-                        <option value="10">10 sources</option>
-                        <option value="15">15 sources</option>
-                        <option value="20" selected>20 sources (max)</option>
-                    </select>
+                <button class="new-search-btn" onclick="newSearch()">
+                    <div class="new-search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20">
+                            <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                        </svg>
+                    </div>
+                    <span>New Inquiry</span>
+                </button>
+            </div>
+
+            <!-- Filters & Settings -->
+            <div class="sidebar-content">
+                <!-- Filters Section -->
+                <div class="sidebar-section">
+                    <h3 class="section-header">Filters</h3>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Book Source</label>
+                        <select id="bookSelect" class="filter-select" onchange="handleFilterChange()">
+                            <option value="">All Books</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Source Count</label>
+                        <select id="topKInput" class="filter-select" onchange="handleFilterChange()">
+                            <option value="5">5 sources</option>
+                            <option value="10">10 sources</option>
+                            <option value="15">15 sources</option>
+                            <option value="20" selected>20 sources</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Answer Length</label>
+                        <select id="wordLimitSelect" class="filter-select" onchange="handleFilterChange()">
+                            <option value="30">30 words</option>
+                            <option value="50">50 words</option>
+                            <option value="100">100 words</option>
+                            <option value="200" selected>200 words</option>
+                            <option value="400">400 words</option>
+                            <option value="600">600 words</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="control-group">
-                    <select id="wordLimitSelect" onchange="handleFilterChange()">
-                        <option value="30">30 words</option>
-                        <option value="50">50 words</option>
-                        <option value="100">100 words</option>
-                        <option value="200" selected>200 words</option>
-                        <option value="400">400 words</option>
-                        <option value="600">600 words</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <button class="btn btn-secondary" onclick="resetFilters()">🔄 Reset</button>
-                </div>
-
-                <div class="control-group">
-                    <button class="btn btn-secondary" onclick="clearSearchHistory()" title="Clear search history">🗑️ Clear History</button>
+                <!-- Recent Searches -->
+                <div class="sidebar-section">
+                    <h3 class="section-header">Recent</h3>
+                    <div id="recentSearchesList"></div>
                 </div>
             </div>
 
-            <button class="btn btn-primary" onclick="search()" id="searchBtn">Search & Synthesize</button>
-        </div>
+            <!-- Footer Actions -->
+            <div class="sidebar-footer">
+                <button class="action-btn" onclick="clearSearchHistory()">
+                    <span style="margin-right: 8px;">🗑️</span> Clear History
+                </button>
+                <div class="version-info">Vedabase RAG v1.0</div>
+            </div>
+        </aside>
 
-        <div id="loading" class="loading" style="display: none;">
-            <div class="spinner"></div>
-            <div>Searching Vedic texts and generating synthesis...</div>
-        </div>
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Animated Background Blobs -->
+            <div class="blob-container">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
 
-        <div id="synthesis" style="display: none;"></div>
+            <div class="content-wrapper">
+                <!-- Daily Wisdom Section -->
+                <div id="dailyWisdom" class="daily-wisdom">
+                    <p class="wisdom-text" id="wisdomText"></p>
+                    <div class="wisdom-source" id="wisdomSource"></div>
+                </div>
+
+                <!-- Reading Mode Toggle -->
+                <button class="reading-mode-toggle" onclick="toggleReadingMode()" id="readingModeToggle">
+                    <span>📖</span>
+                    <span id="readingModeText">Reading Mode</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark Mode</span>
+                </button>
+
+                <!-- Font Size Controls -->
+                <div class="font-controls">
+                    <button onclick="adjustFontSize('decrease')" title="Decrease font size">A-</button>
+                    <button onclick="adjustFontSize('reset')" title="Reset font size">A</button>
+                    <button onclick="adjustFontSize('increase')" title="Increase font size">A+</button>
+                </div>
+
+                <!-- Compact Search Input -->
+                <div class="search-compact">
+                    <div style="position: relative;">
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" width="20" height="20">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                        <input
+                            type="text"
+                            id="queryInput"
+                            class="search-input-main"
+                            placeholder="Ask your question..."
+                            onkeypress="if(event.key==='Enter') search()"
+                        >
+                        <button class="voice-search-btn" onclick="startVoiceSearch()" id="voiceBtn" title="Voice search">
+                            🎤
+                        </button>
+                    </div>
+                    <button class="search-btn-main" onclick="search()" id="searchBtn">Search & Synthesize</button>
+                </div>
+
+                <!-- Quick Topic Chips -->
+                <div class="quick-topics">
+                    <h3>Popular Topics</h3>
+                    <div class="topic-chips">
+                        <button class="topic-chip" onclick="searchTopic('Krishna')">Krishna</button>
+                        <button class="topic-chip" onclick="searchTopic('dharma')">Dharma</button>
+                        <button class="topic-chip" onclick="searchTopic('karma yoga')">Karma Yoga</button>
+                        <button class="topic-chip" onclick="searchTopic('meditation')">Meditation</button>
+                        <button class="topic-chip" onclick="searchTopic('bhakti')">Bhakti</button>
+                        <button class="topic-chip" onclick="searchTopic('self-realization')">Self-Realization</button>
+                    </div>
+                </div>
+
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <div>Searching Vedic texts and generating synthesis...</div>
+                </div>
+
+                <div id="synthesis" style="display: none;"></div>
+            </div>
+        </main>
     </div>
 
     <script>
@@ -528,15 +1886,45 @@
         const SYNTHESIS_WORKER = 'https://vedabase-synthesis.joanmanelferrera-400.workers.dev';
         const MAX_RECENT_SEARCHES = 10;
 
+        // Daily wisdom quotes
+        const DAILY_WISDOM = [
+            {
+                text: "For the soul there is neither birth nor death at any time. He has not come into being, does not come into being, and will not come into being. He is unborn, eternal, ever-existing and primeval.",
+                source: "Bhagavad-gita 2.20"
+            },
+            {
+                text: "This material nature, which is one of My energies, is working under My direction, O son of Kuntī, producing all moving and nonmoving beings.",
+                source: "Bhagavad-gita 9.10"
+            },
+            {
+                text: "The occupational activities a man performs according to his own position are only so much useless labor if they do not provoke attraction for the message of the Personality of Godhead.",
+                source: "Srimad Bhagavatam 1.2.8"
+            },
+            {
+                text: "A person who is not disturbed by the incessant flow of desires—that enter like rivers into the ocean, which is ever being filled but is always still—can alone achieve peace.",
+                source: "Bhagavad-gita 2.70"
+            }
+        ];
+
         let currentResults = null;
         let sourcesExpanded = false;
         let recentSearches = [];
+        let currentSources = null; // Store sources for follow-up questions
+        let conversationHistory = []; // Track Q&A pairs
 
-        // Load books and recent searches on page load
+        // Load books, recent searches, and daily wisdom on page load
         document.addEventListener('DOMContentLoaded', () => {
             loadBooks();
             loadRecentSearches();
+            loadDailyWisdom();
+            updateRecentSearchesUI();
         });
+
+        function loadDailyWisdom() {
+            const randomQuote = DAILY_WISDOM[Math.floor(Math.random() * DAILY_WISDOM.length)];
+            document.getElementById('wisdomText').textContent = randomQuote.text;
+            document.getElementById('wisdomSource').textContent = randomQuote.source;
+        }
 
         async function loadBooks() {
             try {
@@ -576,7 +1964,6 @@
             try {
                 const stored = localStorage.getItem('vedabaseRecentSearches');
                 recentSearches = stored ? JSON.parse(stored) : [];
-                updateSearchInput();
             } catch (error) {
                 console.error('Failed to load recent searches:', error);
                 recentSearches = [];
@@ -593,25 +1980,60 @@
             // Save to localStorage
             try {
                 localStorage.setItem('vedabaseRecentSearches', JSON.stringify(recentSearches));
+                updateRecentSearchesUI();
             } catch (error) {
                 console.error('Failed to save recent searches:', error);
             }
         }
 
-        function updateSearchInput() {
-            const input = document.getElementById('queryInput');
-            if (recentSearches.length > 0) {
-                input.setAttribute('list', 'recentSearches');
-                let datalist = document.getElementById('recentSearches');
-                if (!datalist) {
-                    datalist = document.createElement('datalist');
-                    datalist.id = 'recentSearches';
-                    input.parentNode.insertBefore(datalist, input.nextSibling);
-                }
-                datalist.innerHTML = recentSearches
-                    .map(q => `<option value="${escapeHtml(q)}">`)
-                    .join('');
+        function updateRecentSearchesUI() {
+            const container = document.getElementById('recentSearchesList');
+            if (recentSearches.length === 0) {
+                container.innerHTML = '<div style="padding: 12px; color: #94a3b8; font-size: 13px; text-align: center;">No recent searches</div>';
+                return;
             }
+
+            container.innerHTML = recentSearches.slice(0, 5).map(query => `
+                <button class="recent-item" onclick="selectRecentSearch('${escapeHtml(query).replace(/'/g, "\\'")}')">
+                    <span class="recent-item-text">${escapeHtml(query)}</span>
+                    <span class="recent-item-remove" onclick="event.stopPropagation(); removeRecentSearch('${escapeHtml(query).replace(/'/g, "\\'")}')">×</span>
+                </button>
+            `).join('');
+        }
+
+        function selectRecentSearch(query) {
+            document.getElementById('queryInput').value = query;
+            search();
+        }
+
+        function removeRecentSearch(query) {
+            recentSearches = recentSearches.filter(q => q !== query);
+            localStorage.setItem('vedabaseRecentSearches', JSON.stringify(recentSearches));
+            updateRecentSearchesUI();
+            showToast('Search removed');
+        }
+
+        function newSearch() {
+            document.getElementById('queryInput').value = '';
+            document.getElementById('synthesis').style.display = 'none';
+            currentResults = null;
+            currentSources = null;
+            conversationHistory = [];
+            conversationThreadId = 0;
+
+            // Clear conversation thread if it exists
+            const thread = document.getElementById('conversationThread');
+            if (thread) {
+                thread.remove();
+            }
+
+            // Clear suggested questions
+            const suggestedQuestions = document.getElementById('suggestedQuestions');
+            if (suggestedQuestions) {
+                suggestedQuestions.innerHTML = '';
+            }
+
+            document.getElementById('queryInput').focus();
         }
 
         async function search() {
@@ -623,7 +2045,6 @@
 
             // Save to recent searches
             saveRecentSearch(query);
-            updateSearchInput();
 
             const topK = parseInt(document.getElementById('topKInput').value);
             const wordLimit = parseInt(document.getElementById('wordLimitSelect').value);
@@ -636,8 +2057,6 @@
 
             try {
                 // 1. Search for relevant verses
-                // When filtering by book, request more results to increase chances of matches
-                // Increased multiplier to help find buried information in long chunks
                 const searchTopK = bookFilter ? Math.min(topK * 5, 100) : Math.min(topK * 2, 50);
                 const searchBody = { query, topK: searchTopK, source: 'vedabase' };
                 if (bookFilter) {
@@ -755,6 +2174,19 @@
                 // Final update with complete synthesis
                 finalizeStreamingSynthesis(synthesis, wordLimit);
 
+                // Store sources and context for follow-up questions
+                currentSources = sources;
+                const currentBookContext = bookContext;
+                conversationHistory.push({
+                    question: query,
+                    answer: synthesis,
+                    sources: sources,
+                    bookContext: currentBookContext
+                });
+
+                // Generate initial suggested questions
+                generateSuggestedQuestions(synthesis);
+
             } catch (error) {
                 console.error('Error:', error);
                 alert('Search failed: ' + error.message);
@@ -762,88 +2194,6 @@
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('searchBtn').disabled = false;
             }
-        }
-
-        function displayResults(query, synthesis, targetWords, sources) {
-            const wordCount = synthesis.split(/\s+/).length;
-            const formattedSynthesis = synthesis
-                .split(/\n\n+/)
-                .filter(para => para.trim())
-                .map(para => `<p>${para.trim()}</p>`)
-                .join('');
-
-            const sourcesHtml = sources.map((result, index) => {
-                const verse = result.vedabaseVerse || result.verse || {};
-                const chunkText = result.chunkText;
-                const chunkType = result.sectionType || result.chunkType || 'text';
-                const score = result.score;
-
-                let verseHtml = '';
-                if (verse.sanskrit || verse.translation) {
-                    verseHtml = `
-                        <div class="verse-text">
-                            ${verse.sanskrit ? `<div class="sanskrit">${escapeHtml(verse.sanskrit)}</div>` : ''}
-                            ${verse.translation ? `<div class="translation">${escapeHtml(verse.translation)}</div>` : ''}
-                        </div>
-                    `;
-                }
-
-                const bookName = verse.book_name || verse.book || 'Unknown Book';
-                const verseRef = verse.chapter ? `${escapeHtml(verse.chapter)} - Verse ${escapeHtml(verse.verse_number)}` : `Verse ${escapeHtml(verse.verse_number || '')}`;
-
-                const sourceText = `${bookName}\n${verseRef}\n\n${verse.sanskrit ? verse.sanskrit + '\n\n' : ''}${verse.translation ? verse.translation + '\n\n' : ''}${chunkText}`;
-
-                return `
-                    <div class="source-card" onclick="toggleSource(this)">
-                        <div class="source-header">
-                            <div class="source-title">
-                                <h4>${escapeHtml(bookName)} <span class="source-toggle-icon">▶</span></h4>
-                                <div class="verse-ref">${verseRef}</div>
-                            </div>
-                            <div class="source-header-actions">
-                                <button class="btn-copy" onclick="copySource(event, \`${sourceText.replace(/`/g, '\\`').replace(/\$/g, '\\$')}\`)" title="Copy this source">
-                                    📋 Copy
-                                </button>
-                                <div class="similarity-score">${(score * 100).toFixed(1)}%</div>
-                            </div>
-                        </div>
-                        <div class="source-content">
-                            ${verseHtml}
-                            <div class="purport-text">${chunkText}</div>
-                            <span class="chunk-type">${chunkType.replace(/_/g, ' ')}</span>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            document.getElementById('synthesis').innerHTML = `
-                <div class="synthesis-container">
-                    <div class="question-header">
-                        <div class="question-label">QUESTION</div>
-                        <div class="question-text">${escapeHtml(query)}</div>
-                    </div>
-
-                    <div class="synthesis-box">${formattedSynthesis}</div>
-
-                    <div class="synthesis-actions">
-                        <button class="btn btn-secondary" onclick="copySynthesis()">📋 Copy Answer</button>
-                        <button class="btn btn-secondary" onclick="copySynthesisSpanish(event)">🇪🇸 Copy Answer</button>
-                        <span class="word-count">Words: ${wordCount} / ${targetWords}</span>
-                    </div>
-
-                    <div class="sources-section">
-                        <div class="sources-header" onclick="toggleSources()">
-                            <h3>📚 Sources (${sources.length})</h3>
-                            <span class="toggle-icon" id="toggleIcon">▶</span>
-                        </div>
-                        <div class="sources-list" id="sourcesList">
-                            ${sourcesHtml}
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('synthesis').style.display = 'block';
         }
 
         function displayResultsStreaming(query, sources, targetWords) {
@@ -907,6 +2257,34 @@
                         <button class="btn btn-secondary" onclick="copySynthesis()">📋 Copy Answer</button>
                         <button class="btn btn-secondary" onclick="copySynthesisSpanish(event)">🇪🇸 Copy Answer</button>
                         <span class="word-count" id="streamingWordCount">Words: 0 / ${targetWords}</span>
+                    </div>
+
+                    <div class="follow-up-section" id="followUpSection">
+                        <div class="follow-up-header">
+                            <div class="follow-up-label">
+                                💬 Continue Conversation
+                            </div>
+                            <span class="conversation-count" id="conversationCount">1 message</span>
+                        </div>
+
+                        <div class="suggested-questions" id="suggestedQuestions"></div>
+
+                        <div class="follow-up-input-group">
+                            <input
+                                type="text"
+                                id="followUpInput"
+                                class="follow-up-input"
+                                placeholder="Ask a follow-up question..."
+                                onkeypress="if(event.key==='Enter') askFollowUp()"
+                            >
+                            <button class="btn-follow-up" onclick="askFollowUp()" id="followUpBtn">
+                                <span id="followUpBtnText">Ask</span>
+                            </button>
+                        </div>
+
+                        <div class="export-conversation">
+                            <button class="export-btn" onclick="exportConversation()">📥 Export Conversation</button>
+                        </div>
                     </div>
 
                     <div class="sources-section">
@@ -1010,7 +2388,7 @@
             const button = event.target.closest('.btn-copy');
             const originalText = button.innerHTML;
             button.innerHTML = '✅ Copied!';
-            button.style.background = 'rgba(76, 175, 80, 0.3)';
+            button.style.background = 'rgba(34, 197, 94, 0.3)';
 
             setTimeout(() => {
                 button.innerHTML = originalText;
@@ -1061,21 +2439,302 @@
             }
         }
 
-        function resetFilters() {
-            document.getElementById('queryInput').value = '';
-            document.getElementById('bookSelect').value = '';
-            document.getElementById('topKInput').value = '20';
-            document.getElementById('wordLimitSelect').value = '200';
-            document.getElementById('synthesis').style.display = 'none';
-            currentResults = null;
-        }
-
         function clearSearchHistory() {
             if (confirm('Clear all search history?')) {
                 recentSearches = [];
                 localStorage.removeItem('vedabaseRecentSearches');
-                updateSearchInput();
+                updateRecentSearchesUI();
                 showToast('Search history cleared');
+            }
+        }
+
+        // Voice search functionality
+        let recognition = null;
+
+        function startVoiceSearch() {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                showToast('Voice search not supported in this browser');
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+            if (!recognition) {
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.lang = 'en-US';
+                recognition.interimResults = false;
+                recognition.maxAlternatives = 1;
+
+                recognition.onstart = () => {
+                    document.getElementById('voiceBtn').classList.add('listening');
+                    showToast('Listening...');
+                };
+
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    document.getElementById('queryInput').value = transcript;
+                    document.getElementById('voiceBtn').classList.remove('listening');
+                    showToast('Voice captured: ' + transcript);
+                    // Auto-submit after brief delay
+                    setTimeout(() => search(), 500);
+                };
+
+                recognition.onerror = (event) => {
+                    console.error('Voice recognition error:', event.error);
+                    document.getElementById('voiceBtn').classList.remove('listening');
+                    showToast('Voice search error: ' + event.error);
+                };
+
+                recognition.onend = () => {
+                    document.getElementById('voiceBtn').classList.remove('listening');
+                };
+            }
+
+            recognition.start();
+        }
+
+        // Quick topic search
+        function searchTopic(topic) {
+            document.getElementById('queryInput').value = `What is ${topic}?`;
+            search();
+        }
+
+        // Reading mode toggle
+        function toggleReadingMode() {
+            document.body.classList.toggle('reading-mode');
+            const isReading = document.body.classList.contains('reading-mode');
+            localStorage.setItem('readingMode', isReading);
+
+            const btn = document.getElementById('readingModeText');
+            btn.textContent = isReading ? 'Exit Reading' : 'Reading Mode';
+
+            if (isReading) {
+                showToast('Reading mode enabled');
+            } else {
+                showToast('Reading mode disabled');
+            }
+        }
+
+        // Restore reading mode on load
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('readingMode') === 'true') {
+                toggleReadingMode();
+            }
+        });
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const isDark = document.body.classList.contains('dark-theme');
+
+            if (isDark) {
+                document.body.classList.remove('dark-theme');
+                document.body.classList.add('light-theme');
+                document.getElementById('themeIcon').textContent = '🌙';
+                document.getElementById('themeText').textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+                showToast('Light mode enabled');
+            } else {
+                document.body.classList.add('dark-theme');
+                document.body.classList.remove('light-theme');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('themeText').textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+                showToast('Dark mode enabled');
+            }
+        }
+
+        // Initialize theme on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            // Use saved theme, or system preference if no saved theme
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-theme');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('themeText').textContent = 'Light Mode';
+            }
+        });
+
+        // Font size adjustment
+        const fontSizes = {
+            small: 14,
+            medium: 16,
+            large: 18,
+            xlarge: 20
+        };
+
+        function adjustFontSize(action) {
+            const root = document.documentElement;
+            const currentSize = parseInt(localStorage.getItem('fontSize') || '16');
+
+            let newSize;
+            switch(action) {
+                case 'increase':
+                    newSize = Math.min(currentSize + 2, fontSizes.xlarge);
+                    break;
+                case 'decrease':
+                    newSize = Math.max(currentSize - 2, fontSizes.small);
+                    break;
+                case 'reset':
+                    newSize = fontSizes.medium;
+                    break;
+            }
+
+            root.style.fontSize = newSize + 'px';
+            localStorage.setItem('fontSize', newSize);
+            showToast(`Font size: ${newSize}px`);
+        }
+
+        // Restore font size on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedFontSize = localStorage.getItem('fontSize');
+            if (savedFontSize) {
+                document.documentElement.style.fontSize = savedFontSize + 'px';
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobileOverlay');
+            const isOpen = sidebar.classList.contains('mobile-open');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                sidebar.classList.add('mobile-open');
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevent body scroll
+            }
+        }
+
+        function closeMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobileOverlay');
+            sidebar.classList.remove('mobile-open');
+            overlay.classList.remove('show');
+            document.body.style.overflow = ''; // Restore body scroll
+        }
+
+        // Pull to refresh
+        let startY = 0;
+        let isPulling = false;
+
+        window.addEventListener('touchstart', (e) => {
+            if (window.scrollY === 0) {
+                startY = e.touches[0].pageY;
+                isPulling = true;
+            }
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isPulling) return;
+
+            const currentY = e.touches[0].pageY;
+            const pullDistance = currentY - startY;
+
+            const pullToRefresh = document.getElementById('pullToRefresh');
+            if (pullDistance > 80) {
+                pullToRefresh.classList.add('pulling');
+                pullToRefresh.querySelector('span').textContent = '↓ Release to refresh';
+            }
+        });
+
+        window.addEventListener('touchend', (e) => {
+            if (!isPulling) return;
+
+            const pullToRefresh = document.getElementById('pullToRefresh');
+            const currentY = e.changedTouches[0].pageY;
+            const pullDistance = currentY - startY;
+
+            if (pullDistance > 80) {
+                pullToRefresh.querySelector('span').textContent = '⟳ Refreshing...';
+                setTimeout(() => {
+                    window.location.reload();
+                }, 500);
+            } else {
+                pullToRefresh.classList.remove('pulling');
+                pullToRefresh.querySelector('span').textContent = '↓ Pull to refresh';
+            }
+
+            isPulling = false;
+        });
+
+        // PWA Install functionality
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // Show install prompt after 30 seconds if not dismissed
+            setTimeout(() => {
+                if (!localStorage.getItem('pwaInstallDismissed')) {
+                    document.getElementById('installPrompt').classList.add('show');
+                }
+            }, 30000);
+        });
+
+        function installPWA() {
+            if (!deferredPrompt) return;
+
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('PWA installed');
+                    showToast('App installed successfully!');
+                }
+                deferredPrompt = null;
+                document.getElementById('installPrompt').classList.remove('show');
+            });
+        }
+
+        function dismissInstallPrompt() {
+            document.getElementById('installPrompt').classList.remove('show');
+            localStorage.setItem('pwaInstallDismissed', 'true');
+        }
+
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('Service Worker registered:', registration);
+                    })
+                    .catch((error) => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // Swipe gestures for source navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            // Swipe right - previous source
+            if (swipeDistance > 100) {
+                console.log('Swipe right detected');
+                // Could navigate to previous source card
+            }
+
+            // Swipe left - next source
+            if (swipeDistance < -100) {
+                console.log('Swipe left detected');
+                // Could navigate to next source card
             }
         }
 
@@ -1085,6 +2744,305 @@
             if (query && currentResults) {
                 search();
             }
+        }
+
+        async function askFollowUp(suggestedQuestion = null) {
+            console.log('askFollowUp called with:', suggestedQuestion);
+
+            const input = document.getElementById('followUpInput');
+            const followUpQuery = suggestedQuestion || input.value.trim();
+
+            console.log('Final query:', followUpQuery);
+
+            if (!followUpQuery) {
+                showToast('Please enter a question');
+                return;
+            }
+
+            if (!currentSources || currentSources.length === 0) {
+                showToast('No sources available. Please search first.');
+                return;
+            }
+
+            // Clear input and show loading
+            input.value = '';
+            const btn = document.getElementById('followUpBtn');
+            const btnText = document.getElementById('followUpBtnText');
+            btn.disabled = true;
+            btnText.textContent = 'Thinking...';
+
+            // Get current settings
+            const wordLimit = parseInt(document.getElementById('wordLimitSelect').value);
+            const bookFilter = document.getElementById('bookSelect').value;
+
+            let bookContext = null;
+            if (bookFilter) {
+                const bookName = currentSources[0]?.verse?.book_name;
+                if (bookName) bookContext = bookName;
+            }
+
+            let answerCardId = null;
+            try {
+                console.log('Adding question to thread...');
+                // Add user question to conversation thread
+                addQuestionToThread(followUpQuery);
+
+                console.log('Creating answer card...');
+                // Create answer card with streaming placeholder
+                answerCardId = addAnswerCardToThread();
+                console.log('Answer card ID:', answerCardId);
+
+                console.log('Calling synthesis worker...');
+                // Call synthesis worker
+                const synthesisResponse = await fetch(SYNTHESIS_WORKER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query: followUpQuery,
+                        sources: currentSources,
+                        wordLimit,
+                        bookContext
+                    })
+                });
+
+                console.log('Synthesis response status:', synthesisResponse.status);
+
+                if (!synthesisResponse.ok) {
+                    const errorText = await synthesisResponse.text();
+                    console.error('Synthesis error response:', errorText);
+                    throw new Error(`Synthesis failed: ${synthesisResponse.status} - ${errorText}`);
+                }
+
+                // Stream the response
+                const reader = synthesisResponse.body.getReader();
+                const decoder = new TextDecoder();
+                let synthesis = '';
+                const answerText = document.getElementById(`answer-text-${answerCardId}`);
+
+                if (!answerText) {
+                    throw new Error('Answer text element not found!');
+                }
+
+                console.log('Starting to stream response...');
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    const chunk = decoder.decode(value, { stream: true });
+                    const lines = chunk.split('\n');
+
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = line.slice(6);
+                            if (data === '[DONE]') continue;
+
+                            try {
+                                const parsed = JSON.parse(data);
+                                const content = parsed.choices?.[0]?.delta?.content;
+                                if (content) {
+                                    synthesis += content;
+                                    // Update in real-time
+                                    answerText.innerHTML = formatAnswer(synthesis);
+                                }
+                            } catch (e) {
+                                // Skip invalid JSON
+                            }
+                        }
+                    }
+                }
+
+                // Remove streaming indicator
+                answerText.classList.remove('streaming');
+
+                // Show answer actions and word count
+                const actions = document.getElementById(`answer-actions-${answerCardId}`);
+                const wordCount = synthesis.split(/\s+/).filter(w => w.length > 0).length;
+                const wordCountElem = document.getElementById(`word-count-${answerCardId}`);
+                wordCountElem.textContent = `${wordCount} words`;
+                actions.style.display = 'flex';
+
+                // Add to conversation history
+                conversationHistory.push({
+                    question: followUpQuery,
+                    answer: synthesis,
+                    sources: currentSources,
+                    bookContext: bookContext
+                });
+
+                // Update conversation count
+                updateConversationCount();
+
+                // Generate new suggested questions
+                generateSuggestedQuestions(synthesis);
+
+            } catch (error) {
+                console.error('Follow-up error:', error);
+                console.error('Error stack:', error.stack);
+                console.error('Error message:', error.message);
+                showToast('Failed to generate answer: ' + error.message);
+
+                // Remove the failed answer card
+                const failedCard = document.querySelector(`#answer-text-${answerCardId}`);
+                if (failedCard) {
+                    failedCard.closest('.conversation-item').remove();
+                }
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = 'Ask';
+            }
+        }
+
+        let conversationThreadId = 0;
+
+        function addQuestionToThread(question) {
+            const thread = getOrCreateThread();
+            const questionHtml = `
+                <div class="conversation-item user-question">
+                    <div class="question-bubble">${escapeHtml(question)}</div>
+                </div>
+            `;
+            thread.insertAdjacentHTML('beforeend', questionHtml);
+            // Scroll to the last element child (not text node)
+            const lastItem = thread.lastElementChild;
+            if (lastItem && lastItem.scrollIntoView) {
+                lastItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function addAnswerCardToThread() {
+            const thread = getOrCreateThread();
+            const cardId = ++conversationThreadId;
+            const answerHtml = `
+                <div class="conversation-item ai-answer">
+                    <div class="answer-card">
+                        <div class="answer-header">
+                            <div class="ai-avatar">✨</div>
+                            <div class="answer-label">AI Answer</div>
+                        </div>
+                        <div class="answer-text streaming" id="answer-text-${cardId}">
+                            Thinking...
+                        </div>
+                        <div class="answer-actions" id="answer-actions-${cardId}" style="display:none;">
+                            <span class="action-chip" onclick="copyAnswerText(${cardId})">📋 Copy</span>
+                            <span class="action-chip" id="word-count-${cardId}"></span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            thread.insertAdjacentHTML('beforeend', answerHtml);
+            // Scroll to the last element child (not text node)
+            const lastItem = thread.lastElementChild;
+            if (lastItem && lastItem.scrollIntoView) {
+                lastItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            return cardId;
+        }
+
+        function getOrCreateThread() {
+            let thread = document.getElementById('conversationThread');
+            if (!thread) {
+                const followUpSection = document.getElementById('followUpSection');
+                thread = document.createElement('div');
+                thread.id = 'conversationThread';
+                thread.className = 'conversation-thread';
+                followUpSection.parentNode.insertBefore(thread, followUpSection);
+            }
+            return thread;
+        }
+
+        function formatAnswer(text) {
+            return text
+                .split(/\n\n+/)
+                .filter(para => para.trim())
+                .map(para => `<p>${escapeHtml(para.trim())}</p>`)
+                .join('');
+        }
+
+        function copyAnswerText(cardId) {
+            const answerText = document.getElementById(`answer-text-${cardId}`);
+            const text = answerText.innerText;
+            navigator.clipboard.writeText(text);
+            showToast('Answer copied!');
+        }
+
+        function updateConversationCount() {
+            const count = conversationHistory.length;
+            const countElem = document.getElementById('conversationCount');
+            countElem.textContent = `${count} message${count === 1 ? '' : 's'}`;
+        }
+
+        function generateSuggestedQuestions(lastAnswer) {
+            const container = document.getElementById('suggestedQuestions');
+
+            // Simple heuristic-based suggestions
+            const suggestions = [];
+
+            if (lastAnswer.toLowerCase().includes('because') || lastAnswer.toLowerCase().includes('reason')) {
+                suggestions.push('Can you elaborate on this?');
+            }
+            if (lastAnswer.toLowerCase().includes('prabhupāda') || lastAnswer.toLowerCase().includes('prabhupada')) {
+                suggestions.push('What else did Prabhupāda say?');
+            }
+            if (lastAnswer.match(/\d{4}/)) { // Contains a year
+                suggestions.push('What was the historical context?');
+            }
+
+            // Generic suggestions
+            suggestions.push('Give me a specific example');
+            suggestions.push('What is the significance of this?');
+
+            // Take first 3 unique suggestions
+            const uniqueSuggestions = [...new Set(suggestions)].slice(0, 3);
+
+            // Clear container
+            container.innerHTML = '';
+
+            // Create chips with proper event handlers
+            uniqueSuggestions.forEach(question => {
+                const chip = document.createElement('span');
+                chip.className = 'suggested-chip';
+                chip.textContent = question;
+                chip.addEventListener('click', () => {
+                    console.log('Suggested question clicked:', question);
+                    askFollowUp(question);
+                });
+                container.appendChild(chip);
+            });
+        }
+
+        function exportConversation() {
+            if (conversationHistory.length === 0) {
+                showToast('No conversation to export');
+                return;
+            }
+
+            let markdown = '# Conversation with Universal Philosophy AI\n\n';
+            markdown += `**Date**: ${new Date().toLocaleDateString()}\n\n`;
+            markdown += '---\n\n';
+
+            conversationHistory.forEach((item, index) => {
+                markdown += `## Question ${index + 1}\n\n`;
+                markdown += `${item.question}\n\n`;
+                markdown += `### Answer\n\n`;
+                markdown += `${item.answer}\n\n`;
+                if (item.bookContext) {
+                    markdown += `*Source: ${item.bookContext}*\n\n`;
+                }
+                markdown += '---\n\n';
+            });
+
+            const blob = new Blob([markdown], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `conversation-${new Date().getTime()}.md`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast('Conversation exported!');
         }
 
         function escapeHtml(text) {

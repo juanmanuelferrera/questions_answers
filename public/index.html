@@ -20,10 +20,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Vedabase RAG">
 
-    <title>Vedabase RAG - Semantic Search Across Bhagavad Gita & Srimad Bhagavatam</title>
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#8B7355">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Vedabase RAG - Semantic Search Across Bhagavad Gita & Srimad Bhagavatam</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +68,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #FAFAFA;
+            background-color: #FAF8F5;
             color: #0f172a;
             -webkit-font-smoothing: antialiased;
             margin: 0;
@@ -181,13 +182,13 @@
         .new-search-icon {
             padding: 6px;
             border-radius: 8px;
-            background: #f8fafc;
+            background: #F5F3F0;
             color: #64748b;
             transition: all 0.3s ease;
         }
 
         .new-search-btn:hover .new-search-icon {
-            background: #eef2ff;
+            background: #F0EDE8;
             color: #4f46e5;
         }
 
@@ -264,7 +265,7 @@
         }
 
         .recent-item:hover {
-            background: #f8fafc;
+            background: #F5F3F0;
             color: #0f172a;
         }
 
@@ -312,7 +313,7 @@
         }
 
         .action-btn:hover {
-            background: #f8fafc;
+            background: #F5F3F0;
             border-color: #cbd5e1;
             color: #475569;
         }
@@ -329,7 +330,7 @@
             flex: 1;
             height: 100vh;
             overflow-y: auto;
-            background: #FAFAFA;
+            background: #FAF8F5;
             position: relative;
         }
 
@@ -366,7 +367,7 @@
             left: 20%;
             width: 500px;
             height: 500px;
-            background: linear-gradient(to right, #818cf8, #c084fc);
+            background: linear-gradient(to right, #9CA3AF, #D1D5DB);
             animation: blob 10s infinite;
         }
 
@@ -375,7 +376,7 @@
             right: 20%;
             width: 500px;
             height: 500px;
-            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            background: linear-gradient(to right, #B8956A, #A0826D);
             animation: blob 10s infinite;
             animation-delay: 2s;
         }
@@ -447,7 +448,7 @@
 
         .search-input-main {
             width: 100%;
-            padding: 16px 20px 16px 52px;
+            padding: 16px 60px 16px 52px;
             font-size: 18px;
             border: 2px solid rgba(99, 102, 241, 0.2);
             border-radius: 12px;
@@ -477,6 +478,44 @@
             pointer-events: none;
         }
 
+        /* Voice search button */
+        .voice-search-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            min-width: 44px;
+            min-height: 44px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .voice-search-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .voice-search-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .voice-search-btn.listening {
+            color: #ef4444;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
         .search-btn-main {
             width: 100%;
             padding: 14px 28px;
@@ -486,21 +525,429 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            background: linear-gradient(135deg, #8B7355, #A0826D);
             color: white;
             box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
             margin-top: 12px;
+            min-height: 48px;
         }
 
         .search-btn-main:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.3);
         }
 
         .search-btn-main:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
+        }
+
+        /* Quick Topic Chips */
+        .quick-topics {
+            margin: 20px auto 32px;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .quick-topics h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .topic-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .topic-chip {
+            background: linear-gradient(135deg, #8B7355 0%, #A0826D 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #1a0a2e;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+        }
+
+        .topic-chip:active {
+            transform: scale(0.95);
+        }
+
+        .topic-chip:hover {
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Reading Mode */
+        .reading-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            z-index: 100;
+        }
+
+        .reading-mode-toggle:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #4f46e5;
+        }
+
+        body.reading-mode {
+            background: #EBE6DD;
+        }
+
+        body.reading-mode .sidebar {
+            display: none;
+        }
+
+        body.reading-mode .main-content {
+            margin-left: 0;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        body.reading-mode .search-compact,
+        body.reading-mode .quick-topics,
+        body.reading-mode .sources-section {
+            display: none;
+        }
+
+        body.reading-mode .synthesis-container {
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        /* Dark Mode */
+        body.dark-theme {
+            background: #0a0a0a;
+            color: #e8e8e8;
+        }
+
+        body.dark-theme .sidebar {
+            background: #1a1a1a;
+            border-right-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .search-input-main {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #e8e8e8;
+        }
+
+        body.dark-theme .search-btn-main {
+            background: linear-gradient(135deg, #8B7355, #A0826D);
+        }
+
+        body.dark-theme .synthesis-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .source-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .source-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .daily-wisdom {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .filter-select {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e8e8e8;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-theme .reading-mode-toggle,
+        body.dark-theme .theme-toggle,
+        body.dark-theme .font-controls button {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e8e8e8;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Respect system dark mode preference */
+        @media (prefers-color-scheme: dark) {
+            body:not(.light-theme) {
+                background: #0a0a0a;
+                color: #e8e8e8;
+            }
+
+            body:not(.light-theme) .sidebar {
+                background: #1a1a1a;
+                border-right-color: rgba(255, 255, 255, 0.1);
+            }
+
+            body:not(.light-theme) .search-input-main {
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba(255, 255, 255, 0.2);
+                color: #e8e8e8;
+            }
+
+            body:not(.light-theme) .synthesis-container {
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+
+            body:not(.light-theme) .source-card {
+                background: rgba(255, 255, 255, 0.03);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            z-index: 100;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #4f46e5;
+        }
+
+        /* Font Controls */
+        .font-controls {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            gap: 4px;
+            z-index: 100;
+        }
+
+        .font-controls button {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .font-controls button:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #4f46e5;
+        }
+
+        .font-controls button:active {
+            transform: scale(0.95);
+        }
+
+        /* Mobile Hamburger Menu - Hidden by default on desktop */
+        @media (min-width: 769px) {
+            .mobile-menu-btn {
+                display: none !important;
+            }
+        }
+
+        .mobile-menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #8B7355, #A0826D);
+            border: 2px solid #ffffff;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 28px;
+            color: #ffffff;
+            cursor: pointer;
+            z-index: 10001;
+            min-width: 52px;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(139, 115, 85, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(139, 115, 85, 0.4);
+        }
+
+        .mobile-menu-btn:active {
+            transform: scale(0.95);
+        }
+
+        .sidebar.mobile-open {
+            transform: translateX(0);
+            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Overlay when mobile menu is open */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+
+        .mobile-overlay.show {
+            display: block;
+        }
+
+        /* Pull to Refresh */
+        .pull-to-refresh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(135deg, #8B7355, #A0826D);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .pull-to-refresh.pulling {
+            transform: translateY(0);
+        }
+
+        /* PWA Install Banner */
+        .install-prompt {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #8B7355, #A0826D);
+            color: white;
+            padding: 16px 20px;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .install-prompt.show {
+            display: flex;
+        }
+
+        .install-prompt-content {
+            flex: 1;
+        }
+
+        .install-prompt h3 {
+            margin: 0 0 4px 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .install-prompt p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .install-prompt-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .install-prompt button {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .install-btn {
+            background: white;
+            color: #4f46e5;
+        }
+
+        .dismiss-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        /* Swipe indicator */
+        .swipe-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .swipe-indicator.left {
+            left: 20px;
+        }
+
+        .swipe-indicator.right {
+            right: 20px;
+        }
+
+        .swipe-indicator.show {
+            opacity: 0.6;
         }
 
         .loading {
@@ -695,7 +1142,7 @@
             left: 0;
             right: 0;
             height: 40px;
-            background: linear-gradient(transparent, rgba(248, 250, 252, 0.8));
+            background: linear-gradient(transparent, rgba(245, 243, 240, 0.8));
             pointer-events: none;
         }
 
@@ -854,7 +1301,7 @@
         }
 
         .question-bubble {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            background: linear-gradient(135deg, #8B7355, #A0826D);
             color: white;
             padding: 16px 20px;
             border-radius: 18px 18px 4px 18px;
@@ -883,7 +1330,7 @@
         .ai-avatar {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            background: linear-gradient(135deg, #8B7355, #A0826D);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1044,7 +1491,7 @@
 
         .btn-follow-up {
             padding: 14px 28px;
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            background: linear-gradient(135deg, #8B7355, #A0826D);
             color: white;
             border: none;
             border-radius: 12px;
@@ -1058,7 +1505,7 @@
 
         .btn-follow-up:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 6px 20px rgba(139, 115, 85, 0.3);
         }
 
         .btn-follow-up:active:not(:disabled) {
@@ -1094,9 +1541,43 @@
         }
 
         /* Mobile Responsive */
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
+            /* Base mobile typography - NEVER below 16px to prevent iOS zoom */
+            body {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            /* Mobile sidebar - slide in from left */
             .sidebar {
-                display: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Adjust control positions on mobile */
+            .reading-mode-toggle {
+                top: 80px;
+                right: 12px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .theme-toggle {
+                top: 130px;
+                right: 12px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .font-controls {
+                top: 180px;
+                right: 12px;
             }
 
             .blob-container {
@@ -1115,6 +1596,61 @@
                 font-size: 1.1rem;
             }
 
+            /* Input fields - prevent iOS auto-zoom */
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+
+            .search-input-main {
+                font-size: 16px;
+                padding: 14px 60px 14px 48px;
+            }
+
+            /* Search button optimized for mobile */
+            .search-btn-main {
+                font-size: 17px;
+                min-height: 48px;
+                padding: 16px 28px;
+            }
+
+            /* Headings */
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            h3 { font-size: 20px; }
+            h4 { font-size: 18px; }
+
+            /* Synthesis content - optimized for reading */
+            .synthesis-container {
+                font-size: 17px;
+                line-height: 1.7;
+                padding: 24px;
+                max-width: 100%;
+            }
+
+            .synthesis-text {
+                font-size: 17px;
+                line-height: 1.7;
+            }
+
+            /* Source cards on mobile */
+            .source-card {
+                padding: 16px;
+                font-size: 16px;
+            }
+
+            .source-card .purport-text {
+                font-size: 16px;
+                line-height: 1.65;
+            }
+
+            /* Touch targets - minimum 44x44px */
+            button, a, .btn-secondary {
+                min-width: 44px;
+                min-height: 44px;
+                padding: 12px 24px;
+                margin: 4px;
+            }
+
             .synthesis-actions {
                 flex-direction: column;
                 gap: 10px;
@@ -1122,6 +1658,29 @@
 
             .btn-secondary {
                 width: 100%;
+            }
+
+            /* Quick topics mobile */
+            .quick-topics {
+                padding: 0 16px;
+            }
+
+            .topic-chip {
+                font-size: 14px;
+                padding: 12px 18px;
+            }
+
+            /* Reading mode toggle mobile */
+            .reading-mode-toggle {
+                top: 12px;
+                right: 12px;
+                font-size: 13px;
+                padding: 8px 14px;
+            }
+
+            /* Verse references */
+            .verse-ref {
+                font-size: 14px;
             }
         }
 
@@ -1145,9 +1704,34 @@
     </style>
 </head>
 <body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Mobile Hamburger Menu -->
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" id="mobileMenuBtn">
+        ☰
+    </button>
+
+    <!-- Pull to Refresh Indicator -->
+    <div class="pull-to-refresh" id="pullToRefresh">
+        <span>↓ Pull to refresh</span>
+    </div>
+
+    <!-- PWA Install Prompt -->
+    <div class="install-prompt" id="installPrompt">
+        <div class="install-prompt-content">
+            <h3>Install Vedabase</h3>
+            <p>Get faster access and offline reading</p>
+        </div>
+        <div class="install-prompt-actions">
+            <button class="install-btn" onclick="installPWA()">Install</button>
+            <button class="dismiss-btn" onclick="dismissInstallPrompt()">Not now</button>
+        </div>
+    </div>
+
     <div class="app-layout">
         <!-- Left Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <!-- Branding -->
             <div class="sidebar-brand">
                 <div class="brand-logo" onclick="newSearch()">
@@ -1235,6 +1819,25 @@
                     <div class="wisdom-source" id="wisdomSource"></div>
                 </div>
 
+                <!-- Reading Mode Toggle -->
+                <button class="reading-mode-toggle" onclick="toggleReadingMode()" id="readingModeToggle">
+                    <span>📖</span>
+                    <span id="readingModeText">Reading Mode</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark Mode</span>
+                </button>
+
+                <!-- Font Size Controls -->
+                <div class="font-controls">
+                    <button onclick="adjustFontSize('decrease')" title="Decrease font size">A-</button>
+                    <button onclick="adjustFontSize('reset')" title="Reset font size">A</button>
+                    <button onclick="adjustFontSize('increase')" title="Increase font size">A+</button>
+                </div>
+
                 <!-- Compact Search Input -->
                 <div class="search-compact">
                     <div style="position: relative;">
@@ -1248,8 +1851,24 @@
                             placeholder="Ask your question..."
                             onkeypress="if(event.key==='Enter') search()"
                         >
+                        <button class="voice-search-btn" onclick="startVoiceSearch()" id="voiceBtn" title="Voice search">
+                            🎤
+                        </button>
                     </div>
                     <button class="search-btn-main" onclick="search()" id="searchBtn">Search & Synthesize</button>
+                </div>
+
+                <!-- Quick Topic Chips -->
+                <div class="quick-topics">
+                    <h3>Popular Topics</h3>
+                    <div class="topic-chips">
+                        <button class="topic-chip" onclick="searchTopic('Krishna')">Krishna</button>
+                        <button class="topic-chip" onclick="searchTopic('dharma')">Dharma</button>
+                        <button class="topic-chip" onclick="searchTopic('karma yoga')">Karma Yoga</button>
+                        <button class="topic-chip" onclick="searchTopic('meditation')">Meditation</button>
+                        <button class="topic-chip" onclick="searchTopic('bhakti')">Bhakti</button>
+                        <button class="topic-chip" onclick="searchTopic('self-realization')">Self-Realization</button>
+                    </div>
                 </div>
 
                 <div id="loading" class="loading" style="display: none;">
@@ -1826,6 +2445,296 @@
                 localStorage.removeItem('vedabaseRecentSearches');
                 updateRecentSearchesUI();
                 showToast('Search history cleared');
+            }
+        }
+
+        // Voice search functionality
+        let recognition = null;
+
+        function startVoiceSearch() {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                showToast('Voice search not supported in this browser');
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+            if (!recognition) {
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.lang = 'en-US';
+                recognition.interimResults = false;
+                recognition.maxAlternatives = 1;
+
+                recognition.onstart = () => {
+                    document.getElementById('voiceBtn').classList.add('listening');
+                    showToast('Listening...');
+                };
+
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    document.getElementById('queryInput').value = transcript;
+                    document.getElementById('voiceBtn').classList.remove('listening');
+                    showToast('Voice captured: ' + transcript);
+                    // Auto-submit after brief delay
+                    setTimeout(() => search(), 500);
+                };
+
+                recognition.onerror = (event) => {
+                    console.error('Voice recognition error:', event.error);
+                    document.getElementById('voiceBtn').classList.remove('listening');
+                    showToast('Voice search error: ' + event.error);
+                };
+
+                recognition.onend = () => {
+                    document.getElementById('voiceBtn').classList.remove('listening');
+                };
+            }
+
+            recognition.start();
+        }
+
+        // Quick topic search
+        function searchTopic(topic) {
+            document.getElementById('queryInput').value = `What is ${topic}?`;
+            search();
+        }
+
+        // Reading mode toggle
+        function toggleReadingMode() {
+            document.body.classList.toggle('reading-mode');
+            const isReading = document.body.classList.contains('reading-mode');
+            localStorage.setItem('readingMode', isReading);
+
+            const btn = document.getElementById('readingModeText');
+            btn.textContent = isReading ? 'Exit Reading' : 'Reading Mode';
+
+            if (isReading) {
+                showToast('Reading mode enabled');
+            } else {
+                showToast('Reading mode disabled');
+            }
+        }
+
+        // Restore reading mode on load
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('readingMode') === 'true') {
+                toggleReadingMode();
+            }
+        });
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const isDark = document.body.classList.contains('dark-theme');
+
+            if (isDark) {
+                document.body.classList.remove('dark-theme');
+                document.body.classList.add('light-theme');
+                document.getElementById('themeIcon').textContent = '🌙';
+                document.getElementById('themeText').textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+                showToast('Light mode enabled');
+            } else {
+                document.body.classList.add('dark-theme');
+                document.body.classList.remove('light-theme');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('themeText').textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+                showToast('Dark mode enabled');
+            }
+        }
+
+        // Initialize theme on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            // Use saved theme, or system preference if no saved theme
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-theme');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('themeText').textContent = 'Light Mode';
+            }
+        });
+
+        // Font size adjustment
+        const fontSizes = {
+            small: 14,
+            medium: 16,
+            large: 18,
+            xlarge: 20
+        };
+
+        function adjustFontSize(action) {
+            const root = document.documentElement;
+            const currentSize = parseInt(localStorage.getItem('fontSize') || '16');
+
+            let newSize;
+            switch(action) {
+                case 'increase':
+                    newSize = Math.min(currentSize + 2, fontSizes.xlarge);
+                    break;
+                case 'decrease':
+                    newSize = Math.max(currentSize - 2, fontSizes.small);
+                    break;
+                case 'reset':
+                    newSize = fontSizes.medium;
+                    break;
+            }
+
+            root.style.fontSize = newSize + 'px';
+            localStorage.setItem('fontSize', newSize);
+            showToast(`Font size: ${newSize}px`);
+        }
+
+        // Restore font size on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedFontSize = localStorage.getItem('fontSize');
+            if (savedFontSize) {
+                document.documentElement.style.fontSize = savedFontSize + 'px';
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobileOverlay');
+            const isOpen = sidebar.classList.contains('mobile-open');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                sidebar.classList.add('mobile-open');
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevent body scroll
+            }
+        }
+
+        function closeMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobileOverlay');
+            sidebar.classList.remove('mobile-open');
+            overlay.classList.remove('show');
+            document.body.style.overflow = ''; // Restore body scroll
+        }
+
+        // Pull to refresh
+        let startY = 0;
+        let isPulling = false;
+
+        window.addEventListener('touchstart', (e) => {
+            if (window.scrollY === 0) {
+                startY = e.touches[0].pageY;
+                isPulling = true;
+            }
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isPulling) return;
+
+            const currentY = e.touches[0].pageY;
+            const pullDistance = currentY - startY;
+
+            const pullToRefresh = document.getElementById('pullToRefresh');
+            if (pullDistance > 80) {
+                pullToRefresh.classList.add('pulling');
+                pullToRefresh.querySelector('span').textContent = '↓ Release to refresh';
+            }
+        });
+
+        window.addEventListener('touchend', (e) => {
+            if (!isPulling) return;
+
+            const pullToRefresh = document.getElementById('pullToRefresh');
+            const currentY = e.changedTouches[0].pageY;
+            const pullDistance = currentY - startY;
+
+            if (pullDistance > 80) {
+                pullToRefresh.querySelector('span').textContent = '⟳ Refreshing...';
+                setTimeout(() => {
+                    window.location.reload();
+                }, 500);
+            } else {
+                pullToRefresh.classList.remove('pulling');
+                pullToRefresh.querySelector('span').textContent = '↓ Pull to refresh';
+            }
+
+            isPulling = false;
+        });
+
+        // PWA Install functionality
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // Show install prompt after 30 seconds if not dismissed
+            setTimeout(() => {
+                if (!localStorage.getItem('pwaInstallDismissed')) {
+                    document.getElementById('installPrompt').classList.add('show');
+                }
+            }, 30000);
+        });
+
+        function installPWA() {
+            if (!deferredPrompt) return;
+
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('PWA installed');
+                    showToast('App installed successfully!');
+                }
+                deferredPrompt = null;
+                document.getElementById('installPrompt').classList.remove('show');
+            });
+        }
+
+        function dismissInstallPrompt() {
+            document.getElementById('installPrompt').classList.remove('show');
+            localStorage.setItem('pwaInstallDismissed', 'true');
+        }
+
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('Service Worker registered:', registration);
+                    })
+                    .catch((error) => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // Swipe gestures for source navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            // Swipe right - previous source
+            if (swipeDistance > 100) {
+                console.log('Swipe right detected');
+                // Could navigate to previous source card
+            }
+
+            // Swipe left - next source
+            if (swipeDistance < -100) {
+                console.log('Swipe left detected');
+                // Could navigate to next source card
             }
         }
 

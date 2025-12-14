@@ -108,11 +108,9 @@ Based on the sources above, provide a ${wordLimit}-word answer using ONLY the in
       let modelUsed = '';
       let provider = '';
 
-      // Using Gemini 3 Pro Preview via OpenRouter
-      // Google's flagship frontier model for high-precision multimodal reasoning
-      // 1M token context, state-of-the-art benchmark results
-      // Excels at: research synthesis, complex reasoning, factual QA
-
+      // Using Gemini 2.5 Flash via OpenRouter
+      // Fast, cost-effective, and high-quality model for synthesis
+      // 1M token context window for comprehensive source analysis
       const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
         headers: {
@@ -122,7 +120,7 @@ Based on the sources above, provide a ${wordLimit}-word answer using ONLY the in
           'X-Title': 'Vedabase RAG'
         },
         body: JSON.stringify({
-          model: 'google/gemini-3-pro-preview',
+          model: 'google/gemini-2.5-flash',
           messages: [
             {
               role: 'user',
@@ -137,10 +135,10 @@ Based on the sources above, provide a ${wordLimit}-word answer using ONLY the in
 
       if (!response.ok) {
         const error = await response.text();
-        throw new Error(`Gemini 3 Pro error: ${error}`);
+        throw new Error(`Gemini 2.5 Flash error: ${error}`);
       }
 
-      console.log('Using Gemini 3 Pro Preview via OpenRouter - flagship model with 1M token context');
+      console.log('Using Gemini 2.5 Flash via OpenRouter for synthesis');
 
       // Return streaming response
       return new Response(response.body, {
@@ -151,54 +149,6 @@ Based on the sources above, provide a ${wordLimit}-word answer using ONLY the in
           'Access-Control-Allow-Origin': '*'
         }
       });
-
-      /*
-      // GPT-4o via OpenRouter (fallback)
-      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${env.OPENROUTER_API_KEY}`,
-          'HTTP-Referer': 'https://vedabase-rag.com',
-          'X-Title': 'Vedabase RAG'
-        },
-        body: JSON.stringify({
-          model: 'openai/gpt-4o',
-          messages: [
-            {
-              role: 'system',
-              content: systemPrompt
-            },
-            {
-              role: 'user',
-              content: prompt
-            }
-          ],
-          max_tokens: Math.max(300, Math.floor(wordLimit * 6)), // Generous buffer to prevent truncation
-          temperature: 0.1, // Ultra-low temperature for maximum accuracy
-          stream: true  // Enable streaming
-        })
-      });
-
-      if (!response.ok) {
-        const error = await response.text();
-        throw new Error(`GPT-4o fallback error: ${error}`);
-      }
-
-      // Return streaming response
-      modelUsed = 'openai/gpt-4o';
-      provider = 'OpenRouter (GPT-4o)';
-      console.log('Using GPT-4o for synthesis with streaming');
-
-      return new Response(response.body, {
-        headers: {
-          'Content-Type': 'text/event-stream',
-          'Cache-Control': 'no-cache',
-          'Connection': 'keep-alive',
-          'Access-Control-Allow-Origin': '*'
-        }
-      });
-      */
 
     } catch (error) {
       return new Response(JSON.stringify({
