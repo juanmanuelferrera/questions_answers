@@ -97,9 +97,7 @@ A las siete de la mañana, reservó un billete de tren a Barcelona.
 
 * CAPÍTULO 1: La Montaña
 
-#+BEGIN_CENTER
-* * *
-#+END_CENTER
+                                   * * *
 El tren salía a las 7:15 de Atocha. Elena llegó con veinte minutos de sobra y se sentó en un banco a mirar a la gente pasar.
 
 Familias con maletas. Ejecutivos con portátiles. Estudiantes con mochilas. Todos sabían a dónde iban. Todos tenían un propósito.
@@ -120,9 +118,7 @@ Barcelona estaba a dos horas y media. Montserrat, a una hora más en el tren cre
 
 Tenía tiempo para leer el cuaderno del abuelo.
 
-#+BEGIN_CENTER
-* * *
-#+END_CENTER
+                                   * * *
 Las primeras páginas eran de 1962. La letra era firme, casi agresiva. El abuelo tenía veintisiete años.
 
 #+BEGIN_QUOTE
@@ -171,9 +167,7 @@ Su abuelo había ido a Montserrat a morir. Y no había muerto. Algo lo había de
 
 ¿Qué?
 
-#+BEGIN_CENTER
-* * *
-#+END_CENTER
+                                   * * *
 El monasterio de Montserrat estaba enclavado en la roca como si hubiera crecido de ella. Las agujas de piedra se alzaban contra el cielo azul, y abajo, muy abajo, el valle se extendía hasta donde alcanzaba la vista.
 
 Elena entendió por qué el abuelo había venido aquí. Era el tipo de lugar que te hacía sentir pequeño. Insignificante. Un punto en la inmensidad.
@@ -210,9 +204,7 @@ Elena sintió que algo se aflojaba en su pecho. No sabía qué había esperado �
 
 —Ven —dijo Tomás—. Tenemos mucho de qué hablar.
 
-#+BEGIN_CENTER
-* * *
-#+END_CENTER
+                                   * * *
 El despacho de Tomás era pequeño y austero: una cama, un escritorio, un crucifijo en la pared, y una ventana que daba al precipicio. En el escritorio había una fotografía enmarcada. Elena la reconoció al instante: su abuelo joven, con el pelo negro y una sonrisa que ella nunca le había visto. A su lado, un Tomás de quizás treinta años, también sonriendo.
 
 —1975 —dijo Tomás, siguiendo su mirada—. El año que me hice monje. Tu abuelo vino a mi ordenación. Fue el único de mis profesores que vino.
@@ -251,9 +243,7 @@ Elena esperó.
 
 —Le dije: "En la pregunta. Mientras sigas preguntando, sigues vivo."
 
-#+BEGIN_CENTER
-* * *
-#+END_CENTER
+                                   * * *
 Caminaron por el claustro mientras el sol de la tarde alargaba las sombras de las columnas. Tomás caminaba despacio, apoyándose en el bastón, pero su voz era firme.
 
 —Tu abuelo se quedó un mes aquí. No como peregrino, sino como huésped. Ayudaba en la biblioteca, hablaba con los monjes, asistía a los oficios aunque no comulgaba. Creo que estaba buscando algo.
@@ -278,9 +268,7 @@ Tomás asintió.
 
 —Me dijo: "Mi nieta Elena está perdida. Como yo lo estuve. Si algún día viene a buscarte, cuéntale todo. Y después mándala con Ibrahim. Él le devolverá a Dios. Pero no al Dios que ella espera."
 
-#+BEGIN_CENTER
-* * *
-#+END_CENTER
+                                   * * *
 Esa noche, Elena se quedó en la hospedería del monasterio. La habitación era pequeña —una cama, un lavabo, un crucifijo— y el silencio era tan profundo que podía oír su propia respiración.
 
 No podía dormir.
@@ -321,9 +309,7 @@ Quizás era hora de probar otra cosa.
 
 Quizás era hora de buscar con el corazón.
 
-#+BEGIN_CENTER
-* * *
-#+END_CENTER
+                                   * * *
 A la mañana siguiente, antes de irse, Elena volvió al despacho de Tomás. Él la esperaba con una taza de café y un sobre en las manos.
 
 —Tu abuelo me dejó esto para ti. Me pidió que te lo diera solo si venías a buscarme. —Le entregó el sobre—. No sé qué contiene. Nunca lo abrí.
