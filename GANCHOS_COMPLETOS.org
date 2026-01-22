@@ -1,0 +1,689 @@
+#+TITLE: Ganchos Completos - Capítulos 6-12
+#+SUBTITLE: Finales e Inicios que Mantienen al Lector
+#+DATE: 2026
+
+* RESUMEN DE GANCHOS 1-5 (Ya desarrollados)
+
+| Cap | Final | Misterio/Pregunta |
+|-----|-------|-------------------|
+| Prólogo | "Perdóname por el secreto" | ¿Qué secreto? |
+| 1 | "Ibrahim le devolvió a Dios, pero no al Dios que esperaba" | ¿Qué significa eso? |
+| 2 | Foto del abuelo con mujer desconocida en Jerusalén | ¿Quién es ella? |
+| 3 | Miriam murió embarazada, quería llamar a la hija "Elena" | ¿Por qué ese nombre? |
+| 4 | Elena descubre la carta de Miriam | Shock, crisis de identidad |
+| 5 | Carta oculta del abuelo: "Ve a India" | ¿Qué aprendió allá? |
+
+* CAPÍTULO 6: INDIA (Rishikesh) - HINDUISMO
+
+** Inicio (continuando del Cap 5)
+#+BEGIN_QUOTE
+El ashram de Swami Ananda estaba a las afueras de Rishikesh,
+donde el Ganges bajaba verde y furioso de los Himalayas.
+
+Elena llegó al amanecer después de veinticuatro horas de viaje:
+Madrid-Delhi-Haridwar-Rishikesh. No había dormido. No podía.
+
+En su cabeza, las palabras del abuelo giraban sin parar:
+"Yo no era mi historia. Tú tampoco eres la tuya."
+
+¿Qué significaba eso? Si no era su historia —la nieta de Antonio,
+la hija de Javier, la ex-esposa de Marcos, la periodista despedida—,
+entonces ¿quién era?
+
+El guardia del ashram la miró con desconfianza.
+
+—¿Tiene reserva?
+
+—No. Pero busco a Swami Ananda. Soy la nieta de Antonio Vidal.
+
+El guardia desapareció. Volvió cinco minutos después.
+
+—Swami ji la espera. Dice que lleva cincuenta años esperándola.
+#+END_QUOTE
+
+** Desarrollo del capítulo
+- Elena conoce a Ananda (78 años, frágil pero lúcido)
+- Él cuenta que el abuelo vivió 6 meses en el ashram en 1970
+- "Tu abuelo llegó destruido. Había perdido a alguien."
+- Elena: "Lo sé. Miriam."
+- Ananda: "No solo Miriam."
+- REVELACIÓN: El abuelo perdió un hijo antes de casarse
+- La madre era una mujer india del ashram
+- El niño murió a los pocos días de nacer
+
+** Enseñanza filosófica (emerge naturalmente)
+- Ananda habla del Atman: "Detrás de todo lo que crees ser, hay algo que no cambia"
+- Elena: "¿Cómo lo encuentro?"
+- "No lo encuentras. Dejas de buscar lo que no eres."
+- Práctica de meditación, Elena tiene un momento de paz breve
+- Pero también tiene rabia: "¿Por qué me ocultó todo esto?"
+
+** Final Cap 6 → Gancho
+#+BEGIN_QUOTE
+La última noche, Ananda le entregó una caja pequeña de madera.
+
+—Tu abuelo me dejó esto. Dijo que algún día vendrías.
+
+Dentro había una fotografía: un bebé envuelto en tela blanca.
+Y una nota: "Mi hijo. Tres días de vida. 1970."
+
+Elena sintió que el suelo se hundía.
+
+—¿Cómo se llamaba?
+
+—No tuvo tiempo de recibir nombre. Pero tu abuelo lo llamaba...
+—Ananda cerró los ojos— ...Antonio. Como él.
+
+Un hermano. Había tenido un hermano que murió.
+
+—¿Mi padre lo sabe?
+
+—No lo sé. Pero hay alguien que sí sabe. Una mujer en
+Dharamsala. Se llama Tenzin. Era amiga de la madre del niño.
+
+Elena miró la fotografía. Un bebé diminuto. Su tío.
+Alguien que había existido tres días y había desaparecido
+como si nunca hubiera nacido.
+
+¿Cuántos secretos más guardaba su abuelo?
+#+END_QUOTE
+
+* CAPÍTULO 7: DHARAMSALA - BUDISMO TIBETANO
+
+** Inicio (continuando del Cap 6)
+#+BEGIN_QUOTE
+El autobús a Dharamsala tardó catorce horas. Elena viajó con
+la fotografía del bebé en el bolsillo, junto a la carta de
+Miriam y el rosario de Ibrahim.
+
+Estaba acumulando objetos de muertos.
+
+Un bebé sin nombre. Una mujer que quiso llamarla Elena.
+Un abuelo que había vivido una vida paralela que ella
+nunca conoció.
+
+Tenzin Wangmo vivía en un pequeño monasterio cerca del
+templo principal. Era monja desde los veinte años.
+Ahora tenía sesenta.
+
+Cuando Elena la encontró, estaba sentada en un jardín,
+pasando cuentas de un mala.
+
+—¿Eres la nieta de Antonio?
+
+—¿Cómo lo sabe?
+
+—Tienes su manera de fruncir el ceño. —Tenzin sonrió—.
+Y llevas la misma pregunta en los ojos.
+#+END_QUOTE
+
+** Desarrollo del capítulo
+- Tenzin cuenta que conoció al abuelo en 1971
+- Él vino a Dharamsala destrozado por la muerte del bebé
+- La madre del niño (Lakshmi) también había muerto, de fiebre
+- El abuelo se quedó tres meses, estudiando budismo
+- "Quería entender el sufrimiento. Por qué existe."
+
+** Enseñanza filosófica
+- Tenzin habla del dukkha y la impermanencia
+- "Tu abuelo quería que el dolor tuviera sentido. Le dije que el dolor
+  no tiene sentido. Simplemente es."
+- "¿Y eso lo ayudó?"
+- "No. Lo enfureció. Se fue gritando que el budismo era cobardía."
+- Elena: "Pero volvió, ¿verdad?"
+- "Veinte años después. Ya no buscaba sentido. Solo paz."
+
+** Final Cap 7 → Gancho
+#+BEGIN_QUOTE
+Antes de irse, Elena preguntó:
+
+—¿Mi abuelo encontró paz?
+
+Tenzin la miró largamente.
+
+—Encontró algo. No sé si era paz. Pero dejó de correr.
+
+—¿De qué corría?
+
+—De sí mismo. De sus errores. De las personas que había herido.
+—Tenzin hizo una pausa—. Incluida tu abuela.
+
+Elena sintió un escalofrío.
+
+—¿Qué tiene que ver mi abuela?
+
+—Ella sabía todo. Desde el principio. Miriam, Lakshmi, el bebé.
+Tu abuelo se lo contó antes de casarse. Le dio la opción de
+rechazarlo. Ella eligió quedarse.
+
+—¿Por qué?
+
+—Eso deberías preguntárselo a alguien que la conoció.
+Tu abuelo tenía un amigo en Japón. Se llama Kenji Tanaka.
+Él estuvo en la boda.
+
+Tenzin le entregó un sobre.
+
+—Tu abuelo me dejó esto para ti. Pero no lo abras todavía.
+Ábrelo cuando llegues a Japón. Cuando entiendas lo que
+significa soltar.
+#+END_QUOTE
+
+* CAPÍTULO 8: JAPÓN (Kioto) - ZEN
+
+** Inicio
+#+BEGIN_QUOTE
+El sobre de Dharamsala pesaba en su mochila como una piedra.
+
+Tenzin había dicho: "Ábrelo cuando entiendas lo que significa soltar."
+
+Pero Elena no entendía. ¿Soltar qué? ¿La rabia hacia su abuelo
+por tantos secretos? ¿El dolor por las pérdidas? ¿La necesidad
+de respuestas?
+
+El maestro Kenji Tanaka vivía en un templo zen a las afueras
+de Kioto. Tenía ochenta y dos años y, según la libreta del
+abuelo, había sido su compañero en un intercambio académico
+en 1972.
+
+Cuando Elena llegó, un monje joven le dijo que Tanaka-roshi
+estaba en meditación y no recibiría visitas hasta el día siguiente.
+
+—Pero he viajado desde España—
+
+—El maestro sabe que está aquí. Dijo: "Si tiene prisa,
+no está lista. Si puede esperar, que espere."
+
+Elena esperó.
+#+END_QUOTE
+
+** Desarrollo del capítulo
+- Espera un día entero (primera lección: paciencia)
+- Cuando Tanaka la recibe, no habla del abuelo
+- Le hace preguntas zen aparentemente absurdas
+- "¿Cuál era tu rostro antes de que nacieran tus padres?"
+- Elena se frustra: "No vine a jugar acertijos"
+- Tanaka: "¿A qué viniste?"
+- "A saber quién era mi abuelo"
+- "Tu abuelo está muerto. ¿Por qué buscas a los muertos?"
+
+** Enseñanza filosófica
+- Tanaka le enseña que buscar es el problema
+- "Tu abuelo pasó años buscando. Vino aquí buscando paz.
+  Le dije: deja de buscar y la paz te encontrará."
+- Sesión de zazen (meditación sentada)
+- Elena tiene un momento de vacío, de silencio interior
+- "¿Qué sentiste?"
+- "Nada."
+- "Exacto. En la nada, no hay sufrimiento."
+
+** Final Cap 8 → Gancho
+#+BEGIN_QUOTE
+El último día, Tanaka le entregó un objeto envuelto en seda.
+
+—Tu abuelo me dejó esto. Dijo que lo necesitarías
+al final del camino.
+
+Elena desenvolvió la seda. Era un espejo pequeño, antiguo,
+con marco de madera tallada.
+
+—¿Un espejo?
+
+—Míralo.
+
+Elena miró. Solo vio su reflejo: ojos cansados, pelo revuelto,
+la cara de una mujer que había viajado demasiado.
+
+—¿Qué se supone que debo ver?
+
+—Eso mismo preguntó tu abuelo cuando se lo di. —Tanaka sonrió—.
+La respuesta llegará cuando dejes de buscarla.
+
+Esa noche, sola en su habitación, Elena finalmente abrió
+el sobre de Dharamsala.
+
+Dentro había una carta de su abuela. Fecha: 1995.
+
+"Querido Antonio:
+
+Sé que sigues cargando con la culpa. Sé que crees que me
+robaste la vida al casarte conmigo después de amar a otras.
+
+Pero quiero que sepas algo: yo también tenía secretos.
+Yo también había amado antes. Yo también había perdido.
+
+No me casé contigo porque no tuviera opciones.
+Me casé contigo porque reconocí en tus ojos el mismo dolor
+que había en los míos.
+
+Nos curamos juntos.
+
+Eso es el amor: dos personas rotas que eligen romperse juntas.
+
+Tu Elena."
+
+La abuela se llamaba Elena.
+
+ELLA se llamaba Elena.
+
+El abuelo no la había nombrado por la hija de Miriam.
+La había nombrado por su esposa.
+
+Por la mujer que lo había elegido a pesar de todo.
+#+END_QUOTE
+
+* CAPÍTULO 9: CHINA (Wudang) - TAOÍSMO
+
+** Inicio
+#+BEGIN_QUOTE
+Las montañas de Wudang emergían de la niebla como un
+sueño de tinta china.
+
+Elena había viajado tres días desde Japón: avión a Shanghai,
+tren a Wuhan, autobús a Wudang. Cada kilómetro la alejaba
+más del mundo que conocía.
+
+Pero por primera vez, no le importaba.
+
+La carta de su abuela había cambiado algo. No sabía qué exactamente.
+Solo sabía que la rabia se había convertido en otra cosa.
+En algo más suave. Más triste. Más humano.
+
+Su abuelo no había sido un mentiroso. Había sido un hombre
+roto que intentó reconstruirse. Como ella. Como todos.
+
+Chen Wei la esperaba al pie de la montaña. Tenía cincuenta años
+y era el nieto del maestro taoísta que había conocido al abuelo
+en los años setenta.
+
+—Mi abuelo murió en 2010 —dijo Chen—. Pero me habló mucho
+de Antonio. Decía que era el occidental más terco que había conocido.
+
+Elena sonrió.
+
+—Suena a él.
+#+END_QUOTE
+
+** Desarrollo del capítulo
+- Chen la lleva montaña arriba, al templo donde vivió su abuelo
+- Cuentan historias del abuelo: cómo intentaba "entender" el Tao
+- "Mi abuelo le decía: el Tao que puede entenderse no es el Tao"
+- "¿Y qué respondía Antonio?"
+- "Que eso era una evasiva."
+- Elena ríe por primera vez en semanas
+
+** Enseñanza filosófica
+- Wu-wei: acción sin forzar
+- "Tu abuelo forzaba todo. Quería respuestas AHORA.
+  El Tao no funciona así. El agua no fuerza la roca.
+  La erosiona con paciencia."
+- Elena: "¿Él aprendió eso?"
+- "Tardó cuarenta años."
+
+** Final Cap 9 → Gancho
+#+BEGIN_QUOTE
+En el templo había un mural antiguo: un hombre cruzando
+un río sobre un tronco flotante.
+
+—Mi abuelo pintó esto con Antonio —dijo Chen—.
+Cada uno pintó una mitad.
+
+Elena miró el mural. Un lado era preciso, geométrico
+(el abuelo, probablemente). El otro era fluido, orgánico.
+
+—¿Qué significa?
+
+—Es un koan visual. ¿Cómo cruzas el río de la vida?
+¿Controlando cada paso? ¿O dejándote llevar por la corriente?
+
+—¿Cuál es la respuesta correcta?
+
+Chen la miró.
+
+—Las dos. Y ninguna. Depende del río. Depende del día.
+Depende de quién eres en ese momento.
+
+Antes de irse, Chen le entregó un rollo de papel.
+
+—Esto es para ti. Tu abuelo lo dejó aquí hace veinte años.
+Dijo: "Cuando venga Elena, dale esto. Ella sabrá cuándo abrirlo."
+
+Elena miró el rollo.
+
+—¿Cuándo debo abrirlo?
+
+—Cuando llegues al final del camino. Y eso —Chen señaló
+hacia el horizonte— está en América.
+#+END_QUOTE
+
+* CAPÍTULO 10: NUEVO MÉXICO - TRADICIONES INDÍGENAS
+
+** Inicio
+#+BEGIN_QUOTE
+La reserva navajo se extendía hasta donde alcanzaba la vista:
+roca roja, cielo azul infinito, silencio.
+
+Elena había cruzado medio mundo. España, Marruecos, Israel,
+Turquía, India, Japón, China. Y ahora Estados Unidos.
+
+Le quedaba un nombre en la lista.
+
+Mary Begay, antropóloga, sesenta y cinco años.
+La nota del abuelo decía: "Mary me enseñó a escuchar
+a los que ya no están."
+
+La encontró en una casa pequeña al borde del desierto.
+Mary estaba sentada en el porche, mirando el atardecer.
+
+—Sabía que vendrías —dijo sin volverse—. Antonio me lo dijo.
+Hace treinta años.
+
+—¿Cómo podía saberlo hace treinta años?
+
+Mary sonrió.
+
+—Porque él sabía quién eras antes de que tú lo supieras.
+#+END_QUOTE
+
+** Desarrollo del capítulo
+- Mary cuenta cómo conoció al abuelo en los años 80
+- Él vino a investigar las tradiciones navajo para un libro
+- Pero terminó quedándose un año
+- "No vino a estudiar. Vino a sanar."
+- Rituales, conexión con la tierra, con los ancestros
+
+** Enseñanza filosófica
+- "Tu abuelo occidental quería SABER. Nosotros queremos PERTENECER."
+- "¿Pertenecer a qué?"
+- "A todo. A la tierra, al cielo, a los que vinieron antes,
+  a los que vendrán después."
+- Ceremonia simple: Elena conecta con la tierra, con sus ancestros
+- Momento de paz profunda
+
+** Final Cap 10 → Gancho
+#+BEGIN_QUOTE
+La última noche, bajo las estrellas, Mary le preguntó:
+
+—¿Encontraste lo que buscabas?
+
+Elena lo pensó.
+
+—No. Pero creo que dejé de buscar.
+
+Mary asintió.
+
+—Entonces encontraste algo mejor.
+
+—¿Qué?
+
+—La capacidad de vivir sin respuestas.
+
+Elena miró las estrellas. Millones de ellas. Cada una
+un misterio que nunca entendería.
+
+Y estaba bien.
+
+—Hay alguien más que debes ver —dijo Mary—.
+El último nombre de la lista.
+
+—Lo sé. Heinrich Müller. En Alemania.
+
+—El ateo.
+
+—¿Mi abuelo era amigo de un ateo?
+
+Mary rio.
+
+—Tu abuelo era amigo de todos. Pero Heinrich era especial.
+Era el único que nunca le daba esperanza. Y por eso
+Antonio lo necesitaba.
+
+—No entiendo.
+
+—Lo entenderás cuando lo veas. Heinrich tiene la última
+pieza del rompecabezas. Pero no te va a gustar.
+#+END_QUOTE
+
+* CAPÍTULO 11: ALEMANIA (Munich) - FILOSOFÍA OCCIDENTAL / ATEÍSMO
+
+** Inicio
+#+BEGIN_QUOTE
+Heinrich Müller vivía en un apartamento lleno de libros
+en el centro de Munich. Tenía setenta y cinco años,
+cáncer terminal, y ninguna intención de ser amable.
+
+—Así que eres la nieta de Antonio —dijo, mirándola
+con ojos penetrantes—. Él hablaba mucho de ti.
+
+—No sabía que ustedes se conocían.
+
+—Fuimos compañeros de doctorado. Hace cincuenta años.
+Él creía en Dios. Yo no. Discutíamos constantemente.
+—Heinrich sonrió—. Fueron los mejores debates de mi vida.
+
+—¿Por qué era amigo de un creyente si usted es ateo?
+
+—Porque Antonio era el único creyente honesto que conocí.
+No fingía tener certezas. Admitía sus dudas. —Pausa—.
+Y porque necesitaba a alguien que le dijera la verdad.
+
+—¿Qué verdad?
+
+—Que quizás no hay ningún sentido. Que quizás todo esto
+—señaló el mundo— es un accidente cósmico. Que quizás
+morimos y se acabó.
+
+Elena sintió frío.
+
+—¿Eso es lo que usted cree?
+
+—Eso es lo que sé. Y tu abuelo lo sabía también.
+Pero eligió creer de todas formas. Eso lo hacía valiente.
+O idiota. Nunca decidí cuál.
+#+END_QUOTE
+
+** Desarrollo del capítulo
+- Heinrich confronta a Elena: "¿Qué aprendiste en tu viaje?"
+- Ella cuenta todo: las tradiciones, las perspectivas, las coincidencias
+- Heinrich: "Todo muy bonito. ¿Pero es VERDAD?"
+- Elena no sabe qué responder
+- Debate honesto sobre fe, razón, sentido
+
+** Enseñanza filosófica (o anti-enseñanza)
+- Heinrich: "La diferencia entre tu abuelo y yo es simple.
+  Él necesitaba que la vida tuviera sentido. Yo no."
+- "¿Cómo vive usted sabiendo que va a morir?"
+- "Igual que tú. Un día a la vez. Solo que yo no me cuento
+  cuentos para dormir."
+- Elena: "¿Los creyentes se cuentan cuentos?"
+- "Todos nos contamos cuentos. La diferencia es si lo admites."
+
+** Final Cap 11 → Gancho
+#+BEGIN_QUOTE
+Antes de irse, Elena le preguntó:
+
+—¿Mi abuelo encontró paz al final?
+
+Heinrich la miró largamente. Por primera vez, su expresión
+se suavizó.
+
+—Sí. Pero no la paz que esperaba.
+
+—¿Qué tipo de paz?
+
+—La paz de aceptar que nunca sabría. —Heinrich tosió—.
+Me llamó una semana antes de morir. Me dijo: "Heinrich,
+tenías razón. No hay respuestas. Pero también tenía razón yo.
+Las preguntas valen la pena."
+
+—¿Qué le respondió usted?
+
+—Le dije que era un viejo sentimental. —Los ojos de Heinrich
+se humedecieron—. Y que lo quería.
+
+Elena se levantó para irse. En la puerta, se volvió.
+
+—¿Por qué me contó todo esto?
+
+—Porque tu abuelo me lo pidió. Dijo: "Cuando venga Elena,
+dile la verdad. Toda la verdad. Aunque duela."
+
+—¿Hay algo más?
+
+Heinrich asintió.
+
+—El rollo que te dio Chen Wei. Ábrelo ahora.
+Es el final de la historia.
+#+END_QUOTE
+
+* CAPÍTULO 12: EL REGRESO (Madrid)
+
+** Inicio
+#+BEGIN_QUOTE
+Elena abrió el rollo en el avión de vuelta a Madrid.
+
+Dentro había una carta. La última carta de su abuelo.
+
+"Querida Elena:
+
+Si estás leyendo esto, completaste el viaje. Conociste
+a las personas que me ayudaron a vivir. Escuchaste
+las preguntas que me mantuvieron despierto.
+
+Ahora te toca a ti.
+
+No te dejé respuestas porque no las tengo.
+Te dejé preguntas porque son lo único que vale la pena.
+
+¿Por qué existe algo en lugar de nada?
+No lo sé.
+
+¿Quiénes somos realmente?
+No lo sé.
+
+¿Hay algo después de la muerte?
+No lo sé.
+
+Pero sé esto: preguntar es vivir.
+Buscar es amar.
+Dudar es ser honesto.
+
+No te conviertas en nada. No seas cristiana, ni budista,
+ni hindú, ni atea. Sé Elena.
+
+Toma lo que te sirva de cada tradición.
+Descarta lo que no te sirva.
+Construye tu propia casa.
+
+Y cuando tengas hijos, o nietos, o simplemente
+alguien que te pregunte cómo vivir, no le des respuestas.
+Dale preguntas.
+
+Las preguntas son eternas.
+Las respuestas son temporales.
+
+Te quiero. Siempre te quise.
+Perdóname por los secretos.
+Perdóname por no estar ahí cuando me necesitabas.
+Perdóname por ser humano.
+
+Tu abuelo,
+Antonio"
+#+END_QUOTE
+
+** Desarrollo del capítulo
+- Elena llega a Madrid
+- Se siente diferente pero no sabe cómo
+- Visita la tumba del abuelo por primera vez
+- Llora (primera vez que llora de verdad en todo el viaje)
+- Habla con su hermano, le cuenta todo
+- Él no entiende, pero la acepta
+
+** Cierre del arco
+- Elena empieza a escribir su propio diario
+- Primera entrada: "¿Qué aprendí?"
+- No una lista de doctrinas, sino de prácticas:
+  - Medito (del budismo)
+  - Agradezco (del judaísmo)
+  - Sirvo a otros (del cristianismo)
+  - Fluyo con lo que no puedo controlar (del taoísmo)
+  - Me conecto con la naturaleza (de las tradiciones indígenas)
+  - Y dudo. Siempre dudo. (de Heinrich)
+
+** Final del capítulo / libro
+#+BEGIN_QUOTE
+Un año después.
+
+Elena estaba en Montserrat, en el mismo mirador donde
+su abuelo había pensado en saltar sesenta años atrás.
+
+No había venido a saltar. Había venido a soltar.
+
+Sacó la fotografía del bebé sin nombre, la carta de Miriam,
+el rosario de Ibrahim, el espejo de Tanaka.
+
+Uno por uno, los dejó en el borde de la roca.
+No para olvidarlos. Para liberarlos.
+
+El viento se los llevó.
+
+Elena se quedó mirando el valle. Las mismas montañas
+que su abuelo había visto. El mismo cielo. El mismo misterio.
+
+Pero ella ya no necesitaba respuestas.
+
+Solo necesitaba seguir preguntando.
+
+Sacó su cuaderno y escribió la primera pregunta de su propio diario:
+
+"¿Qué existe?"
+
+Y debajo:
+
+"No lo sé. Pero estoy aquí. Y eso, por ahora, es suficiente."
+
+FIN
+#+END_QUOTE
+
+* EPÍLOGO: Cinco años después
+
+#+BEGIN_QUOTE
+Elena cerró el libro y miró a su sobrina.
+
+Sara tenía dieciséis años. Los mismos ojos del abuelo Antonio.
+La misma inquietud.
+
+—¿Todo eso es verdad? —preguntó Sara—. ¿El viaje, las personas...?
+
+—Todo es verdad.
+
+—¿Y encontraste las respuestas?
+
+Elena sonrió.
+
+—Encontré algo mejor. Encontré las preguntas correctas.
+
+Sara frunció el ceño.
+
+—No entiendo.
+
+—No tienes que entender. —Elena le entregó un cuaderno nuevo,
+en blanco—. Solo tienes que preguntar.
+
+Sara tomó el cuaderno. Lo abrió en la primera página.
+
+—¿Por dónde empiezo?
+
+—Por el principio. —Elena la miró—. ¿Por qué existe algo
+en lugar de nada?
+
+Sara la miró fijamente. Por primera vez, Elena vio algo
+en sus ojos. No una respuesta.
+
+Una chispa.
+
+—No lo sé —dijo Sara.
+
+—Perfecto —dijo Elena—. Ahora estás lista.
+#+END_QUOTE
+

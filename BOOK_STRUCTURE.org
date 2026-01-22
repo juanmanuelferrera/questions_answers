@@ -1,0 +1,296 @@
+#+TITLE: Estructura del Libro - Grandes Preguntas
+#+SUBTITLE: Reorganización por Problemas Humanos Universales
+#+DATE: 2026-01-19
+
+* VISIÓN GENERAL
+
+** Concepto
+Un libro de ~200 páginas organizado por PROBLEMAS HUMANOS, no por tradiciones filosóficas.
+Cada capítulo responde a una pregunta que todo ser humano se hace en algún momento de su vida.
+
+** Formato de cada capítulo (~15-18 páginas)
+1. *Apertura* (1/2 página): Escena o pregunta provocadora
+2. *El problema* (1 página): Por qué esta pregunta importa
+3. *Las respuestas* (10-12 páginas): 8-10 tradiciones, cada una 1 página
+4. *Puntos de encuentro* (1 página): Qué comparten las tradiciones
+5. *Tensiones irresolubles* (1/2 página): Dónde difieren fundamentalmente
+6. *Para reflexionar* (1/2 página): 3 preguntas para el lector
+
+** Tradiciones principales (10 voces consistentes)
+1. Cristianismo (síntesis católica/protestante/ortodoxa)
+2. Islam
+3. Judaísmo
+4. Hinduismo (Vedanta)
+5. Budismo
+6. Confucianismo
+7. Taoísmo
+8. Filosofía Griega (Platón/Aristóteles/Estoicos)
+9. Filosofía Moderna (Kant/Existencialismo)
+10. Tradiciones Indígenas (síntesis)
+
+* LOS 12 CAPÍTULOS
+
+** CAPÍTULO 1: ¿Por qué existe algo en lugar de nada?
+/El misterio de la existencia/
+
+*** Preguntas académicas que incluye:
+- 1.1 What exists?
+- 1.1.1 What is the relationship between being and existence?
+- 5.1 Does God exist?
+- 5.1.1 What are the arguments for God's existence?
+
+*** Gancho de apertura:
+"Imagina que nunca hubiera existido nada. Ni universo, ni tiempo, ni espacio, ni tú leyendo esto. ¿Por qué hay algo?"
+
+*** Estado del contenido:
+- [X] Respuestas cristianas (completas)
+- [X] Respuestas islámicas (completas)
+- [X] Respuestas judías (completas)
+- [X] Respuestas hindúes (completas)
+- [X] Respuestas budistas (completas)
+- [X] Respuestas taoístas (parciales)
+- [ ] Síntesis griega (necesita redacción)
+- [ ] Síntesis moderna (necesita redacción)
+
+** CAPÍTULO 2: ¿Quién soy yo realmente?
+/Identidad, alma y el misterio del ser/
+
+*** Preguntas académicas que incluye:
+- 1.5 What is personal identity over time?
+- 1.4.1 What is the nature of mind?
+- 1.4.2 What is the relationship between mind and body?
+- 1.1.5 What is the nature of consciousness?
+
+*** Gancho de apertura:
+"El niño que fuiste a los 5 años, ¿sigue siendo tú? Cada célula de tu cuerpo ha cambiado. ¿Qué permanece?"
+
+*** Estado del contenido:
+- [X] Respuestas sobre mente/cuerpo (parciales)
+- [X] Respuestas sobre consciencia (parciales)
+- [ ] Necesita síntesis narrativa
+
+** CAPÍTULO 3: ¿Tengo control sobre mi vida?
+/Libertad, destino y libre albedrío/
+
+*** Preguntas académicas que incluye:
+- 1.4.3 Do we have free will?
+- 1.1.3 What is the nature of causation?
+- 5.2 What is the nature of the divine? (providencia/predestinación)
+
+*** Gancho de apertura:
+"Esta mañana elegiste leer este libro. ¿O el universo conspiró desde el Big Bang para que llegaras a esta página?"
+
+*** Estado del contenido:
+- [X] Libre albedrío - múltiples tradiciones
+- [X] Causalidad - múltiples tradiciones
+- [ ] Necesita integración karma/predestinación/tao
+
+** CAPÍTULO 4: ¿Por qué sufrimos?
+/El dolor, el mal y la búsqueda de sentido/
+
+*** Preguntas académicas que incluye:
+- 5.3 What is the problem of evil?
+- 5.3.1 How can evil exist if God is all-good and all-powerful?
+- 5.3.2 Does suffering have meaning?
+
+*** Gancho de apertura:
+"Un niño muere de cáncer. Un terremoto destruye una ciudad. Si existe un Dios bueno, ¿por qué permite esto?"
+
+*** Estado del contenido:
+- [X] Problema del mal (completo)
+- [X] Significado del sufrimiento (completo)
+- [X] Teodicea múltiples tradiciones
+
+** CAPÍTULO 5: ¿Cómo debo vivir?
+/Ética, virtud y la vida buena/
+
+*** Preguntas académicas que incluye:
+- 2.1 What is the source of moral authority?
+- 2.2 What makes an action right or wrong?
+- 2.3 What is the nature of virtue and vice?
+- 2.3.2 Can virtue be taught?
+
+*** Gancho de apertura:
+"Tienes que mentir para salvar una vida. ¿Lo haces? Tu respuesta revela tu filosofía moral."
+
+*** Estado del contenido:
+- [X] Autoridad moral (completo)
+- [X] Bien/mal (completo)
+- [X] Virtud (completo)
+
+** CAPÍTULO 6: ¿Qué le debo a los demás?
+/Obligación, justicia y vida en comunidad/
+
+*** Preguntas académicas que incluye:
+- 2.4 What are our moral obligations to others?
+- 2.5 What is justice?
+- 3.4 What is the relationship between individual and community?
+- 2.4.2 What do we owe to animals and nature?
+
+*** Gancho de apertura:
+"Un extraño se ahoga frente a ti. ¿Tienes obligación de salvarlo? ¿Y si está en otro continente?"
+
+*** Estado del contenido:
+- [X] Obligaciones morales (completo)
+- [X] Justicia (completo)
+- [X] Individuo/comunidad (parcial)
+
+** CAPÍTULO 7: ¿Puede la razón alcanzar la verdad?
+/Conocimiento, fe y los límites de la mente/
+
+*** Preguntas académicas que incluye:
+- 1.2.1 What is the source of knowledge?
+- 1.2.2 What are the limits of human knowledge?
+- 1.2.3 What is the relationship between faith and reason?
+- 1.3.2 Is truth absolute or relative?
+
+*** Gancho de apertura:
+"Crees que sabes cosas. Pero ¿cómo sabes que sabes? ¿Y si todo lo que crees es ilusión?"
+
+*** Estado del contenido:
+- [X] Fuentes de conocimiento (completo)
+- [X] Fe y razón (completo)
+- [X] Verdad absoluta/relativa (completo)
+
+** CAPÍTULO 8: ¿Qué es Dios?
+/Lo divino, lo sagrado y lo trascendente/
+
+*** Preguntas académicas que incluye:
+- 5.2 What is the nature of the divine?
+- 5.2.1 Is God personal or impersonal?
+- 5.2.2 What are divine attributes?
+- 5.4.2 What is the nature of religious experience?
+
+*** Gancho de apertura:
+"Mil millones rezan a Alá. Mil millones a Cristo. Mil millones meditan hacia el vacío. ¿Hablan del mismo misterio?"
+
+*** Estado del contenido:
+- [X] Naturaleza divina (completo)
+- [X] Personal/impersonal (completo)
+- [X] Experiencia religiosa (parcial)
+
+** CAPÍTULO 9: ¿Qué pasa cuando morimos?
+/Muerte, inmortalidad y el más allá/
+
+*** Preguntas académicas que incluye:
+- (Necesita agregarse - no hay sección específica)
+- Relacionado con: naturaleza del alma, consciencia, identidad personal
+
+*** Gancho de apertura:
+"Todos moriremos. Es la única certeza. ¿Es el fin absoluto o una puerta a algo más?"
+
+*** Estado del contenido:
+- [ ] NECESITA DESARROLLO COMPLETO
+- [ ] Recopilar de respuestas existentes sobre alma/consciencia
+- [ ] Agregar: reencarnación, resurrección, nirvana, ancestros
+
+** CAPÍTULO 10: ¿Tiene la vida un propósito?
+/Sentido, significado y la búsqueda humana/
+
+*** Preguntas académicas que incluye:
+- (Implícito en varias secciones)
+- Relacionado con: naturaleza humana, destino, relación con lo divino
+
+*** Gancho de apertura:
+"Un día el sol explotará y la Tierra desaparecerá. ¿Importa entonces lo que hagas hoy?"
+
+*** Estado del contenido:
+- [ ] NECESITA SÍNTESIS
+- [ ] Extraer de respuestas sobre naturaleza humana
+- [ ] Agregar perspectivas existencialistas/nihilistas
+
+** CAPÍTULO 11: ¿Cómo debemos gobernar la sociedad?
+/Poder, autoridad y organización humana/
+
+*** Preguntas académicas que incluye:
+- 3.1 What is the source of political authority?
+- 3.2 What is the ideal form of government?
+- 3.3 What are individual rights and freedoms?
+
+*** Gancho de apertura:
+"Alguien tiene que decidir las reglas. ¿Quién tiene derecho a mandar sobre otros?"
+
+*** Estado del contenido:
+- [X] Autoridad política (completo)
+- [X] Formas de gobierno (completo)
+- [X] Derechos (completo)
+
+** CAPÍTULO 12: ¿Qué es lo bello?
+/Arte, belleza y la experiencia estética/
+
+*** Preguntas académicas que incluye:
+- 4.1 What is beauty?
+- 4.2 What is the purpose of art?
+- 4.1.2 What is the relationship between beauty and truth?
+
+*** Gancho de apertura:
+"Una puesta de sol. Una sinfonía. El rostro amado. ¿Por qué ciertas cosas nos conmueven hasta las lágrimas?"
+
+*** Estado del contenido:
+- [X] Belleza (parcial)
+- [X] Arte (parcial)
+- [ ] Necesita más desarrollo tradiciones orientales
+
+* MAPEO: PREGUNTAS EXISTENTES → CAPÍTULOS
+
+| Pregunta Original | Capítulo Destino |
+|-------------------|------------------|
+| 1.1 What exists? | Cap 1: ¿Por qué existe algo? |
+| 1.1.1 Being and existence | Cap 1: ¿Por qué existe algo? |
+| 1.1.2 Material vs immaterial | Cap 2: ¿Quién soy yo? |
+| 1.1.3 Causation | Cap 3: ¿Tengo control? |
+| 1.1.4 Time and space | Cap 1: ¿Por qué existe algo? |
+| 1.1.5 Consciousness | Cap 2: ¿Quién soy yo? |
+| 1.2.1 Source of knowledge | Cap 7: ¿Puede la razón...? |
+| 1.2.2 Limits of knowledge | Cap 7: ¿Puede la razón...? |
+| 1.2.3 Faith and reason | Cap 7: ¿Puede la razón...? |
+| 1.3.1-3 Truth | Cap 7: ¿Puede la razón...? |
+| 1.4.1-3 Mind, body, free will | Cap 2 y 3 |
+| 1.5 Personal identity | Cap 2: ¿Quién soy yo? |
+| 2.1-2.3 Ethics | Cap 5: ¿Cómo debo vivir? |
+| 2.4-2.5 Obligations, justice | Cap 6: ¿Qué le debo...? |
+| 3.1-3.4 Political | Cap 11: ¿Cómo gobernar? |
+| 4.1-4.3 Aesthetics | Cap 12: ¿Qué es lo bello? |
+| 5.1 God exists? | Cap 1 y 8 |
+| 5.2 Nature of divine | Cap 8: ¿Qué es Dios? |
+| 5.3 Problem of evil | Cap 4: ¿Por qué sufrimos? |
+| 5.4 Faith and reason | Cap 7: ¿Puede la razón...? |
+
+* PRÓXIMOS PASOS
+
+** Fase 1: Completar contenido faltante
+1. [ ] Capítulo 9 (Muerte) - Crear desde cero
+2. [ ] Capítulo 10 (Propósito) - Síntesis de existente
+3. [ ] Tradiciones indígenas - Expandir cobertura
+4. [ ] Filosofía moderna - Agregar Kant, existencialismo
+
+** Fase 2: Transformar formato
+1. [ ] Convertir respuestas académicas a lenguaje accesible
+2. [ ] Agregar ganchos de apertura
+3. [ ] Escribir "Puntos de encuentro" por capítulo
+4. [ ] Escribir "Tensiones irresolubles" por capítulo
+5. [ ] Crear preguntas de reflexión
+
+** Fase 3: Edición y pulido
+1. [ ] Reducir cada respuesta a ~200 palabras máximo
+2. [ ] Asegurar tono consistente
+3. [ ] Agregar transiciones entre secciones
+4. [ ] Diseño visual y formato final
+
+* ESTIMACIÓN DE TRABAJO
+
+| Capítulo | Contenido existente | Trabajo necesario |
+|----------|--------------------|--------------------|
+| 1. Existencia | 90% | Síntesis |
+| 2. Identidad | 70% | Síntesis + expansión |
+| 3. Libertad | 80% | Síntesis |
+| 4. Sufrimiento | 95% | Solo formato |
+| 5. Ética | 95% | Solo formato |
+| 6. Obligaciones | 85% | Síntesis |
+| 7. Conocimiento | 90% | Síntesis |
+| 8. Dios | 95% | Solo formato |
+| 9. Muerte | 20% | DESARROLLO MAYOR |
+| 10. Propósito | 40% | Desarrollo medio |
+| 11. Gobierno | 90% | Solo formato |
+| 12. Belleza | 60% | Expansión media |
+

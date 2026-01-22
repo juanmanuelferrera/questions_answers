@@ -1,0 +1,412 @@
+#+TITLE: Grandes Preguntas, Diversas Respuestas
+#+SUBTITLE: Documento Maestro para el Libro
+#+DATE: 2026
+#+OPTIONS: toc:3
+
+* MARCO CONCEPTUAL: EL MODELO PROTHERO
+
+Cada tradición ve el mundo desde un PROBLEMA central y ofrece una SOLUCIÓN.
+Esto no significa que ignoren otros problemas, sino que tienen un ÉNFASIS distintivo.
+
+| Tradición        | PROBLEMA           | SOLUCIÓN                | TÉCNICA                  | EJEMPLAR        |
+|------------------|--------------------|-------------------------|--------------------------|-----------------|
+| Cristianismo     | Pecado             | Salvación               | Fe, gracia, sacramentos  | Jesús, santos   |
+| Islam            | Orgullo            | Sumisión (islam)        | Los 5 pilares            | Mahoma          |
+| Budismo          | Sufrimiento        | Despertar (nirvana)     | Óctuple sendero          | Buda            |
+| Judaísmo         | Exilio             | Retorno a Dios          | Ley (halajá), estudio    | Moisés, rabinos |
+| Hinduismo        | Olvido de Krishna  | Amor devocional (prema) | Bhakti-yoga, canto       | Chaitanya, Prabhupada |
+| Confucianismo    | Caos social        | Armonía ritual          | Ritos, educación, virtud | Confucio        |
+| Taoísmo          | Artificio          | Naturalidad (wu-wei)    | Meditación, simplicidad  | Lao Tzu         |
+| Estoicismo       | Perturbación       | Serenidad (ataraxia)    | Control de juicios       | Marco Aurelio   |
+| Existencialismo  | Absurdo/inautent.  | Autenticidad            | Elección radical         | Kierkegaard     |
+| Trad. Indígenas  | Desequilibrio      | Armonía con la tierra   | Ceremonia, comunidad     | Ancianos        |
+
+* LOS 12 CAPÍTULOS DEL LIBRO
+
+** Capítulo 1: ¿Qué Existe Realmente?
+*** El problema humano
+Despertamos en un mundo que no pedimos. ¿Qué es todo esto? ¿Es real o ilusión?
+¿Hay algo más allá de lo que vemos?
+
+*** Coincidencias entre tradiciones
+- Todas reconocen una *realidad que trasciende* lo aparente
+- Todas afirman que hay *más de lo que percibimos* con los sentidos
+- Todas proponen alguna forma de *conocimiento más profundo*
+
+*** Las respuestas distintivas
+
+**** Cristianismo: Jerarquía del ser
+#+BEGIN_QUOTE
+"Dios es el Ser mismo (ipsum esse subsistens). Todo lo demás existe por participación
+en Él. Hay una cadena: Dios → ángeles → humanos → animales → materia.
+Todo tiene su lugar en el orden divino."
+#+END_QUOTE
+- PROBLEMA: Sin Dios, la existencia carece de fundamento
+- SOLUCIÓN: Reconocer a Dios como fuente de todo ser
+
+**** Hinduismo: Krishna es la fuente de todo
+#+BEGIN_QUOTE
+"Krishna es la Verdad Absoluta, la fuente de todo lo que existe.
+Él tiene tres energías: la espiritual, la material, y las almas.
+Todo es real —nada es ilusión total— pero hay jerarquía: lo espiritual
+es eterno, lo material es temporal. El error no es que el mundo sea
+falso, sino que lo tomemos como lo único real."
+#+END_QUOTE
+- PROBLEMA: Pensamos que la materia es todo lo que existe
+- SOLUCIÓN: Reconocer a Krishna como fuente y refugio de todo
+
+**** Budismo: Vacuidad interdependiente
+#+BEGIN_QUOTE
+"Nada existe por sí mismo. Todo surge por causas y condiciones (pratityasamutpada).
+No hay sustancia permanente, ni en las cosas ni en ti. Esta vacuidad (sunyata)
+no es la nada, sino la apertura infinita de posibilidades."
+#+END_QUOTE
+- PROBLEMA: Creemos en un "yo" sólido que sufre
+- SOLUCIÓN: Ver la vacuidad libera del sufrimiento
+
+**** Islam: Unidad divina absoluta
+#+BEGIN_QUOTE
+"La ilaha illa Allah: No hay dios sino Dios. Todo lo que existe es signo (ayat)
+de Allah. El cosmos entero da testimonio de Su unidad (tawhid).
+Existir es ser creado y sostenido por el Único."
+#+END_QUOTE
+- PROBLEMA: El politeísmo y el ego dividen la realidad
+- SOLUCIÓN: Reconocer la Unidad absoluta de Dios
+
+**** Judaísmo: Creación con propósito
+#+BEGIN_QUOTE
+"En el principio, Dios creó... La existencia no es accidente sino acto de voluntad
+divina. El mundo está inacabado; los humanos somos socios de Dios en tikkun olam,
+la reparación del mundo."
+#+END_QUOTE
+- PROBLEMA: El mundo está roto, en exilio de su origen
+- SOLUCIÓN: Trabajar con Dios para restaurarlo
+
+**** Taoísmo: El misterio innombrable
+#+BEGIN_QUOTE
+"El Tao que puede nombrarse no es el Tao eterno. Antes del cielo y la tierra,
+había algo nebuloso y completo. Es la madre de todas las cosas.
+No conozco su nombre; lo llamo Tao."
+#+END_QUOTE
+- PROBLEMA: Las palabras y conceptos distorsionan la realidad
+- SOLUCIÓN: Fluir con el misterio sin forzar definiciones
+
+**** Filosofía Occidental: La pregunta permanece abierta
+#+BEGIN_QUOTE
+"¿Por qué hay algo en lugar de nada?" (Leibniz). La filosofía no tiene UNA respuesta,
+sino múltiples: formas eternas (Platón), sustancia material (materialismo),
+construcción mental (idealismo), existencia sin esencia (existencialismo).
+#+END_QUOTE
+- PROBLEMA: La razón sola no puede alcanzar certeza última
+- SOLUCIÓN: Seguir preguntando con honestidad intelectual
+
+**** Tradiciones Indígenas: Red sagrada
+#+BEGIN_QUOTE
+"Todo está vivo y conectado. La roca, el río, el águila, el ancestro:
+todos son parientes. El Gran Espíritu fluye a través de todo.
+No estamos EN la naturaleza; SOMOS naturaleza."
+#+END_QUOTE
+- PROBLEMA: La separación de la naturaleza trae desequilibrio
+- SOLUCIÓN: Vivir en armonía con todos los seres
+
+*** Diferencias que enriquecen
+| Tradición   | Pregunta que te hace                                    |
+|-------------|---------------------------------------------------------|
+| Cristiano   | ¿Reconoces que no te creaste a ti mismo?                |
+| Hindú       | ¿Puedes amar a Dios como persona, no solo como concepto? |
+| Budista     | ¿Puedes soltar la necesidad de que algo sea permanente? |
+| Musulmán    | ¿Ves los signos de lo divino en todo lo que existe?     |
+| Judío       | ¿Qué puedes hacer para reparar lo que está roto?        |
+| Taoísta     | ¿Puedes abrazar el misterio sin necesitar explicarlo?   |
+| Filósofo    | ¿Estás dispuesto a no tener certeza?                    |
+| Indígena    | ¿Te sientes parte de la red de la vida?                 |
+
+*** Síntesis: Lo que aprendemos de todas
+Cada tradición ilumina una faceta del misterio:
+- La existencia tiene *profundidad* (no es solo superficie material)
+- Hay *conexión* entre todas las cosas
+- El ser humano puede *acceder* a esa profundidad
+- La *humildad* es la actitud apropiada ante el misterio
+
+** Capítulo 2: ¿Quién Soy Yo Realmente?
+*** El problema humano
+Mi cuerpo cambia, mis pensamientos cambian, mis emociones cambian.
+¿Qué permanece? ¿Hay un "yo" verdadero bajo todas las máscaras?
+
+*** Coincidencias entre tradiciones
+- Todas distinguen entre el yo *superficial* y algo más *profundo*
+- Todas reconocen que la identidad es un *misterio*, no algo obvio
+- Todas proponen alguna forma de *autoconocimiento* como camino
+
+*** Las respuestas distintivas
+
+**** Cristianismo: Imagen de Dios
+#+BEGIN_QUOTE
+"Dios creó al ser humano a su imagen y semejanza. Tienes un alma inmortal
+con intelecto y voluntad libre. Tu identidad más profunda es ser hijo/a de Dios,
+llamado a participar de la naturaleza divina."
+#+END_QUOTE
+
+**** Hinduismo: Parte eterna de Krishna
+#+BEGIN_QUOTE
+"Tú no eres este cuerpo. Eres alma espiritual eterna (jiva),
+parte integral de Krishna. Tu identidad no es fusionarte con Dios
+ni desaparecer en Él, sino amarlo eternamente como Su sirviente,
+Su amigo, o Su amado. Tienes una relación única con Krishna
+que ningún otro ser tiene. Eso es lo que debes descubrir."
+#+END_QUOTE
+
+**** Budismo: No-yo (anatta)
+#+BEGIN_QUOTE
+"Buscas un yo permanente pero no lo encuentras. Solo hay cinco agregados
+(skandhas): forma, sensación, percepción, formaciones mentales, consciencia.
+Todos cambian. El 'yo' es una construcción útil, no una entidad real."
+#+END_QUOTE
+
+**** Taoísmo: Fluir sin fijarse
+#+BEGIN_QUOTE
+"El sabio no tiene yo fijo. Es como el agua: toma la forma del recipiente.
+No te aferres a una identidad; permite que la vida te moldee."
+#+END_QUOTE
+
+*** Diferencias que enriquecen
+| Tradición | Lo que aporta                                      |
+|-----------|----------------------------------------------------|
+| Cristiano | Dignidad intrínseca como imagen divina             |
+| Hindú     | Relación eterna y única con Dios                   |
+| Budista   | Libertad de no estar atado a una identidad fija    |
+| Taoísta   | Flexibilidad y adaptación sin perder el centro     |
+
+** Capítulo 3: ¿Tengo Control Sobre Mi Vida?
+*** El problema humano
+A veces siento que elijo; otras veces siento que las circunstancias me arrastran.
+¿Soy libre o estoy determinado? ¿Mis decisiones importan?
+
+*** Coincidencias
+- Todas afirman que *las acciones tienen consecuencias*
+- Todas reconocen *limitaciones* a la libertad humana
+- Todas proponen *responsabilidad* moral de algún tipo
+
+*** Las respuestas distintivas
+
+**** Cristianismo: Libertad y gracia
+"Dios te creó libre, pero el pecado dañó esa libertad.
+Necesitas la gracia divina para ser verdaderamente libre."
+
+**** Islam: Decreto divino y responsabilidad
+"Allah decretó todo (qadar), pero tú eres responsable de tus elecciones.
+Esto es un misterio que no debemos pretender resolver completamente."
+
+**** Budismo: Libertad dentro del karma
+"Tus acciones pasadas condicionan el presente, pero no lo determinan.
+En cada momento tienes la posibilidad de actuar con sabiduría."
+
+**** Estoicismo: Control de lo interno
+"No controlas lo que te pasa, solo cómo respondes.
+Distingue lo que depende de ti (tus juicios, acciones) de lo que no."
+
+**** Hinduismo: Libertad en la rendición
+"Tienes libre albedrío limitado: puedes elegir hacia dónde dirigir
+tu amor —hacia Krishna o hacia maya. Los resultados están bajo
+el control de Krishna. Tu libertad está en la intención; Su control
+está en el resultado. Actúa para Él y acepta lo que Él dé."
+
+*** Diferencias que enriquecen
+| Tradición   | Donde pone el énfasis                          |
+|-------------|------------------------------------------------|
+| Cristianismo| La gracia como liberadora                      |
+| Islam       | Confianza en el decreto divino                 |
+| Budismo     | Liberarse del determinismo mental              |
+| Estoicismo  | Soberanía sobre la respuesta interior          |
+| Hindú       | Rendirse a Krishna libera de la ansiedad       |
+
+** Capítulo 4: ¿Por Qué Sufrimos?
+*** El problema humano
+El dolor es inevitable. Pero, ¿tiene sentido? ¿Por qué existe el mal
+si hay un Dios bueno? ¿Es el sufrimiento absurdo o significativo?
+
+*** Coincidencias
+- Ninguna tradición dice "el sufrimiento no existe" o "no importa"
+- Todas ofrecen algún *marco de sentido* para el sufrimiento
+- Todas proponen un *camino de transformación*
+
+*** Las respuestas distintivas
+
+**** Cristianismo: Sufrimiento redentor
+"Cristo sufrió por nosotros. Unidos a su cruz, nuestro sufrimiento
+tiene valor redentor. El dolor puede acercarnos a Dios."
+
+**** Budismo: Sufrimiento por apego
+"Dukkha (sufrimiento/insatisfacción) surge del deseo y el apego.
+Elimina la causa y cesarás el efecto. El camino óctuple es la medicina."
+
+**** Hinduismo: El olvido de Krishna
+"El sufrimiento existe porque olvidamos a Krishna. El alma espiritual,
+que pertenece al mundo espiritual, sufre cuando busca felicidad separada
+de Él. Es como un pez fuera del agua: sufre no porque el aire sea malo,
+sino porque está en el elemento equivocado. El dolor te llama a volver."
+
+**** Estoicismo: Sufrimiento como juicio
+"Las cosas no nos perturban, sino nuestras opiniones sobre ellas.
+Cambia tu juicio y transformas tu experiencia."
+
+**** Judaísmo: Lamento y esperanza
+"No pretendemos entender todo el sufrimiento. Job nos enseña a lamentar
+honestamente y confiar en Dios sin tener todas las respuestas."
+
+*** Diferencias que enriquecen
+| Tradición   | Pregunta que te hace ante el sufrimiento       |
+|-------------|------------------------------------------------|
+| Cristiano   | ¿Cómo puede esto acercarme a Dios?             |
+| Budista     | ¿A qué me estoy aferrando?                     |
+| Estoico     | ¿Qué está en mi control aquí?                  |
+| Hindú       | ¿Me está llamando este dolor a volver a casa?  |
+| Judío       | ¿Puedo lamentar y aún tener esperanza?         |
+
+** Capítulo 5: ¿Cómo Debo Vivir?
+*** El problema humano
+Tengo una vida. ¿Cómo debo vivirla? ¿Qué es lo correcto? ¿De dónde viene
+la autoridad moral?
+
+*** Coincidencias
+- Todas valoran alguna forma de *compasión/benevolencia*
+- Todas reconocen *obligaciones hacia otros*
+- Todas proponen *virtudes* a cultivar
+
+*** Las respuestas distintivas
+
+**** Cristianismo: Amor a Dios y al prójimo
+"Ama a Dios con todo tu corazón y al prójimo como a ti mismo.
+La ley se resume en el amor."
+
+**** Confucianismo: Relaciones armoniosas
+"Cultiva ren (benevolencia) y li (ritual apropiado).
+Las cinco relaciones bien ordenadas crean armonía social."
+
+**** Budismo: Compasión universal
+"Evita dañar, cultiva el bien, purifica la mente.
+La compasión (karuna) se extiende a todos los seres sintientes."
+
+**** Estoicismo: Vivir según la naturaleza
+"Vive de acuerdo con la razón universal (logos).
+Las virtudes cardinales: sabiduría, justicia, coraje, templanza."
+
+**** Taoísmo: Wu-wei (no-acción forzada)
+"No forces, no manipules. Actúa naturalmente, sin artificio.
+El agua vence a la roca siendo suave."
+
+**** Hinduismo: Vivir para Krishna
+"Vive para servir a Krishna en todo lo que hagas. Come para Él,
+trabaja para Él, ama para Él. El devoto no huye de la vida;
+la santifica. Haz de tu vida una ofrenda. Canta Sus nombres,
+estudia Sus palabras, sirve a Sus devotos."
+
+** Capítulo 6: ¿Qué Podemos Conocer?
+** Capítulo 7: ¿Es la Verdad Absoluta o Relativa?
+** Capítulo 8: ¿Fe o Razón?
+** Capítulo 9: ¿Qué es el Tiempo?
+** Capítulo 10: ¿Hay Vida Después de la Muerte?
+** Capítulo 11: ¿Qué es Dios?
+** Capítulo 12: ¿Tiene la Vida un Propósito?
+
+* ESTRUCTURA NARRATIVA (Estilo Life of Pi)
+
+** Opción A: El Buscador
+Un personaje en crisis existencial viaja (real o metafóricamente)
+encontrando maestros de cada tradición. Cada capítulo = un encuentro.
+
+** Opción B: La Mesa Redonda
+Un simposio imaginario donde representantes de cada tradición
+discuten las grandes preguntas. Formato de diálogo.
+
+** Opción C: El Heredero
+Un personaje hereda textos de un abuelo filósofo. Cada capítulo
+descubre un nuevo texto de una tradición diferente.
+
+* ELEMENTOS LITERARIOS A INCLUIR
+
+** Recursos por capítulo
+- *Apertura*: Escena concreta o pregunta provocadora
+- *Voces*: Citas directas de cada tradición (con personalidad)
+- *Tablas*: Comparación visual Problema/Solución
+- *Preguntas*: Lo que cada tradición te pregunta
+- *Síntesis*: Lo que aprendemos de todas juntas
+- *Cierre*: Reflexión o momento narrativo
+
+** Voz del autor
+- Personal pero no egocéntrica
+- Respetuosa de todas las tradiciones sin falsa neutralidad
+- Capaz de asombro genuino
+- Honesta sobre incertidumbres
+
+* PRÓXIMOS PASOS
+
+1. [ ] Completar los capítulos 6-12 con el mismo formato
+2. [ ] Elegir estructura narrativa (A, B, o C)
+3. [ ] Desarrollar personajes/voz narrativa
+4. [ ] Escribir aperturas y cierres de cada capítulo
+5. [ ] Revisar y pulir las citas de cada tradición
+6. [ ] Agregar preguntas de reflexión al final
+
+* APÉNDICE: PARA QUIEN QUIERA PROFUNDIZAR
+
+** Las escuelas del Hinduismo
+
+El hinduismo no es una religión monolítica sino una familia de tradiciones.
+Dos grandes corrientes filosóficas:
+
+| Aspecto | Advaita (Impersonal) | Vaishnavismo (Personal) |
+|---------|----------------------|-------------------------|
+| Dios | Brahman sin forma | Krishna, Persona Suprema |
+| El alma | "Tú ERES Dios" (identidad total) | "Eres PARTE de Dios" (relación eterna) |
+| El mundo | Ilusión (maya) | Real pero temporal |
+| La meta | Fusionarse, perder individualidad | Amar eternamente, conservar individualidad |
+| El camino | Conocimiento (jnana) | Devoción amorosa (bhakti) |
+| Frase clave | "Tat tvam asi" (Tú eres Eso) | "Jivera svarupa haya krishnera nitya dasa" (El alma es sirviente eterno de Krishna) |
+
+En este libro, el personaje Gopal Das representa la corriente devocional (Vaishnavismo),
+que enfatiza la relación personal con Dios. Otras escuelas hindúes ofrecerían respuestas
+diferentes a las mismas preguntas.
+
+** Las ramas del Budismo
+
+| Rama | Énfasis | Región principal |
+|------|---------|------------------|
+| Theravada | Liberación individual, monástico | Sudeste asiático |
+| Mahayana | Compasión universal, bodhisattvas | China, Corea, Japón |
+| Vajrayana | Prácticas tántricas, rituales | Tibet, Mongolia |
+
+En este libro, Tenzin Wangmo representa el budismo tibetano (Vajrayana),
+y el Maestro Kenji representa el Zen (rama del Mahayana).
+
+** Las corrientes del Islam
+
+| Corriente | Énfasis |
+|-----------|---------|
+| Sunismo | Tradición del Profeta, consenso comunitario |
+| Chiísmo | Autoridad de los Imanes, descendientes de Alí |
+| Sufismo | Dimensión mística, amor a Dios |
+
+En este libro, Ibrahim al-Fassi representa el Sufismo,
+y la Dra. Elif Yilmaz representa un Islam académico y progresista.
+
+** Las denominaciones del Cristianismo
+
+| Denominación | Énfasis |
+|--------------|---------|
+| Catolicismo | Tradición, sacramentos, autoridad papal |
+| Ortodoxia | Liturgia, iconos, teología mística |
+| Protestantismo | Escritura, fe personal, diversidad de formas |
+
+En este libro, el Hermano Tomás representa el monasticismo católico (benedictino).
+
+** Las corrientes del Judaísmo
+
+| Corriente | Énfasis |
+|-----------|---------|
+| Ortodoxo | Observancia estricta de la halajá |
+| Conservador | Equilibrio entre tradición y adaptación |
+| Reformista | Adaptación a la modernidad |
+
+En este libro, el Rabino David Kohn representa el judaísmo conservador.
+
