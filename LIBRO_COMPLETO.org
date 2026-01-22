@@ -97,8 +97,7 @@ A las siete de la mañana, reservó un billete de tren a Barcelona.
 
 * CAPÍTULO 1: La Montaña
 
-** I.
-
+***
 El tren salía a las 7:15 de Atocha. Elena llegó con veinte minutos de sobra y se sentó en un banco a mirar a la gente pasar.
 
 Familias con maletas. Ejecutivos con portátiles. Estudiantes con mochilas. Todos sabían a dónde iban. Todos tenían un propósito.
@@ -119,8 +118,7 @@ Barcelona estaba a dos horas y media. Montserrat, a una hora más en el tren cre
 
 Tenía tiempo para leer el cuaderno del abuelo.
 
-** II.
-
+***
 Las primeras páginas eran de 1962. La letra era firme, casi agresiva. El abuelo tenía veintisiete años.
 
 #+BEGIN_QUOTE
@@ -169,8 +167,7 @@ Su abuelo había ido a Montserrat a morir. Y no había muerto. Algo lo había de
 
 ¿Qué?
 
-** III.
-
+***
 El monasterio de Montserrat estaba enclavado en la roca como si hubiera crecido de ella. Las agujas de piedra se alzaban contra el cielo azul, y abajo, muy abajo, el valle se extendía hasta donde alcanzaba la vista.
 
 Elena entendió por qué el abuelo había venido aquí. Era el tipo de lugar que te hacía sentir pequeño. Insignificante. Un punto en la inmensidad.
@@ -207,8 +204,7 @@ Elena sintió que algo se aflojaba en su pecho. No sabía qué había esperado �
 
 —Ven —dijo Tomás—. Tenemos mucho de qué hablar.
 
-** IV.
-
+***
 El despacho de Tomás era pequeño y austero: una cama, un escritorio, un crucifijo en la pared, y una ventana que daba al precipicio. En el escritorio había una fotografía enmarcada. Elena la reconoció al instante: su abuelo joven, con el pelo negro y una sonrisa que ella nunca le había visto. A su lado, un Tomás de quizás treinta años, también sonriendo.
 
 —1975 —dijo Tomás, siguiendo su mirada—. El año que me hice monje. Tu abuelo vino a mi ordenación. Fue el único de mis profesores que vino.
@@ -247,8 +243,7 @@ Elena esperó.
 
 —Le dije: "En la pregunta. Mientras sigas preguntando, sigues vivo."
 
-** V.
-
+***
 Caminaron por el claustro mientras el sol de la tarde alargaba las sombras de las columnas. Tomás caminaba despacio, apoyándose en el bastón, pero su voz era firme.
 
 —Tu abuelo se quedó un mes aquí. No como peregrino, sino como huésped. Ayudaba en la biblioteca, hablaba con los monjes, asistía a los oficios aunque no comulgaba. Creo que estaba buscando algo.
@@ -273,8 +268,7 @@ Tomás asintió.
 
 —Me dijo: "Mi nieta Elena está perdida. Como yo lo estuve. Si algún día viene a buscarte, cuéntale todo. Y después mándala con Ibrahim. Él le devolverá a Dios. Pero no al Dios que ella espera."
 
-** VI.
-
+***
 Esa noche, Elena se quedó en la hospedería del monasterio. La habitación era pequeña —una cama, un lavabo, un crucifijo— y el silencio era tan profundo que podía oír su propia respiración.
 
 No podía dormir.
@@ -315,8 +309,7 @@ Quizás era hora de probar otra cosa.
 
 Quizás era hora de buscar con el corazón.
 
-** VII.
-
+***
 A la mañana siguiente, antes de irse, Elena volvió al despacho de Tomás. Él la esperaba con una taza de café y un sobre en las manos.
 
 —Tu abuelo me dejó esto para ti. Me pidió que te lo diera solo si venías a buscarme. —Le entregó el sobre—. No sé qué contiene. Nunca lo abrí.
@@ -754,7 +747,7 @@ Elena cerró el cuaderno. En cuatro horas estaría en Fez.
 
 Hermano Tomás le había advertido: "Ibrahim le devolverá a Dios. Pero no al Dios que ella espera."
 
-** I. Fez: La Ciudad que Respira
+** Fez: La Ciudad que Respira
 
 Fez la golpeó como una ola.
 
@@ -774,7 +767,7 @@ Finalmente encontró a un vendedor de lámparas de cobre —un hombre de sesenta
 
 —Todo Fez lo conoció. —El hombre limpió sus manos en un trapo sucio—. Ven. Te llevaré.
 
-** II. Ahmed: El Hijo que Duda
+** Ahmed: El Hijo que Duda
 
 La llevó a través del laberinto. Elena ya no intentaba recordar el camino. Solo seguía.
 
@@ -794,7 +787,7 @@ Los ojos de Ahmed cambiaron. Dolor. Reconocimiento. Algo más que Elena no pudo 
 
 —Entra. —Se hizo a un lado—. Mi padre ha estado esperándote cincuenta años.
 
-** III. Ibrahim: El Ciego que Ve
+** Ibrahim: El Ciego que Ve
 
 La habitación estaba llena de luz.
 
@@ -818,7 +811,7 @@ Ahmed desapareció hacia la cocina. Ibrahim cerró sus ojos nublados.
 
 —Tienes cuatro días. Tu abuelo tuvo seis semanas. Entonces tendré que hablar más rápido. —Rio suavemente—. O tú tendrás que escuchar más profundo.
 
-** IV. Día 1: El Pez Fuera del Agua
+** Día 1: El Pez Fuera del Agua
 
 *** Escena: El Patio al Amanecer
 
@@ -910,7 +903,7 @@ Elena no supo qué decir. Ahmed la miró.
 
 —Él sabe todo. —Ahmed sonrió amargamente—. Es sufí. Los sufís leen corazones.
 
-** V. Día 2: Los Nombres que Nunca Terminan
+** Día 2: Los Nombres que Nunca Terminan
 
 *** Escena: El Mercado de Especias
 
@@ -986,7 +979,7 @@ Elena no tenía respuesta. Ahmed continuó:
 
 Salió de la cocina antes de que Elena pudiera responder.
 
-** VI. Día 3: Morir para Vivir
+** Día 3: Morir para Vivir
 
 *** Escena: La Zawiya (Casa Sufí)
 
@@ -1062,7 +1055,7 @@ Elena tocó las cuentas del tasbih en su bolsillo.
 
 —De rendirse completamente. —Ibrahim cerró los ojos—. Esa es la última frontera. No solo creer en Dios. Sino desaparecer en Él. Tu abuelo nunca pudo cruzarla. Pero tú... quizás tú puedas.
 
-** VII. Día 4: La Fotografía y el Sobre
+** Día 4: La Fotografía y el Sobre
 
 *** Escena: La Despedida
 
@@ -1116,7 +1109,7 @@ Ahmed sonrió tristemente.
 
 Se despidieron con un abrazo. Elena subió al autobús.
 
-** VIII. En el Ferry de Regreso: Reflexión
+** En el Ferry de Regreso: Reflexión
 
 En el ferry de vuelta a España (antes de volar a Israel), Elena pasó las cuentas del tasbih.
 
@@ -1168,7 +1161,7 @@ Elena dio vuelta la fotografía. Detrás, con letra de su abuelo:
 
 ¿Antes de qué?
 
-** I. Jerusalén: La Ciudad de Piedra que Sangra
+** Jerusalén: La Ciudad de Piedra que Sangra
 
 Elena aterrizó en Tel Aviv al amanecer. El taxi a Jerusalén tardó una hora. El conductor —un israelí de cincuenta años con acento ruso— señalaba lugares mientras conducía.
 
@@ -1206,7 +1199,7 @@ El rabino la tomó con manos que temblaban. Miró la imagen sin hablar. Cuando l
 
 —Esa mujer era mi hermana.
 
-** II. Día 1: La Casa de Memorias
+** Día 1: La Casa de Memorias
 
 *** Escena: El Apartamento de David
 
@@ -1276,7 +1269,7 @@ Elena no podía hablar.
 
 —El abuelo Antonio llevó ese secreto cincuenta años. —David se levantó—. Ahora tú también lo cargas. Y mañana te contaré por qué ese secreto es también una pregunta: ¿Miriam eligió amar a tu abuelo? ¿O estaba escrito que así sería?
 
-** III. Día 2: ¿Puedes Elegir a Quién Amas?
+** Día 2: ¿Puedes Elegir a Quién Amas?
 
 *** Escena: El Mercado de Mahane Yehuda
 
@@ -1356,7 +1349,7 @@ Elena esperó. David continuó:
 
 David no respondió.
 
-** IV. Día 3: ¿Dónde Estaba Dios?
+** Día 3: ¿Dónde Estaba Dios?
 
 *** Escena: El Cementerio del Monte de los Olivos
 
@@ -1443,7 +1436,7 @@ Elena bebió su té.
 
 —Porque rendirse es lo que los nazis querían. Que dejáramos de ser judíos. Que dejáramos de creer. —Pausa—. Seguir creyendo es nuestra venganza.
 
-** V. Día 4: Recuerda
+** Día 4: Recuerda
 
 *** Escena: La Carta de Miriam
 
@@ -1524,7 +1517,7 @@ David la miró con sorpresa.
 
 —Si olvidamos, ¿quiénes somos? La memoria es lo que nos hace judíos. Sin memoria, solo somos nada.
 
-** VI. La Despedida: Tres Regalos
+** La Despedida: Tres Regalos
 
 *** Escena: El Último Día
 
@@ -1550,7 +1543,7 @@ Tercero: un sobre con una dirección en Berlín.
 
 —Dile que lo perdono. Y que lo amo. Y que ojalá algún día él pueda perdonarme a mí.
 
-** VII. Síntesis: Lo que el Judaísmo Enseña
+** Síntesis: Lo que el Judaísmo Enseña
 
 Esa noche, sola en su hotel, Elena escribió en su diario:
 
