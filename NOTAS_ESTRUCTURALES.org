@@ -1,0 +1,671 @@
+#+TITLE: Notas Estructurales del Libro
+#+SUBTITLE: Análisis, síntesis y metadata
+#+DATE: 2026-01-22
+
+* Descripción
+
+Este archivo contiene todas las notas estructurales, resúmenes filosóficos,
+y metadata extraídas de LIBRO_COMPLETO.org para dejar solo la narrativa pura.
+
+
+* Nota 1
+
+* NOTA SOBRE EL CAPÍTULO
+
+** Elementos incluidos
+1. *Gancho inicial*: El secreto del abuelo
+2. *Backstory de Elena*: Crisis, divorcio, muerte de la madre, despido
+3. *El misterio*: ¿Por qué el abuelo quiso suicidarse? ¿Qué lo salvó?
+4. *Filosofía natural*: La pregunta "¿Por qué existe algo?" emerge de la crisis, no de una conferencia
+5. *Personaje secundario vivo*: Tomás tiene historia propia, no solo existe para enseñar
+6. *Gancho final*: Ibrahim al-Fassi, "le devolvió a Dios pero no al Dios que esperaba"
+7. *Transformación sutil*: Elena pasa de "no siento nada" a "siento curiosidad"
+
+** Lo que NO hace este capítulo
+- No da respuestas definitivas
+- No predica ni sermonea
+- No idealiza al abuelo (tenía secretos, pensó en suicidarse)
+- No hace a Elena especial (es una mujer común en crisis común)
+- No resuelve nada (solo abre preguntas)
+
+** Conexión con el siguiente capítulo
+El Cap 2 empezará con Elena en el ferry a Marruecos, leyendo las notas del abuelo sobre Ibrahim, preguntándose qué significa "buscar a Dios con el corazón".
+
+
+* Nota 2
+
+* RESUMEN FILOSÓFICO: LAS RESPUESTAS ISLÁMICAS
+
+** PREGUNTA 1: ¿Quién Soy Yo?
+
+*** Respuesta Islámica
+- *Abd*: Siervo, adorador, amado (simultáneamente en una palabra)
+- Tu identidad no está en lo que haces sino en *a quién perteneces*
+- No eres autónoma; eres relacional
+- Libertad verdadera = pertenecer completamente a Allah, no libertad DE todo sino libertad PARA amar, servir, ser quien realmente eres
+
+*** Conceptos Clave
+- La metáfora del pez: libre EN su elemento (el agua), no libre DE su elemento
+- El yo autónomo como prisión, no como libertad
+- *Fana*: Morir al yo falso (el autónomo)
+- *Baqa*: Vivir el yo verdadero en Allah
+
+*** La Tensión (Ahmed)
+Ahmed representa la duda: ¿Cómo puedes ser libre si debes servir? ¿Cómo confías en Allah cuando la vida es cruel? Esta tensión NO se resuelve. Se vive.
+
+** PREGUNTA 2: ¿Qué es Dios?
+
+*** Respuesta Islámica
+- *Tawhid*: Unidad absoluta de Allah (no Trinidad, no asociados, no shirk)
+- Allah es incomprensible pero conocible a través de Sus nombres
+- Trascendente ("Nada es como Él") E íntimo ("Más cerca que tu vena yugular")
+
+*** Los 99 Nombres (brevemente)
+- Cada nombre revela una dimensión de Allah
+- No se trata de memorizarlos sino de *vivirlos*
+- Al-Wadud (Amoroso), Al-Rahman (Misericordioso), Al-Hakim (Sabio), Al-Ghaffar (El que Perdona)
+- El nombre 100 permanece oculto: recordatorio de que Dios siempre es más grande
+
+*** Diferencia con Cristianismo
+| Aspecto | Cristianismo | Islam |
+|---------|--------------|-------|
+| Relación | Hijo/hija de Dios | Siervo de Allah |
+| Énfasis | Dios te busca | Tú buscas a Allah |
+| Modelo | Dios murió por ti | Tú vives para Allah |
+
+** PREGUNTA 3: ¿Cómo Debo Vivir?
+
+*** Dhikr: Recordar a Allah
+- No es solo práctica; es experiencia
+- Repetir el nombre de Allah hasta que llena el corazón
+- Conduce a fana (morir al yo falso) y baqa (vivir en Allah)
+- El llanto en el dhikr: el alma encontrando su sed
+
+*** Vivir como Abd
+- No se trata de reglas (cinco pilares, sharia, etc.) sino de *rendición*
+- Rendición no como derrota sino como descanso
+- Dejas de pelear, dejas de pretender que eres tu propio dios
+- En esa rendición encuentras paz
+
+*** La Tensión Sin Resolver
+Ahmed: ¿Cómo confiar en Al-Rahman cuando tu esposa muere a los treinta y dos? La teodicea islámica no resuelve todo el sufrimiento. El Islam permite el lamento, pero Ahmed todavía lucha.
+
+** Lo que Elena Aprendió
+
+1. La autonomía occidental puede ser prisión, no libertad
+2. Pertenecer a algo mayor puede ser liberador
+3. El vacío en el corazón es la forma de lo que falta
+4. Dios es incomprensible pero conocible a través de Sus nombres
+5. Las lágrimas del dhikr revelaron algo más profundo que sus roles: el alma con sed
+
+** Lo que Elena Todavía No Sabe
+
+- ¿Quién es Miriam?
+- ¿Qué relación tenía con su abuelo?
+- ¿Por qué tiene Elena los ojos de Miriam?
+- ¿Qué contiene el sobre que debe abrir en Jerusalén?
+
+
+* Nota 3
+
+* RESUMEN FILOSÓFICO: LAS RESPUESTAS JUDÍAS
+
+** PREGUNTA 1: ¿Soy Libre de Elegir?
+
+*** Respuesta Judía
+- Dios elige Y tú eliges (ambas verdades simultáneas)
+- "Todo está en manos del Cielo excepto el temor al Cielo"
+- No controlas circunstancias, pero sí tus respuestas morales
+- Vivir con contradicción es el misterio del pacto
+
+*** La Tensión (Daniel y Miriam)
+Ambos rompieron el pacto. Ambos eligieron amar fuera de la fe. Pero uno está muerto y el otro vivo. ¿Cómo perdonar a uno y no al otro? Esta tensión NO se resuelve.
+
+** PREGUNTA 2: ¿Dónde Estaba Dios?
+
+*** Respuesta Judía
+- No hay UNA respuesta al problema del mal
+- Los judíos tienen permiso para gritar, llorar, pelear con Dios
+- El lamento es parte del pacto (ver Salmos, Job)
+- Dios puede estar callado y aun así presente
+- Fe no es certeza. Es obstinación: creer cuando todo dice "No creas"
+
+*** Post-Holocausto
+Múltiples respuestas rabínicas: castigo, Dios llorando, Dios muriendo en Auschwitz. Todas verdaderas. Todas insuficientes. Los judíos siguen creyendo como venganza contra el olvido.
+
+** PREGUNTA 3: ¿Para Qué Recordar?
+
+*** Zkhor: La Memoria Judía
+- Los judíos son el pueblo de la memoria
+- Recordar para que los muertos no mueran dos veces
+- Recordar el sufrimiento para que no se repita
+- Recordar las promesas para que no se olviden
+- Memoria no es historia (pasado). Es presente vivo
+
+*** Diferencia con Otras Tradiciones
+| Aspecto | Cristianismo | Islam | Judaísmo |
+|---------|--------------|-------|----------|
+| Énfasis | Salvación futura | Rendición presente | Memoria pasada-presente |
+| Relación con Dios | Padre-hijo | Señor-siervo | Pacto (brit) |
+| Libertad | Gracia | Sumisión | Paradoja (libre Y elegido) |
+
+** Lo que Elena Aprendió
+
+1. Libertad es paradoja: Dios elige Y tú eliges
+2. Sufrimiento no tiene UNA respuesta. Tiene muchas
+3. Los judíos tienen permiso para dudar, gritar, pelear con Dios
+4. Recordar es mantener vivos a los muertos
+5. Miriam eligió amar y lo volvería a elegir
+
+** Lo que Elena Todavía No Sabe
+
+- ¿Qué tiene Daniel que David no sabe?
+- ¿Por qué Antonio nunca contó sobre Miriam?
+- ¿Qué pieza del rompecabezas falta?
+- ¿Qué cambiará todo lo que Elena cree saber?
+
+
+* Nota 4
+
+* RESUMEN FILOSÓFICO: LAS RESPUESTAS DEL ISLAM PROGRESISTA
+
+** PREGUNTA 1: ¿Quién Interpreta a Dios?
+
+*** Respuesta Islámica Progresista
+- *Ijtihad*: Esfuerzo personal de interpretación (vs. taqlid: obedecer sin cuestionar)
+- La puerta del ijtihad nunca cerró; solo dejamos de atravesarla
+- Cada creyente interpreta (conscientemente o no) cuando lee el Corán
+- La pregunta no es "¿debo interpretar?" sino "¿lo haré honestamente?"
+
+*** La Tensión (Elif vs. Zeynep)
+Elif cree en interpretación personal. Zeynep cree en certeza de los ulemas. Ambas son musulmanas. Ambas buscan a Dios. Pero sus caminos son opuestos. Esta tensión NO se resuelve.
+
+** PREGUNTA 2: ¿Qué Significa Ser Libre?
+
+*** Respuesta Islámica (Feminista)
+- Libertad no es hacer lo que quieras. Es elegir con responsabilidad.
+- Respetar las elecciones de otros, incluso cuando te duelen (Elif con Zeynep)
+- El hiyab/niqab puede ser opresión O elección; depende del contexto
+- Libertad incluye libertad de equivocarse
+
+*** La Tensión
+Zeynep elige niqab para "ser libre" de identidades impuestas. Elif no usa hiyab para "ser libre" de control religioso. Ambas usan lenguaje de libertad. Ambas se contradicen. ¿Quién tiene razón? Ambas. Ninguna. Depende.
+
+** PREGUNTA 3: ¿Puedo Dudar y Aún Creer?
+
+*** Respuesta Islámica (Sufí)
+- *Iman wa kufr*: Fe y duda coexisten
+- El creyente verdadero es quien duda y aun así elige creer
+- No certeza, sino elección diaria
+- No pruebas, sino confianza
+- Dios es suficientemente grande para fe imperfecta
+
+*** La Confesión de Elif
+Musulmana que comete adulterio. Creyente que peca. Orante que duda. Todas las contradicciones a la vez. Y Dios, si es Al-Rahman (el Misericordioso), puede aceptarla.
+
+** Lo que Elena Aprendió
+
+1. No hay UNA interpretación correcta del Islam (o de cualquier tradición)
+2. Libertad es respetar elecciones que no compartes (Elif y Zeynep)
+3. Dudar no es enemigo de la fe; es su compañera
+4. Vivir con contradicciones es humano, no hipócrita
+5. Dios es suficientemente grande para fe imperfecta
+
+** Lo que Elena Todavía Lleva
+
+- Rosario sufí de Ibrahim (los 99 nombres)
+- Libro de Salmos de David (lamento judío)
+- Collar de Allah de Elif (duda islámica)
+- Carta de Miriam (amor y perdón)
+- Diario del abuelo (permiso para dudar)
+
+
+* Nota 5
+
+* RESUMEN FILOSÓFICO: LAS RESPUESTAS (Y NO-RESPUESTAS) DE DANIEL
+
+** PREGUNTA 1: ¿Por Qué Seguir Siendo Judío Si Solo Trae Sufrimiento?
+
+*** Respuesta Tradicional (David)
+- Porque es el pacto. Dios eligió a los judíos. No podemos renunciar.
+- Seguir siendo judíos es venganza contra el olvido.
+- Memoria como deber sagrado.
+
+*** Anti-Respuesta de Daniel
+- No hay razón. El sufrimiento no tiene sentido.
+- Ser judío es carga histórica, no bendición.
+- Puedo elegir no cargar esa carga.
+- Y aun así... (la estrella de David escondida)
+
+*** La Tensión NO Resuelta
+Daniel dejó el judaísmo conscientemente. Pero usa la estrella de David escondida. Ha rechazado la tradición. Pero no puede rechazar la identidad. El judaísmo no lo deja ir, aunque él lo dejó.
+
+** PREGUNTA 2: ¿Culpa Judía vs Culpa Cristiana?
+
+*** Diferencia Filosófica
+- *Culpa cristiana*: Sobre pecado individual. Se perdona con confesión/arrepentimiento.
+- *Culpa judía*: Sobre responsabilidad colectiva. Hacia Dios, familia, pueblo. No se perdona fácilmente. Se carga.
+
+*** El Caso de Antonio
+Católico de nacimiento pero con culpa judía (por Miriam, por el bebé, por todo). Nunca pudo perdonarse porque cargaba culpa de tipo judío en estructura católica. La confesión no funcionó. El arrepentimiento no funcionó. Murió sin paz.
+
+** PREGUNTA 3: ¿Puede Dios Perdonarnos Por Elegir Ser Felices?
+
+*** La Pregunta de Daniel
+Si ser judío trae sufrimiento, y elegir NO ser judío trae felicidad (esposa amada, hijos, libertad), ¿está mal elegir la felicidad?
+
+¿Dios castiga a quienes eligen vida sobre tradición?
+
+*** Sin Respuesta
+Daniel no sabe. Vive con la pregunta. Feliz pero culpable. Libre pero cargando. Berlín encarnado: cicatrices bajo la superficie moderna.
+
+** PREGUNTA 4: ¿Memoria vs Olvido?
+
+*** Tensión Judía-Alemana
+- *David*: Recordar es deber. Olvidar es traicionar.
+- *Daniel*: Recordar es sufrir eternamente. Olvidar es liberarse.
+- *Berlín*: Hace las dos cosas. Memoriales (recordar) + reconstrucción (olvidar/renovar).
+
+*** No Hay Resolución
+Algunos deben recordar para honrar a los muertos. Otros deben olvidar para poder vivir. Ambos tienen razón. Ambos tienen costo.
+
+** Lo que Elena Aprendió
+
+1. Las tradiciones cargan a sus herederos con culpa, memoria, deber.
+2. Puedes rechazar la tradición pero no la identidad (estrella escondida).
+3. Hay diferencia entre culpa como pecado vs culpa como responsabilidad.
+4. Miriam perdonó a Antonio. Antonio nunca se perdonó.
+5. Elegir felicidad sobre deber es legítimo pero costoso.
+6. Reconciliación no significa acuerdo. Significa honestidad.
+
+** Lo que Elena Todavía No Sabe
+
+- ¿Quién era el abuelo ANTES de Miriam?
+- ¿Qué pasó en India que fue "felicidad pura"?
+- ¿Puede alguien volver a ser feliz después de todo?
+- ¿Qué sabe Gopal que nadie más sabe?
+
+** Objetos Acumulados (Reliquias de Muertos)
+
+1. Rosario sufí (Ibrahim) - Rendición
+2. Salmos (David) - Lamento
+3. Collar de Allah (Elif) - Duda
+4. Foto de Miriam (David) - Amor perdido
+5. Cartas de Miriam (Elif y Daniel) - Perdón
+6. Carta del abuelo (Daniel) - Última instrucción
+
+
+* Nota 6
+
+* Síntesis Filosófica: Lo que Elena Aprendió
+
+En el tren de vuelta a Barcelona, Elena escribió:
+
+#+BEGIN_QUOTE
+**¿Por qué Dios se hizo hombre?**
+
+El cristianismo dice: el problema humano es el pecado. La ruptura entre nosotros y Dios.
+
+Dios es justo (debe castigar) y amoroso (quiere perdonar). La Encarnación resuelve la paradoja: Dios se hace hombre para pagar Él mismo lo que nosotros debemos.
+
+Esto es único. Ninguna otra religión propone que Dios muera.
+
+Pregunta del abuelo: "¿Qué clase de Dios exige sangre?" Respuesta cristiana: "Un Dios que se da a sí mismo."
+
+**¿Puede Dios sufrir?**
+
+La cruz = Dios entrando en el dolor. No explicándolo. Compartiéndolo.
+
+Dios no está fuera del sufrimiento. Está dentro de él.
+
+Paradoja: Si Dios sufre, ¿es realmente Dios? Si no sufre, ¿realmente nos entiende?
+
+El cristianismo no resuelve el problema del mal. Lo abraza.
+
+**¿Cómo me salvo?**
+
+Gracia = don gratuito. No karma. No mérito.
+
+Dios te ama ANTES de que hagas nada. Ya estás salvado si lo aceptas.
+
+Problema: Si es gratis, ¿por qué ser bueno? Respuesta: Porque el amor gratuito te transforma.
+#+END_QUOTE
+
+Elena cerró el cuaderno. Miró el rosario en sus manos.
+
+No rezó. No sabía cómo.
+
+Pero lo sostuvo.
+
+Y pensó en Antonio. En Tomás. En Miriam. En todos los que habían sufrido preguntándose dónde estaba Dios.
+
+Quizás Dios estaba en la pregunta misma.
+
+O quizás no estaba en ningún lado.
+
+En Fez, con Ibrahim, quizás descubriría más.
+
+
+* Nota 7
+
+** Lo que Elena Aprendió
+
+1. La autonomía occidental puede ser prisión, no libertad
+2. Pertenecer a algo mayor puede ser liberador
+3. El vacío en el corazón es la forma de lo que falta
+4. Dios es incomprensible pero conocible a través de Sus nombres
+5. Las lágrimas del dhikr revelaron algo más profundo que sus roles: el alma con sed
+
+
+* Nota 8
+
+** Lo que Elena Aprendió
+
+1. Libertad es paradoja: Dios elige Y tú eliges
+2. Sufrimiento no tiene UNA respuesta. Tiene muchas
+3. Los judíos tienen permiso para dudar, gritar, pelear con Dios
+4. Recordar es mantener vivos a los muertos
+5. Miriam eligió amar y lo volvería a elegir
+
+
+* Nota 9
+
+** Lo que Elena Aprendió
+
+1. No hay UNA interpretación correcta del Islam (o de cualquier tradición)
+2. Libertad es respetar elecciones que no compartes (Elif y Zeynep)
+3. Dudar no es enemigo de la fe; es su compañera
+4. Vivir con contradicciones es humano, no hipócrita
+5. Dios es suficientemente grande para fe imperfecta
+
+
+* Nota 10
+
+** Lo que Elena Aprendió
+
+1. Las tradiciones cargan a sus herederos con culpa, memoria, deber.
+2. Puedes rechazar la tradición pero no la identidad (estrella escondida).
+3. Hay diferencia entre culpa como pecado vs culpa como responsabilidad.
+4. Miriam perdonó a Antonio. Antonio nunca se perdonó.
+5. Elegir felicidad sobre deber es legítimo pero costoso.
+6. Reconciliación no significa acuerdo. Significa honestidad.
+
+
+* Nota 11
+
+** Lo que Elena Todavía No Sabe
+
+- ¿Quién es Miriam?
+- ¿Qué relación tenía con su abuelo?
+- ¿Por qué tiene Elena los ojos de Miriam?
+- ¿Qué contiene el sobre que debe abrir en Jerusalén?
+
+*Continuará en Capítulo 3: Jerusalén - El Rabino que Guardaba Secretos*
+#+TITLE: Grandes Preguntas - Capítulo 3
+#+SUBTITLE: Jerusalén: El Rabino que Guardaba Secretos
+#+DATE: 2026
+
+
+* Nota 12
+
+** Lo que Elena Todavía No Sabe
+
+- ¿Qué tiene Daniel que David no sabe?
+- ¿Por qué Antonio nunca contó sobre Miriam?
+- ¿Qué pieza del rompecabezas falta?
+- ¿Qué cambiará todo lo que Elena cree saber?
+
+*Continuará...*
+#+TITLE: Capítulo 4: Estambul - La Mujer Entre Dos Mundos
+#+SUBTITLE: Grandes Preguntas, Diversas Respuestas
+#+DATE: 2026-01-21
+
+
+* Nota 13
+
+** Lo que Elena Todavía Lleva
+
+- Rosario sufí de Ibrahim (los 99 nombres)
+- Libro de Salmos de David (lamento judío)
+- Collar de Allah de Elif (duda islámica)
+- Carta de Miriam (amor y perdón)
+- Diario del abuelo (permiso para dudar)
+
+*Continuará en India...*
+#+TITLE: Capítulo 5: Berlín - El Hijo que No Perdonó
+#+SUBTITLE: Grandes Preguntas, Diversas Respuestas (INTERLUDIO)
+#+DATE: 2026-01-22
+
+
+* Nota 14
+
+** Lo que Elena Todavía No Sabe
+
+- ¿Quién era el abuelo ANTES de Miriam?
+- ¿Qué pasó en India que fue "felicidad pura"?
+- ¿Puede alguien volver a ser feliz después de todo?
+- ¿Qué sabe Gopal que nadie más sabe?
+
+
+* Nota 15
+
+** NOTA ESTRUCTURAL: Balance 50/50
+
+*** NARRATIVA (~50%):
+- Berlín sensorial: ciudad moderna, cicatrices históricas, barrios contradictorios
+- Tensión Daniel/Katrin: ella no entiende por qué Elena importa
+- Memorial del Holocausto: experiencia física/emocional
+- Museo Judío: arquitectura como declaración
+- Objetos: estrella de David escondida, carta de Miriam, whisky compartido
+- Conflicto: ¿Olvidar para vivir? ¿Recordar para honrar?
+
+*** FILOSOFÍA (~50%):
+- 3 conceptos centrales:
+  1. *Memoria vs Olvido*: Daniel elige olvidar para ser libre, David elige recordar para ser fiel
+  2. *Perdón*: Miriam perdonó, Antonio nunca se perdonó, Daniel perdonó a David
+  3. *Culpa judía vs cristiana*: Responsabilidad colectiva vs pecado individual
+
+*** LONGITUD:
+~380 líneas (interludio breve, no capítulo completo)
+
+*** TONO:
+Urbano, moderno, menos místico que caps anteriores. Daniel es secular, irónico, europeo. Berlín como personaje: cicatrices, contradicciones, memoria/olvido coexistiendo.
+#+TITLE: Capítulo 6 - Vrindavan: La Ciudad de Krishna
+#+SUBTITLE: Gaudiya Vaishnavismo - El Sabor del Amor Divino
+#+DATE: 2026
+
+
+* Nota 16
+
+#+TITLE: Grandes Preguntas - Capítulo de Muestra
+
+
+* Nota 17
+
+#+TITLE: Capítulo 1: Montserrat - El Monje que Sabía Morir
+
+
+* Nota 18
+
+#+TITLE: Grandes Preguntas - Capítulo 2
+
+
+* Nota 19
+
+#+TITLE: Grandes Preguntas - Capítulo 3
+
+
+* Nota 20
+
+#+TITLE: Capítulo 4: Estambul - La Mujer Entre Dos Mundos
+
+
+* Nota 21
+
+#+TITLE: Capítulo 5: Berlín - El Hijo que No Perdonó
+
+
+* Nota 22
+
+#+TITLE: Capítulo 6 - Vrindavan: La Ciudad de Krishna
+
+
+* Nota 23
+
+#+TITLE: Capítulo 7 - Dharamsala: Donde el Cielo Toca la Tierra
+
+
+* Nota 24
+
+#+TITLE: Capítulo 8 - Kioto: El Rostro Antes del Nacimiento
+
+
+* Nota 25
+
+#+TITLE: Capítulo 9 - Wudang: El Agua que No Fuerza
+
+
+* Nota 26
+
+#+TITLE: Capítulo 10 - Nuevo México: Los Ancestros que Caminan
+
+
+* Nota 27
+
+#+TITLE: Capítulo 11 - Munich: La Verdad Sin Consuelo
+
+
+* Nota 28
+
+#+TITLE: Capítulo 12 - El Regreso (Madrid)
+
+
+* Nota 29
+
+#+SUBTITLE: Prólogo y Capítulo 1
+
+
+* Nota 30
+
+#+SUBTITLE: Grandes Preguntas, Diversas Respuestas
+
+
+* Nota 31
+
+#+SUBTITLE: Fez: El Sufí que Lloró
+
+
+* Nota 32
+
+#+SUBTITLE: Jerusalén: El Rabino que Guardaba Secretos
+
+
+* Nota 33
+
+#+SUBTITLE: Grandes Preguntas, Diversas Respuestas
+
+
+* Nota 34
+
+#+SUBTITLE: Grandes Preguntas, Diversas Respuestas (INTERLUDIO)
+
+
+* Nota 35
+
+#+SUBTITLE: Gaudiya Vaishnavismo - El Sabor del Amor Divino
+
+
+* Nota 36
+
+#+SUBTITLE: Budismo Tibetano - El Arte de Soltar
+
+
+* Nota 37
+
+#+SUBTITLE: Budismo Zen - El Presente Radical
+
+
+* Nota 38
+
+#+SUBTITLE: Taoísmo - Wu-Wei y la Naturalidad
+
+
+* Nota 39
+
+#+SUBTITLE: Tradiciones Indígenas Navajas - Hozho y Pertenencia
+
+
+* Nota 40
+
+#+SUBTITLE: Filosofía Occidental y Ateísmo - Heinrich Müller
+
+
+* Nota 41
+
+#+SUBTITLE: Grandes Preguntas, Diversas Respuestas
+
+
+* Nota 42
+
+#+DATE: 2026
+
+
+* Nota 43
+
+#+DATE: 2026-01-21
+
+
+* Nota 44
+
+#+DATE: 2026
+
+
+* Nota 45
+
+#+DATE: 2026
+
+
+* Nota 46
+
+#+DATE: 2026-01-21
+
+
+* Nota 47
+
+#+DATE: 2026-01-22
+
+
+* Nota 48
+
+#+DATE: 2026
+
+
+* Nota 49
+
+#+DATE: 2026
+
+
+* Nota 50
+
+#+DATE: 2026
+
+
+* Nota 51
+
+#+DATE: 2026
+
+
+* Nota 52
+
+#+DATE: 2026
+
+
+* Nota 53
+
+#+DATE: 2026
+
+
+* Nota 54
+
+#+DATE: 2026
+
