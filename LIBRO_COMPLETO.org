@@ -356,10 +356,6 @@ Curiosidad.
 
 Y eso, por ahora, era suficiente.
 
-#+BEGIN_CENTER
-*Fin del Capítulo 1*
-#+END_CENTER
-
 * Apertura: El Monje que No Podía Orar
 
 El primer síntoma fue el dolor.
