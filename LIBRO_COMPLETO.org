@@ -439,7 +439,7 @@ Elena cerró el cuaderno. Mañana se despediría de Tomás. Después, Fez.
 
 Porque Elena había buscado muchas cosas en su vida —éxito, amor, sentido—, y siempre las había buscado con la cabeza. Con planes. Con lógica. Con esfuerzo.
 
-Y había terminado a los treinta y ocho años, sola en una habitación de monasterio, sin propósito, sin pareja, sin fe, leyendo el diario de un hombre muerto que había estado tan perdido como ella.
+Y había terminado a los treinta y ocho años, sola en la habitación de un monasterio, sin propósito, sin pareja, sin fe, leyendo el diario de un hombre muerto que había estado tan perdido como ella.
 
 Quizás era hora de buscar con el corazón.
 #+HTML: <p style="text-align:center;">* * *</p>
