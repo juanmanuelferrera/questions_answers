@@ -627,7 +627,7 @@ Ahmed desapareció hacia la cocina. Ibrahim cerró sus ojos nublados.
 
 ** El Pez Fuera del Agua
 
-*** Escena: El Patio al Amanecer
+*** El Patio al Amanecer
 
 A la mañana siguiente, después del adhan (el llamado a la oración que Elena escuchó desde su habitación en una pensión cercana), Ibrahim le pidió que viniera al patio de la casa.
 
@@ -719,7 +719,7 @@ Elena no supo qué decir. Ahmed la miró.
 
 ** Los Nombres que Nunca Terminan
 
-*** Escena: El Mercado de Especias
+*** El Mercado de Especias
 
 El segundo día, Ibrahim le pidió a Ahmed que llevara a Elena al mercado.
 
@@ -795,7 +795,7 @@ Salió de la cocina antes de que Elena pudiera responder.
 
 ** Morir para Vivir
 
-*** Escena: La Zawiya (Casa Sufí)
+*** La Zawiya (Casa Sufí)
 
 El tercer día, Ibrahim llevó a Elena (Ahmed se quedó en casa) a la zawiya, la casa sufí donde se reunían para el dhikr.
 
@@ -871,7 +871,7 @@ Elena tocó las cuentas del tasbih en su bolsillo.
 
 ** La Fotografía y el Sobre
 
-*** Escena: La Despedida
+*** La Despedida
 
 El último día, Ibrahim le dio dos cosas.
 
@@ -1015,7 +1015,7 @@ El rabino la tomó con manos que temblaban. Miró la imagen sin hablar. Cuando l
 
 ** La Casa de Memorias
 
-*** Escena: El Apartamento de David
+*** El Apartamento de David
 
 David Kohn la hizo pasar a un apartamento pequeño que era más biblioteca que vivienda. Estanterías hasta el techo, libros en hebreo, yiddish, inglés, español, apilados en columnas peligrosas. Las paredes: fotografías en blanco y negro de familias antiguas, niños con ojos demasiado serios, bodas de otra época.
 
@@ -1118,7 +1118,7 @@ Seguiría buscando.
 
 ** ¿Puedes Elegir a Quién Amas?
 
-*** Escena: El Mercado de Mahane Yehuda
+*** El Mercado de Mahane Yehuda
 
 El segundo día, David la llevó al mercado. No por compras, dijo, sino porque "necesitas ver Jerusalén viva antes de hablar de los muertos."
 
@@ -1198,7 +1198,7 @@ David no respondió.
 
 ** ¿Dónde Estaba Dios?
 
-*** Escena: El Cementerio del Monte de los Olivos
+*** El Cementerio del Monte de los Olivos
 
 El tercer día, David la llevó al cementerio.
 
@@ -1285,7 +1285,7 @@ Elena bebió su té.
 
 ** Recuerda
 
-*** Escena: La Carta de Miriam
+*** La Carta de Miriam
 
 El cuarto día, David le entregó un sobre amarillento.
 
@@ -1344,7 +1344,7 @@ David le pasó un pañuelo. Esperó mientras ella lloraba.
 
 —Cada vez que digo su nombre, sí. Cada vez que visito su tumba, sí. —Pausa—. Y ahora que tú la conoces, vive en ti también.
 
-*** Escena: Yad Vashem
+*** Yad Vashem
 
 Esa tarde, David la llevó a Yad Vashem, el museo del Holocausto.
 
@@ -1366,7 +1366,7 @@ David la miró con sorpresa.
 
 ** La Despedida: Tres Regalos
 
-*** Escena: El Último Día
+*** El Último Día
 
 El último día, David le dio tres cosas.
 
@@ -5328,7 +5328,7 @@ Heinrich se inclinó hacia adelante.
 
 * DÍA 1: EL APARTAMENTO SIN DIOS
 
-** Escena: Café y filosofía
+** Café y filosofía
 
 Heinrich preparó café en una cafetera italiana vieja. No ofreció azúcar ni leche.
 
@@ -5434,7 +5434,7 @@ Heinrich la miró largamente.
 
 * DÍA 2: DEBATE HONESTO
 
-** Escena: Evidencia vs Fe
+** Evidencia vs Fe
 
 A la mañana siguiente, Elena volvió al apartamento. Heinrich estaba en pijama. No se había afeitado.
 
@@ -5482,7 +5482,7 @@ Elena escribió: *Existencialismo ateo.*
 
 —Porque la roca es suya. El esfuerzo es suyo. No empuja porque Dios se lo ordena. Empuja porque elige. Y esa elección, en medio del absurdo, es dignidad humana. —Heinrich tosió—. Tu abuelo odiaba esa idea. Decía que sin Dios, todo es vacío. Le respondí: sin Dios, todo es nuestro.
 
-** Escena: ¿Antonio encontró paz?
+** ¿Antonio encontró paz?
 
 Elena sacó la fotografía que llevaba desde India. El bebé sin nombre. Miriam. La abuela Elena.
 
@@ -5534,7 +5534,7 @@ Heinrich se quedó en silencio largo rato.
 
 —Casi siempre. —Voz más suave—. Hay noches que me pregunto: ¿y si estoy equivocado? ¿Y si hay algo? Pero luego recuerdo: si hay Dios y es justo, valorará honestidad más que fe ciega. Y si no es justo, no merece adoración. Así que... estoy tranquilo.
 
-** Escena: La amistad con Antonio
+** La amistad con Antonio
 
 —¿Por qué eran amigos si nunca estaban de acuerdo?
 
@@ -5556,7 +5556,7 @@ Elena sintió lágrimas.
 
 * DÍA 4: REVELACIÓN FINAL
 
-** Escena: El último objeto
+** El último objeto
 
 Al cuarto día, Heinrich le entregó un sobre.
 
@@ -5640,7 +5640,7 @@ Heinrich suspiró.
 
 * DÍA 5: EL REGALO FINAL
 
-** Escena: Despedida
+** Despedida
 
 El último día, Elena preparó café para Heinrich. Él estaba muy débil. Apenas podía levantarse.
 
