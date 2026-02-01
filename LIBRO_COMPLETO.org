@@ -243,11 +243,7 @@ Elena sintió que algo se aflojaba en su pecho. No sabía qué había esperado �
 #+LATEX: \begin{center}* * *\end{center}
 El despacho de Tomás era pequeño y austero: una cama, un escritorio, un crucifijo en la pared, y una ventana que daba al precipicio. En el escritorio había una fotografía enmarcada. Elena la reconoció al instante: su abuelo joven, con el pelo negro y una sonrisa que ella nunca le había visto. A su lado, un Tomás de quizás treinta años, también sonriendo.
 
-—1975 —dijo Tomás, siguiendo su mirada—. El año que me hice monje. Tu abuelo vino a mi ordenación. Fue el único de mis profesores que vino.
-
-—¿Era su profesor?
-
-—De filosofía de la religión. Universidad Complutense. —Tomás se sentó con dificultad en una silla y le indicó a Elena que hiciera lo mismo—. No fue casualidad. Aquel día en el mirador me cambió la vida. Tu abuelo se quedó un mes en Montserrat, y yo seguía allí con mi familia. Nos vimos varias veces, hablamos. Me contó que era profesor. Pasé años pensando en él y en la pregunta que llevaba dentro. Cuando tuve edad de ir a la universidad, lo busqué en la Complutense y me matriculé en su clase. Fue el mejor profesor que tuve. No porque supiera las respuestas, sino porque hacía las preguntas correctas.
+—1975 —dijo Tomás, siguiendo su mirada—. El año que me hice monje. Tu abuelo vino a mi ordenación. —Tomás se sentó con dificultad en una silla y le indicó a Elena que hiciera lo mismo.
 
 Elena sacó el cuaderno del abuelo.
 
