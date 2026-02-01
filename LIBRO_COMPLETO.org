@@ -199,7 +199,7 @@ Elena no había entendido entonces. Ahora, treinta años después, mirando la mi
 #+LATEX: \begin{center}* * *\end{center}
 El primer síntoma fue el dolor.
 
-No el tipo de dolor que viene con la edad —las rodillas que crujen, la espalda que se queja después de Laudes— sino algo más profundo. Algo que Hermano Tomás reconoció inmediatamente porque había visto a otros morir con ese mismo dolor.
+No el tipo de dolor que viene con la edad —las rodillas que crujen, la espalda que se queja después de Laudes— sino algo más profundo. Algo que el Hermano Tomás reconoció inmediatamente porque había visto a otros morir con ese mismo dolor.
 
 Cáncer de páncreas.
 
@@ -215,7 +215,7 @@ Tocaron la puerta.
 
 —¿Hermano Tomás?
 
-Era Hermano Gabriel, el joven encargado de la recepción.
+Era el Hermano Gabriel, el joven encargado de la recepción.
 
 —Hay una mujer aquí. Dice que su abuelo lo conocía. Antonio Vidal.
 
@@ -400,7 +400,7 @@ Tocó la puerta.
 
 —Adelante.
 
-Hermano Tomás estaba sentado junto a la ventana, envuelto en una manta gruesa a pesar del radiador encendido. Era un hombre delgado —demasiado delgado, pensó Elena— con ojos hundidos pero luminosos. Parecía una vela que ardía sus últimos centímetros.
+El Hermano Tomás estaba sentado junto a la ventana, envuelto en una manta gruesa a pesar del radiador encendido. Era un hombre delgado —demasiado delgado, pensó Elena— con ojos hundidos pero luminosos. Parecía una vela que ardía sus últimos centímetros.
 
 —Siéntate, hija.
 
