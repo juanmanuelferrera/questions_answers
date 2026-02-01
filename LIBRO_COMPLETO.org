@@ -183,6 +183,18 @@ Preguntó por el Hermano Tomás en la recepción de peregrinos. El joven monje q
 —No. Pero... —Elena dudó—. Dígale que soy la nieta de Antonio Vidal.
 
 El monje asintió y desapareció por un pasillo de piedra.
+
+Elena esperó. En la pared había un cuadro de la Virgen de Montserrat, la Moreneta, con su cara negra y serena. De niña, el abuelo la había traído aquí una vez. Elena tenía siete u ocho años. Recordaba que él se había quedado mucho tiempo mirando esa imagen, en silencio, y ella se había aburrido y había tirado de su mano.
+
+—Abuelo, vámonos.
+
+—Un momento, cariño. Estoy hablando.
+
+—¿Con quién?
+
+—Con alguien que ya no está.
+
+Elena no había entendido entonces. Ahora, treinta años después, mirando la misma imagen, se preguntó con quién hablaría el abuelo. ¿Con Dios? ¿Con alguien que había perdido?
 #+HTML: <p style="text-align:center;">* * *</p>
 #+LATEX: \begin{center}* * *\end{center}
 El primer síntoma fue el dolor.
@@ -216,18 +228,6 @@ El nombre le trajo recuerdos que había guardado más de sesenta años en un rin
 —Dile que suba.
 #+HTML: <p style="text-align:center;">* * *</p>
 #+LATEX: \begin{center}* * *\end{center}
-Elena esperó. En la pared había un cuadro de la Virgen de Montserrat, la Moreneta, con su cara negra y serena. De niña, el abuelo la había traído aquí una vez. Elena tenía siete u ocho años. Recordaba que él se había quedado mucho tiempo mirando esa imagen, en silencio, y ella se había aburrido y había tirado de su mano.
-
-—Abuelo, vámonos.
-
-—Un momento, cariño. Estoy hablando.
-
-—¿Con quién?
-
-—Con alguien que ya no está.
-
-Elena no había entendido entonces. Ahora, treinta años después, mirando la misma imagen, se preguntó con quién hablaría el abuelo. ¿Con Dios? ¿Con alguien que había perdido?
-
 —¿Elena?
 
 Se volvió. Un hombre mayor estaba en el umbral del pasillo. Llevaba el hábito negro de los benedictinos y caminaba con la ayuda de un bastón. Tenía el pelo blanco, la cara surcada de arrugas, y unos ojos de un azul sorprendentemente claro.
