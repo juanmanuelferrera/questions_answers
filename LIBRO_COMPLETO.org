@@ -301,7 +301,7 @@ Tomás asintió.
 —Me dijo: "Mi nieta Elena está perdida. Como yo lo estuve. Si algún día viene a buscarte, cuéntale todo. Y después mándala con Ibrahim. Él le devolverá a Dios. Pero no al Dios que ella espera."
 #+HTML: <p style="text-align:center;">* * *</p>
 #+LATEX: \begin{center}* * *\end{center}
-Elena sacó el cuaderno del abuelo. Buscó una entrada de marzo de 1962.
+Elena sacó el cuaderno del abuelo. Pasó las páginas hasta una entrada sin fecha.
 
 Ahí estaba:
 
