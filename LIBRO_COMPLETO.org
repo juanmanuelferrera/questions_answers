@@ -225,9 +225,11 @@ Antonio.
 
 El nombre le trajo recuerdos que había guardado más de sesenta años en un rincón de su corazón: un joven de ojos oscuros que hacía preguntas imposibles. Un hombre que había perdido la fe y buscaba respuestas en lugares donde nadie más miraba. Un amigo que siempre volvía.
 
-—Dile que suba.
+—Dile que espere. Ya bajo.
 #+HTML: <p style="text-align:center;">* * *</p>
 #+LATEX: \begin{center}* * *\end{center}
+Elena seguía mirando a la Moreneta cuando oyó su nombre.
+
 —¿Elena?
 
 Se volvió. Un hombre mayor estaba en el umbral del pasillo. Llevaba el hábito negro de los benedictinos y caminaba con la ayuda de un bastón. Tenía el pelo blanco, la cara surcada de arrugas, y unos ojos de un azul sorprendentemente claro.
