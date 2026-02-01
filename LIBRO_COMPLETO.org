@@ -532,45 +532,6 @@ Y eso, por ahora, era suficiente.
 
 Elena no abrió el sobre de Tomás ese día. Lo guardó con el rosario y el cuaderno del abuelo.
 
-Pero tres semanas después, en Jerusalén, cuando David le contó la historia completa de Miriam y Elena sintió que el mundo se derrumbaba, abrió el sobre.
-
-La letra de Tomás era temblorosa:
-
-#+BEGIN_QUOTE
-Querida Elena:
-
-Si estás leyendo esto, llegaste al punto donde dudas si seguir. Bien. La duda es santa.
-
-Antonio dudó toda su vida. Y aun así siguió buscando. Eso es fe. No certeza. Búsqueda.
-
-El cristianismo te ofrece un Dios que sufrió por ti. Pero no es la única historia. Otras tradiciones tienen otras verdades. Y quizás Dios es lo suficientemente grande para todas ellas.
-
-O quizás solo una es verdad. No lo sé. Eso es lo que hace que la fe sea fe, no conocimiento.
-
-Pero sé esto: Dios te está buscando tanto como tú buscas a Dios. Y dondequiera que busques honestamente, algo encontrarás.
-
-No dejes de buscar porque el camino es difícil. Sigue buscando porque el camino ES el punto.
-
-Escribo esto sabiendo que me quedan horas, quizás días. El dolor ya es casi insoportable. Pero tengo esperanza de que en el último momento, sienta algo. No sé si será Dios o morfina o mi cerebro apagándose. Pero espero no estar solo.
-
-Quizás esa esperanza es suficiente.
-
-Con bendición y esperanza,
-Hermano Tomás
-
-PD: Cuando visites a Ibrahim en Fez, pregúntale por "qalb". Es la palabra árabe para corazón. Los sufís dicen que Dios vive ahí.
-#+END_QUOTE
-
-Elena guardó la carta. Miró el cielo de Jerusalén.
-
-/Dios te está buscando tanto como tú buscas a Dios./
-
-¿Era cierto?
-
-No lo sabía.
-
-Pero seguiría buscando.
-
 
 * CAPÍTULO 2: El Sufí que Lloró
 
@@ -1118,7 +1079,40 @@ El silencio llenó el apartamento. Afuera, los sonidos de Jerusalén: voces, pas
 
 —No es coincidencia. Ese era el nombre que Miriam quería para el bebé si era niña.
 
-Elena no podía hablar.
+Elena no podía hablar. Recordó el sobre de Tomás. "Ábrelo cuando llegues a un punto donde no sepas si seguir." Lo sacó de su mochila con manos temblorosas.
+
+La letra de Tomás era temblorosa:
+
+#+BEGIN_QUOTE
+Querida Elena:
+
+Si estás leyendo esto, llegaste al punto donde dudas si seguir. Bien. La duda es santa.
+
+Antonio dudó toda su vida. Y aun así siguió buscando. Eso es fe. No certeza. Búsqueda.
+
+El cristianismo te ofrece un Dios que sufrió por ti. Pero no es la única historia. Otras tradiciones tienen otras verdades. Y quizás Dios es lo suficientemente grande para todas ellas.
+
+O quizás solo una es verdad. No lo sé. Eso es lo que hace que la fe sea fe, no conocimiento.
+
+Pero sé esto: Dios te está buscando tanto como tú buscas a Dios. Y dondequiera que busques honestamente, algo encontrarás.
+
+No dejes de buscar porque el camino es difícil. Sigue buscando porque el camino ES el punto.
+
+Escribo esto sabiendo que me quedan horas, quizás días. El dolor ya es casi insoportable. Pero tengo esperanza de que en el último momento, sienta algo. No sé si será Dios o morfina o mi cerebro apagándose. Pero espero no estar solo.
+
+Quizás esa esperanza es suficiente.
+
+Con bendición y esperanza,
+Hermano Tomás
+
+PD: Cuando visites a Ibrahim en Fez, pregúntale por "qalb". Es la palabra árabe para corazón. Los sufís dicen que Dios vive ahí.
+#+END_QUOTE
+
+Elena guardó la carta. Miró a David.
+
+/Dios te está buscando tanto como tú buscas a Dios./
+
+Seguiría buscando.
 
 —El abuelo Antonio llevó ese secreto cincuenta años. —David se levantó—. Ahora tú también lo cargas. Y mañana te contaré por qué ese secreto es también una pregunta: ¿Miriam eligió amar a tu abuelo? ¿O estaba escrito que así sería?
 
