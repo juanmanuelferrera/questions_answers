@@ -413,6 +413,37 @@ Elena pensó en su madre. En cómo había trabajado dos empleos para que Elena p
 —Bien. Porque eso es el cristianismo en una oración: Dios te ama antes de que lo merezcas. —Tomás cerró los ojos—. Todo lo demás —la Encarnación, la cruz, la resurrección— es la historia de cómo Dios hizo posible ese amor.
 #+HTML: <p style="text-align:center;">* * *</p>
 #+LATEX: \begin{center}* * *\end{center}
+Esa noche, en la hospedería, Elena no podía dormir.
+
+Se levantó y se sentó junto a la ventana. Afuera, la montaña era una masa negra contra el cielo estrellado. En algún lugar allá abajo, sesenta años atrás, su abuelo había pensado en saltar.
+
+Y no había saltado.
+
+Porque un chico de diecisiete años se había sentado a su lado y le había dicho que creyera en la pregunta.
+
+Elena abrió el cuaderno del abuelo en una página al azar.
+
+#+BEGIN_QUOTE
+/12 de octubre, 1968. Fez./
+
+/Ibrahim me preguntó por qué buscaba a Dios con la cabeza cuando debería buscarlo con el corazón./
+
+/Le dije que el corazón engaña. Me dijo que la cabeza también. "Entonces, ¿cómo sé qué es verdad?", pregunté./
+
+/Se rio. "La verdad no se sabe. Se vive."/
+
+/No entendí. Pero quiero entender./
+#+END_QUOTE
+
+Elena cerró el cuaderno. Mañana se despediría de Tomás. Después, Fez.
+
+Porque Elena había buscado muchas cosas en su vida —éxito, amor, sentido—, y siempre las había buscado con la cabeza. Con planes. Con lógica. Con esfuerzo.
+
+Y había terminado a los treinta y ocho años, sola en una habitación de monasterio, sin propósito, sin pareja, sin fe, leyendo el diario de un hombre muerto que había estado tan perdido como ella.
+
+Quizás era hora de buscar con el corazón.
+#+HTML: <p style="text-align:center;">* * *</p>
+#+LATEX: \begin{center}* * *\end{center}
 El tercer día, Tomás estaba peor. Había pasado la noche en la enfermería. Pero cuando Elena vino a despedirse, el monje insistió.
 
 —Necesito mostrarte algo. Antes de que te vayas.
@@ -482,47 +513,6 @@ Elena abrazó al monje. Era como abrazar a un pájaro. Huesos delicados. Piel fi
 —Gracias, Hermano Tomás.
 
 —Vete en paz, hija. Busca honestamente. Y cuando encuentres respuestas, no las aferres demasiado fuerte. —Pausa—. Porque Dios es más grande que todas nuestras respuestas.
-#+HTML: <p style="text-align:center;">* * *</p>
-#+LATEX: \begin{center}* * *\end{center}
-Esa noche, Elena se quedó en la hospedería del monasterio. La habitación era pequeña —una cama, un lavabo, un crucifijo— y el silencio era tan profundo que podía oír su propia respiración.
-
-No podía dormir.
-
-Se levantó y se sentó junto a la ventana. Afuera, la montaña era una masa negra contra el cielo estrellado. En algún lugar allá abajo, sesenta años atrás, su abuelo había pensado en saltar.
-
-Y no había saltado.
-
-Porque un chico de dieciocho años se había sentado a su lado y le había dicho que creyera en la pregunta.
-
-Elena abrió el cuaderno del abuelo en una página al azar.
-
-#+BEGIN_QUOTE
-/12 de octubre, 1968. Fez./
-
-/Ibrahim me preguntó por qué buscaba a Dios con la cabeza cuando debería buscarlo con el corazón./
-
-/Le dije que el corazón engaña. Me dijo que la cabeza también. "Entonces, ¿cómo sé qué es verdad?", pregunté./
-
-/Se rio. "La verdad no se sabe. Se vive."/
-
-/No entendí. Pero quiero entender./
-#+END_QUOTE
-
-Elena cerró el cuaderno.
-
-Mañana volvería a Madrid. Pero no para quedarse.
-
-Tenía que ir a Fez. Tenía que encontrar a Ibrahim al-Fassi —si seguía vivo— y preguntarle qué había hecho con su abuelo. Qué le había enseñado. Por qué el abuelo decía que Ibrahim le había "devuelto a Dios".
-
-Y sobre todo, tenía que preguntarle qué significaba eso de buscar a Dios con el corazón.
-
-Porque Elena había buscado muchas cosas en su vida —éxito, amor, sentido—, y siempre las había buscado con la cabeza. Con planes. Con lógica. Con esfuerzo.
-
-Y había terminado a los treinta y ocho años, sola en una habitación de monasterio, sin propósito, sin pareja, sin fe, leyendo el diario de un hombre muerto que había estado tan perdido como ella.
-
-Quizás era hora de probar otra cosa.
-
-Quizás era hora de buscar con el corazón.
 
 #+BEGIN_CENTER
 ───────────────────
