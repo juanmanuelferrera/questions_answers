@@ -344,7 +344,7 @@ Tomás se quedó en silencio largo rato.
 #+LATEX: \begin{center}* * *\end{center}
 Al día siguiente, Elena encontró a Tomás en la capilla. Estaba arrodillado frente al crucifijo, inmóvil. Ella esperó en silencio al fondo.
 
-Después de diez minutos, Tomás intentó levantarse pero no pudo. Elena se acercó, lo ayudó. El monje pesaba casi nada. Era solo huesos envueltos en hábito.
+Después de diez minutos, Tomás intentó levantarse pero no pudo. Elena se acercó, lo ayudó. El monje casi no pesaba. Era solo huesos envueltos en hábito.
 
 —Gracias. —Tomás se apoyó en su brazo—. Las rodillas ya no funcionan. Ni la espalda. Ni mucho más.
 
