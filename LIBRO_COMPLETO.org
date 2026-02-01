@@ -1,3 +1,5 @@
+#+TITLE: Las preguntas correctas
+#+SUBTITLE: Un viaje por las verdades del mundo
 #+AUTHOR: [Por definir]
 
 * PRÓLOGO: La Caja
