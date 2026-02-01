@@ -183,7 +183,39 @@ Preguntó por el Hermano Tomás en la recepción de peregrinos. El joven monje q
 —No. Pero... —Elena dudó—. Dígale que soy la nieta de Antonio Vidal.
 
 El monje asintió y desapareció por un pasillo de piedra.
+#+HTML: <p style="text-align:center;">* * *</p>
+#+LATEX: \begin{center}* * *\end{center}
+El primer síntoma fue el dolor.
 
+No el tipo de dolor que viene con la edad —las rodillas que crujen, la espalda que se queja después de Laudes— sino algo más profundo. Algo que Hermano Tomás reconoció inmediatamente porque había visto a otros morir con ese mismo dolor.
+
+Cáncer de páncreas.
+
+El médico en Barcelona le dio seis meses. Eso fue hace cuatro.
+
+Ahora, arrodillado frente al crucifijo en su celda, Tomás intentaba rezar el rosario que había rezado cada noche durante cincuenta años. Pero las palabras no venían. Las cuentas de madera —gastadas por cinco décadas de dedos— se sentían como piedras en sus manos.
+
+*Dios mío, ¿dónde estás?*
+
+La morfina hacía que el dolor fuera soportable. Pero también hacía que todo fuera borroso. Las oraciones. Los pensamientos. La certeza que había sostenido toda su vida como monje.
+
+Tocaron la puerta.
+
+—¿Hermano Tomás?
+
+Era Hermano Gabriel, el joven encargado de la recepción.
+
+—Hay una mujer aquí. Dice que su abuelo lo conocía. Antonio Vidal.
+
+Tomás dejó caer el rosario.
+
+Antonio.
+
+El nombre le trajo recuerdos que había guardado más de sesenta años en un rincón de su corazón: un joven seminarista de ojos oscuros que hacía preguntas imposibles. Un hombre que había perdido todo y buscaba respuestas en lugares donde nadie más miraba. Un amigo que dejó Montserrat en 1962 y nunca regresó.
+
+—Dile que suba.
+#+HTML: <p style="text-align:center;">* * *</p>
+#+LATEX: \begin{center}* * *\end{center}
 Elena esperó. En la pared había un cuadro de la Virgen de Montserrat, la Moreneta, con su cara negra y serena. De niña, el abuelo la había traído aquí una vez. Elena tenía siete u ocho años. Recordaba que él se había quedado mucho tiempo mirando esa imagen, en silencio, y ella se había aburrido y había tirado de su mano.
 
 —Abuelo, vámonos.
@@ -357,38 +389,6 @@ Pero por primera vez en meses, quizás en años, sentía algo que había olvidad
 Curiosidad.
 
 Y eso, por ahora, era suficiente.
-
-* Apertura: El Monje que No Podía Orar
-
-El primer síntoma fue el dolor.
-
-No el tipo de dolor que viene con la edad —las rodillas que crujen, la espalda que se queja después de Laudes— sino algo más profundo. Algo que Hermano Tomás reconoció inmediatamente porque había visto a otros morir con ese mismo dolor.
-
-Cáncer de páncreas.
-
-El médico en Barcelona le dio seis meses. Eso fue hace cuatro.
-
-Ahora, arrodillado frente al crucifijo en su celda, Tomás intentaba rezar el rosario que había rezado cada noche durante cincuenta años. Pero las palabras no venían. Las cuentas de madera —gastadas por cinco décadas de dedos— se sentían como piedras en sus manos.
-
-*Dios mío, ¿dónde estás?*
-
-La morfina hacía que el dolor fuera soportable. Pero también hacía que todo fuera borroso. Las oraciones. Los pensamientos. La certeza que había sostenido toda su vida como monje.
-
-Tocaron la puerta.
-
-—¿Hermano Tomás?
-
-Era Hermano Gabriel, el joven encargado de la recepción.
-
-—Hay una mujer aquí. Dice que su abuelo lo conocía. Antonio Vidal.
-
-Tomás dejó caer el rosario.
-
-Antonio.
-
-El nombre le trajo recuerdos que había guardado más de sesenta años en un rincón de su corazón: un joven seminarista de ojos oscuros que hacía preguntas imposibles. Un hombre que había perdido todo y buscaba respuestas en lugares donde nadie más miraba. Un amigo que dejó Montserrat en 1962 y nunca regresó.
-
-—Dile que suba.
 
 * Día 1: El Mirador Donde Antonio Casi Murió
 
