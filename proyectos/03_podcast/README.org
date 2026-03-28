@@ -1,0 +1,28 @@
+#+TITLE: Podcast "Las Preguntas Correctas"
+#+STATUS: PENDIENTE
+
+* Concepto
+Cada episodio explora UNA pregunta filosófica desde varias tradiciones. Formato conversacional, 20-30 min. Puede ser en español (mercado hispano) o bilingüe.
+
+* Formato por episodio
+1. La pregunta (1 min) -- presentada con una historia o situación cotidiana
+2. Lo que dice cada tradición (15-20 min) -- 3-4 tradiciones por episodio
+3. Puntos de encuentro y tensiones (5 min)
+4. Pregunta para el oyente (1 min)
+
+* Temporadas
+- Temporada 1: Las 12 preguntas del libro (12 episodios)
+- Temporada 2: Preguntas que no entraron en el libro
+- Temporada 3: Invitados (un practicante por tradición)
+
+* Producción
+- Guiones: adaptar de la base de datos de tradiciones
+- Voz: narrada o conversacional (¿con co-host?)
+- Música: usar assets de vedabase_audio_espanol
+- Hosting: Spreaker (ya tienes cuenta para a-la-luz-del-shastra)
+- Publicar en: Spotify, Apple Podcasts, YouTube
+
+* Sinergia
+- Cada episodio enlaza al libro
+- El libro menciona el podcast
+- La app web complementa ambos

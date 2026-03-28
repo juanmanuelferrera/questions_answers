@@ -1,0 +1,30 @@
+#+TITLE: Serie de libros temáticos
+#+STATUS: PENDIENTE
+
+* Concepto
+Un libro por cada gran tema filosófico. Cada libro explora UNA pregunta desde las 10 tradiciones principales. Formato accesible, ~150 páginas por libro.
+
+* Libros posibles (12, uno por capítulo del libro madre)
+1. ¿Por qué existe algo en lugar de nada? (Existencia)
+2. ¿Quién soy yo realmente? (Identidad)
+3. ¿Somos libres o estamos determinados? (Libre albedrío)
+4. ¿Qué podemos saber con certeza? (Conocimiento)
+5. ¿Existe la verdad absoluta? (Verdad)
+6. ¿Fe o razón? (Epistemología)
+7. ¿Qué es el tiempo? (Tiempo)
+8. ¿Qué es lo correcto? (Ética)
+9. ¿Qué pasa cuando morimos? (Muerte)
+10. ¿Por qué hay sufrimiento? (Sufrimiento)
+11. ¿Qué es el amor? (Amor)
+12. ¿Tiene sentido la vida? (Sentido)
+
+* Fuente de contenido
+- Base de datos de 195 preguntas × 185 tradiciones (en /tradiciones/)
+- Material narrativo del libro madre (LIBRO_COMPLETO.org)
+
+* Formato
+- Cada tradición: 1 capítulo de ~12 páginas
+- Apertura con una historia/escena (reusar o adaptar del libro madre)
+- Puntos de encuentro entre tradiciones
+- Preguntas para reflexión del lector
+- Amazon KDP, ebook + impreso

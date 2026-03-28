@@ -1,0 +1,25 @@
+#+TITLE: Curso online: Filosofía comparada para la vida
+#+STATUS: PENDIENTE
+
+* Concepto
+12 módulos, uno por gran pregunta. Cada módulo incluye video, lectura, ejercicio práctico. Dirigido a buscadores espirituales y curiosos intelectuales.
+
+* Estructura por módulo
+1. Video introductorio (10 min) -- la pregunta + por qué importa
+2. Lectura del capítulo correspondiente del libro
+3. Material expandido de la base de datos (PDFs descargables)
+4. Ejercicio práctico (meditación, escritura reflexiva, debate)
+5. Foro de discusión
+
+* Plataformas posibles
+- Teachable / Thinkific / Gumroad
+- O self-hosted con Cloudflare (ya tienes la infra)
+
+* Precio sugerido
+- Curso completo: €49-99
+- Bundle con libro: €59-119
+
+* Contenido ya disponible
+- Los 195 archivos de preguntas/respuestas
+- El libro como material de lectura
+- Los episodios del podcast como material audiovisual

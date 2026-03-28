@@ -1,0 +1,30 @@
+#+TITLE: Base de datos RAG de filosofía comparada
+#+STATUS: EN PROGRESO (3.6% completo)
+
+* Concepto
+Extender el Vedabase RAG existente para incluir las respuestas filosóficas como corpus consultable. Un ChatGPT especializado en filosofía comparada de las tradiciones.
+
+* Estado actual
+- 195 preguntas definidas
+- 7 completas (todas en metafísica: 1.19-1.25)
+- 9 en progreso
+- 179 sin empezar
+- Áreas en 0%: Ética, Filosofía Política, Estética, Filosofía de la Religión
+
+* Infraestructura existente (reusar)
+- Cloudflare Workers + D1 + Vectorize (ya configurado)
+- Embeddings con generate_embeddings.py
+- Upload pipeline con upload_*.py
+- Frontend RAG con rag-frontend.html
+
+* Plan
+1. Completar las 195 preguntas (priorizar las 12 del libro)
+2. Generar embeddings para cada respuesta
+3. Subir a Vectorize
+4. Crear frontend de consulta (proyecto 02)
+5. Añadir modo conversacional (chat con las tradiciones)
+
+* Modelo de negocio
+- Freemium: 5 consultas/día gratis, ilimitado por €5/mes
+- API para desarrolladores: €20/mes
+- Integración con el curso online

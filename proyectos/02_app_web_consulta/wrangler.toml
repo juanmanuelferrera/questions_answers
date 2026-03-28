@@ -1,0 +1,21 @@
+name = "preguntas-correctas"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "preguntas-db"
+database_id = "d24e284b-2671-4ef8-a182-bfc9c89f1459"
+
+routes = [
+  { pattern = "academia.vedicvault.org/*", zone_name = "vedicvault.org" }
+]
+
+[triggers]
+crons = ["0 8 * * *"]
+
+[assets]
+directory = "./public"

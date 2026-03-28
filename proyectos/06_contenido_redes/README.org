@@ -1,0 +1,32 @@
+#+TITLE: Contenido para redes sociales
+#+STATUS: PENDIENTE
+
+* Concepto
+Posts/reels comparativos: "¿Qué dice el budismo vs el islam sobre la muerte?" Formato visual, breve, viral.
+
+* Formatos
+** Carrusel Instagram (10 slides)
+- Slide 1: La pregunta (diseño llamativo)
+- Slides 2-8: Una tradición por slide (icono + respuesta en 2 líneas)
+- Slide 9: "¿Y tú qué piensas?"
+- Slide 10: CTA al libro/podcast/web
+
+** Reel/TikTok (60 seg)
+- Voz en off leyendo la pregunta
+- Texto en pantalla con respuestas rápidas de 4-5 tradiciones
+- Música ambiental (no religiosa)
+
+** Twitter/X thread
+- Tweet 1: La pregunta
+- Tweets 2-6: Una tradición cada uno (emoji + 280 chars)
+- Tweet final: enlace al libro
+
+* Frecuencia
+- 3 posts/semana (1 carrusel, 1 reel, 1 thread)
+- Contenido para ~1 año con las 195 preguntas
+
+* Herramientas
+- Diseño: Canva
+- Scheduling: Buffer o Later
+- Reels: shastra-clips (ya tienes Remotion configurado)
+- Cuenta: @aluzdelshstra o cuenta nueva dedicada

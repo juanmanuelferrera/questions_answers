@@ -1,0 +1,3614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#B8860B">
+  <link rel="manifest" href="/manifest.json">
+  <title>The Right Questions - 184 Traditions Respond</title>
+  <style>
+    :root {
+      --bg: #FAFAF7;
+      --sidebar-bg: #F5F0EB;
+      --gold: #B8860B;
+      --gold-light: #DAA520;
+      --gold-muted: #D4A96A;
+      --text: #1a1a1a;
+      --text-secondary: #6b6b6b;
+      --border: #e5e0da;
+      --card-bg: #ffffff;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+      --card-shadow-hover: 0 2px 8px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+      --accent-green: #4a7c59;
+      --accent-red: #c44d4d;
+      --accent-purple: #5E4B8B;
+      --sidebar-width: 280px;
+      --ui-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --body-font: Georgia, 'Times New Roman', serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #1a1a1a;
+      --sidebar-bg: #222;
+      --card-bg: #2a2a2a;
+      --text: #e5e5e5;
+      --text-secondary: #999;
+      --border: #333;
+      --gold: #DAA520;
+      --gold-light: #E8B830;
+      --gold-muted: #C49520;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.15);
+      --card-shadow-hover: 0 2px 8px rgba(0,0,0,0.25), 0 4px 16px rgba(0,0,0,0.2);
+      --accent-green: #5a9c69;
+      --accent-red: #e06060;
+      --accent-purple: #8B7BBF;
+    }
+
+    [data-theme="dark"] .section-resumen .icon { background: #3a3020; }
+    [data-theme="dark"] .section-encuentro .icon { background: #203520; }
+    [data-theme="dark"] .section-tensiones .icon { background: #352020; }
+    [data-theme="dark"] .section-sorprendente .icon { background: #2a2535; }
+    [data-theme="dark"] .error-msg { background: #352020; border-color: #553030; }
+    [data-theme="dark"] .question-input::placeholder,
+    [data-theme="dark"] .follow-up-input::placeholder { color: #666; }
+    [data-theme="dark"] .sidebar-control-row select { background: #333; color: #e5e5e5; }
+    [data-theme="dark"] .api-key-input { background: #333; color: #e5e5e5; }
+    [data-theme="dark"] .modal-controls button { background: #333; color: #ccc; }
+
+    /* Skeleton loading */
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 6px;
+    }
+
+    [data-theme="dark"] .skeleton {
+      background: linear-gradient(90deg, #333 25%, #3a3a3a 50%, #333 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+
+    .skeleton-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid var(--border);
+    }
+
+    .skeleton-line {
+      height: 14px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+
+    .skeleton-line.short { width: 40%; }
+    .skeleton-line.medium { width: 70%; }
+    .skeleton-line.long { width: 95%; }
+    .skeleton-line.title { height: 20px; width: 50%; margin-bottom: 16px; }
+
+    .skeleton-tradition {
+      background: var(--card-bg);
+      border-radius: 8px;
+      margin: 4px 0;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+    }
+
+    .skeleton-tradition .skeleton-line { margin-bottom: 0; width: 60%; height: 16px; }
+
+    /* Dark mode toggle */
+    .theme-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 8px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--ui-font);
+      font-size: 0.78em;
+      color: var(--text-secondary);
+      transition: color 0.15s;
+    }
+
+    .theme-toggle-btn:hover { color: var(--text); }
+
+    .theme-toggle-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Source verification badges */
+    .source-badge {
+      display: inline-block;
+      font-family: var(--ui-font);
+      font-size: 0.72em;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    .source-badge.verified {
+      background: rgba(74,124,89,0.15);
+      color: var(--accent-green);
+    }
+
+    .source-badge.unverified {
+      background: rgba(200,160,40,0.15);
+      color: #b8860b;
+    }
+
+    /* Keyboard shortcuts help */
+    .shortcuts-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .shortcuts-btn {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--card-bg);
+      color: var(--text-secondary);
+      font-family: var(--ui-font);
+      font-size: 0.75em;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .shortcuts-btn:hover { color: var(--text); border-color: var(--gold); }
+
+    .shortcuts-tooltip {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      margin-bottom: 8px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      font-family: var(--ui-font);
+      font-size: 0.75em;
+      white-space: nowrap;
+      z-index: 300;
+      color: var(--text);
+    }
+
+    .shortcuts-wrapper:hover .shortcuts-tooltip { display: block; }
+
+    .shortcuts-tooltip div {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 3px 0;
+    }
+
+    .shortcuts-tooltip kbd {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-family: var(--ui-font);
+      font-size: 0.9em;
+      color: var(--text-secondary);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--body-font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* ======================== SIDEBAR ======================== */
+    .sidebar {
+      width: var(--sidebar-width);
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      z-index: 200;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-brand {
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-brand h1 {
+      font-family: var(--body-font);
+      font-size: 1.15em;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .sidebar-brand h1 span { color: var(--gold); font-weight: 600; }
+
+    .sidebar-brand .tradition-count {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 2px 10px;
+      background: var(--gold);
+      color: white;
+      border-radius: 12px;
+      font-size: 0.7em;
+      font-family: var(--ui-font);
+      letter-spacing: 0.02em;
+    }
+
+    .sidebar-new-btn {
+      margin: 16px 16px 12px;
+      padding: 10px 16px;
+      background: var(--gold);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--ui-font);
+      font-size: 0.85em;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .sidebar-new-btn:hover { background: var(--gold-light); }
+
+    .sidebar-new-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    /* History */
+    .sidebar-history {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 8px;
+    }
+
+    .sidebar-history-title {
+      font-family: var(--ui-font);
+      font-size: 0.7em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      padding: 8px 12px 6px;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--ui-font);
+      font-size: 0.82em;
+      color: var(--text);
+      transition: background 0.15s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .history-item:hover { background: rgba(0,0,0,0.05); }
+
+    .history-item .history-icon {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      opacity: 0.4;
+    }
+
+    .history-item .history-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .history-item .history-delete {
+      margin-left: auto;
+      flex-shrink: 0;
+      opacity: 0;
+      cursor: pointer;
+      font-size: 1em;
+      color: var(--text-secondary);
+      background: none;
+      border: none;
+      padding: 0 2px;
+      font-family: var(--ui-font);
+      transition: opacity 0.15s;
+    }
+
+    .history-item:hover .history-delete { opacity: 0.6; }
+    .history-item .history-delete:hover { opacity: 1; color: var(--accent-red); }
+
+    /* Sidebar bottom controls */
+    .sidebar-bottom {
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+    }
+
+    .sidebar-control-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .sidebar-control-row:last-child { margin-bottom: 0; }
+
+    .sidebar-control-row label {
+      font-family: var(--ui-font);
+      font-size: 0.75em;
+      color: var(--text-secondary);
+      min-width: 46px;
+    }
+
+    .sidebar-control-row select {
+      flex: 1;
+      padding: 5px 8px;
+      font-size: 0.78em;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: white;
+      font-family: var(--ui-font);
+      color: var(--text);
+    }
+
+    /* Tier display */
+    .tier-display {
+      margin-bottom: 10px;
+    }
+
+    .current-tier {
+      font-family: var(--ui-font);
+      font-size: 0.85em;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .queries-remaining {
+      font-family: var(--ui-font);
+      font-size: 0.72em;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .upgrade-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .upgrade-btn {
+      display: block;
+      text-align: center;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-family: var(--ui-font);
+      font-size: 0.75em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .upgrade-btn:hover { transform: translateY(-1px); }
+
+    .upgrade-btn.pro {
+      background: #2563EB;
+      color: white;
+    }
+
+    .upgrade-btn.pro:hover { background: #1D4ED8; }
+
+    .upgrade-btn.premium {
+      background: linear-gradient(135deg, #B8860B, #DAA520);
+      color: white;
+    }
+
+    .upgrade-btn.premium:hover { background: linear-gradient(135deg, #9A7209, #C49520); }
+
+    /* Tier badge on results */
+    .tier-badge {
+      display: inline-block;
+      font-family: var(--ui-font);
+      font-size: 0.68em;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .tier-badge.badge-free {
+      background: rgba(107,107,107,0.12);
+      color: var(--text-secondary);
+    }
+
+    .tier-badge.badge-pro {
+      background: rgba(37,99,235,0.12);
+      color: #2563EB;
+    }
+
+    .tier-badge.badge-premium {
+      background: rgba(184,134,11,0.15);
+      color: var(--gold);
+    }
+
+    /* Limit reached modal */
+    .limit-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 600;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .limit-modal-overlay.active { display: flex; }
+
+    .limit-modal {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    }
+
+    .limit-modal h3 {
+      font-family: var(--ui-font);
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .limit-modal p {
+      font-family: var(--ui-font);
+      font-size: 0.88em;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .limit-modal .limit-modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .limit-modal .limit-modal-close {
+      margin-top: 10px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-family: var(--ui-font);
+      font-size: 0.82em;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .limit-modal .limit-modal-close:hover { background: var(--bg); }
+
+    /* Activation toast */
+    .activation-toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #059669;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-family: var(--ui-font);
+      font-size: 0.92em;
+      font-weight: 600;
+      z-index: 700;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
+      to { transform: translateX(-50%) translateY(0); opacity: 1; }
+    }
+
+    .api-key-row {
+      display: none;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .api-key-row.visible { display: flex; }
+
+    .api-key-input {
+      flex: 1;
+      padding: 5px 8px;
+      font-size: 0.78em;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-family: monospace;
+    }
+
+    .save-key-btn {
+      padding: 5px 10px;
+      font-size: 0.72em;
+      border: 1px solid var(--gold);
+      border-radius: 5px;
+      background: var(--gold);
+      color: white;
+      cursor: pointer;
+      font-family: var(--ui-font);
+    }
+
+    .save-key-btn:hover { background: var(--gold-light); }
+
+    .llm-note {
+      font-size: 0.68em;
+      color: var(--text-secondary);
+      font-style: italic;
+      font-family: var(--ui-font);
+      margin-bottom: 8px;
+    }
+
+    .flag-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-family: var(--ui-font);
+      font-size: 0.78em;
+      color: var(--text-secondary);
+      padding: 4px 0;
+      text-decoration: none;
+    }
+
+    .flag-toggle:hover { color: var(--text); }
+    .flag-toggle .flag-emoji { font-size: 1.3em; }
+
+    /* Hamburger */
+    .hamburger-btn {
+      display: none;
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      z-index: 300;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--card-shadow);
+    }
+
+    .hamburger-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--text);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      z-index: 150;
+    }
+
+    /* ======================== MAIN ======================== */
+    .main-content {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-inner {
+      max-width: 820px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ======================== HOME STATE ======================== */
+    .home-view {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 0;
+      min-height: 0;
+    }
+
+    .home-title {
+      font-size: 2em;
+      font-weight: 400;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .home-title span { color: var(--gold); }
+
+    .home-subtitle {
+      font-size: 1em;
+      color: var(--text-secondary);
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .home-search-box {
+      width: 100%;
+      max-width: 640px;
+      position: relative;
+    }
+
+    .home-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      box-shadow: var(--card-shadow);
+    }
+
+    .home-input-wrapper:focus-within {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184,134,11,0.1);
+    }
+
+    .question-input {
+      flex: 1;
+      padding: 16px 20px;
+      font-size: 1.05em;
+      font-family: var(--body-font);
+      border: none;
+      background: transparent;
+      color: var(--text);
+      outline: none;
+    }
+
+    .question-input::placeholder {
+      color: #b0a69c;
+      font-style: italic;
+    }
+
+    .input-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding-right: 8px;
+    }
+
+    .tradition-filter-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: background 0.15s, color 0.15s;
+      position: relative;
+    }
+
+    .tradition-filter-btn:hover { background: rgba(0,0,0,0.05); color: var(--gold); }
+
+    .tradition-filter-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .tradition-filter-btn .filter-badge {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: none;
+    }
+
+    .tradition-filter-btn .filter-badge.active { display: block; }
+
+    .submit-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: var(--gold);
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.1s;
+      flex-shrink: 0;
+    }
+
+    .submit-btn:hover:not(:disabled) { background: var(--gold-light); transform: translateY(-1px); }
+    .submit-btn:disabled { background: #BCAAA4; cursor: not-allowed; }
+
+    .submit-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .home-examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+      max-width: 640px;
+      justify-content: center;
+    }
+
+    .example-chip {
+      padding: 8px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-family: var(--ui-font);
+      font-size: 0.82em;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .example-chip:hover {
+      border-color: var(--gold-muted);
+      color: var(--gold);
+      box-shadow: var(--card-shadow);
+    }
+
+    /* ======================== TRADITION MODAL ======================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal-content {
+      background: var(--card-bg);
+      border-radius: 16px;
+      width: 90%;
+      max-width: 640px;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-header h2 {
+      font-family: var(--ui-font);
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 1.2em;
+      transition: background 0.15s;
+    }
+
+    .modal-close:hover { background: rgba(0,0,0,0.05); }
+
+    .modal-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-controls button {
+      padding: 5px 14px;
+      font-size: 0.78em;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--bg);
+      cursor: pointer;
+      font-family: var(--ui-font);
+      color: var(--text-secondary);
+      transition: background 0.15s;
+    }
+
+    .modal-controls button:hover { background: var(--border); }
+
+    .selected-count {
+      margin-left: auto;
+      font-size: 0.78em;
+      color: var(--gold);
+      font-family: var(--ui-font);
+      font-weight: 600;
+    }
+
+    .modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 24px;
+    }
+
+    .selector-family { margin-bottom: 10px; }
+
+    .selector-family-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      font-weight: 600;
+      font-size: 0.82em;
+      color: var(--text);
+      cursor: pointer;
+      font-family: var(--ui-font);
+    }
+
+    .selector-family-header input[type="checkbox"] {
+      accent-color: var(--gold);
+    }
+
+    .selector-traditions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding-left: 24px;
+      margin-top: 4px;
+    }
+
+    .selector-traditions label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      font-size: 0.75em;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--ui-font);
+      color: var(--text-secondary);
+      transition: background 0.15s;
+    }
+
+    .selector-traditions label:hover { background: rgba(0,0,0,0.04); }
+
+    .selector-traditions input[type="checkbox"] {
+      accent-color: var(--gold);
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ======================== RESULTS STATE ======================== */
+    .results-view {
+      display: none;
+      padding: 32px 0 60px;
+    }
+
+    .results-view.active { display: block; }
+
+    .results-question-header {
+      margin-bottom: 24px;
+    }
+
+    .results-question-header h2 {
+      font-size: 1.5em;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .results-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--ui-font);
+      font-size: 0.78em;
+      color: var(--text-secondary);
+    }
+
+    .results-meta .model-badge {
+      padding: 2px 8px;
+      background: rgba(184,134,11,0.1);
+      color: var(--gold);
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* Progress */
+    .results-progress {
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    .results-progress-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .progress-bar-container {
+      flex: 1;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 4px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      width: 0%;
+      transition: width 0.5s ease;
+      border-radius: 10px;
+    }
+
+    .progress-text {
+      font-size: 0.75em;
+      color: var(--text-secondary);
+      font-family: var(--ui-font);
+      white-space: nowrap;
+    }
+
+    /* Essay */
+    .essay-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 1px 4px var(--shadow);
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .essay-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .essay-title {
+      font-family: var(--ui-font);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold);
+      flex: 1;
+    }
+    .essay-copy-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+    .essay-copy-btn:hover { opacity: 1; }
+    .essay-content {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: var(--text);
+    }
+    .essay-content p {
+      margin-bottom: 1.1rem;
+      text-indent: 0;
+    }
+    .essay-content p:last-child { margin-bottom: 0; }
+    .essay-tradition-link { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+    .essay-tradition-link:hover { border-bottom-style: solid; background: rgba(184,134,11,0.06); }
+
+    /* Synthesis cards */
+    .synthesis-section {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid var(--gold);
+      position: relative;
+    }
+
+    .synthesis-section h2 {
+      font-size: 1.1em;
+      color: var(--text);
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-family: var(--ui-font);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .synthesis-section h2 .icon {
+      font-size: 0.85em;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-family: var(--ui-font);
+      flex-shrink: 0;
+    }
+
+    .section-export-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      opacity: 0;
+      transition: opacity 0.2s, background 0.15s;
+      font-size: 0.9em;
+    }
+
+    .synthesis-section:hover .section-export-btn { opacity: 1; }
+    .section-export-btn:hover { background: rgba(0,0,0,0.05); }
+
+    .section-resumen { border-left-color: var(--gold); }
+    .section-resumen .icon { background: #FFF8E1; color: var(--gold); }
+
+    .section-encuentro { border-left-color: var(--accent-green); }
+    .section-encuentro .icon { background: #E8F5E9; color: var(--accent-green); }
+
+    .section-tensiones { border-left-color: var(--accent-red); }
+    .section-tensiones .icon { background: #FFEBEE; color: var(--accent-red); }
+
+    .section-sorprendente { border-left-color: var(--accent-purple); }
+    .section-sorprendente .icon { background: #EDE7F6; color: var(--accent-purple); }
+
+    .synthesis-content {
+      font-size: 0.98em;
+      line-height: 1.8;
+    }
+
+    .synthesis-content p { margin-bottom: 10px; }
+
+    .synthesis-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .synthesis-content ul li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+    }
+
+    .synthesis-content ul li::before {
+      content: "\2022";
+      color: var(--gold);
+      font-size: 1.4em;
+      position: absolute;
+      left: 0;
+      top: 3px;
+    }
+
+    /* Export bar */
+    .export-bar {
+      display: flex;
+      gap: 6px;
+      margin: 4px 0 20px;
+    }
+
+    .export-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 12px;
+      font-size: 0.72em;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--card-bg);
+      cursor: pointer;
+      font-family: var(--ui-font);
+      color: var(--text-secondary);
+      transition: all 0.15s;
+    }
+
+    .export-btn:hover { border-color: var(--gold); color: var(--text); }
+
+    .export-icon { font-size: 1.1em; }
+
+    /* Traditions section */
+    .traditions-section {
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .traditions-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .traditions-header-left h3 {
+      font-family: var(--ui-font);
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .traditions-header-left p {
+      font-size: 0.82em;
+      color: var(--text-secondary);
+      font-family: var(--ui-font);
+    }
+
+    .traditions-controls {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-all-btn {
+      padding: 5px 12px;
+      font-size: 0.72em;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--card-bg);
+      cursor: pointer;
+      font-family: var(--ui-font);
+      color: var(--text-secondary);
+      transition: all 0.15s;
+    }
+
+    .toggle-all-btn:hover { border-color: var(--gold); color: var(--text); }
+
+    .family-group {
+      margin-bottom: 12px;
+    }
+
+    .family-header {
+      background: var(--sidebar-bg);
+      padding: 12px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9em;
+      color: var(--text);
+      font-weight: 600;
+      font-family: var(--ui-font);
+      transition: background 0.15s;
+      user-select: none;
+    }
+
+    .family-header:hover { background: var(--border); }
+
+    .family-header .arrow {
+      transition: transform 0.3s;
+      font-size: 0.7em;
+      color: var(--text-secondary);
+    }
+
+    .family-header.open .arrow { transform: rotate(180deg); }
+
+    .family-body {
+      display: none;
+      padding: 4px 0;
+    }
+
+    .family-body.open { display: block; }
+
+    .tradition-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      margin: 4px 0;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+    }
+
+    .tradition-name {
+      padding: 10px 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88em;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-family: var(--ui-font);
+      transition: background 0.15s;
+    }
+
+    .tradition-name:hover { background: rgba(184,134,11,0.04); }
+
+    .tradition-name .arrow {
+      font-size: 0.65em;
+      color: var(--text-secondary);
+      transition: transform 0.3s;
+    }
+
+    .tradition-name.open .arrow { transform: rotate(180deg); }
+    .tradition-name.open { color: var(--text); }
+
+    .tradition-response {
+      display: none;
+      padding: 0 16px 14px;
+      font-size: 0.92em;
+      color: var(--text);
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+    }
+
+    .tradition-response.open { display: block; padding-top: 12px; }
+
+    /* Follow-up input */
+    .follow-up-section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .follow-up-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      box-shadow: var(--card-shadow);
+    }
+
+    .follow-up-wrapper:focus-within {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184,134,11,0.1);
+    }
+
+    .follow-up-input {
+      flex: 1;
+      padding: 14px 18px;
+      font-size: 0.95em;
+      font-family: var(--body-font);
+      border: none;
+      background: transparent;
+      color: var(--text);
+      outline: none;
+    }
+
+    .follow-up-input::placeholder {
+      color: #b0a69c;
+      font-style: italic;
+    }
+
+    .follow-up-send {
+      width: 36px;
+      height: 36px;
+      margin-right: 6px;
+      border: none;
+      background: var(--gold);
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .follow-up-send:hover { background: var(--gold-light); }
+
+    .follow-up-send svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Citations inline */
+    a.citation {
+      background: rgba(184,134,11,0.1);
+      color: var(--gold);
+      padding: 1px 5px;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    a.citation:hover {
+      background: rgba(184,134,11,0.25);
+    }
+
+    /* Related questions */
+    .related-questions {
+      margin-top: 16px;
+      padding: 16px 20px;
+      background: var(--sidebar-bg);
+      border-radius: 10px;
+    }
+
+    .related-questions h4 {
+      font-family: var(--ui-font);
+      font-size: 0.82em;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .related-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .related-chip {
+      padding: 8px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-family: var(--ui-font);
+      font-size: 0.82em;
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .related-chip:hover {
+      border-color: var(--gold-muted);
+      color: var(--gold);
+      box-shadow: var(--card-shadow);
+    }
+
+    /* Share button */
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 12px;
+      font-size: 0.72em;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--card-bg);
+      cursor: pointer;
+      font-family: var(--ui-font);
+      color: var(--text-secondary);
+      transition: all 0.15s;
+    }
+    .share-btn:hover { border-color: var(--gold); color: var(--text); }
+
+    /* Thread / follow-up responses */
+    .thread-response {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px dashed var(--border);
+    }
+
+    .thread-response .thread-question {
+      font-family: var(--ui-font);
+      font-size: 0.88em;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    /* Typing animation helper */
+    .typing-cursor::after {
+      content: "\2588";
+      animation: blink 0.7s step-end infinite;
+      color: var(--gold);
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Error */
+    .error-msg {
+      display: none;
+      background: #FFF5F5;
+      border: 1px solid #fed7d7;
+      color: var(--accent-red);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-family: var(--ui-font);
+      font-size: 0.88em;
+    }
+
+    .error-msg.active { display: block; }
+
+    /* Loading placeholder in synthesis */
+    .synthesis-loading {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-secondary);
+      font-style: italic;
+      font-family: var(--ui-font);
+      font-size: 0.88em;
+    }
+
+    .synthesis-loading .loading-dots::after {
+      content: '';
+      animation: dots 1.5s steps(4,end) infinite;
+    }
+
+    @keyframes dots {
+      0% { content: ''; }
+      25% { content: '.'; }
+      50% { content: '..'; }
+      75% { content: '...'; }
+    }
+
+    /* Footer */
+    .main-footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+      color: var(--text-secondary);
+      font-size: 0.78em;
+      font-family: var(--ui-font);
+      line-height: 1.6;
+    }
+
+    /* ======================== RESPONSIVE ======================== */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+
+      .sidebar.mobile-open {
+        transform: translateX(0);
+      }
+
+      .sidebar-overlay.active {
+        display: block;
+      }
+
+      .hamburger-btn {
+        display: flex;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .main-inner {
+        padding: 0 16px;
+      }
+
+      .home-title {
+        font-size: 1.5em;
+        padding-top: 50px;
+      }
+
+      .synthesis-section {
+        padding: 18px 20px;
+      }
+
+      .results-question-header h2 {
+        font-size: 1.2em;
+        padding-top: 50px;
+      }
+
+      .traditions-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .modal-content {
+        width: 95%;
+        max-height: 85vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-examples {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .example-chip {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hamburger button for mobile -->
+<button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileSidebar()">
+  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<!-- Sidebar overlay for mobile -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileSidebar()"></div>
+
+<!-- LEFT SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <h1 id="sidebarTitle">Las <span>Preguntas</span> Correctas</h1>
+    <span class="tradition-count" id="tradCountBadge">184 traditions</span>
+  </div>
+
+  <button class="sidebar-new-btn" id="newQuestionBtn" onclick="resetUI()">
+    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    <span id="newQuestionLabel">Nueva pregunta</span>
+  </button>
+
+  <div class="sidebar-history">
+    <div class="sidebar-history-title" id="historyTitle">Historial</div>
+    <div id="historyList"></div>
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="tier-display">
+      <div class="current-tier" id="currentTierLabel">Free Plan</div>
+      <div class="queries-remaining" id="queriesRemainingLabel">10 of 10 queries today</div>
+      <div class="upgrade-buttons" id="upgradeButtons">
+        <a href="https://buy.stripe.com/3cI3cvgiE3iTa1Q49U4wM05" class="upgrade-btn pro" id="upgradeProBtn">Upgrade to Pro &mdash; $4.99</a>
+      </div>
+    </div>
+    <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
+      <svg id="themeIcon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span id="themeLabel">Dark mode</span>
+    </button>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+      <div class="shortcuts-wrapper">
+        <button class="shortcuts-btn" title="Keyboard shortcuts">?</button>
+        <div class="shortcuts-tooltip">
+          <div><span>Focus search</span><kbd>Ctrl+K</kbd></div>
+          <div><span>New question</span><kbd>Ctrl+N</kbd></div>
+          <div><span>Toggle sidebar</span><kbd>Ctrl+/</kbd></div>
+          <div><span>Focus search</span><kbd>/</kbd></div>
+          <div><span>Close / blur</span><kbd>Esc</kbd></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+  <div class="main-inner">
+
+    <!-- Error message (shared) -->
+    <div class="error-msg" id="errorMsg"></div>
+
+    <!-- HOME VIEW -->
+    <div class="home-view" id="homeView">
+      <h1 class="home-title" id="homeTitle">Las <span>Preguntas</span> Correctas</h1>
+      <p class="home-subtitle" id="homeSubtitle">184 traditions del mundo responden a tu pregunta</p>
+
+      <div class="home-search-box">
+        <div class="home-input-wrapper">
+          <input
+            type="text"
+            class="question-input"
+            id="questionInput"
+            placeholder="Escribe tu pregunta filosofica..."
+            maxlength="500"
+            autofocus
+          >
+          <div class="input-actions">
+            <button class="tradition-filter-btn" onclick="openTraditionModal()" title="Filter traditions">
+              <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+              <span class="filter-badge" id="filterBadge"></span>
+            </button>
+            <button class="submit-btn" id="submitBtn" onclick="askQuestion()">
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-examples" id="homeExamples">
+        <div class="example-chip" onclick="setQuestion('Cual es el sentido del sufrimiento?')">El sentido del sufrimiento</div>
+        <div class="example-chip" onclick="setQuestion('Que sucede despues de la muerte?')">Despues de la muerte</div>
+        <div class="example-chip" onclick="setQuestion('Es posible conocer la verdad absoluta?')">La verdad absoluta</div>
+        <div class="example-chip" onclick="setQuestion('Que es la justicia?')">La justicia</div>
+      </div>
+    </div>
+
+    <!-- RESULTS VIEW -->
+    <section class="results-view" id="results">
+      <div class="results-question-header">
+        <h2 id="resultsQuestionText"></h2>
+        <div class="results-meta">
+          <span class="model-badge" id="resultsModelBadge"></span>
+          <span id="resultsProgressText"></span>
+        </div>
+      </div>
+
+      <div class="results-progress" id="resultsProgress">
+        <div class="results-progress-inner">
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="resultsProgressBar" style="width:0%"></div>
+          </div>
+          <span class="progress-text" id="resultsProgressPct">0%</span>
+        </div>
+      </div>
+
+      <div id="essayContainer"></div>
+      <div id="synthesisContainer"></div>
+
+      <div class="export-bar" id="exportSynthesisBar">
+        <button class="export-btn" onclick="exportSynthesis('copy')" title="Copy synthesis">&#128203; Copy</button>
+        <button class="export-btn" onclick="shareWithLink()" title="Share link">&#128279; Share</button>
+      </div>
+
+      <div id="relatedQuestionsContainer"></div>
+
+      <div id="threadContainer"></div>
+
+      <div class="traditions-section">
+        <div class="traditions-header">
+          <div class="traditions-header-left">
+            <h3 id="traditionsTitle">Respuestas Individuales</h3>
+            <p id="traditionsSubtitle">Explora la perspectiva de cada tradicion</p>
+          </div>
+          <div class="traditions-controls">
+            <button class="toggle-all-btn" onclick="toggleAllToggle()" id="toggleAllBtn">Expand all</button>
+            <button class="export-btn" onclick="exportAll('copy')" title="Copy everything">&#128203; Copy all</button>
+          </div>
+        </div>
+
+        <div id="traditionsContainer"></div>
+      </div>
+
+      <!-- Follow-up -->
+      <div class="follow-up-section">
+        <div class="follow-up-wrapper">
+          <input
+            type="text"
+            class="follow-up-input"
+            id="followUpInput"
+            placeholder="Ask a follow-up about this topic..."
+            maxlength="500"
+          >
+          <button class="follow-up-send" onclick="askFollowUp()">
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div id="footerContent">
+        Preguntas Correctas &mdash; Consulta filosofica intertradicional<br>
+        Respuestas generadas por IA. Pueden contener imprecisiones. Verifica con fuentes primarias.
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- LIMIT REACHED MODAL -->
+<div class="limit-modal-overlay" id="limitModal">
+  <div class="limit-modal">
+    <h3 id="limitModalTitle">Query limit reached</h3>
+    <p id="limitModalMessage">You've used all your free queries today. Upgrade to continue exploring.</p>
+    <div class="limit-modal-actions">
+      <a href="https://buy.stripe.com/3cI3cvgiE3iTa1Q49U4wM05" class="upgrade-btn pro">Upgrade to Pro &mdash; $4.99 (100 queries)</a>
+    </div>
+    <button class="limit-modal-close" onclick="closeLimitModal()">Maybe later</button>
+  </div>
+</div>
+
+<!-- TRADITION SELECTOR MODAL -->
+<div class="modal-overlay" id="traditionModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalTitle">Select traditions</h2>
+      <button class="modal-close" onclick="closeTraditionModal()">&times;</button>
+    </div>
+    <div class="modal-controls">
+      <button onclick="selectAll()" id="selectAllBtn">Select all</button>
+      <button onclick="selectNone()" id="selectNoneBtn">Deselect all</button>
+      <span class="selected-count" id="selectedCount">184 selected</span>
+    </div>
+    <div class="modal-body">
+      <div id="selectorFamilies"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ==========================================
+  // English only
+  const urlParams = new URLSearchParams(window.location.search);
+  const LANG = "en";
+
+  const T = {
+    title: 'The Right <span>Questions</span>',
+    sidebarTitle: 'The Right <span>Questions</span>',
+    subtitle: "184 world traditions answer your question",
+    tradCount: "184 traditions",
+    placeholder: "Type your philosophical question...",
+    askBtn: "Ask",
+    example1: "The meaning of suffering", q1: "What is the meaning of suffering?",
+    example2: "After death", q2: "What happens after death?",
+    example3: "Absolute truth", q3: "Is it possible to know the absolute truth?",
+    example4: "Justice", q4: "What is justice?",
+    selectAll: "Select all", selectNone: "Deselect all",
+    selected: "selected", selectedSg: "selected",
+    allTrad: "All traditions", noTrad: "No traditions selected",
+    tradSg: "tradition", tradPl: "traditions",
+    loading: "Querying traditions...", loadingSub: "This may take a moment",
+    genSynthesis: "Generating synthesis...",
+    respTitle: "Individual Responses", respExplore: "Explore each tradition's perspective",
+    expandAll: "Expand all", collapseAll: "Collapse all",
+    newQuestion: "New question",
+    footer1: "The Right Questions &mdash; Cross-tradition philosophical inquiry",
+    footer2: "AI-generated responses. May contain inaccuracies. Verify with primary sources.",
+    noSynthesis: "Synthesis could not be generated.",
+    consulting: "Querying", of: "of",
+    minChars: "Please type a question of at least 5 characters.",
+    selectOne: "Select at least one tradition.",
+    via: "via",
+    history: "History",
+    modalTitle: "Select traditions",
+    followUp: "Ask a follow-up about this topic...",
+    noHistory: "No history yet",
+  };
+
+  document.title = "The Right Questions - 184 Traditions Respond";
+  document.getElementById("sidebarTitle").innerHTML = T.sidebarTitle;
+  document.getElementById("tradCountBadge").textContent = T.tradCount;
+  document.getElementById("homeTitle").innerHTML = T.title;
+  document.getElementById("homeSubtitle").textContent = T.subtitle;
+  document.getElementById("newQuestionLabel").textContent = T.newQuestion;
+  // Flag removed - English only
+  try {
+    const fl = document.getElementById("flagLink");
+    if (fl) { fl.href = T.flagHref; fl.title = T.flagTitle; }
+    const fe = document.querySelector(".flag-emoji");
+    if (fe) fe.textContent = T.flag;
+    const ft = document.getElementById("flagText");
+    if (ft) ft.textContent = T.flagText;
+  } catch(e) {}
+  document.getElementById("questionInput").placeholder = T.placeholder;
+  document.getElementById("followUpInput").placeholder = T.followUp;
+  // Examples
+  const exampleChips = document.querySelectorAll(".example-chip");
+  if (exampleChips[0]) { exampleChips[0].textContent = T.example1; exampleChips[0].onclick = () => setQuestion(T.q1); }
+  if (exampleChips[1]) { exampleChips[1].textContent = T.example2; exampleChips[1].onclick = () => setQuestion(T.q2); }
+  if (exampleChips[2]) { exampleChips[2].textContent = T.example3; exampleChips[2].onclick = () => setQuestion(T.q3); }
+  if (exampleChips[3]) { exampleChips[3].textContent = T.example4; exampleChips[3].onclick = () => setQuestion(T.q4); }
+  // Modal
+  document.getElementById("modalTitle").textContent = T.modalTitle;
+  document.getElementById("selectAllBtn").textContent = T.selectAll;
+  document.getElementById("selectNoneBtn").textContent = T.selectNone;
+  // Tier labels (no LLM selector anymore)
+  // History
+  document.getElementById("historyTitle").textContent = T.history;
+  // Results
+  document.getElementById("traditionsTitle").textContent = T.respTitle;
+  document.getElementById("traditionsSubtitle").textContent = T.respExplore;
+  document.getElementById("toggleAllBtn").textContent = "Expand all";
+  // Footer
+  document.getElementById("footerContent").innerHTML = T.footer1 + "<br>" + T.footer2;
+  // Export labels
+  // Export labels already in English
+
+  // ==========================================
+  // Family display names
+  // ==========================================
+  const FAMILY_NAMES = {
+    abrahamic: "Abrahamic Traditions",
+    dharmic: "Dharmic Traditions",
+    east_asian: "East Asian Traditions",
+    indigenous: "Indigenous & Ancestral Traditions",
+    western_philosophy: "Western Philosophy",
+    modern_spiritual: "Modern Spiritual Traditions",
+    secular: "Secular & Humanist Perspectives",
+    african_diaspora: "African Diaspora Traditions",
+    esoteric: "Esoteric Traditions",
+    contemporary: "Contemporary Currents"
+  };
+
+  // Map tradition name -> family for grouping
+  const TRADITION_FAMILIES = {};
+  const FAMILY_TRADITIONS = {
+    abrahamic: [
+      "Catholicism", "Eastern Orthodoxy", "Lutheranism", "Calvinism",
+      "Anglicanism", "Methodism", "Baptist", "Pentecostalism",
+      "Sunni Islam", "Shia Islam", "Sufism", "Ahmadiyya",
+      "Orthodox Judaism", "Conservative Judaism", "Reform Judaism",
+      "Jewish Kabbalah", "Druze", "Baha'i Faith", "Mandaeism", "Samaritanism",
+      "Rastafari"
+    ],
+    dharmic: [
+      "Advaita Vedanta", "Vishishtadvaita", "Dvaita", "Gaudiya Vaishnavism",
+      "Shaivism", "Shaktism", "Smartism",
+      "Theravada Buddhism", "Mahayana Buddhism", "Vajrayana Buddhism",
+      "Zen Buddhism", "Pure Land Buddhism", "Nichiren Buddhism", "Tibetan Buddhism",
+      "Digambara Jainism", "Shvetambara Jainism", "Sikhism", "Ayyavazhi",
+      "Yoga (Patanjali)", "Samkhya", "Nyaya", "Vaisheshika", "Mimamsa"
+    ],
+    east_asian: [
+      "Confucianism", "Neo-Confucianism", "Taoism", "Chinese Folk Religion",
+      "Shinto", "Korean Shamanism", "Tenrikyo", "Seicho-no-Ie",
+      "Won Buddhism", "Falun Gong", "Caodaism", "Cheondoism",
+      "Yiguandao", "Omoto", "I-Kuan Tao"
+    ],
+    indigenous: [
+      "Navajo Tradition", "Lakota Tradition", "Maya Tradition",
+      "Aztec Tradition", "Inca Tradition", "Yoruba Tradition",
+      "Akan Tradition", "Zulu Tradition", "Maasai Tradition",
+      "San Bushmen", "Aboriginal Australian", "Maori Tradition",
+      "Hawaiian Tradition", "Inuit Tradition", "Sami Tradition",
+      "Celtic Tradition", "Norse Tradition", "Slavic Tradition",
+      "Ancient Greek Religion", "Ancient Egyptian Religion",
+      "Mesopotamian Religion", "Zoroastrianism", "Tengrism", "Bon", "Muism"
+    ],
+    western_philosophy: [
+      "Pre-Socratics", "Platonism", "Aristotelianism", "Stoicism",
+      "Epicureanism", "Skepticism", "Neoplatonism", "Scholasticism",
+      "Rationalism (Descartes)", "Empiricism (Hume/Locke)", "Kantianism",
+      "German Idealism (Hegel)", "Utilitarianism", "Marxism", "Pragmatism",
+      "Phenomenology", "Existentialism (Sartre)", "Existentialism (Camus)",
+      "Analytic Philosophy", "Logical Positivism", "Ordinary Language Philosophy",
+      "Process Philosophy", "Personalism", "Critical Theory",
+      "Postmodernism", "Deconstructionism", "Feminist Philosophy",
+      "Philosophy of Mind", "Transhumanism", "Effective Altruism"
+    ],
+    modern_spiritual: [
+      "Theosophy", "Anthroposophy", "Spiritism (Kardecism)",
+      "New Thought", "Christian Science", "Unitarian Universalism",
+      "Quakerism", "Swedenborgianism", "Scientology", "Eckankar",
+      "Wicca", "Thelema", "Chaos Magick", "Neo-Paganism", "Druidry",
+      "Hare Krishna (modern)", "Transcendental Meditation",
+      "Osho/Rajneesh", "Gurdjieff/Fourth Way", "A Course in Miracles"
+    ],
+    secular: [
+      "Secular Humanism", "Ethical Culture", "Atheism", "Agnosticism",
+      "Deism", "Pantheism", "Panentheism", "Naturalism",
+      "Scientific Materialism", "Absurdism", "Nihilism",
+      "Objectivism (Rand)", "Sentientism", "Deep Ecology",
+      "Cosmicism (Lovecraft)"
+    ],
+    african_diaspora: [
+      "Vodou", "Santeria/Lukumi", "Candomble", "Umbanda",
+      "Hoodoo", "Palo", "Obeah", "Kumina", "Myal", "Spiritual Baptist"
+    ],
+    esoteric: [
+      "Hermeticism", "Gnosticism", "Rosicrucianism", "Freemasonry",
+      "Kabbalah (non-Jewish)", "Sufism (universal)", "Spiritual Alchemy",
+      "Hindu Tantra", "Buddhist Tantra", "Dzogchen",
+      "Kashmir Shaivism", "Neo-Advaita", "Perennial Philosophy",
+      "Integral Theory (Wilber)", "Metamodernism"
+    ],
+    contemporary: [
+      "Effective Altruism (contemporary)", "Longtermism", "Digital Consciousness",
+      "Simulation Theory", "Panpsychism", "Integrated Information Theory",
+      "Buddhist Modernism", "Progressive Christianity", "Islamic Modernism",
+      "Hindu Nationalism"
+    ]
+  };
+
+  // Build reverse map
+  for (const [family, traditions] of Object.entries(FAMILY_TRADITIONS)) {
+    for (const t of traditions) {
+      TRADITION_FAMILIES[t.toLowerCase()] = family;
+    }
+  }
+
+  // Tradition names are already in English; return as-is
+  function tradName(name) {
+    return name;
+  }
+
+  // ==========================================
+  // TRADITION SELECTOR (modal-based)
+  // ==========================================
+  let selectedTraditions = new Set();
+
+  function buildSelector() {
+    const container = document.getElementById("selectorFamilies");
+    let html = "";
+    for (const [familyKey, familyName] of Object.entries(FAMILY_NAMES)) {
+      const traditions = FAMILY_TRADITIONS[familyKey] || [];
+      if (!traditions.length) continue;
+      html += `<div class="selector-family">
+        <label class="selector-family-header">
+          <input type="checkbox" checked onchange="toggleFamily_select('${familyKey}', this.checked)">
+          ${familyName} (${traditions.length})
+        </label>
+        <div class="selector-traditions">
+          ${traditions.map(t => `<label><input type="checkbox" checked value="${t}" onchange="updateSelectedCount()">${tradName(t)}</label>`).join("")}
+        </div>
+      </div>`;
+    }
+    container.innerHTML = html;
+    selectAll();
+  }
+
+  function toggleSelector() {
+    // Legacy compat - now opens modal
+    openTraditionModal();
+  }
+
+  function openTraditionModal() {
+    document.getElementById("traditionModal").classList.add("active");
+  }
+
+  function closeTraditionModal() {
+    document.getElementById("traditionModal").classList.remove("active");
+    updateFilterBadge();
+  }
+
+  function updateFilterBadge() {
+    const badge = document.getElementById("filterBadge");
+    if (selectedTraditions.size < 184) {
+      badge.classList.add("active");
+    } else {
+      badge.classList.remove("active");
+    }
+  }
+
+  function selectAll() {
+    document.querySelectorAll("#selectorFamilies input[type='checkbox']").forEach(cb => cb.checked = true);
+    updateSelectedCount();
+  }
+
+  function selectNone() {
+    document.querySelectorAll("#selectorFamilies input[type='checkbox']").forEach(cb => cb.checked = false);
+    updateSelectedCount();
+  }
+
+  function toggleFamily_select(familyKey, checked) {
+    const traditions = FAMILY_TRADITIONS[familyKey] || [];
+    document.querySelectorAll("#selectorFamilies input[type='checkbox']").forEach(cb => {
+      if (cb.value && traditions.includes(cb.value)) {
+        cb.checked = checked;
+      }
+    });
+    updateSelectedCount();
+  }
+
+  function updateSelectedCount() {
+    const checkboxes = document.querySelectorAll("#selectorFamilies .selector-traditions input[type='checkbox']");
+    selectedTraditions = new Set();
+    checkboxes.forEach(cb => {
+      if (cb.checked) selectedTraditions.add(cb.value);
+    });
+    const count = selectedTraditions.size;
+    document.getElementById("selectedCount").textContent = `${count} ${count !== 1 ? T.selected : T.selectedSg}`;
+    // Update family checkboxes
+    for (const [familyKey, traditions] of Object.entries(FAMILY_TRADITIONS)) {
+      const familyCbs = [...checkboxes].filter(cb => traditions.includes(cb.value));
+      const allChecked = familyCbs.every(cb => cb.checked);
+      const familyHeader = document.querySelector(`input[onchange*="'${familyKey}'"]`);
+      if (familyHeader) familyHeader.checked = allChecked;
+    }
+    updateFilterBadge();
+  }
+
+  function getSelectedTraditions() {
+    return [...selectedTraditions];
+  }
+
+  // Build selector on load
+  buildSelector();
+
+  // ==========================================
+  // USER ID & TIER MANAGEMENT
+  // ==========================================
+  function getUserId() {
+    let uid = localStorage.getItem("pq_user_id");
+    if (!uid) {
+      uid = crypto.randomUUID ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+        const r = Math.random() * 16 | 0;
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+      });
+      localStorage.setItem("pq_user_id", uid);
+    }
+    return uid;
+  }
+
+  const USER_ID = getUserId();
+
+  // Current usage state
+  let currentUsage = {
+    tier: "free",
+    queries_today: 0,
+    free_max: 5,
+    pro_queries_remaining: 0,
+    premium_queries_remaining: 0,
+  };
+
+  // Determine the best available tier for the user
+  function getActiveTier() {
+    if (currentUsage.pro_queries_remaining > 0) return "pro";
+    return "free";
+  }
+
+  // Update sidebar tier display
+  function updateTierDisplay() {
+    const tier = getActiveTier();
+    const tierLabel = document.getElementById("currentTierLabel");
+    const queriesLabel = document.getElementById("queriesRemainingLabel");
+    const upgradeButtons = document.getElementById("upgradeButtons");
+
+    if (tier === "pro") {
+      tierLabel.textContent = "Pro Plan";
+      queriesLabel.textContent = `${currentUsage.pro_queries_remaining} Pro queries remaining`;
+      if (upgradeButtons) upgradeButtons.style.display = "none";
+    } else {
+      tierLabel.textContent = "Free Plan";
+      const used = currentUsage.queries_today;
+      const max = currentUsage.free_max;
+      queriesLabel.textContent = `${max - used} of ${max} free queries today`;
+      if (upgradeButtons) upgradeButtons.style.display = "";
+    }
+  }
+
+  // Fetch usage from server
+  async function fetchUsage() {
+    try {
+      const resp = await fetch(`/api/usage?userId=${USER_ID}`);
+      if (resp.ok) {
+        const data = await resp.json();
+        currentUsage = { ...currentUsage, ...data };
+        updateTierDisplay();
+      }
+    } catch (e) {
+      console.error("Failed to fetch usage:", e);
+    }
+  }
+
+  // Legacy activate (removed)
+  async function activateTier(tier) { }
+
+  // Check URL for Stripe payment redirect
+  function checkTierActivation() {
+    const tier = urlParams.get("tier");
+    if (tier === "pro") {
+      activatePro();
+      const cleanUrl = new URL(window.location.href);
+      cleanUrl.searchParams.delete("tier");
+      cleanUrl.searchParams.delete("session_id");
+      window.history.replaceState({}, "", cleanUrl.toString());
+    }
+  }
+
+  async function activatePro() {
+    try {
+      const resp = await fetch("/api/activate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tier: "pro", userId: USER_ID }),
+      });
+      const data = await resp.json();
+      if (data.success) {
+        const toast = document.createElement("div");
+        toast.className = "activation-toast";
+        toast.textContent = "Pro activated! You have " + data.remaining + " queries.";
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+        await fetchUsage();
+      }
+    } catch (e) {
+      console.error("Activation error:", e);
+    }
+  }
+
+  // Limit modal
+  function showLimitModal(tier) {
+    const modal = document.getElementById("limitModal");
+    const title = document.getElementById("limitModalTitle");
+    const msg = document.getElementById("limitModalMessage");
+    if (tier === "pro") {
+      title.textContent = "Pro queries exhausted";
+      msg.textContent = "You've used all your Pro queries. Purchase another Pro pack to continue.";
+    } else {
+      title.textContent = "Daily free limit reached";
+      msg.textContent = "You've used all 5 free queries for today. Upgrade to Pro for 100 queries.";
+    }
+    modal.classList.add("active");
+  }
+
+  function closeLimitModal() {
+    document.getElementById("limitModal").classList.remove("active");
+  }
+
+  // Get tier badge HTML
+  function getTierBadgeHTML(tier) {
+    if (tier === "pro") return '<span class="tier-badge badge-pro">Pro</span>';
+    if (tier === "free_degraded") return '<span class="tier-badge badge-free">Free</span>';
+    // Normal free (within limit) - show positive counter
+    const used = currentUsage.queries_today || 0;
+    const max = currentUsage.free_max || 10;
+    const remaining = max - used;
+    return `<span class="tier-badge badge-free" style="background:var(--card-bg);color:var(--text-secondary);font-size:0.75em;">✨ High quality · ${remaining} of ${max} free today</span>`;
+  }
+
+  // Init: fetch usage and check activation
+  fetchUsage();
+  checkTierActivation();
+
+  // ==========================================
+  // HISTORY MANAGEMENT
+  // ==========================================
+  function loadHistory() {
+    const saved = localStorage.getItem("pq_history");
+    return saved ? JSON.parse(saved) : [];
+  }
+
+  function saveHistory(history) {
+    localStorage.setItem("pq_history", JSON.stringify(history));
+  }
+
+  function addToHistory(question) {
+    let history = loadHistory();
+    // Remove duplicate if exists
+    history = history.filter(h => h.question !== question);
+    // Add to front
+    history.unshift({ question, timestamp: Date.now() });
+    // Keep max 30
+    if (history.length > 30) history = history.slice(0, 30);
+    saveHistory(history);
+    renderHistory();
+  }
+
+  function removeFromHistory(index) {
+    let history = loadHistory();
+    history.splice(index, 1);
+    saveHistory(history);
+    renderHistory();
+  }
+
+  function renderHistory() {
+    const container = document.getElementById("historyList");
+    const history = loadHistory();
+    if (history.length === 0) {
+      container.innerHTML = `<div style="padding:8px 12px;font-family:var(--ui-font);font-size:0.78em;color:var(--text-secondary);font-style:italic;">${T.noHistory}</div>`;
+      return;
+    }
+    container.innerHTML = history.map((h, i) => `
+      <div class="history-item" onclick="reAskFromHistory(${i})">
+        <svg class="history-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="history-text">${escapeHtml(h.question)}</span>
+        <button class="history-delete" onclick="event.stopPropagation();removeFromHistory(${i})" title="Delete">&times;</button>
+      </div>
+    `).join("");
+  }
+
+  function reAskFromHistory(index) {
+    const history = loadHistory();
+    if (!history[index]) return;
+    resetUI();
+    document.getElementById("questionInput").value = history[index].question;
+    // Close mobile sidebar if open
+    closeMobileSidebar();
+    askQuestion();
+  }
+
+  renderHistory();
+
+  // ==========================================
+  // MOBILE SIDEBAR
+  // ==========================================
+  function toggleMobileSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+    sidebar.classList.toggle("mobile-open");
+    overlay.classList.toggle("active");
+  }
+
+  function closeMobileSidebar() {
+    document.getElementById("sidebar").classList.remove("mobile-open");
+    document.getElementById("sidebarOverlay").classList.remove("active");
+  }
+
+  // ==========================================
+  // CORE UI FUNCTIONS
+  // ==========================================
+  function setQuestion(q) {
+    document.getElementById("questionInput").value = q;
+    document.getElementById("questionInput").focus();
+  }
+
+  function showError(msg) {
+    const el = document.getElementById("errorMsg");
+    el.textContent = msg;
+    el.classList.add("active");
+    setTimeout(() => el.classList.remove("active"), 6000);
+  }
+
+  function resetUI() {
+    document.getElementById("results").classList.remove("active");
+    document.getElementById("homeView").style.display = "";
+    document.getElementById("questionInput").value = "";
+    document.getElementById("questionInput").focus();
+    document.getElementById("submitBtn").disabled = false;
+    document.getElementById("relatedQuestionsContainer").innerHTML = "";
+    document.getElementById("threadContainer").innerHTML = "";
+    _conversationHistory = [];
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function updateProgress(processed, total, phase) {
+    const pct = Math.round((processed / total) * 100);
+    if (phase === "synthesis") {
+      document.getElementById("resultsProgressBar").style.width = "100%";
+      document.getElementById("resultsProgressPct").textContent = T.genSynthesis;
+    } else {
+      document.getElementById("resultsProgressBar").style.width = pct + "%";
+      document.getElementById("resultsProgressPct").textContent = `${processed}/${total}`;
+    }
+  }
+
+  // Classify a tradition response into a family
+  function classifyTradition(name) {
+    const lower = name.toLowerCase();
+    if (TRADITION_FAMILIES[lower]) return TRADITION_FAMILIES[lower];
+    for (const [key, family] of Object.entries(TRADITION_FAMILIES)) {
+      if (lower.includes(key) || key.includes(lower)) return family;
+    }
+    return "contemporary";
+  }
+
+  // Parse synthesis text into sections
+  function parseSynthesis(text) {
+    const sections = {
+      resumen: "",
+      encuentro: "",
+      tensiones: "",
+      sorprendente: ""
+    };
+
+    let normalized = text
+      .replace(/\*{1,2}/g, "")
+      .replace(/#{1,3}\s*/g, "");
+
+    const resumenMatch = normalized.match(/(?:RESUMEN|SUMMARY)[:\s]*([\s\S]*?)(?=PUNTOS DE ENCUENTRO|POINTS OF CONVERGENCE|TENSIONES|IRRECONCILABLE|MOST SURPRISING|LO M[AÁ]S SORPRENDENTE|$)/i);
+    const encuentroMatch = normalized.match(/(?:PUNTOS DE ENCUENTRO|POINTS OF CONVERGENCE)[:\s]*([\s\S]*?)(?=TENSIONES|IRRECONCILABLE|MOST SURPRISING|LO M[AÁ]S SORPRENDENTE|$)/i);
+    const tensionesMatch = normalized.match(/(?:TENSIONES IRRESOLUBLES|IRRECONCILABLE TENSIONS)[:\s]*([\s\S]*?)(?=MOST SURPRISING|LO M[AÁ]S SORPRENDENTE|$)/i);
+    const sorprendenteMatch = normalized.match(/(?:LO M[AÁ]S SORPRENDENTE|MOST SURPRISING)[:\s]*([\s\S]*?)$/i);
+
+    if (resumenMatch) sections.resumen = resumenMatch[1].trim();
+    if (encuentroMatch) sections.encuentro = encuentroMatch[1].trim();
+    if (tensionesMatch) sections.tensiones = tensionesMatch[1].trim();
+    if (sorprendenteMatch) sections.sorprendente = sorprendenteMatch[1].trim();
+
+    if (!sections.resumen && !sections.encuentro) {
+      sections.resumen = normalized;
+    }
+
+    for (const key of Object.keys(sections)) {
+      sections[key] = sections[key]
+        .replace(/^(SUMMARY|RESUMEN|POINTS OF CONVERGENCE|PUNTOS DE ENCUENTRO|IRRECONCILABLE TENSIONS|TENSIONES IRRESOLUBLES|MOST SURPRISING|LO M[AÁ]S SORPRENDENTE)[:\s]*/gi, "")
+        .trim();
+    }
+
+    return sections;
+  }
+
+  function mdToHtml(text) {
+    if (!text) return "";
+    return text
+      .replace(/#{1,3}\s+/g, "")
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*(.+?)\*/g, "<em>$1</em>")
+      .replace(/`(.+?)`/g, "<code>$1</code>")
+      .replace(/\*{2,}/g, "")
+      .replace(/^\s*\*\s*$/gm, "")
+      .replace(/\[Source:\s*([^\]]+)\]/g, '<span style="display:block;margin-top:6px;font-size:0.8em;color:#888;font-style:italic;font-family:-apple-system,sans-serif;">📖 $1</span>')
+      .trim();
+  }
+
+  function buildSynthesisHTML(sections, isFreeTier) {
+    const disclaimer = "";
+    const sectionDefs = [
+      { key: "resumen", cls: "section-resumen", icon: "&#9733;", label: "Summary" },
+      { key: "encuentro", cls: "section-encuentro", icon: "&#8728;", label: "Points of Convergence" },
+      { key: "tensiones", cls: "section-tensiones", icon: "&#10007;", label: "Irreconcilable Tensions" },
+      { key: "sorprendente", cls: "section-sorprendente", icon: "!", label: "Most Surprising" },
+    ];
+    let html = disclaimer;
+    for (const s of sectionDefs) {
+      if (sections[s.key]) {
+        html += `<div class="synthesis-section ${s.cls}">
+          <h2><span class="icon">${s.icon}</span> ${s.label}</h2>
+          <button class="section-export-btn" onclick="copySectionText(this.parentElement)" title="Copy">&#128203;</button>
+          <div class="synthesis-content">${formatSectionContent(sections[s.key])}</div>
+        </div>`;
+      }
+    }
+    return html || `<p style="color:var(--text-secondary);font-style:italic;">${"Synthesis not available"}</p>`;
+  }
+
+  function copySectionText(sectionEl) {
+    const content = sectionEl.querySelector(".synthesis-content");
+    if (content) copyToClipboard(content.innerText);
+  }
+
+  function formatSectionContent(text) {
+    if (!text) return "<p><em>No disponible</em></p>";
+    const lines = text.split("\n").filter(l => l.trim());
+    let html = "";
+    let inList = false;
+    for (const line of lines) {
+      let trimmed = mdToHtml(line.trim());
+      if (trimmed.match(/^[\d]+[\.\)]\s/) || trimmed.match(/^[-]\s/)) {
+        if (!inList) { html += "<ul>"; inList = true; }
+        html += `<li>${trimmed.replace(/^[\d]+[\.\)]\s*/, "").replace(/^[-]\s*/, "")}</li>`;
+      } else {
+        if (inList) { html += "</ul>"; inList = false; }
+        if (trimmed.length > 0) html += `<p>${trimmed}</p>`;
+      }
+    }
+    if (inList) html += "</ul>";
+    return html;
+  }
+
+  function renderResults(data) {
+    const count = data.traditions ? data.traditions.length : 0;
+    document.getElementById("traditionsTitle").textContent =
+      count === 1 ? "1 " + T.respTitle : `${count} ${T.respTitle}`;
+
+    const sections = parseSynthesis(data.synthesis);
+    const isFreeTier = (data.tier_used || "free") === "free";
+    document.getElementById("synthesisContainer").innerHTML = buildSynthesisHTML(sections, isFreeTier);
+
+    const grouped = {};
+    for (const familyKey of Object.keys(FAMILY_NAMES)) {
+      grouped[familyKey] = [];
+    }
+
+    for (const t of data.traditions) {
+      const family = classifyTradition(t.tradition);
+      if (!grouped[family]) grouped[family] = [];
+      grouped[family].push(t);
+    }
+
+    let traditionsHTML = "";
+    for (const [familyKey, familyName] of Object.entries(FAMILY_NAMES)) {
+      const traditions = grouped[familyKey];
+      if (!traditions || traditions.length === 0) continue;
+
+      traditionsHTML += `
+        <div class="family-group">
+          <div class="family-header" onclick="toggleFamily(this)">
+            <span>${familyName} (${traditions.length})</span>
+            <span class="arrow">&#9660;</span>
+          </div>
+          <div class="family-body">
+            ${traditions.map(t => `
+              <div class="tradition-card">
+                <div class="tradition-name" onclick="toggleTradition(this)">
+                  <span>${escapeHtml(tradName(t.tradition))}</span>
+                  <span class="arrow">&#9660;</span>
+                </div>
+                <div class="tradition-response">
+                  ${mdToHtml(escapeHtml(t.response))}
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    document.getElementById("traditionsContainer").innerHTML = traditionsHTML;
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function toggleFamily(el) {
+    el.classList.toggle("open");
+    el.nextElementSibling.classList.toggle("open");
+  }
+
+  function toggleTradition(el) {
+    el.classList.toggle("open");
+    el.nextElementSibling.classList.toggle("open");
+  }
+
+  let _allExpanded = false;
+  function toggleAllToggle() {
+    _allExpanded = !_allExpanded;
+    toggleAllTraditions(_allExpanded);
+    document.getElementById("toggleAllBtn").textContent = _allExpanded ? "Collapse all" : "Expand all";
+  }
+
+  function toggleAllTraditions(expand) {
+    document.querySelectorAll(".family-header").forEach(h => {
+      if (expand) { h.classList.add("open"); h.nextElementSibling.classList.add("open"); }
+      else { h.classList.remove("open"); h.nextElementSibling.classList.remove("open"); }
+    });
+    document.querySelectorAll(".tradition-name").forEach(n => {
+      if (expand) { n.classList.add("open"); n.nextElementSibling.classList.add("open"); }
+      else { n.classList.remove("open"); n.nextElementSibling.classList.remove("open"); }
+    });
+  }
+
+  // Render a single tradition card into the live results
+  function appendTraditionLive(tradition) {
+    const container = document.getElementById("traditionsContainer");
+    const family = classifyTradition(tradition.tradition);
+    let familyDiv = document.getElementById("live-family-" + family);
+    if (!familyDiv) {
+      const familyName = FAMILY_NAMES[family] || family;
+      familyDiv = document.createElement("div");
+      familyDiv.className = "family-group";
+      familyDiv.id = "live-family-" + family;
+      familyDiv.innerHTML = `
+        <div class="family-header open" onclick="toggleFamily(this)">
+          <span>${familyName}</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="family-body open"></div>`;
+      container.appendChild(familyDiv);
+    }
+    const body = familyDiv.querySelector(".family-body");
+    const card = document.createElement("div");
+    card.className = "tradition-card";
+    const responseText = mdToHtml(escapeHtml(tradition.response));
+    card.innerHTML = `
+      <div class="tradition-name" onclick="toggleTradition(this)">
+        <span>${escapeHtml(tradName(tradition.tradition))}</span>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="tradition-response">${responseText}</div>`;
+    body.appendChild(card);
+    const count = body.querySelectorAll(".tradition-card").length;
+    familyDiv.querySelector(".family-header span").textContent = `${FAMILY_NAMES[family] || family} (${count})`;
+  }
+
+  // ==========================================
+  // ASK QUESTION (streaming SSE)
+  // ==========================================
+  async function askQuestion() {
+    const input = document.getElementById("questionInput");
+    const question = input.value.trim();
+    _lastQuestion = question;
+
+    if (!question || question.length < 5) {
+      showError(T.minChars);
+      return;
+    }
+
+    const selected = getSelectedTraditions();
+    if (selected.length === 0) {
+      showError(T.selectOne);
+      return;
+    }
+
+    const tier = getActiveTier();
+
+    // Save to history
+    addToHistory(question);
+
+    // Switch to results view
+    document.getElementById("submitBtn").disabled = true;
+    document.getElementById("homeView").style.display = "none";
+
+    // Set question header
+    document.getElementById("resultsQuestionText").textContent = question;
+    const tierNames = { free: "Free", pro: "Pro", premium: "Premium" };
+    document.getElementById("resultsModelBadge").innerHTML = getTierBadgeHTML(tier);
+
+    // Clear essay and show skeleton loading cards
+    document.getElementById("essayContainer").innerHTML = "";
+    document.getElementById("synthesisContainer").innerHTML = buildSkeletonCards();
+    document.getElementById("traditionsContainer").innerHTML = buildSkeletonTraditions();
+    document.getElementById("traditionsTitle").textContent = `${T.respTitle} (0 ${T.of} ${selected.length})`;
+    document.getElementById("traditionsSubtitle").textContent = T.respExplore;
+    // Show progress
+    document.getElementById("resultsProgress").style.display = "block";
+    document.getElementById("resultsProgressBar").style.width = "5%";
+    document.getElementById("resultsProgressText").textContent = `${T.consulting}...`;
+    document.getElementById("resultsProgressPct").textContent = `${T.consulting}...`;
+    document.getElementById("results").classList.add("active");
+
+    let receivedCount = 0;
+
+    try {
+      const response = await fetch("/api/ask-stream", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-User-ID": USER_ID },
+        body: JSON.stringify({ question, traditions: selected, tier: tier, lang: LANG }),
+      });
+
+      if (response.status === 429) {
+        const limitData = await response.json();
+        showLimitModal(limitData.tier || tier);
+        document.getElementById("homeView").style.display = "";
+        document.getElementById("results").classList.remove("active");
+        document.getElementById("submitBtn").disabled = false;
+        return;
+      }
+
+      if (!response.ok) {
+        const errText = await response.text();
+        throw new Error(`Error ${response.status}: ${errText}`);
+      }
+
+      const contentType = response.headers.get("content-type") || "";
+
+      // Cached JSON response
+      if (contentType.includes("application/json")) {
+        const data = await response.json();
+        if (data.error) throw new Error(data.error);
+        document.getElementById("resultsProgress").style.display = "none";
+        // Handle related questions
+        const relatedQuestions = parseRelatedQuestions(data.synthesis);
+        data.synthesis = stripRelatedFromSynthesis(data.synthesis);
+        _conversationHistory.push({ question: _lastQuestion, synthesis: (data.synthesis || "").slice(0, 1500) });
+        renderResults(data);
+        // Typing animation
+        typeAnimateSynthesis(document.getElementById("synthesisContainer"));
+        setTimeout(() => { injectCitations(); verifySources(); }, 2000);
+        renderRelatedQuestions(relatedQuestions);
+        document.getElementById("threadContainer").innerHTML = "";
+        document.getElementById("results").classList.add("active");
+        document.getElementById("submitBtn").disabled = false;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      // SSE stream
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const parts = buffer.split("\n\n");
+        buffer = parts.pop();
+
+        for (const part of parts) {
+          if (!part.startsWith("data: ")) continue;
+          try {
+            const event = JSON.parse(part.slice(6));
+
+            if (event.type === "status") {
+              document.getElementById("synthesisContainer").innerHTML = `
+                <div class="synthesis-loading">${escapeHtml(event.message)}<span class="loading-dots"></span></div>`;
+            }
+
+            if (event.type === "essay") {
+              const rawEssay = event.essay || "";
+              const essayDiv = document.getElementById("essayContainer");
+              if (essayDiv && rawEssay.length > 50) {
+                // Split into paragraphs and format
+                const paragraphs = rawEssay
+                  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+                  .replace(/\*{2,}/g, "")
+                  .replace(/#{1,3}\s+/g, "")
+                  .split(/\n{2,}/)
+                  .filter(p => p.trim().length > 20)
+                  .map(p => `<p>${escapeHtml(p.trim()).replace(/\n/g, " ")}</p>`)
+                  .join("");
+
+                essayDiv.innerHTML = `
+                  <div class="essay-card">
+                    <div class="essay-header">
+                      <h2 class="essay-title">${escapeHtml(_lastQuestion)}</h2>
+                      <button class="essay-copy-btn" onclick="copyEssay()" title="Copy essay">📋</button>
+                    </div>
+                    <div class="essay-content" id="essayText">${paragraphs}</div>
+                  </div>`;
+              }
+            }
+
+            if (event.type === "synthesis") {
+              const rawSynth = event.synthesis || "";
+              const relatedQuestions = parseRelatedQuestions(rawSynth);
+              const cleanSynth = stripRelatedFromSynthesis(rawSynth);
+              _conversationHistory.push({ question: _lastQuestion, synthesis: cleanSynth.slice(0, 1500) });
+              const sections = parseSynthesis(cleanSynth);
+              const isFreeTier = (tier === "free");
+              document.getElementById("synthesisContainer").innerHTML = buildSynthesisHTML(sections, isFreeTier);
+              // Citations + source verification
+              setTimeout(() => { injectCitations(); verifySources(); }, 500);
+              // Clear thread for new question
+              document.getElementById("threadContainer").innerHTML = "";
+              // Related questions
+              renderRelatedQuestions(relatedQuestions);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+
+            if (event.type === "tradition" && event.tradition) {
+              appendTraditionLive(event.tradition);
+              receivedCount++;
+              document.getElementById("traditionsTitle").textContent =
+                `${T.respTitle} (${receivedCount} ${T.of} ${selected.length})`;
+              const pct = Math.round((receivedCount / selected.length) * 100);
+              document.getElementById("resultsProgressBar").style.width = pct + "%";
+              document.getElementById("resultsProgressText").textContent = `${receivedCount}/${selected.length}`;
+              document.getElementById("resultsProgressPct").textContent = `${receivedCount}/${selected.length}`;
+            }
+
+            if (event.type === "traditions") {
+              for (const t of event.traditions) {
+                if (t && t.tradition) {
+                  appendTraditionLive(t);
+                  receivedCount++;
+                }
+              }
+              document.getElementById("traditionsTitle").textContent =
+                `${T.respTitle} (${receivedCount} ${T.of} ${selected.length})`;
+              const pct = Math.round((receivedCount / selected.length) * 100);
+              document.getElementById("resultsProgressBar").style.width = pct + "%";
+              document.getElementById("resultsProgressText").textContent = `${receivedCount}/${selected.length}`;
+              document.getElementById("resultsProgressPct").textContent = `${receivedCount}/${selected.length}`;
+            }
+
+            if (event.type === "complete") {
+              document.getElementById("resultsProgress").style.display = "none";
+              document.getElementById("traditionsTitle").textContent =
+                `${receivedCount} ${T.respTitle}`;
+              // Linkify tradition names in essay
+              setTimeout(linkifyEssayTraditions, 500);
+              // Refresh usage counters
+              fetchUsage();
+            }
+
+            if (event.type === "error") {
+              throw new Error(event.error);
+            }
+          } catch (parseErr) {
+            if (parseErr.message && !parseErr.message.includes("JSON")) throw parseErr;
+          }
+        }
+      }
+
+      // Process remaining buffer
+      if (buffer && buffer.startsWith("data: ")) {
+        try {
+          const event = JSON.parse(buffer.slice(6));
+          if (event.type === "synthesis") {
+            const rawSynth = event.synthesis || "";
+            const relQ = parseRelatedQuestions(rawSynth);
+            const cleanSynth = stripRelatedFromSynthesis(rawSynth);
+            _conversationHistory.push({ question: _lastQuestion, synthesis: cleanSynth.slice(0, 1500) });
+            const sections = parseSynthesis(cleanSynth);
+            document.getElementById("synthesisContainer").innerHTML = buildSynthesisHTML(sections, tier === "free_degraded");
+            typeAnimateSynthesis(document.getElementById("synthesisContainer"));
+            setTimeout(() => { injectCitations(); verifySources(); }, 2000);
+            renderRelatedQuestions(relQ);
+          }
+          if (event.type === "traditions") {
+            for (const t of event.traditions) {
+              if (t && t.tradition) { appendTraditionLive(t); receivedCount++; }
+            }
+          }
+        } catch(e) {}
+      }
+
+      document.getElementById("resultsProgress").style.display = "none";
+
+      // Remove skeleton placeholders
+      document.querySelectorAll(".skeleton-card, .skeleton-tradition").forEach(el => el.remove());
+
+      // If we got traditions but no synthesis, show a message
+      if (receivedCount > 0 && !document.querySelector(".synthesis-section")) {
+        document.getElementById("synthesisContainer").innerHTML = `
+          <div style="text-align:center;padding:20px;color:var(--text-secondary);font-style:italic;font-family:var(--ui-font);">
+            ${receivedCount} of ${selected.length} traditions responded. Synthesis generation timed out.
+          </div>`;
+      }
+
+      // Update title with final count
+      if (receivedCount > 0) {
+        document.getElementById("traditionsTitle").textContent = `${receivedCount} Individual Responses`;
+      }
+
+      // If stream ended with 0 traditions, fall back to /api/ask
+      if (receivedCount === 0) {
+        try {
+          const fallbackResp = await fetch("/api/ask", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "X-User-ID": USER_ID },
+            body: JSON.stringify({ question, traditions: selected, tier: tier, lang: LANG }),
+          });
+          if (fallbackResp.ok) {
+            const data = await fallbackResp.json();
+            if (!data.error) {
+              renderResults(data);
+            }
+          }
+        } catch(e) {}
+      }
+
+      document.getElementById("submitBtn").disabled = false;
+
+    } catch (err) {
+      document.getElementById("resultsProgress").style.display = "none";
+      if (err.message && err.message.includes("FREE_LIMIT_REACHED")) {
+        document.getElementById("synthesisContainer").innerHTML = `
+          <div style="text-align:center;padding:40px 20px;max-width:500px;margin:0 auto;">
+            <div style="font-size:2em;margin-bottom:16px;">⚡</div>
+            <h3 style="margin-bottom:8px;color:var(--text);">Free queries exhausted for today</h3>
+            <p style="color:var(--text-secondary);margin-bottom:8px;">You've used your 5 high-quality queries. Additional queries use our free AI model which may be temporarily unavailable.</p>
+            <p style="color:var(--text-secondary);margin-bottom:20px;">Come back tomorrow for 5 more free queries, or upgrade to Pro for 100 uninterrupted queries.</p>
+            <a href="https://buy.stripe.com/3cI3cvgiE3iTa1Q49U4wM05" class="upgrade-btn pro" style="display:inline-block;text-decoration:none;">Upgrade to Pro — $4.99</a>
+          </div>`;
+      } else {
+        document.getElementById("synthesisContainer").innerHTML = "";
+        showError("Error: " + err.message);
+        document.getElementById("homeView").style.display = "";
+        document.getElementById("results").classList.remove("active");
+      }
+      document.getElementById("submitBtn").disabled = false;
+    }
+  }
+
+  // ==========================================
+  // FOLLOW-UP (Thread/Conversation Context)
+  // ==========================================
+  let _conversationHistory = [];
+
+  function askFollowUp() {
+    const followUpInput = document.getElementById("followUpInput");
+    const followUpText = followUpInput.value.trim();
+    if (!followUpText || followUpText.length < 3) return;
+
+    // Build context from last 3 conversation entries
+    let contextStr = "";
+    const recentEntries = _conversationHistory.slice(-3);
+    if (recentEntries.length > 0) {
+      const historyContext = recentEntries.map((entry, i) =>
+        `Q${i+1}: "${entry.question}" -> Key findings: ${entry.synthesis}`
+      ).join(". ");
+      contextStr = `Conversation history: ${historyContext}. The user now asks: ${followUpText}`;
+    }
+
+    followUpInput.value = "";
+
+    // Send as a threaded follow-up (display inline, don't navigate away)
+    askFollowUpWithContext(followUpText, contextStr);
+  }
+
+  async function askFollowUpWithContext(followUpText, contextStr) {
+    const threadContainer = document.getElementById("threadContainer");
+    const threadDiv = document.createElement("div");
+    threadDiv.className = "thread-response";
+    threadDiv.innerHTML = `
+      <div class="thread-question">Follow-up: ${escapeHtml(followUpText)}</div>
+      <div class="synthesis-loading">Generating response...<span class="loading-dots"></span></div>`;
+    threadContainer.appendChild(threadDiv);
+    threadDiv.scrollIntoView({ behavior: "smooth" });
+
+    const selected = getSelectedTraditions();
+    const tier = getActiveTier();
+
+    try {
+      const response = await fetch("/api/ask-stream", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-User-ID": USER_ID },
+        body: JSON.stringify({
+          question: followUpText,
+          context: contextStr,
+          traditions: selected,
+          tier: tier,
+          lang: LANG,
+        }),
+      });
+
+      if (response.status === 429) {
+        const limitData = await response.json();
+        showLimitModal(limitData.tier || tier);
+        threadDiv.remove();
+        return;
+      }
+
+      if (!response.ok) {
+        const errText = await response.text();
+        throw new Error(`Error ${response.status}: ${errText}`);
+      }
+
+      const contentType = response.headers.get("content-type") || "";
+
+      if (contentType.includes("application/json")) {
+        const data = await response.json();
+        if (data.error) throw new Error(data.error);
+        const sections = parseSynthesis(data.synthesis || "");
+        const isFreeTier = (tier === "free");
+        threadDiv.innerHTML = `
+          <div class="thread-question">Follow-up: ${escapeHtml(followUpText)}</div>
+          ${buildSynthesisHTML(sections, isFreeTier)}`;
+        injectCitations(threadDiv);
+        // Update context for further follow-ups
+        _lastQuestion = followUpText;
+        _conversationHistory.push({ question: followUpText, synthesis: (data.synthesis || "").slice(0, 1500) });
+        return;
+      }
+
+      // SSE stream
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let synthText = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const parts = buffer.split("\n\n");
+        buffer = parts.pop();
+        for (const part of parts) {
+          if (!part.startsWith("data: ")) continue;
+          try {
+            const event = JSON.parse(part.slice(6));
+            if (event.type === "synthesis") {
+              synthText = event.synthesis || "";
+              const sections = parseSynthesis(synthText);
+              const isFreeTier = (tier === "free");
+              threadDiv.innerHTML = `
+                <div class="thread-question">Follow-up: ${escapeHtml(followUpText)}</div>
+                ${buildSynthesisHTML(sections, isFreeTier)}`;
+              injectCitations(threadDiv);
+            }
+          } catch(e) {}
+        }
+      }
+      // Update context
+      _lastQuestion = followUpText;
+      _conversationHistory.push({ question: followUpText, synthesis: synthText.slice(0, 1500) });
+    } catch (err) {
+      threadDiv.innerHTML = `
+        <div class="thread-question">Follow-up: ${escapeHtml(followUpText)}</div>
+        <p style="color:var(--accent-red);font-family:var(--ui-font);font-size:0.88em;">Error: ${escapeHtml(err.message)}</p>`;
+    }
+  }
+
+  // ==========================================
+  // EXPORT FUNCTIONS
+  // ==========================================
+  let _lastQuestion = "";
+  let _lastSynthesisText = "";
+  let _lastTraditions = [];
+
+  function getSynthesisText() {
+    const el = document.getElementById("synthesisContainer");
+    return el ? el.innerText : "";
+  }
+
+  function getTraditionsText() {
+    const cards = document.querySelectorAll(".tradition-card");
+    let text = "";
+    cards.forEach(card => {
+      const name = card.querySelector(".tradition-name span")?.textContent || "";
+      const resp = card.querySelector(".tradition-response")?.innerText || "";
+      if (name) text += `## ${name}\n${resp}\n\n`;
+    });
+    return text;
+  }
+
+  function downloadFile(content, filename) {
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  function copyEssay() {
+    const el = document.getElementById("essayText");
+    if (el) copyToClipboard(el.innerText);
+  }
+
+  // Linkify tradition names in essay text
+  function linkifyEssayTraditions() {
+    const essayEl = document.getElementById("essayText");
+    if (!essayEl) return;
+    const tradCards = document.querySelectorAll(".tradition-card .tradition-name span");
+    const names = [];
+    tradCards.forEach(span => {
+      const name = span.textContent.trim();
+      if (name) names.push(name);
+    });
+    // Sort by length descending to match longer names first
+    names.sort((a, b) => b.length - a.length);
+    let html = essayEl.innerHTML;
+    for (const name of names) {
+      const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const regex = new RegExp(`\\b(${escaped})\\b`, "g");
+      html = html.replace(regex, (match) => {
+        // Don't re-linkify
+        return `<a href="#" class="essay-tradition-link" onclick="scrollToAppTradition('${name.replace(/'/g, "\\'")}'); return false;">${match}</a>`;
+      });
+    }
+    essayEl.innerHTML = html;
+  }
+
+  function scrollToAppTradition(name) {
+    const cards = document.querySelectorAll(".tradition-card");
+    for (const card of cards) {
+      const span = card.querySelector(".tradition-name span");
+      if (span && span.textContent.trim() === name) {
+        // Expand family
+        const family = card.closest(".family-body");
+        if (family && !family.classList.contains("open")) {
+          family.classList.add("open");
+          family.previousElementSibling.classList.add("open");
+        }
+        // Expand card
+        const tradName = card.querySelector(".tradition-name");
+        const tradResp = card.querySelector(".tradition-response");
+        if (tradName && !tradName.classList.contains("open")) {
+          tradName.classList.add("open");
+          tradResp.classList.add("open");
+        }
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        card.style.outline = "2px solid var(--gold)";
+        setTimeout(() => { card.style.outline = ""; }, 2000);
+        break;
+      }
+    }
+  }
+
+  async function copyToClipboard(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      showCopyFeedback();
+    } catch(e) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      showCopyFeedback();
+    }
+  }
+
+  function showCopyFeedback() {
+    const msg = document.createElement("div");
+    msg.textContent = "Copied!";
+    msg.style.cssText = "position:fixed;top:20px;right:20px;background:var(--gold);color:white;padding:8px 20px;border-radius:8px;font-family:var(--ui-font);font-size:0.85em;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,0.15);";
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 1500);
+  }
+
+  function slugify(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40);
+  }
+
+  function exportSynthesis(format) {
+    const text = getSynthesisText();
+    const q = _lastQuestion || "question";
+    if (format === "copy") { copyToClipboard(text); return; }
+    const ext = format === "md" ? "md" : "txt";
+    const header = format === "md" ? `# ${q}\n\n` : `${q}\n${"=".repeat(q.length)}\n\n`;
+    downloadFile(header + text, `synthesis-${slugify(q)}.${ext}`);
+  }
+
+  function exportTraditions(format) {
+    const text = getTraditionsText();
+    const q = _lastQuestion || "question";
+    if (format === "copy") { copyToClipboard(text); return; }
+    const ext = format === "md" ? "md" : "txt";
+    const header = format === "md" ? `# ${q} - Individual Responses\n\n` : `${q} - Individual Responses\n${"=".repeat(40)}\n\n`;
+    downloadFile(header + text, `traditions-${slugify(q)}.${ext}`);
+  }
+
+  function exportAll(format) {
+    const synthesis = getSynthesisText();
+    const traditions = getTraditionsText();
+    const q = _lastQuestion || "question";
+    const header = `${q}\n${"=".repeat(q.length)}\n\nSYNTHESIS\n${"=".repeat(40)}\n\n`;
+    const tradHeader = `\nINDIVIDUAL RESPONSES\n${"=".repeat(40)}\n\n`;
+    const fullText = header + synthesis + tradHeader + traditions;
+    if (format === "copy") { copyToClipboard(fullText); return; }
+    const ext = format === "md" ? "md" : "txt";
+    downloadFile(fullText, `full-report-${slugify(q)}.${ext}`);
+  }
+
+  // ==========================================
+  // FEATURE: SHARE WITH LINK
+  // ==========================================
+  let _lastQuestionHash = "";
+
+  async function computeQuestionHash(question) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(question.trim().toLowerCase());
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  async function shareWithLink() {
+    if (!_lastQuestion) return;
+    const selected = getSelectedTraditions();
+    const tier = getActiveTier();
+    // Compute hash same way as worker: question + traditions + tier
+    const hashInput = _lastQuestion + (selected.length < 184 ? selected.sort().join(",") : "all") + tier;
+    const hash = await computeQuestionHash(hashInput);
+    const shareUrl = `${window.location.origin}/s/${hash}`;
+    await copyToClipboard(shareUrl);
+    // Show feedback
+    const msg = document.createElement("div");
+    msg.textContent = "Share link copied!";
+    msg.style.cssText = "position:fixed;top:20px;right:20px;background:var(--gold);color:white;padding:8px 20px;border-radius:8px;font-family:var(--ui-font);font-size:0.85em;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,0.15);";
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 2000);
+  }
+
+  // ==========================================
+  // FEATURE: CITATIONS INLINE
+  // ==========================================
+  // All tradition names (both ES and EN) for citation matching
+  const ALL_TRADITION_NAMES = [];
+  for (const traditions of Object.values(FAMILY_TRADITIONS)) {
+    for (const t of traditions) {
+      ALL_TRADITION_NAMES.push(t);
+    }
+  }
+  // Sort by length descending so longer names match first
+  ALL_TRADITION_NAMES.sort((a, b) => b.length - a.length);
+
+  function scrollToTradition(name) {
+    // Find the tradition card by name
+    const cards = document.querySelectorAll(".tradition-card");
+    for (const card of cards) {
+      const nameEl = card.querySelector(".tradition-name span");
+      if (!nameEl) continue;
+      const cardName = nameEl.textContent.trim().toLowerCase();
+      if (cardName === name.toLowerCase() || cardName.includes(name.toLowerCase()) || name.toLowerCase().includes(cardName)) {
+        // Expand the family group
+        const familyGroup = card.closest(".family-group");
+        if (familyGroup) {
+          const header = familyGroup.querySelector(".family-header");
+          const body = familyGroup.querySelector(".family-body");
+          if (header && !header.classList.contains("open")) {
+            header.classList.add("open");
+            body.classList.add("open");
+          }
+        }
+        // Expand the tradition card
+        const tradName = card.querySelector(".tradition-name");
+        const tradResp = card.querySelector(".tradition-response");
+        if (tradName && !tradName.classList.contains("open")) {
+          tradName.classList.add("open");
+          tradResp.classList.add("open");
+        }
+        // Scroll and highlight briefly
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        card.style.outline = "2px solid var(--gold)";
+        card.style.outlineOffset = "2px";
+        setTimeout(() => { card.style.outline = ""; card.style.outlineOffset = ""; }, 2000);
+        return;
+      }
+    }
+  }
+
+  function injectCitations(container) {
+    if (!container) container = document.getElementById("synthesisContainer");
+    const contentEls = container.querySelectorAll(".synthesis-content");
+    for (const el of contentEls) {
+      let html = el.innerHTML;
+      for (const name of ALL_TRADITION_NAMES) {
+        // Skip very short names that could cause false matches
+        if (name.length < 4) continue;
+        // Escape special regex chars in name
+        const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        // Only match if not already inside a tag
+        const regex = new RegExp(`(?<![<\\/\\w])\\b(${escaped})\\b(?![^<]*>)`, 'g');
+        html = html.replace(regex, `<a class="citation" onclick="scrollToTradition('${name.replace(/'/g, "\\'")}')" title="Scroll to ${name}">$1</a>`);
+      }
+      el.innerHTML = html;
+    }
+  }
+
+  // ==========================================
+  // FEATURE: RELATED QUESTIONS
+  // ==========================================
+  function parseRelatedQuestions(synthesisText) {
+    if (!synthesisText) return [];
+    const lines = synthesisText.split("\n");
+    const related = [];
+    for (const line of lines) {
+      const match = line.match(/^RELATED:\s*(.+)/i);
+      if (match) {
+        related.push(match[1].trim());
+      }
+    }
+    return related;
+  }
+
+  function stripRelatedFromSynthesis(synthesisText) {
+    if (!synthesisText) return synthesisText;
+    return synthesisText.split("\n").filter(line => !line.match(/^RELATED:\s*/i)).join("\n");
+  }
+
+  function renderRelatedQuestions(questions) {
+    const container = document.getElementById("relatedQuestionsContainer");
+    if (!questions || questions.length === 0) {
+      container.innerHTML = "";
+      return;
+    }
+    container.innerHTML = `
+      <div class="related-questions">
+        <h4>Related Questions</h4>
+        <div class="related-chips">
+          ${questions.map(q => `<div class="related-chip" onclick="submitRelatedQuestion(this)">${escapeHtml(q)}</div>`).join("")}
+        </div>
+      </div>`;
+  }
+
+  function submitRelatedQuestion(el) {
+    const q = el.textContent;
+    const followUpInput = document.getElementById("followUpInput");
+    followUpInput.value = q;
+    askFollowUp();
+  }
+
+  // ==========================================
+  // FEATURE: TYPING ANIMATION
+  // ==========================================
+  function typeAnimateSynthesis(container) {
+    const sections = container.querySelectorAll(".synthesis-section .synthesis-content");
+    sections.forEach(section => {
+      const fullHTML = section.innerHTML;
+      section.setAttribute("data-full-html", fullHTML);
+      section.innerHTML = "";
+      section.classList.add("typing-cursor");
+
+      // Split into words (preserving HTML tags)
+      const tokens = [];
+      let current = "";
+      let inTag = false;
+      for (let i = 0; i < fullHTML.length; i++) {
+        const ch = fullHTML[i];
+        if (ch === "<") { inTag = true; current += ch; continue; }
+        if (ch === ">") { inTag = false; current += ch; continue; }
+        if (inTag) { current += ch; continue; }
+        if (ch === " " || ch === "\n") {
+          if (current) { tokens.push(current); current = ""; }
+          tokens.push(ch);
+        } else {
+          current += ch;
+        }
+      }
+      if (current) tokens.push(current);
+
+      // Show all at once - typing animation was too slow
+      section.innerHTML = fullHTML;
+      section.classList.remove("typing-cursor");
+    });
+  }
+
+  // ==========================================
+  // CHECK FOR SHARED LINK ON LOAD (?q= param)
+  // ==========================================
+  async function checkSharedLink() {
+    const qHash = urlParams.get("q");
+    if (!qHash || qHash.length < 8) return;
+    try {
+      const resp = await fetch(`/api/cached/${qHash}`);
+      if (!resp.ok) return;
+      const data = await resp.json();
+      if (data.error) return;
+
+      // Extract related questions before stripping
+      const relatedQuestions = parseRelatedQuestions(data.synthesis);
+      const cleanSynthesis = stripRelatedFromSynthesis(data.synthesis);
+      data.synthesis = cleanSynthesis;
+      _conversationHistory.push({ question: data.question, synthesis: cleanSynthesis.slice(0, 1500) });
+
+      // Display results
+      document.getElementById("homeView").style.display = "none";
+      document.getElementById("resultsQuestionText").textContent = data.question;
+      document.getElementById("resultsModelBadge").innerHTML = '<span class="tier-badge badge-free">Cached</span>';
+      _lastQuestion = data.question;
+      renderResults(data);
+      document.getElementById("results").classList.add("active");
+
+      // Inject citations + verify sources
+      injectCitations();
+      verifySources();
+
+      // Render related questions
+      renderRelatedQuestions(relatedQuestions);
+    } catch(e) {
+      console.error("Failed to load shared link:", e);
+    }
+  }
+
+  checkSharedLink();
+
+  // ==========================================
+  // KEY BINDINGS
+  // ==========================================
+  document.getElementById("questionInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") askQuestion();
+  });
+
+  document.getElementById("followUpInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") askFollowUp();
+  });
+
+  // Note: Escape handling moved to unified keyboard shortcuts section below
+
+  // Close modal on overlay click
+  document.getElementById("traditionModal").addEventListener("click", function(e) {
+    if (e.target === this) closeTraditionModal();
+  });
+
+  // ==========================================
+  // DARK MODE
+  // ==========================================
+  function initTheme() {
+    const saved = localStorage.getItem("theme");
+    if (saved) {
+      applyTheme(saved);
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      applyTheme("dark");
+    }
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    const label = document.getElementById("themeLabel");
+    const icon = document.getElementById("themeIcon");
+    if (theme === "dark") {
+      label.textContent = "Light mode";
+      icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+    } else {
+      label.textContent = "Dark mode";
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    }
+  }
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", next);
+    applyTheme(next);
+  }
+
+  initTheme();
+
+  // ==========================================
+  // PWA: SERVICE WORKER REGISTRATION
+  // ==========================================
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js").catch(err =>
+      console.log("SW registration failed:", err)
+    );
+  }
+
+  // ==========================================
+  // SKELETON LOADING BUILDERS
+  // ==========================================
+  function buildSkeletonCards() {
+    const colors = ['var(--gold)', 'var(--accent-green)', 'var(--accent-red)', 'var(--accent-purple)'];
+    let html = '';
+    for (let i = 0; i < 4; i++) {
+      html += `<div class="skeleton-card" style="border-left-color:${colors[i]}">
+        <div class="skeleton skeleton-line title"></div>
+        <div class="skeleton skeleton-line long"></div>
+        <div class="skeleton skeleton-line medium"></div>
+        <div class="skeleton skeleton-line long"></div>
+        <div class="skeleton skeleton-line short"></div>
+      </div>`;
+    }
+    return html;
+  }
+
+  function buildSkeletonTraditions() {
+    let html = '';
+    for (let i = 0; i < 5; i++) {
+      html += `<div class="skeleton-tradition"><div class="skeleton skeleton-line"></div></div>`;
+    }
+    return html;
+  }
+
+  // ==========================================
+  // SOURCE VERIFICATION DATABASE
+  // ==========================================
+  const VERIFIED_SOURCES = {
+    "Catolicismo": [{text:"Catechism of the Catholic Church",abbrev:"CCC"},{text:"Bible",abbrev:"Bible"},{text:"Summa Theologica",abbrev:"ST"}],
+    "Ortodoxia cristiana": [{text:"Philokalia"},{text:"Bible",abbrev:"Bible"},{text:"Divine Liturgy"}],
+    "Luteranismo": [{text:"Bible",abbrev:"Bible"},{text:"Augsburg Confession"},{text:"Book of Concord"}],
+    "Calvinismo": [{text:"Institutes of the Christian Religion",author:"Calvin"},{text:"Bible",abbrev:"Bible"},{text:"Westminster Confession"}],
+    "Anglicanismo": [{text:"Book of Common Prayer"},{text:"Bible",abbrev:"Bible"},{text:"Thirty-Nine Articles"}],
+    "Metodismo": [{text:"Bible",abbrev:"Bible"},{text:"Wesley's Sermons",author:"Wesley"}],
+    "Bautismo": [{text:"Bible",abbrev:"Bible"},{text:"Baptist Faith and Message"}],
+    "Pentecostalismo": [{text:"Bible",abbrev:"Bible"},{text:"Acts of the Apostles"}],
+    "Islam sunita": [{text:"Quran",abbrev:"Quran"},{text:"Sahih Bukhari",abbrev:"Bukhari"},{text:"Sahih Muslim",abbrev:"Muslim"}],
+    "Islam chiita": [{text:"Quran",abbrev:"Quran"},{text:"Nahj al-Balagha"},{text:"Al-Kafi"}],
+    "Sufismo": [{text:"Quran",abbrev:"Quran"},{text:"Masnavi",author:"Rumi"},{text:"Futuh al-Ghayb",author:"Abdul Qadir Gilani"}],
+    "Ahmadiyya": [{text:"Quran",abbrev:"Quran"},{text:"Philosophy of the Teachings of Islam",author:"Mirza Ghulam Ahmad"}],
+    "Judaismo ortodoxo": [{text:"Torah"},{text:"Talmud"},{text:"Shulchan Aruch"}],
+    "Judaismo conservador": [{text:"Torah"},{text:"Talmud"},{text:"Mishnah"}],
+    "Judaismo reformista": [{text:"Torah"},{text:"Talmud"}],
+    "Cabala judia": [{text:"Zohar"},{text:"Sefer Yetzirah"},{text:"Torah"}],
+    "Fe Bahai": [{text:"Kitab-i-Aqdas"},{text:"Kitab-i-Iqan"},{text:"Hidden Words",author:"Baha'u'llah"}],
+    "Drusos": [{text:"Epistles of Wisdom",abbrev:"Rasa'il al-Hikma"}],
+    "Rastafarismo": [{text:"Bible",abbrev:"Bible"},{text:"Kebra Nagast"}],
+    "Advaita Vedanta": [{text:"Upanishads"},{text:"Brahma Sutras"},{text:"Vivekachudamani",author:"Shankara"}],
+    "Vishishtadvaita": [{text:"Upanishads"},{text:"Sri Bhashya",author:"Ramanuja"},{text:"Bhagavad Gita"}],
+    "Dvaita": [{text:"Bhagavad Gita"},{text:"Upanishads"},{text:"Brahma Sutras"}],
+    "Gaudiya Vaishnavismo": [{text:"Bhagavad Gita"},{text:"Srimad Bhagavatam"},{text:"Chaitanya Charitamrita"}],
+    "Shaivismo": [{text:"Shiva Sutras"},{text:"Agamas"},{text:"Tirumurai"}],
+    "Shaktismo": [{text:"Devi Mahatmya"},{text:"Tantras"},{text:"Lalita Sahasranama"}],
+    "ISKCON": [{text:"Bhagavad Gita As It Is",author:"Prabhupada"},{text:"Srimad Bhagavatam"}],
+    "Budismo Theravada": [{text:"Pali Canon",abbrev:"Tipitaka"},{text:"Dhammapada"},{text:"Visuddhimagga"}],
+    "Budismo Mahayana": [{text:"Heart Sutra"},{text:"Lotus Sutra"},{text:"Diamond Sutra"}],
+    "Budismo Vajrayana": [{text:"Tibetan Book of the Dead"},{text:"Guhyasamaja Tantra"},{text:"Heart Sutra"}],
+    "Budismo Zen": [{text:"Heart Sutra"},{text:"Platform Sutra"},{text:"Shobogenzo",author:"Dogen"}],
+    "Budismo Tierra Pura": [{text:"Larger Sukhavativyuha Sutra"},{text:"Amitabha Sutra"},{text:"Contemplation Sutra"}],
+    "Budismo Nichiren": [{text:"Lotus Sutra"},{text:"Gosho",author:"Nichiren"}],
+    "Budismo tibetano": [{text:"Tibetan Book of the Dead"},{text:"Lamrim Chenmo",author:"Tsongkhapa"},{text:"Heart Sutra"}],
+    "Jainismo Digambara": [{text:"Tattvartha Sutra"},{text:"Samayasara",author:"Kundakunda"}],
+    "Jainismo Shvetambara": [{text:"Tattvartha Sutra"},{text:"Agamas"},{text:"Kalpa Sutra"}],
+    "Sijismo": [{text:"Guru Granth Sahib"},{text:"Dasam Granth"},{text:"Japji Sahib"}],
+    "Yoga (Patanjali)": [{text:"Yoga Sutras",author:"Patanjali"},{text:"Bhagavad Gita"}],
+    "Samkhya": [{text:"Samkhya Karika",author:"Ishvarakrishna"}],
+    "Confucianismo": [{text:"Analects",author:"Confucius"},{text:"Mencius"},{text:"Doctrine of the Mean"}],
+    "Neo-confucianismo": [{text:"Analects"},{text:"Reflections on Things at Hand",author:"Zhu Xi"}],
+    "Taoismo": [{text:"Tao Te Ching",author:"Laozi"},{text:"Zhuangzi"},{text:"I Ching"}],
+    "Sintoismo": [{text:"Kojiki"},{text:"Nihon Shoki"}],
+    "Zoroastrismo": [{text:"Avesta"},{text:"Gathas",author:"Zoroaster"},{text:"Yasna"}],
+    "Estoicismo": [{text:"Meditations",author:"Marcus Aurelius"},{text:"Discourses",author:"Epictetus"},{text:"Letters",author:"Seneca"}],
+    "Epicureismo": [{text:"Letter to Menoeceus",author:"Epicurus"},{text:"De Rerum Natura",author:"Lucretius"}],
+    "Platonismo": [{text:"Republic",author:"Plato"},{text:"Symposium",author:"Plato"},{text:"Phaedo",author:"Plato"}],
+    "Aristotelismo": [{text:"Nicomachean Ethics",author:"Aristotle"},{text:"Metaphysics",author:"Aristotle"},{text:"Politics",author:"Aristotle"}],
+    "Neoplatonismo": [{text:"Enneads",author:"Plotinus"},{text:"Elements of Theology",author:"Proclus"}],
+    "Escolasticismo": [{text:"Summa Theologica",author:"Aquinas"},{text:"Sentences",author:"Peter Lombard"}],
+    "Kantianismo": [{text:"Critique of Pure Reason",author:"Kant"},{text:"Groundwork of the Metaphysics of Morals",author:"Kant"}],
+    "Utilitarismo": [{text:"Utilitarianism",author:"Mill"},{text:"An Introduction to the Principles of Morals and Legislation",author:"Bentham"}],
+    "Existencialismo (Sartre)": [{text:"Being and Nothingness",author:"Sartre"},{text:"Existentialism Is a Humanism",author:"Sartre"}],
+    "Existencialismo (Camus)": [{text:"The Myth of Sisyphus",author:"Camus"},{text:"The Rebel",author:"Camus"}],
+    "Fenomenologia": [{text:"Ideas",author:"Husserl"},{text:"Being and Time",author:"Heidegger"}],
+    "Marxismo": [{text:"Das Kapital",author:"Marx"},{text:"The Communist Manifesto",author:"Marx & Engels"}],
+    "Hermetismo": [{text:"Corpus Hermeticum"},{text:"Emerald Tablet"},{text:"Kybalion"}],
+    "Gnosticismo": [{text:"Nag Hammadi Library"},{text:"Gospel of Thomas"},{text:"Pistis Sophia"}],
+    "Teosofia": [{text:"The Secret Doctrine",author:"Blavatsky"},{text:"Isis Unveiled",author:"Blavatsky"}],
+    "Wicca": [{text:"Book of Shadows"},{text:"The Spiral Dance",author:"Starhawk"}],
+    "Humanismo secular": [{text:"Humanist Manifesto"},{text:"The God Delusion",author:"Dawkins"}],
+    "Absurdismo": [{text:"The Myth of Sisyphus",author:"Camus"},{text:"The Stranger",author:"Camus"}],
+    "Nihilismo": [{text:"Thus Spoke Zarathustra",author:"Nietzsche"},{text:"Beyond Good and Evil",author:"Nietzsche"}],
+    "Tantra (hindu)": [{text:"Tantras"},{text:"Kularnava Tantra"},{text:"Mahanirvana Tantra"}],
+    "Tantra (budista)": [{text:"Guhyasamaja Tantra"},{text:"Hevajra Tantra"}],
+    "Dzogchen": [{text:"The Flight of the Garuda"},{text:"Self-Liberation Through Seeing with Naked Awareness"}],
+    "Shaivismo de Cachemira": [{text:"Shiva Sutras"},{text:"Pratyabhijnahridayam"},{text:"Spanda Karikas"}],
+    "Vudu": [{text:"Vodou oral tradition"},{text:"Les Mysteres du Vaudou"}],
+    "Santeria/Lukumi": [{text:"Odu Ifa"},{text:"Patakis"}],
+    "Candomble": [{text:"Odu Ifa"},{text:"Oral tradition"}],
+    "Rosacrucismo": [{text:"Fama Fraternitatis"},{text:"Chymical Wedding of Christian Rosenkreutz"}],
+    "Tradicion yoruba": [{text:"Odu Ifa"},{text:"Orishas tradition"}],
+  };
+
+  function verifySources(container) {
+    if (!container) container = document.getElementById("synthesisContainer");
+    // Find all source spans (rendered by mdToHtml)
+    const sourceSpans = container.querySelectorAll('span[style*="font-style:italic"]');
+    sourceSpans.forEach(span => {
+      if (span.querySelector('.source-badge')) return; // already processed
+      const text = span.textContent.trim();
+      // Check each tradition's sources
+      let verified = false;
+      for (const [tradition, sources] of Object.entries(VERIFIED_SOURCES)) {
+        for (const src of sources) {
+          if (text.toLowerCase().includes(src.text.toLowerCase()) ||
+              (src.abbrev && text.toLowerCase().includes(src.abbrev.toLowerCase()))) {
+            verified = true;
+            break;
+          }
+        }
+        if (verified) break;
+      }
+      const badge = document.createElement('span');
+      badge.className = 'source-badge ' + (verified ? 'verified' : 'unverified');
+      badge.textContent = verified ? '\u2713 Verified source' : '\u26A0 Unverified';
+      span.appendChild(badge);
+    });
+
+    // Also scan tradition responses for [Source: ...] patterns
+    const tradResponses = container.querySelectorAll ? document.querySelectorAll('.tradition-response') : [];
+    tradResponses.forEach(resp => {
+      if (resp.querySelector('.source-badge')) return;
+      const html = resp.innerHTML;
+      // Look for source citations in the rendered text
+      const sourcePattern = /\[Source:\s*([^\]]+)\]/gi;
+      let match;
+      while ((match = sourcePattern.exec(resp.textContent)) !== null) {
+        const citedText = match[1].trim();
+        let verified = false;
+        // Get the tradition name from the card
+        const card = resp.closest('.tradition-card');
+        const tradNameEl = card ? card.querySelector('.tradition-name span') : null;
+        const tradName = tradNameEl ? tradNameEl.textContent.trim() : '';
+        // Find matching tradition in VERIFIED_SOURCES
+        for (const [tradition, sources] of Object.entries(VERIFIED_SOURCES)) {
+          if (tradition === tradName || tradition.toLowerCase() === tradName.toLowerCase()) {
+            for (const src of sources) {
+              if (citedText.toLowerCase().includes(src.text.toLowerCase()) ||
+                  (src.abbrev && citedText.toLowerCase().includes(src.abbrev.toLowerCase()))) {
+                verified = true;
+                break;
+              }
+            }
+            break;
+          }
+        }
+        // We already handle source spans via mdToHtml rendering above
+      }
+    });
+  }
+
+  // ==========================================
+  // KEYBOARD SHORTCUTS
+  // ==========================================
+  document.addEventListener("keydown", function(e) {
+    const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+    const mod = isMac ? e.metaKey : e.ctrlKey;
+    const tag = (e.target.tagName || "").toLowerCase();
+    const inInput = (tag === "input" || tag === "textarea" || tag === "select" || e.target.isContentEditable);
+
+    // Cmd/Ctrl+K: focus search input
+    if (mod && e.key === "k") {
+      e.preventDefault();
+      const qi = document.getElementById("questionInput");
+      const homeView = document.getElementById("homeView");
+      if (homeView.style.display === "none") {
+        // In results view, scroll to follow-up
+        const fi = document.getElementById("followUpInput");
+        fi.scrollIntoView({ behavior: "smooth" });
+        fi.focus();
+      } else {
+        qi.focus();
+      }
+      return;
+    }
+
+    // Cmd/Ctrl+N: new question
+    if (mod && e.key === "n") {
+      e.preventDefault();
+      resetUI();
+      return;
+    }
+
+    // Cmd/Ctrl+/: toggle sidebar on mobile
+    if (mod && e.key === "/") {
+      e.preventDefault();
+      toggleMobileSidebar();
+      return;
+    }
+
+    // Escape: close modal + blur input
+    if (e.key === "Escape") {
+      closeTraditionModal();
+      closeMobileSidebar();
+      if (inInput) e.target.blur();
+      return;
+    }
+
+    // /: focus search input when not in an input field
+    if (e.key === "/" && !inInput) {
+      e.preventDefault();
+      const homeView = document.getElementById("homeView");
+      if (homeView.style.display === "none") {
+        document.getElementById("followUpInput").focus();
+      } else {
+        document.getElementById("questionInput").focus();
+      }
+      return;
+    }
+  });
+</script>
+
+</body>
+</html>

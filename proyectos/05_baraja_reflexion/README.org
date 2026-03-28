@@ -1,0 +1,25 @@
+#+TITLE: Baraja de reflexión filosófica
+#+STATUS: PENDIENTE
+
+* Concepto
+52 cartas (como una baraja de póker). Cada carta tiene una pregunta + las respuestas más provocadoras de 3 tradiciones. Para meditación, conversación, o juego grupal.
+
+* Formato de cada carta
+- FRENTE: La pregunta en grande
+- DORSO: 3 respuestas breves (30 palabras cada una) de 3 tradiciones diferentes
+- Color/símbolo indica el tema (existencia=azul, ética=rojo, etc.)
+
+* Uso
+- Individual: saca una carta al día para reflexionar
+- En grupo: cada persona saca una carta y comparte su opinión
+- Terapéutico: herramienta para counseling/coaching espiritual
+
+* Producción
+- Diseño: Canva / InDesign
+- Impresión: The Game Crafter / MakePlayingCards
+- Venta: Amazon, Etsy, web propia
+- Precio: €15-25
+
+* Contenido
+- Seleccionar las 52 preguntas más universales de las 195
+- Elegir las respuestas más sorprendentes/provocadoras (no las más largas)

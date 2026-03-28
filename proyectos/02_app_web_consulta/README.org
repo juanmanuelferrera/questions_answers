@@ -1,0 +1,25 @@
+#+TITLE: App/Web de consulta filosófica comparada
+#+STATUS: PENDIENTE
+
+* Concepto
+Un buscador interactivo donde el usuario elige una pregunta y ve qué dice cada tradición. Tipo "Vedabase pero para filosofía comparada."
+
+* Funcionalidad
+- Seleccionar pregunta de las 195
+- Ver respuestas de las 10 tradiciones principales (expandible a 185)
+- Filtrar por tradición, tema, o concepto
+- Comparar 2-3 tradiciones lado a lado
+- Buscar por concepto (karma, gracia, wu-wei, etc.)
+- Modo "exploración": pregunta aleatoria del día
+
+* Tech stack (reusar lo existente)
+- Frontend: HTML/JS (como el rag-frontend.html existente)
+- Backend: Cloudflare Workers + D1 (ya configurado en wrangler.toml)
+- Datos: vedabase_parsed.json + archivos de tradiciones
+- Búsqueda: Vectorize embeddings (ya implementado parcialmente)
+
+* Ya existe
+- vedabase-rag-ai_v2/ (frontend RAG)
+- src/ (worker backend)
+- public/ (assets)
+- Los schemas SQL ya están creados
