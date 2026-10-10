@@ -26,3 +26,12 @@ __pycache__/
 !test_query.json
 !test_query_expansion.json
 !test_hybrid_search.json
+
+# --- añadido por limpiar-basura.sh ---
+.DS_Store
+__pycache__/
+*.pyc
+*~
+\#*\#
+.\#*
+*.log
