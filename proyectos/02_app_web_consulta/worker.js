@@ -211,33 +211,52 @@ After completing ALL FOUR sections above, add a blank line, then on SEPARATE lin
 // Call AI - tier-based provider selection
 // tier: "free" | "pro"
 // env: worker env bindings (OPENAI_API_KEY, AI)
-async function callAI(ai, prompt, tier, env) {
+async function callAI(ai, prompt, tier, env, state) {
   if (tier === "pro") {
-    // Pro: Claude Haiku via env.CLAUDE_API_KEY
+    // Pro: Claude Haiku via env.CLAUDE_API_KEY.
+    // Si el nivel pro no esta disponible -sin saldo, 429, error del proveedor-
+    // se responde por el nivel gratuito en vez de devolver un error: el usuario
+    // obtiene respuesta. `state.degraded` avisa a quien lleva la cuenta para que
+    // NO descuente una consulta pro por algo que no la uso.
+    const degradar = (motivo) => {
+      console.error("Nivel pro no disponible (" + motivo + "): se responde por el nivel gratuito");
+      if (state) state.degraded = true;
+      return callAI(ai, prompt, "free", env, state);
+    };
+
     const apiKey = env.CLAUDE_API_KEY;
-    if (!apiKey) throw new Error("Claude API key not configured on server.");
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5-20251001",
-        max_tokens: 4096,
-        messages: [{ role: "user", content: prompt }],
-      }),
-    });
-    const data = await response.json();
-    if (data.error) {
-      if (data.error.type === "insufficient_credits" || (data.error.message && data.error.message.includes("credit"))) {
-        console.error("Claude credit exhausted");
-        throw new Error("Pro service temporarily unavailable. Your query was not counted. Please try again later.");
+    if (!apiKey) return degradar("falta CLAUDE_API_KEY");
+
+    try {
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": apiKey,
+          "anthropic-version": "2023-06-01",
+        },
+        body: JSON.stringify({
+          model: "claude-haiku-4-5-20251001",
+          max_tokens: 2048,
+          messages: [{ role: "user", content: prompt }],
+        }),
+      });
+      const data = await response.json();
+      if (response.status === 429) return degradar("429 limite de tasa");
+      if (data.error) {
+        const msg = data.error.message || "";
+        if (data.error.type === "insufficient_credits" || msg.includes("credit")) {
+          return degradar("saldo agotado");
+        }
+        return degradar(msg || data.error.type || "error del proveedor");
       }
-      throw new Error(data.error.message);
+      if (!data.content || !data.content[0] || !data.content[0].text) {
+        return degradar("respuesta vacia");
+      }
+      return data.content[0].text;
+    } catch (e) {
+      return degradar(e && e.message ? e.message : "fallo de red");
     }
-    return data.content[0].text;
   }
 
   // tier === "free_degraded": Cloudflare AI only, no GPT fallback
@@ -2282,11 +2301,15 @@ ${postUrls}
         const batches = createBatches(allTraditions, batchSize);
         const allResponses = [];
 
+        // Si el nivel pro cae, callAI responde por el gratuito y lo marca aqui,
+        // para no descontar una consulta pro que no se llego a usar.
+        const aiState = {};
+
         // Process ALL batches in parallel (not waves) to beat the 30s CPU limit
         const batchPromises = batches.map(async (batch) => {
           try {
             const prompt = buildBatchPrompt(question, batch, body.lang || "en", tier);
-            const rawResponse = await callAI(env.AI, prompt, tier, env);
+            const rawResponse = await callAI(env.AI, prompt, tier, env, aiState);
             const parsed = parseAIResponse(rawResponse);
             if (parsed && Array.isArray(parsed) && parsed.length > 0) {
               return parsed;
@@ -2338,11 +2361,11 @@ ${postUrls}
 
         // Generate synthesis
         const synthesisPrompt = buildSynthesisPrompt(question, filteredResponses, body.lang || "en");
-        const synthesis = await callAI(env.AI, synthesisPrompt, tier, env);
+        const synthesis = await callAI(env.AI, synthesisPrompt, tier, env, aiState);
 
         // Decrement query after successful processing
         if (env.DB && userId) {
-          await decrementQuery(env.DB, userId, tier);
+          await decrementQuery(env.DB, userId, aiState.degraded ? "free" : tier);
         }
 
         // Cache in D1
@@ -2411,6 +2434,10 @@ ${postUrls}
           if (limitCheck.degraded) tier = "free_degraded";
         }
 
+          // Si el nivel pro cae, callAI responde por el gratuito y lo marca aqui,
+          // para no descontar una consulta pro que no se llego a usar.
+          const aiState = {};
+
         const questionHash = await hashQuestion(question + (requestedTraditions ? requestedTraditions.sort().join(",") : "all"));
 
         // Check cache
@@ -2450,50 +2477,51 @@ ${postUrls}
             const allTraditions = requestedTraditions && requestedTraditions.length > 0
               ? requestedTraditions
               : getAllTraditions();
-            const batchSize = 40;
+            const batchSize = 15;
             const batches = createBatches(allTraditions, batchSize);
             const allResponses = [];
 
             const lang = body.lang || "en";
 
-            // Step 1: Generate all tradition responses in parallel, stream each batch to frontend
-            const batchPromises = batches.map(async (batch) => {
-              try {
-                const prompt = buildBatchPrompt(question, batch, lang, tier);
-                const rawResponse = await callAI(env.AI, prompt, tier, env);
-                const parsed = parseAIResponse(rawResponse);
-                let results;
-                if (parsed && Array.isArray(parsed) && parsed.length > 0) {
-                  results = parsed;
-                } else if (rawResponse && rawResponse.length > 20) {
-                  results = batch.map(t => {
-                    const regex = new RegExp(`${t}[:\\s]*([^\\n]+(?:\\n(?![A-Z])[^\\n]*)*)`, 'i');
-                    const match = rawResponse.match(regex);
-                    return { tradition: t, response: match ? match[1].trim().slice(0, 300) : "Respuesta no disponible." };
-                  });
-                } else {
-                  results = batch.map(t => ({ tradition: t, response: "Respuesta no disponible." }));
+            // Step 1: Process batches 2 at a time to balance speed vs rate limits
+            const concurrency = 2;
+            for (let i = 0; i < batches.length; i += concurrency) {
+              const chunk = batches.slice(i, i + concurrency);
+              const chunkPromises = chunk.map(async (batch) => {
+                try {
+                  const prompt = buildBatchPrompt(question, batch, lang, tier);
+                  const rawResponse = await callAI(env.AI, prompt, tier, env, aiState);
+                  const parsed = parseAIResponse(rawResponse);
+                  let results;
+                  if (parsed && Array.isArray(parsed) && parsed.length > 0) {
+                    results = parsed;
+                  } else if (rawResponse && rawResponse.length > 20) {
+                    results = batch.map(t => {
+                      const regex = new RegExp(`${t}[:\\s]*([^\\n]+(?:\\n(?![A-Z])[^\\n]*)*)`, 'i');
+                      const match = rawResponse.match(regex);
+                      return { tradition: t, response: match ? match[1].trim().slice(0, 300) : "Respuesta no disponible." };
+                    });
+                  } else {
+                    results = batch.map(t => ({ tradition: t, response: "Respuesta no disponible." }));
+                  }
+                  allResponses.push(...results);
+                  for (const r of results) {
+                    await sendEvent({
+                      type: "tradition",
+                      tradition: r,
+                      progress: allResponses.length,
+                      total: allTraditions.length,
+                    });
+                  }
+                  return results;
+                } catch (e) {
+                  const fallback = batch.map(t => ({ tradition: t, response: "Error." }));
+                  allResponses.push(...fallback);
+                  return fallback;
                 }
-                allResponses.push(...results);
-                // Send each tradition individually for gradual appearance
-                for (const r of results) {
-                  await sendEvent({
-                    type: "tradition",
-                    tradition: r,
-                    progress: allResponses.length,
-                    total: allTraditions.length,
-                  });
-                }
-                return results;
-              } catch (e) {
-                const fallback = batch.map(t => ({ tradition: t, response: "Error." }));
-                allResponses.push(...fallback);
-                return fallback;
-              }
-            });
-
-            // Wait for ALL traditions to complete
-            await Promise.all(batchPromises);
+              });
+              await Promise.all(chunkPromises);
+            }
 
             // Fill in any missing traditions with placeholders
             for (const t of allTraditions) {
@@ -2536,8 +2564,8 @@ Write a 500-700 word essay that:
 - NO markdown formatting`;
 
             const [synthesis, essay] = await Promise.all([
-              callAI(env.AI, synthesisPrompt, tier, env),
-              callAI(env.AI, essayPrompt, tier, env).catch(() => ""),
+              callAI(env.AI, synthesisPrompt, tier, env, aiState),
+              callAI(env.AI, essayPrompt, tier, env, aiState).catch(() => ""),
             ]);
 
             await sendEvent({ type: "essay", essay });
@@ -2545,7 +2573,7 @@ Write a 500-700 word essay that:
 
             // Decrement query after successful processing
             if (env.DB && userId) {
-              await decrementQuery(env.DB, userId, tier);
+              await decrementQuery(env.DB, userId, aiState.degraded ? "free" : tier);
             }
 
             // Cache
